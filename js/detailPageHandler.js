@@ -1,3 +1,13 @@
+const talentObject = {
+  
+}
+
+const startTalents = document.getElementById("#start-talents");
+const talents = document.getElementById("#talents");
+const ultimates = document.getElementById("#ultimates");
+const ultimateTalents = document.getElementById("#ultimate-talents");
+const magicalObjects = document.getElementById("#magical-objects");
+
 detailPage.addEventListener("click", (event) => {
   const item = event.target.closest(".item");
   if (item) {
