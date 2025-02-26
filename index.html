@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <script src="/js/script.js" defer></script>
     <script src="/js/detailPageHandler.js" defer></script>
+    <script src="/js/saveHandler.js" defer></script>
   </head>
   <body>
     <div id="app">
@@ -19,7 +20,6 @@
         <h2 id="character-name">캐릭터 이름</h2>
         <div id="character-image"></div>
         <div id="character-description">캐릭터 설명</div>
-        <button id="back-button">돌아가기</button>
         <table>
           <tr data-row="0">
             <td class="left-col">
@@ -95,6 +95,18 @@
             <td class="right-col"></td>
           </tr>
         </table>
+
+        <button id="back-button">돌아가기</button>
+        <button id="save-button">저장</button>
+        <button id="export-button">내보내기</button>
+        <input type="file" id="import-file" accept=".json" />
+
+        <div id="export-popup" style="display: none">
+          <pre id="export-data"></pre>
+          <button id="copy-button">복사</button>
+          <button id="download-button">다운로드</button>
+          <button id="close-button">닫기</button>
+        </div>
       </div>
     </div>
   </body>

@@ -65,7 +65,7 @@ mainPage.addEventListener("click", (event) => {
 });
 
 detailPage.addEventListener("click", (event) => {
-  if (event.target.tagName === "BUTTON") {
+  if (event.target.id === "back-button") {
     detailPage.style.display = "none";
     mainPage.style.display = "block";
     navigateTo("/");
