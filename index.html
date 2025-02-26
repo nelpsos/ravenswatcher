@@ -5,20 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ravenswatcher</title>
     <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/script.js" defer></script>
+    <script src="/js/detailPageHandler.js" defer></script>
   </head>
   <body>
-      <div id="app">
-          <div id="main-page">
-              <button data-character="character1">캐릭터 1</button>
-              <button data-character="character2">캐릭터 2</button>
-              </div>
-          <div id="detail-page" style="display: none;">
-              <h2 id="character-name"></h2>
-              <p id="character-description"></p>
-              <button id="back-button">메인으로</button>
-          </div>
+    <div id="app">
+      <div id="main-page">
+        <button data-character="character1">캐릭터 1</button>
+        <button data-character="character2">캐릭터 2</button>
       </div>
-      <script src="/js/script.js"></script>
+
+      <div id="detail-page">
+        <h2 id="character-name">캐릭터 이름</h2>
+        <div id="character-image"></div>
+        <div id="character-description">캐릭터 설명</div>
+        <button id="back-button">돌아가기</button>
+        <table>
+          <tr data-row="0">
+            <td class="left-col">
+              <div class="item" data-item-id="item1">아이템 1</div>
+              <div class="item" data-item-id="item2">아이템 2</div>
+              <div class="item" data-item-id="item3">아이템 3</div>
+              <div class="item" data-item-id="item4">아이템 4</div>
+            </td>
+            <td class="right-col">
+              <div class="placeholder"></div>
+            </td>
+          </tr>
+          <tr data-row="1">
+            <td class="left-col"></td>
+            <td class="right-col">
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+              <div class="placeholder"></div>
+            </td>
+          </tr>
+          <tr data-row="2">
+            <td class="left-col">
+              <div class="item" data-item-id="item25">아이템 25</div>
+              <div class="item" data-item-id="item26">아이템 26</div>
+            </td>
+            <td class="right-col">
+              <div class="placeholder"></div>
+            </td>
+          </tr>
+          <tr data-row="3">
+            <td class="left-col">
+              <div class="item" data-item-id="item27">아이템 27</div>
+              <div class="item" data-item-id="item28">아이템 28</div>
+              <div class="item" data-item-id="item29">아이템 29</div>
+              <div class="item" data-item-id="item30">아이템 30</div>
+            </td>
+            <td class="right-col">
+              <div class="placeholder"></div>
+            </td>
+          </tr>
+          <tr data-row="4">
+            <td class="left-col"></td>
+            <td class="right-col"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </body>
-  </html>
 </html>
