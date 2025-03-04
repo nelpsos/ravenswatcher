@@ -194,6 +194,14 @@ function addPlaceholders() {
 
       rightCol.appendChild(placeholder);
     }
+
+    // 왼쪽 열의 아이템에도 이벤트 추가
+    const leftCol = row.querySelector(".left-col");
+    const items = leftCol.querySelectorAll(".item");
+    items.forEach((item) => {
+      item.onmouseover = (event) => showTooltip(event);
+      item.onmouseout = () => hideTooltip();
+    });
   });
 }
 
