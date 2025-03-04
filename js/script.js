@@ -14,8 +14,43 @@ const characters = [
   { id: "carmilla", name: "카르밀라", description: "캐릭터 9 설명" },
 ];
 
+const initialTalents = {
+  startTalents: [],
+  talents: [],
+  ultimates: [],
+  ultimateTalents: [],
+  magicalObjects: [],
+};
+
+let characterTalents = null;
+let selectedTalents = {
+  startTalents: [],
+  talents: [],
+  ultimates: [],
+  ultimateTalents: [],
+  magicalObjects: [],
+};
+
 const characterName = document.getElementById("character-name");
 const characterButtonsContainer = document.getElementById("character-buttons");
+
+const startTalents = document.getElementById("start-talents");
+const talents = document.getElementById("talents");
+const ultimates = document.getElementById("ultimates");
+const ultimateTalents = document.getElementById("ultimate-talents");
+const magicalObjects = document.getElementById("magical-objects");
+
+const mainPage = document.getElementById("main-page");
+const detailPage = document.getElementById("detail-page");
+
+const saveButton = document.getElementById("save-button");
+const exportButton = document.getElementById("export-button");
+const importFile = document.getElementById("import-file");
+const exportPopup = document.getElementById("export-popup");
+const exportData = document.getElementById("export-data");
+const copyButton = document.getElementById("copy-button");
+const downloadButton = document.getElementById("download-button");
+const closeButton = document.getElementById("close-button");
 
 characters.forEach((character) => {
   const img = document.createElement("img");
@@ -26,9 +61,6 @@ characters.forEach((character) => {
   img.setAttribute("alt", character.name);
   characterButtonsContainer.appendChild(img);
 });
-
-const mainPage = document.getElementById("main-page");
-const detailPage = document.getElementById("detail-page");
 
 function showPage(pageId, characterId) {
   if (pageId === "main") {
@@ -103,29 +135,6 @@ function navigateTo(path) {
 handleRouteChange();
 window.addEventListener("popstate", handleRouteChange);
 
-const initialTalents = {
-  startTalents: [],
-  talents: [],
-  ultimates: [],
-  ultimateTalents: [],
-  magicalObjects: [],
-};
-
-let characterTalents = null;
-let selectedTalents = {
-  startTalents: [],
-  talents: [],
-  ultimates: [],
-  ultimateTalents: [],
-  magicalObjects: [],
-};
-
-const startTalents = document.getElementById("start-talents");
-const talents = document.getElementById("talents");
-const ultimates = document.getElementById("ultimates");
-const ultimateTalents = document.getElementById("ultimate-talents");
-const magicalObjects = document.getElementById("magical-objects");
-
 // 캐릭터 버튼 클릭 이벤트 처리 (navigateTo() 사용)
 mainPage.addEventListener("click", (event) => {
   if (event.target.classList.contains("character-image")) {
@@ -141,8 +150,9 @@ async function showCharacterPage(characterId) {
   try {
     const response = await fetch(`/assets/${characterId}/talents.json`);
     characterTalents = await response.json();
-    console.log(characterTalents.startTalents);
-    console.log(startTalents);
+    if (!characterTalents) {
+      throw new Error("Character talents not found");
+    }
 
     // 페이지를 다시 로드할 때 초기화
     selectedTalents = { ...initialTalents };
@@ -204,6 +214,8 @@ function makeItemBlock(itemObject) {
     item.classList.add("item");
     item.dataset.itemId = itemId;
     item.title = itemDescription; // 툴팁으로 description 추가
+    item.onmouseover = (event) => showTooltip(event); // 마우스 오버 이벤트 추가
+    item.onmouseout = () => hideTooltip(); // 마우스 아웃 이벤트 추가
 
     const img = document.createElement("img");
     const characterId = window.location.pathname.split("/")[2];
@@ -285,15 +297,6 @@ function hideTooltip() {
   const tooltip = document.getElementById("tooltip");
   tooltip.style.display = "none";
 }
-
-const saveButton = document.getElementById("save-button");
-const exportButton = document.getElementById("export-button");
-const importFile = document.getElementById("import-file");
-const exportPopup = document.getElementById("export-popup");
-const exportData = document.getElementById("export-data");
-const copyButton = document.getElementById("copy-button");
-const downloadButton = document.getElementById("download-button");
-const closeButton = document.getElementById("close-button");
 
 // 내보내기 버튼 클릭 이벤트 처리
 exportButton.addEventListener("click", () => {
