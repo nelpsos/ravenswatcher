@@ -1,0 +1,192 @@
+{
+  "id": "beowulf",
+  "name": "Beowulf",
+  "startTalents": [
+    {
+      "id": "s_1",
+      "name": "방패 돌진",
+      "description": "DEFENSE makes Beowulf dash forward and deal +{0}% damage along the path",
+      "questComplete": null,
+      "icon": "s_1.png",
+      "rarityValue": ["100", "125", "150", "175"],
+      "rarityValue2": []
+    },
+    {
+      "id": "s_2",
+      "name": "Explosive Fire",
+      "description": "IGNITED enemies explode when they die, dealing {0} damage and applying IGNITE to all nearby enemies",
+      "questComplete": null,
+      "icon": "s_2.png",
+      "rarityValue": ["20", "25", "30", "35"],
+      "rarityValue2": []
+    },
+    {
+      "id": "s_3",
+      "name": "Rampart",
+      "description": "Quest (x20): Blocking at least one attack during DEFENSE grants +1 ARMOR",
+      "questComplete": "Complete: Wyrm DEFENSE heals {0}% more and increases the area of effect by +3m",
+      "icon": "s_3.png",
+      "rarityValue": ["50", "60", "70", "80"],
+      "rarityValue2": []
+    },
+    {
+      "id": "s_4",
+      "name": "Eruption",
+      "description": "Quest (x20): Hitting 2 enemies with a single Wyrm ability grants +0.5 DMG",
+      "questComplete": "Complete: TRAIT cooldown -25%. Wyrm abilities deal +{0}% damage",
+      "icon": "s_4.png",
+      "rarityValue": ["10", "15", "20", "25"],
+      "rarityValue2": []
+    }
+  ],
+  "talents": [
+    {
+      "id": "1",
+      "name": "Talent 1",
+      "description": "Description of talent 1",
+      "icon": "1.png"
+    },
+    {
+      "id": "2",
+      "name": "Talent 2",
+      "description": "Description of talent 2",
+      "icon": "2.png"
+    },
+    {
+      "id": "3",
+      "name": "Talent 3",
+      "description": "Description of talent 3",
+      "icon": "3.png"
+    },
+    {
+      "id": "4",
+      "name": "Talent 4",
+      "description": "Description of talent 4",
+      "icon": "4.png"
+    },
+    {
+      "id": "5",
+      "name": "Talent 5",
+      "description": "Description of talent 5",
+      "icon": "5.png"
+    },
+    {
+      "id": "6",
+      "name": "Talent 6",
+      "description": "Description of talent 6",
+      "icon": "6.png"
+    },
+    {
+      "id": "7",
+      "name": "Talent 7",
+      "description": "Description of talent 7",
+      "icon": "7.png"
+    },
+    {
+      "id": "8",
+      "name": "Talent 8",
+      "description": "Description of talent 8",
+      "icon": "8.png"
+    },
+    {
+      "id": "9",
+      "name": "Talent 9",
+      "description": "Description of talent 9",
+      "icon": "9.png"
+    },
+    {
+      "id": "10",
+      "name": "Talent 10",
+      "description": "Description of talent 10",
+      "icon": "10.png"
+    },
+    {
+      "id": "11",
+      "name": "Talent 11",
+      "description": "Description of talent 11",
+      "icon": "11.png"
+    },
+    {
+      "id": "12",
+      "name": "Talent 12",
+      "description": "Description of talent 12",
+      "icon": "12.png"
+    },
+    {
+      "id": "13",
+      "name": "Talent 13",
+      "description": "Description of talent 13",
+      "icon": "13.png"
+    },
+    {
+      "id": "14",
+      "name": "Talent 14",
+      "description": "Description of talent 14",
+      "icon": "14.png"
+    },
+    {
+      "id": "15",
+      "name": "Talent 15",
+      "description": "Description of talent 15",
+      "icon": "15.png"
+    },
+    {
+      "id": "16",
+      "name": "Talent 16",
+      "description": "Description of talent 16",
+      "icon": "16.png"
+    },
+    {
+      "id": "17",
+      "name": "Talent 17",
+      "description": "Description of talent 17",
+      "icon": "17.png"
+    },
+    {
+      "id": "18",
+      "name": "Talent 18",
+      "description": "Description of talent 18",
+      "icon": "18.png"
+    }
+  ],
+  "ultimates": [
+    {
+      "id": "u_1",
+      "name": "Ultimate 1",
+      "description": "Description of ultimate 1",
+      "icon": "u1.webp"
+    },
+    {
+      "id": "u_2",
+      "name": "Ultimate 2",
+      "description": "Description of ultimate 2",
+      "icon": "u2.webp"
+    }
+  ],
+  "ultimateTalents": [
+    {
+      "id": "u1_1",
+      "name": "Ultimate Talent 1",
+      "description": "Description of ultimate talent 1",
+      "icon": "u1_1.png"
+    },
+    {
+      "id": "u1_2",
+      "name": "Ultimate Talent 2",
+      "description": "Description of ultimate talent 2",
+      "icon": "u1_2.png"
+    },
+    {
+      "id": "u2_1",
+      "name": "Ultimate Talent 3",
+      "description": "Description of ultimate talent 3",
+      "icon": "u2_1.png"
+    },
+    {
+      "id": "u2_2",
+      "name": "Ultimate Talent 4",
+      "description": "Description of ultimate talent 4",
+      "icon": "u2_2.png"
+    }
+  ]
+}

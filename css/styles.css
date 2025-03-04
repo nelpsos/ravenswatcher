@@ -11,10 +11,13 @@
   display: inline-block;
   transition: transform 0.2s;
   border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 #main-page .character-image:hover {
   transform: scale(1.05);
+  filter: brightness(1.2);
 }
 
 #main-page .character-image:active {
