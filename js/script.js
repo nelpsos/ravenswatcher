@@ -33,6 +33,7 @@ let selectedTalents = {
 const rarityColors = ["#fff", "#88f", "#d8bfd8", "#ff0"];
 
 const characterName = document.getElementById("character-name");
+const characterImage = document.getElementById("character-image");
 const characterButtonsContainer = document.getElementById("character-buttons");
 
 const startTalents = document.getElementById("start-talents");
@@ -157,6 +158,15 @@ async function showCharacterPage(characterId) {
 
     // 페이지를 다시 로드할 때 초기화
     selectedTalents = { ...initialTalents };
+
+    const character = characters.find((char) => char.id === characterId);
+    if (character) {
+      characterName.textContent = character.name;
+    }
+
+    characterImage.setAttribute("data-character", characterId);
+    characterImage.setAttribute("src", `/assets/${characterId}/icon.png`);
+    characterImage.setAttribute("alt", character.name);
 
     startTalents.innerHTML = characterTalents.startTalents
       .map(makeItemBlock)

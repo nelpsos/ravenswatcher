@@ -34,6 +34,10 @@
   justify-content: space-between;
 }
 
+#detail-page {
+  display: none;
+}
+
 #detail-page table {
   width: 100%;
   border-collapse: collapse;
