@@ -4,155 +4,191 @@
   "startTalents": [
     {
       "id": "s_1",
-      "name": "방패 돌진",
-      "description": "DEFENSE makes Beowulf dash forward and deal +{0}% damage along the path",
+      "name": "원거리 폭발",
+      "description": "특수 능력으로 더 먼 곳을 공격할 수 있으며 대미지가 {0}% 증가합니다.",
       "questComplete": null,
       "icon": "s_1.png",
-      "rarityValue": ["100", "125", "150", "175"],
+      "rarityValue": ["40", "50", "60", "70"],
       "rarityValue2": []
     },
     {
       "id": "s_2",
-      "name": "Explosive Fire",
-      "description": "IGNITED enemies explode when they die, dealing {0} damage and applying IGNITE to all nearby enemies",
-      "questComplete": null,
+      "name": "탐식자",
+      "description": "퀘스트(x20): 늑대인간 파워 능력으로 적을 처치할 때마다 대미지가 0.5 증가합니다.",
+      "questComplete": "완료: 파워 능력으로 적을 처ㅣ하면 {0}% 확률로 재사용 대기시간이 발생하지 않습니다(두 가지 형상 모두).",
       "icon": "s_2.png",
-      "rarityValue": ["20", "25", "30", "35"],
+      "rarityValue": ["40", "60", "80", "100"],
       "rarityValue2": []
     },
     {
       "id": "s_3",
-      "name": "Rampart",
-      "description": "Quest (x20): Blocking at least one attack during DEFENSE grants +1 ARMOR",
-      "questComplete": "Complete: Wyrm DEFENSE heals {0}% more and increases the area of effect by +3m",
+      "name": "그림자 공격",
+      "description": "퀘스트 (x30): 인간 방어 중에 공격 또는 파워 스킬을 발동하면 적중하는 적 하나당 치명타 확률이 0.5% 증가합니다.",
+      "questComplete": "완료: 치명타 대미지가 {0}% 증가합니다.",
       "icon": "s_3.png",
-      "rarityValue": ["50", "60", "70", "80"],
+      "rarityValue": ["20", "25", "30", "35"],
       "rarityValue2": []
     },
     {
       "id": "s_4",
-      "name": "Eruption",
-      "description": "Quest (x20): Hitting 2 enemies with a single Wyrm ability grants +0.5 DMG",
-      "questComplete": "Complete: TRAIT cooldown -25%. Wyrm abilities deal +{0}% damage",
+      "name": "변신수",
+      "description": "특성이 활성화됩니다({0}초의 재사용 대기 시간 적용). 또한 사용 시 최대 체력의 20%만큼 치유됩니다.<br/>최대 체력이 20% 감소합니다.",
+      "questComplete": null,
       "icon": "s_4.png",
-      "rarityValue": ["10", "15", "20", "25"],
+      "rarityValue": ["30", "26", "22", "18"],
       "rarityValue2": []
     }
   ],
   "talents": [
     {
       "id": "1",
-      "name": "Talent 1",
-      "description": "Description of talent 1",
+      "name": "질풍 베기",
+      "description": "파워 능력을 사용한 후 3초 이내에 다음 공격 시 빠른 속도로 5회 공격하며 대미지가 {0}% 증가합니다.",
+      "rarityValue": ["20", "30", "40", "50"],
+      "rarityValue2": [],
       "icon": "1.png"
     },
     {
       "id": "2",
-      "name": "Talent 2",
-      "description": "Description of talent 2",
+      "name": "가르기",
+      "description": "공격 시 25%의 확률로 주위를 가르면서 {0}%의 대미지를 입힙니다.",
+      "rarityValue": ["120", "140", "160", "180"],
+      "rarityValue2": [],
       "icon": "2.png"
     },
     {
       "id": "3",
-      "name": "Talent 3",
-      "description": "Description of talent 3",
+      "name": "짧은 심지",
+      "description": "인간: 특수 능력이 더 이상 스칼렛에게 영향을 주지 않으며 폭탄이 땅에 접촉하는 즉시 폭발합니다.<br>형상에 상관없이 특수 능력이 {0}% 더 빨리 충전됩니다.",
+      "rarityValue": ["20", "25", "30", "35"],
+      "rarityValue2": [],
       "icon": "3.png"
     },
     {
       "id": "4",
-      "name": "Talent 4",
-      "description": "Description of talent 4",
+      "name": "적극적인 방어",
+      "description": "방어 발동 시 주변 적에게 {0}의 대미지를 입힙니다.",
+      "rarityValue": ["60", "85", "110", "135"],
+      "rarityValue2": [],
       "icon": "4.png"
     },
     {
       "id": "5",
-      "name": "Talent 5",
-      "description": "Description of talent 5",
+      "name": "살해 의도",
+      "description": "방어를 사용하는 즉시 콤보 포인트가 2 증가하고 지속 시간이 {0}% 증가합니다.",
+      "rarityValue": ["20", "30", "40", "50"],
+      "rarityValue2": [],
       "icon": "5.png"
     },
     {
       "id": "6",
-      "name": "Talent 6",
-      "description": "Description of talent 6",
+      "name": "방화광",
+      "description": "특수 능력이 적중하는 모든 적에게 점화 효곽사 적용되며 치명타 확률이 {0}% 증가합니다.",
+      "rarityValue": ["40", "50", "60", "70"],
+      "rarityValue2": [],
       "icon": "6.png"
     },
     {
       "id": "7",
-      "name": "Talent 7",
-      "description": "Description of talent 7",
+      "name": "에너지",
+      "description": "최대 콤보 포인트가 2 증가합니다.<br>파워 능력의 치명타 확률이 누적된 콤보 포인트당 {0}%만큼 증가합니다.",
+      "rarityValue": ["4", "5", "6", "7"],
+      "rarityValue2": [],
       "icon": "7.png"
     },
     {
       "id": "8",
-      "name": "Talent 8",
-      "description": "Description of talent 8",
+      "name": "적출",
+      "description": "파워 능력으로 소비한 콤보 포인트 하나당 {0}%의 출혈 대미지를 입힙니다.",
+      "rarityValue": ["8", "10", "12", "24"],
+      "rarityValue2": [],
       "icon": "8.png"
     },
     {
       "id": "9",
-      "name": "Talent 9",
-      "description": "Description of talent 9",
+      "name": "방어구 파괴",
+      "description": "특수 능력이 적중하는 모든 적에게 {0}초 동안 취약 효과가 적용됩니다.",
+      "rarityValue": ["3", "4", "5", "6"],
+      "rarityValue2": [],
       "icon": "9.png"
     },
     {
       "id": "10",
-      "name": "Talent 10",
-      "description": "Description of talent 10",
+      "name": "광범위한 공격",
+      "description": "공격의 범위가 40% 증가하고 대미지가 {0}% 추가됩니다.",
+      "rarityValue": ["20", "30", "40", "50"],
+      "rarityValue2": [],
       "icon": "10.png"
     },
     {
       "id": "11",
-      "name": "Talent 11",
-      "description": "Description of talent 11",
+      "name": "진정한 본능",
+      "description": "인간 형상일 떄 이동 속도가 {0}% 증가합니다. 늑대인간 형상일 때 최대 체력이 {1}% 증가합니다.",
+      "rarityValue": ["10", "12", "14", "16"],
+      "rarityValue2": ["20", "25", "30", "35"],
       "icon": "11.png"
     },
     {
       "id": "12",
-      "name": "Talent 12",
-      "description": "Description of talent 12",
+      "name": "분쇄",
+      "description": "특수 능력이 30% 더 멀리 있는 적에게도 적중합니다.<br>특수 능력 사용 시 콤보 포인트를 소모해 +{0}%의 대미지를 입힙니다.",
+      "rarityValue": ["40", "50", "60", "70"],
+      "rarityValue2": [],
       "icon": "12.png"
     },
     {
       "id": "13",
-      "name": "Talent 13",
-      "description": "Description of talent 13",
+      "name": "이중 타격",
+      "description": "돌진 직후에 발동하는 공격이 이중 타격으로 전환되어 {0}%의 대미지를 입히고 콤보 포인트를 1 생성합니다.",
+      "rarityValue": ["400", "500", "600", "700"],
+      "rarityValue2": [],
       "icon": "13.png"
     },
     {
       "id": "14",
-      "name": "Talent 14",
-      "description": "Description of talent 14",
+      "name": "폭발적인 돌진",
+      "description": "콤보 포인트가 3 이상일 때, 파워 능력 시작점에 특수 능력 효과를 발동시켜 일반 대미지의 {0}%에 해당하는 대미지를 입힙니다.",
+      "rarityValue": ["40", "50", "60", "70"],
+      "rarityValue2": [],
       "icon": "14.png"
     },
     {
       "id": "15",
-      "name": "Talent 15",
-      "description": "Description of talent 15",
+      "name": "아드레날린",
+      "description": "콤보 포인트를 사용할 때마다 다음의 효과가 발생합니다.<br>인간: {0}의 체력이 회복됩니다.<br>늑대 인간: 6초 동안 공격 속도가 {1}% 증가합니다.",
+      "rarityValue": ["2.0", "2.8", "3.6", "4.4"],
+      "rarityValue2": ["4", "5", "6", "7"],
       "icon": "15.png"
     },
     {
       "id": "16",
-      "name": "Talent 16",
-      "description": "Description of talent 16",
+      "name": "스파이크 폭격",
+      "description": "돌진 시 콤보 포인트를 사용해 {0}개의 스파이크를 발사합니다. 각 스파이크가 적을 관통하면 100%의 공격 대미지를 입힙니다.",
+      "rarityValue": ["4", "5", "6", "7"],
+      "rarityValue2": [],
       "icon": "16.png"
     },
     {
       "id": "17",
-      "name": "Talent 17",
-      "description": "Description of talent 17",
+      "name": "사냥의 시간",
+      "description": "방어 능력을 사용하면 {0}초 동안 가장 가까운 적에게 표식을 남깁니다.<br>표식이 붙은 적은 25%의 추가 대미지를 받으며, 죽을 때 주변의 다른 적에게 표식을 넘깁니다.",
+      "rarityValue": ["4", "6", "8", "10"],
+      "rarityValue2": [],
       "icon": "17.png"
     },
     {
       "id": "18",
-      "name": "Talent 18",
-      "description": "Description of talent 18",
+      "name": "야만성",
+      "description": "스칼렛이 콤보 포인트를 획득 및 사용할 때마다 야만성이 충전됩니다(최대 20). 충전 횟수마다 적에게 가하는 대미지가 {0}% 증가합니다.<br>누적된 야만성 포인트는 5초 이내로 야만성을 충전하지 않으면 사라집니다.",
+      "rarityValue": ["1.0", "1.2", "1.4", "1.6"],
+      "rarityValue2": [],
       "icon": "18.png"
     }
   ],
   "ultimates": [
     {
       "id": "u_1",
-      "name": "Ultimate 1",
+      "name": "",
       "description": "Description of ultimate 1",
       "icon": "u1.webp"
     },
@@ -166,26 +202,34 @@
   "ultimateTalents": [
     {
       "id": "u1_1",
-      "name": "Ultimate Talent 1",
-      "description": "Description of ultimate talent 1",
+      "name": "불타는 구덩이",
+      "description": "궁극기의 범위가 30% 증가하고 대미지가 {0}% 증가합니다. 적중한 적에게 점화 효과를 부여합니다.",
+      "rarityValue": ["20", "30", "40", "50"],
+      "rarityValue2": [],
       "icon": "u1_1.png"
     },
     {
       "id": "u1_2",
-      "name": "Ultimate Talent 2",
-      "description": "Description of ultimate talent 2",
+      "name": "재장전",
+      "description": "파워, 특수, 방어 능력을 {0}회 사용할 떄마다 궁극기 재사용 대기 시간이 초기화됩니다.",
+      "rarityValue": ["16", "14", "12", "10"],
+      "rarityValue2": [],
       "icon": "u1_2.png"
     },
     {
       "id": "u2_1",
-      "name": "Ultimate Talent 3",
-      "description": "Description of ultimate talent 3",
+      "name": "뼈 분쇄자",
+      "description": "인간: 잿빛 구름이 안쪽의 적에게 초당 {0}의 피해를 입힙니다.<br>늑대: 잡아먹은 적이 폭발합니다. 폭발한 적의 크기에 따라 {1}의 광역 대미지를 입힙니다.",
+      "rarityValue": ["20", "?", "?", "?"],
+      "rarityValue2": ["40에서 120", "?", "?", "?"],
       "icon": "u2_1.png"
     },
     {
       "id": "u2_2",
-      "name": "Ultimate Talent 4",
-      "description": "Description of ultimate talent 4",
+      "name": "무리의 우두머리",
+      "description": "인간: 잿빛 구름이 1초마다 안에 있는 모든 영웅의 체력을 {0}만큼 치유합니다.<br>늑대인간: 적을 포식하면 주위 모든 아군에게 {1}의 보호막을 부여합니다. (적의 레벨에 따라 달라짐)",
+      "rarityValue": ["3", "?", "?", "?"],
+      "rarityValue2": ["12에서 25", "?", "?", "?"],
       "icon": "u2_2.png"
     }
   ]
