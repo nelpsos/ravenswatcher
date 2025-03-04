@@ -15,7 +15,6 @@ const characters = [
 ];
 
 const characterName = document.getElementById("character-name");
-const characterDescription = document.getElementById("character-description");
 const characterButtonsContainer = document.getElementById("character-buttons");
 
 characters.forEach((character) => {
@@ -35,6 +34,30 @@ function showPage(pageId, characterId) {
   if (pageId === "main") {
     mainPage.style.display = "block";
     detailPage.style.display = "none";
+
+    // 메인 페이지로 돌아올 때 캐릭터 이미지를 다시 로드
+    characterButtonsContainer.innerHTML = "";
+    characters.forEach((character) => {
+      const img = document.createElement("img");
+      img.id = character.id;
+      img.classList.add("character-image");
+      img.setAttribute("data-character", character.id);
+      img.setAttribute("src", `assets/${character.id}/portrait.webp`);
+      img.setAttribute("alt", character.name);
+      characterButtonsContainer.appendChild(img);
+    });
+
+    // 선택된 아이템 초기화
+    startTalents.innerHTML = "";
+    talents.innerHTML = "";
+    ultimates.innerHTML = "";
+    ultimateTalents.innerHTML = "";
+    magicalObjects.innerHTML = "";
+    selectedTalents = { ...initialTalents }; // 선택된 아이템 초기화
+
+    // 오른쪽 열의 아이템 초기화
+    const rightCols = document.querySelectorAll("#detail-page .right-col");
+    rightCols.forEach((col) => (col.innerHTML = ""));
   } else if (pageId === "detail") {
     showCharacterPage(characterId);
     mainPage.style.display = "none";
@@ -72,6 +95,8 @@ function handleRouteChange() {
 function navigateTo(path) {
   history.pushState(null, "", path);
   handleRouteChange();
+  // 페이지 이동 시 초기화
+  selectedTalents = { ...initialTalents };
 }
 
 // 초기 로드 및 popstate 이벤트 처리
@@ -119,6 +144,9 @@ async function showCharacterPage(characterId) {
     console.log(characterTalents.startTalents);
     console.log(startTalents);
 
+    // 페이지를 다시 로드할 때 초기화
+    selectedTalents = { ...initialTalents };
+
     startTalents.innerHTML = characterTalents.startTalents
       .map(makeItemBlock)
       .join("");
@@ -129,14 +157,44 @@ async function showCharacterPage(characterId) {
     ultimateTalents.innerHTML = characterTalents.ultimateTalents
       .map(makeItemBlock)
       .join("");
+
+    // 각 row에 placeholder 추가
+    addPlaceholders();
   } catch (error) {
     console.error("Error fetching talents:", error);
   }
 }
 
+function addPlaceholders() {
+  const rows = document.querySelectorAll("#detail-page table tr");
+  const placeholdersCount = [1, 7, 1, 1, 53]; // 각 줄에 필요한 placeholder 개수
+
+  rows.forEach((row, index) => {
+    const rightCol = row.querySelector(".right-col");
+    for (let i = 0; i < placeholdersCount[index]; i++) {
+      const placeholder = document.createElement("div");
+      placeholder.classList.add("item-block");
+      placeholder.dataset.itemId = "";
+      placeholder.onmouseover = (event) => showTooltip(event);
+      placeholder.onmouseout = () => hideTooltip();
+
+      const placeholderInner = document.createElement("div");
+      placeholderInner.classList.add("placeholder");
+      placeholder.appendChild(placeholderInner);
+
+      rightCol.appendChild(placeholder);
+    }
+  });
+}
+
 function makeItemBlock(itemObject) {
   try {
-    const { id: itemId, name: itemName } = itemObject;
+    const {
+      id: itemId,
+      name: itemName,
+      icon: itemIcon,
+      description: itemDescription,
+    } = itemObject;
 
     const itemBlock = document.createElement("div");
     itemBlock.classList.add("item-block");
@@ -145,7 +203,15 @@ function makeItemBlock(itemObject) {
     const item = document.createElement("div");
     item.classList.add("item");
     item.dataset.itemId = itemId;
-    item.textContent = itemName;
+    item.title = itemDescription; // 툴팁으로 description 추가
+
+    const img = document.createElement("img");
+    const characterId = window.location.pathname.split("/")[2];
+    img.src = `/assets/${characterId}/${itemIcon}`;
+    img.alt = itemName;
+    img.classList.add("item-icon");
+
+    item.appendChild(img);
     itemBlock.appendChild(item);
 
     return itemBlock.outerHTML;
@@ -196,6 +262,29 @@ detailPage.addEventListener("click", (event) => {
     }
   }
 });
+
+function showTooltip(event) {
+  const itemElement = event.target.closest(".item");
+  if (!itemElement) return;
+  const itemId = itemElement.dataset.itemId;
+  const item =
+    characterTalents.startTalents.find((item) => item.id === itemId) ||
+    characterTalents.talents.find((item) => item.id === itemId) ||
+    characterTalents.ultimates.find((item) => item.id === itemId) ||
+    characterTalents.ultimateTalents.find((item) => item.id === itemId);
+  const description = item ? item.description : "Description not found";
+
+  const tooltip = document.getElementById("tooltip");
+  tooltip.innerText = description;
+  tooltip.style.display = "block";
+  tooltip.style.left = event.pageX + 5 + "px";
+  tooltip.style.top = event.pageY + 5 + "px";
+}
+
+function hideTooltip() {
+  const tooltip = document.getElementById("tooltip");
+  tooltip.style.display = "none";
+}
 
 const saveButton = document.getElementById("save-button");
 const exportButton = document.getElementById("export-button");
