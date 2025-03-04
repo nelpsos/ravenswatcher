@@ -30,6 +30,7 @@ let selectedTalents = {
   ultimateTalents: [],
   magicalObjects: [],
 };
+const rarityColors = ["#fff", "#88f", "#d8bfd8", "#ff0"];
 
 const characterName = document.getElementById("character-name");
 const characterButtonsContainer = document.getElementById("character-buttons");
@@ -221,7 +222,6 @@ function makeItemBlock(itemObject) {
     const item = document.createElement("div");
     item.classList.add("item");
     item.dataset.itemId = itemId;
-    item.title = itemDescription; // 툴팁으로 description 추가
     item.onmouseover = (event) => showTooltip(event); // 마우스 오버 이벤트 추가
     item.onmouseout = () => hideTooltip(); // 마우스 아웃 이벤트 추가
 
@@ -292,13 +292,29 @@ function showTooltip(event) {
     characterTalents.talents.find((item) => item.id === itemId) ||
     characterTalents.ultimates.find((item) => item.id === itemId) ||
     characterTalents.ultimateTalents.find((item) => item.id === itemId);
-  const description = item ? item.description : "Description not found";
+  const name = item ? item.name : "Unknown Item";
+
+  let description = item
+    ? item.description.replace(/<br>/g, "\n")
+    : "Description not found";
+
+  if (item && item.rarityValue) {
+    item.rarityValue.forEach((values, index) => {
+      const coloredValues = values
+        .map((value, i) => {
+          return `<span style="color: ${rarityColors[i]}">${value}</span>`;
+        })
+        .join("/");
+      description = description.replace(`{${index}}`, coloredValues);
+    });
+  }
 
   const tooltip = document.getElementById("tooltip");
-  tooltip.innerText = description;
+  tooltip.innerHTML = `<strong style="font-size: 1.2em;">${name}</strong><br>${description}`;
   tooltip.style.display = "block";
-  tooltip.style.left = event.pageX + 5 + "px";
-  tooltip.style.top = event.pageY + 5 + "px";
+  const rect = itemElement.getBoundingClientRect();
+  tooltip.style.left = rect.right + 5 + "px";
+  tooltip.style.top = rect.top + "px";
 }
 
 function hideTooltip() {
