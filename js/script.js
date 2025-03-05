@@ -56,6 +56,17 @@ const closeButton = document.getElementById("close-button");
 
 const headerLogo = document.getElementById("header-logo");
 
+// const darkModeToggle = document.getElementById("dark-mode-toggle");
+
+// darkModeToggle.addEventListener("click", () => {
+//   document.documentElement.classList.toggle("dark-mode");
+//   if (document.documentElement.classList.contains("dark-mode")) {
+//     darkModeToggle.textContent = "☀️";
+//   } else {
+//     darkModeToggle.textContent = "🌙";
+//   }
+// });
+
 headerLogo.addEventListener("click", (event) => {
   event.preventDefault();
   navigateTo("/");
@@ -142,7 +153,10 @@ function navigateTo(path) {
 
 // 초기 로드 및 popstate 이벤트 처리
 handleRouteChange();
-window.addEventListener("popstate", handleRouteChange);
+window.addEventListener("popstate", () => {
+  handleRouteChange();
+  hideTooltip(); // 툴팁 숨기기
+});
 
 // 캐릭터 버튼 클릭 이벤트 처리 (navigateTo() 사용)
 mainPage.addEventListener("click", (event) => {

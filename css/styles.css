@@ -2,6 +2,31 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background-color: #fff;
+  --text-color: #000;
+  --border-color: #ccc;
+  --tooltip-background: #333;
+  --tooltip-text: #fff;
+  --placeholder-border: #aaa;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --border-color: #444;
+    --tooltip-background: #555;
+    --tooltip-text: #e0e0e0;
+    --placeholder-border: #666;
+  }
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
 #main-page #character-buttons {
   width: 50%;
   height: auto;
@@ -44,7 +69,7 @@
 }
 
 #detail-page td {
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   padding: 10px;
   vertical-align: top;
 }
@@ -73,7 +98,7 @@
 #detail-page .placeholder {
   height: 50px;
   width: 50px;
-  border: 1px dashed #aaa;
+  border: 1px dashed var(--placeholder-border);
   display: inline-block;
 }
 
@@ -84,8 +109,8 @@
 .tooltip {
   display: none;
   position: absolute;
-  background-color: #333;
-  color: #fff;
+  background-color: var(--tooltip-background);
+  color: var(--tooltip-text);
   padding: 5px;
   border-radius: 5px;
   z-index: 1000;
@@ -119,23 +144,51 @@
 
 .header {
   color: white;
-  font-size: 2em;
   text-align: center;
   position: relative;
-  user-select: none; /* 드래그 방지 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#dark-mode-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.5em;
+  cursor: pointer;
+  margin-left: 1em;
+  transition: transform 0.2s;
+}
+
+#dark-mode-toggle:hover {
+  transform: scale(1.2);
+}
+
+@font-face {
+  font-family: "Macondo";
+  src: url("/assets/fonts/Macondo-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 #header-logo {
+  font-family: "Macondo", sans-serif; /* 폰트 적용 */
+  font-size: 1em;
+  user-select: none; /* 드래그 방지 */
   cursor: pointer; /* 커서 포인터 */
+  position: relative; /* 위치 조정 */
+  display: inline-block; /* 위치 조정 */
+  padding: 0 0.3em; /* 좌우 여백 추가 */
 }
 
 #header-logo::before {
   content: attr(data-text);
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 50%; /* 위치 조정 */
+  left: -0.3em; /* 좌측 여백 추가 */
+  right: -0.3em; /* 우측 여백 추가 */
+  transform: translateY(-50%); /* 위치 조정 */
   color: transparent;
   -webkit-text-stroke: 0.3em transparent;
   background: linear-gradient(to bottom, black, red);
