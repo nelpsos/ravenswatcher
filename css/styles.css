@@ -116,3 +116,30 @@
   border: 1px solid #eee;
   padding: 10px;
 }
+
+.header {
+  color: white;
+  font-size: 2em;
+  text-align: center;
+  position: relative;
+  user-select: none; /* 드래그 방지 */
+}
+
+#header-logo {
+  cursor: pointer; /* 커서 포인터 */
+}
+
+#header-logo::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: transparent;
+  -webkit-text-stroke: 0.3em transparent;
+  background: linear-gradient(to bottom, black, red);
+  -webkit-background-clip: text;
+  background-clip: text;
+  z-index: -1;
+}

@@ -54,6 +54,13 @@ const copyButton = document.getElementById("copy-button");
 const downloadButton = document.getElementById("download-button");
 const closeButton = document.getElementById("close-button");
 
+const headerLogo = document.getElementById("header-logo");
+
+headerLogo.addEventListener("click", (event) => {
+  event.preventDefault();
+  navigateTo("/");
+});
+
 characters.forEach((character) => {
   const img = document.createElement("img");
   img.id = character.id;
