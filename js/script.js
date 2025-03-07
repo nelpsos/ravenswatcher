@@ -324,10 +324,7 @@ function showTooltip(event) {
     characterTalents.ultimates.find((item) => item.id === itemId) ||
     characterTalents.ultimateTalents.find((item) => item.id === itemId);
   const name = item ? item.name : "Unknown Item";
-
-  let description = item
-    ? item.description.replace(/<br>/g, "\n")
-    : "Description not found";
+  let description = item ? item.description : "Description not found";
 
   if (item && item.rarityValue) {
     item.rarityValue.forEach((values, index) => {
