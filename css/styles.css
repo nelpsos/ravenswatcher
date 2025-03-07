@@ -196,3 +196,34 @@ body {
   background-clip: text;
   z-index: -1;
 }
+
+#character-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#character-header #character-image,
+#character-header #character-name {
+  display: inline-block;
+}
+
+#character-header .save-area-inline {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.save-area-inline {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.save-area-inline input[type="text"] {
+  margin-right: 10px;
+}
+
+.save-area-inline button {
+  margin-right: 5px;
+}

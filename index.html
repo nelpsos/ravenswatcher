@@ -18,10 +18,16 @@
       </div>
 
       <div id="detail-page">
-        <h2>
+        <div id="character-header">
           <img id="character-image" />
-          <span id="character-name"></span>
-        </h2>
+          <h2 id="character-name"></h2>
+          <div class="save-area-inline">
+            <input type="text" id="build-name" placeholder="빌드 이름" />
+            <button id="save-button">저장</button>
+            <button id="export-button">내보내기</button>
+            <input type="file" id="import-file" accept=".json" />
+          </div>
+        </div>
         <table>
           <tr data-row="0">
             <td id="start-talents" class="left-col"></td>
@@ -44,13 +50,6 @@
             <td class="right-col"></td>
           </tr>
         </table>
-
-        <div class="save-area">
-          <input type="text" id="build-name" placeholder="빌드 이름" />
-          <button id="save-button">저장</button>
-          <button id="export-button">내보내기</button>
-          <input type="file" id="import-file" accept=".json" />
-        </div>
 
         <button id="back-button">돌아가기</button>
 
