@@ -22,7 +22,8 @@ const initialTalents = {
   magicalObjects: [],
 };
 
-let characterTalents = null;
+let originalCharacterTalents = null;
+let originalMagicalObjects = null;
 let selectedTalents = {
   startTalents: [],
   talents: [],
@@ -171,9 +172,15 @@ mainPage.addEventListener("click", (event) => {
 // 캐릭터 페이지 표시
 async function showCharacterPage(characterId) {
   try {
-    const response = await fetch(`/assets/${characterId}/talents.json`);
-    characterTalents = await response.json();
-    if (!characterTalents) {
+    const [characterResponse, magicalObjectsResponse] = await Promise.all([
+      fetch(`/assets/${characterId}/talents.json`),
+      fetch(`/assets/magical_objects/magicalObjects.json`),
+    ]);
+
+    originalCharacterTalents = await characterResponse.json();
+    originalMagicalObjects = await magicalObjectsResponse.json();
+
+    if (!originalCharacterTalents) {
       throw new Error("Character talents not found");
     }
 
@@ -189,15 +196,20 @@ async function showCharacterPage(characterId) {
     characterImage.setAttribute("src", `/assets/${characterId}/icon.png`);
     characterImage.setAttribute("alt", character.name);
 
-    startTalents.innerHTML = characterTalents.startTalents
-      .map(makeItemBlock)
+    startTalents.innerHTML = originalCharacterTalents.startTalents
+      .map(makeCharacterItemBlock)
       .join("");
-    talents.innerHTML = characterTalents.talents.map(makeItemBlock).join("");
-    ultimates.innerHTML = characterTalents.ultimates
-      .map(makeItemBlock)
+    talents.innerHTML = originalCharacterTalents.talents
+      .map(makeCharacterItemBlock)
       .join("");
-    ultimateTalents.innerHTML = characterTalents.ultimateTalents
-      .map(makeItemBlock)
+    ultimates.innerHTML = originalCharacterTalents.ultimates
+      .map(makeCharacterItemBlock)
+      .join("");
+    ultimateTalents.innerHTML = originalCharacterTalents.ultimateTalents
+      .map(makeCharacterItemBlock)
+      .join("");
+    magicalObjects.innerHTML = originalMagicalObjects
+      .map(makeObjectItemBlock)
       .join("");
 
     // 각 row에 placeholder 추가
@@ -237,28 +249,53 @@ function addPlaceholders() {
   });
 }
 
-function makeItemBlock(itemObject) {
+function makeCharacterItemBlock(itemObject) {
   try {
-    const {
-      id: itemId,
-      name: itemName,
-      icon: itemIcon,
-      description: itemDescription,
-    } = itemObject;
+    const { id: itemId, name: itemName, icon: itemIcon } = itemObject;
 
     const itemBlock = document.createElement("div");
+    const item = document.createElement("div");
+    const img = document.createElement("img");
+    const characterId = window.location.pathname.split("/")[2];
+
     itemBlock.classList.add("item-block");
     itemBlock.dataset.itemId = itemId;
 
-    const item = document.createElement("div");
     item.classList.add("item");
     item.dataset.itemId = itemId;
-    item.onmouseover = (event) => showTooltip(event); // 마우스 오버 이벤트 추가
-    item.onmouseout = () => hideTooltip(); // 마우스 아웃 이벤트 추가
+    item.onmouseover = showTooltip;
+    item.onmouseout = hideTooltip;
 
-    const img = document.createElement("img");
-    const characterId = window.location.pathname.split("/")[2];
     img.src = `/assets/${characterId}/${itemIcon}`;
+    img.alt = itemName;
+    img.classList.add("item-icon");
+
+    item.appendChild(img);
+    itemBlock.appendChild(item);
+
+    return itemBlock.outerHTML;
+  } catch (error) {
+    console.error("Error making item block:", error);
+  }
+}
+
+function makeObjectItemBlock(itemObject) {
+  try {
+    const { id: itemId, name: itemName, icon: itemIcon } = itemObject;
+
+    const itemBlock = document.createElement("div");
+    const item = document.createElement("div");
+    const img = document.createElement("img");
+
+    itemBlock.classList.add("item-block");
+    itemBlock.dataset.itemId = itemId;
+
+    item.classList.add("item");
+    item.dataset.itemId = itemId;
+    item.onmouseover = showTooltip;
+    item.onmouseout = hideTooltip;
+
+    img.src = `/assets/magical_objects/${itemIcon}`;
     img.alt = itemName;
     img.classList.add("item-icon");
 
@@ -319,10 +356,13 @@ function showTooltip(event) {
   if (!itemElement) return;
   const itemId = itemElement.dataset.itemId;
   const item =
-    characterTalents.startTalents.find((item) => item.id === itemId) ||
-    characterTalents.talents.find((item) => item.id === itemId) ||
-    characterTalents.ultimates.find((item) => item.id === itemId) ||
-    characterTalents.ultimateTalents.find((item) => item.id === itemId);
+    originalCharacterTalents.startTalents.find((item) => item.id === itemId) ||
+    originalCharacterTalents.talents.find((item) => item.id === itemId) ||
+    originalCharacterTalents.ultimates.find((item) => item.id === itemId) ||
+    originalCharacterTalents.ultimateTalents.find(
+      (item) => item.id === itemId
+    ) ||
+    originalMagicalObjects.find((item) => item.id === itemId);
   const name = item ? item.name : "Unknown Item";
   let description = item ? item.description : "Description not found";
 

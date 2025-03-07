@@ -6,7 +6,7 @@
     "rarity": "COMMON",
     "set": 5,
     "setEffect": "대미지 +10, 활력 +20, 방어력 +20",
-    "image": "image_13.png"
+    "icon": "image_13.png"
   },
   {
     "id": "C02",
@@ -15,7 +15,7 @@
     "rarity": "COMMON",
     "set": 5,
     "setEffect": "첫 번째 선택 재굴림을 공짜로 할 수 있습니다.",
-    "image": "image_6.png"
+    "icon": "image_6.png"
   },
   {
     "id": "C03",
@@ -24,7 +24,7 @@
     "rarity": "COMMON",
     "set": 5,
     "setEffect": "챕터당 한 번씩 샌드맨의 물건을 공짜로 살 수 있습니다.",
-    "image": "image_1.png"
+    "icon": "image_1.png"
   },
   {
     "id": "C04",
@@ -33,7 +33,7 @@
     "rarity": "COMMON",
     "set": 5,
     "setEffect": "",
-    "image": "image_4.png"
+    "icon": "image_4.png"
   },
   {
     "id": "C05",
@@ -42,7 +42,7 @@
     "rarity": "COMMON",
     "set": 5,
     "setEffect": "보스의 체력이 5% 미만으로 떨어졌을 때 공격을 가하면 대미지에 관계없이 즉사합니다.",
-    "image": "image_9.png"
+    "icon": "image_9.png"
   },
   {
     "id": "C06",
@@ -51,7 +51,7 @@
     "rarity": "COMMON",
     "set": 5,
     "setEffect": "활력이 30 증가합니다.",
-    "image": "image_7.png"
+    "icon": "image_7.png"
   },
   {
     "id": "C07",
@@ -60,7 +60,7 @@
     "rarity": "COMMON",
     "set": 5,
     "setEffect": "치명타 대미지가 50% 증가합니다.",
-    "image": "image_2.png"
+    "icon": "image_2.png"
   },
   {
     "id": "C08",
@@ -69,7 +69,7 @@
     "rarity": "COMMON",
     "set": 5,
     "setEffect": "치명타 확률이 20% 증가합니다.",
-    "image": "image_8.png"
+    "icon": "image_8.png"
   },
   {
     "id": "C09",
@@ -78,7 +78,7 @@
     "rarity": "COMMON",
     "set": 5,
     "setEffect": "희귀 물체도 포함됩니다.",
-    "image": "image_5.png"
+    "icon": "image_5.png"
   },
   {
     "id": "R01",
@@ -87,7 +87,7 @@
     "rarity": "RARE",
     "set": 4,
     "setEffect": "최대 체력 시 대미지 30 추가",
-    "image": "image_16.png"
+    "icon": "image_16.png"
   },
   {
     "id": "R02",
@@ -96,7 +96,7 @@
     "rarity": "RARE",
     "set": 4,
     "setEffect": "주거나 받는 방어막 50% 증가",
-    "image": "image_3.png"
+    "icon": "image_3.png"
   },
   {
     "id": "R03",
@@ -105,7 +105,7 @@
     "rarity": "RARE",
     "set": 4,
     "setEffect": "재생 효과가 적용 중일 때 대미지가 50 증가합니다.",
-    "image": "image_17.png"
+    "icon": "image_17.png"
   },
   {
     "id": "R04",
@@ -114,7 +114,7 @@
     "rarity": "RARE",
     "set": 4,
     "setEffect": "돌진 발동 시 출발 지점에 번개가 내려칩니다.",
-    "image": "image_18.png"
+    "icon": "image_18.png"
   },
   {
     "id": "R05",
@@ -123,7 +123,7 @@
     "rarity": "RARE",
     "set": 4,
     "setEffect": "특수 능력의 치명타 확률이 40% 증가합니다.",
-    "image": "image_14.png"
+    "icon": "image_14.png"
   },
   {
     "id": "R06",
@@ -132,7 +132,7 @@
     "rarity": "RARE",
     "set": 4,
     "setEffect": "파워 능력의 치명타 확률이 40% 증가합니다.",
-    "image": "image_15.png"
+    "icon": "image_15.png"
   },
   {
     "id": "R07",
@@ -141,7 +141,7 @@
     "rarity": "RARE",
     "set": 4,
     "setEffect": "공격 속도가 15% 증가합니다.",
-    "image": "image_10.png"
+    "icon": "image_10.png"
   },
   {
     "id": "R08",
@@ -150,7 +150,7 @@
     "rarity": "RARE",
     "set": 4,
     "setEffect": "방어력의 40%만큼 대미지가 증가합니다.",
-    "image": "image_11png"
+    "icon": "image_11.png"
   },
   {
     "id": "R09",
@@ -159,7 +159,7 @@
     "rarity": "RARE",
     "set": 4,
     "setEffect": "꿈의 파편 획득량이 30% 증가합니다.",
-    "image": "image_12.png"
+    "icon": "image_12.png"
   },
   {
     "id": "E01",
@@ -168,7 +168,7 @@
     "rarity": "EPIC",
     "set": 3,
     "setEffect": "특수 능력 사용 시 최대 3명의 주위 적에게 번개를 떨어뜨립니다.",
-    "image": "image_27.png"
+    "icon": "image_27.png"
   },
   {
     "id": "E02",
@@ -177,7 +177,7 @@
     "rarity": "EPIC",
     "set": 3,
     "setEffect": "궁극기 발동 시 파워, 특수, 방어 능력의 재사용 대기 시간이 초기화됩니다.",
-    "image": "image_24.png"
+    "icon": "image_24.png"
   },
   {
     "id": "E03",
@@ -186,7 +186,7 @@
     "rarity": "EPIC",
     "set": 3,
     "setEffect": "특수 능력의 대미지가 40% 증가합니다.",
-    "image": "image_22.png"
+    "icon": "image_22.png"
   },
   {
     "id": "E04",
@@ -195,7 +195,7 @@
     "rarity": "EPIC",
     "set": 3,
     "setEffect": "파워 능력의 대미지가 40% 증가합니다.",
-    "image": "image_23.png"
+    "icon": "image_23.png"
   },
   {
     "id": "E05",
@@ -204,7 +204,7 @@
     "rarity": "EPIC",
     "set": 3,
     "setEffect": "방어력이 40 증가합니다.",
-    "image": "image_25.png"
+    "icon": "image_25.png"
   },
   {
     "id": "E06",
@@ -213,7 +213,7 @@
     "rarity": "EPIC",
     "set": 3,
     "setEffect": "이동 속도가 15% 증가합니다.",
-    "image": "image_26.png"
+    "icon": "image_26.png"
   },
   {
     "id": "E07",
@@ -222,7 +222,7 @@
     "rarity": "EPIC",
     "set": 3,
     "setEffect": "파워 능력 사용 시 적에게 걸린 부정적인 상태 효과 하나당 +15%의 대미지를 입힙니다.",
-    "image": "image_21.png"
+    "icon": "image_21.png"
   },
   {
     "id": "E08",
@@ -231,7 +231,7 @@
     "rarity": "EPIC",
     "set": 3,
     "setEffect": "방어 발동 후 이동 속도가 +40% 증가합니다. 이 효과는 3초에 걸쳐 서서히 감소합니다.",
-    "image": "image_19.png"
+    "icon": "image_19.png"
   },
   {
     "id": "E09",
@@ -240,7 +240,7 @@
     "rarity": "EPIC",
     "set": 3,
     "setEffect": "돌진 사용 시 6초 동안 10의 보호막을 얻습니다.",
-    "image": "image_20.png"
+    "icon": "image_20.png"
   },
   {
     "id": "L01",
@@ -249,7 +249,7 @@
     "rarity": "LEGENDARY",
     "set": -1,
     "setEffect": "",
-    "image": "image_46.png"
+    "icon": "image_46.png"
   },
   {
     "id": "L02",
@@ -258,7 +258,7 @@
     "rarity": "LEGENDARY",
     "set": -1,
     "setEffect": "",
-    "image": "image_45.png"
+    "icon": "image_45.png"
   },
   {
     "id": "L03",
@@ -267,7 +267,7 @@
     "rarity": "LEGENDARY",
     "set": -1,
     "setEffect": "",
-    "image": "image_52.png"
+    "icon": "image_52.png"
   },
   {
     "id": "L04",
@@ -276,7 +276,7 @@
     "rarity": "LEGENDARY",
     "set": -1,
     "setEffect": "",
-    "image": "image_53.png"
+    "icon": "image_53.png"
   },
   {
     "id": "L05",
@@ -285,7 +285,7 @@
     "rarity": "LEGENDARY",
     "set": -1,
     "setEffect": "",
-    "image": "image_51.png"
+    "icon": "image_51.png"
   },
   {
     "id": "L06",
@@ -294,7 +294,7 @@
     "rarity": "LEGENDARY",
     "set": -1,
     "setEffect": "",
-    "image": "image_44.png"
+    "icon": "image_44.png"
   },
   {
     "id": "L07",
@@ -303,7 +303,7 @@
     "rarity": "LEGENDARY",
     "set": -1,
     "setEffect": "",
-    "image": "image_50.png"
+    "icon": "image_50.png"
   },
   {
     "id": "L08",
@@ -312,7 +312,7 @@
     "rarity": "LEGENDARY",
     "set": -1,
     "setEffect": "",
-    "image": "image_48.png"
+    "icon": "image_48.png"
   },
   {
     "id": "L09",
@@ -321,7 +321,7 @@
     "rarity": "LEGENDARY",
     "set": -1,
     "setEffect": "",
-    "image": "image_41.png"
+    "icon": "image_41.png"
   },
   {
     "id": "L10",
@@ -330,7 +330,7 @@
     "rarity": "LEGENDARY",
     "set": -1,
     "setEffect": "",
-    "image": "image_49.png"
+    "icon": "image_49.png"
   },
   {
     "id": "L11",
@@ -339,7 +339,7 @@
     "rarity": "LEGENDARY",
     "set": -1,
     "setEffect": "",
-    "image": "image_43.png"
+    "icon": "image_43.png"
   },
   {
     "id": "L12",
@@ -348,7 +348,7 @@
     "rarity": "LEGENDARY",
     "set": -1,
     "setEffect": "",
-    "image": "image_47.png"
+    "icon": "image_47.png"
   },
   {
     "id": "L13",
@@ -357,7 +357,7 @@
     "rarity": "LEGENDARY",
     "set": -1,
     "setEffect": "",
-    "image": "image_42.png"
+    "icon": "image_42.png"
   },
   {
     "id": "CR01",
@@ -366,7 +366,7 @@
     "rarity": "CURSED",
     "set": -1,
     "setEffect": "",
-    "image": "image_35.png"
+    "icon": "image_35.png"
   },
   {
     "id": "CR02",
@@ -375,7 +375,7 @@
     "rarity": "CURSED",
     "set": -1,
     "setEffect": "",
-    "image": "image_33.png"
+    "icon": "image_33.png"
   },
   {
     "id": "CR03",
@@ -384,7 +384,7 @@
     "rarity": "CURSED",
     "set": -1,
     "setEffect": "",
-    "image": "image_32.png"
+    "icon": "image_32.png"
   },
   {
     "id": "CR04",
@@ -393,7 +393,7 @@
     "rarity": "CURSED",
     "set": -1,
     "setEffect": "",
-    "image": "image_36.png"
+    "icon": "image_36.png"
   },
   {
     "id": "CR05",
@@ -402,7 +402,7 @@
     "rarity": "CURSED",
     "set": -1,
     "setEffect": "",
-    "image": "image_34.png"
+    "icon": "image_34.png"
   },
   {
     "id": "CR06",
@@ -411,7 +411,7 @@
     "rarity": "CURSED",
     "set": -1,
     "setEffect": "",
-    "image": "image_40.png"
+    "icon": "image_40.png"
   },
   {
     "id": "CR07",
@@ -420,7 +420,7 @@
     "rarity": "CURSED",
     "set": -1,
     "setEffect": "",
-    "image": "image_39.png"
+    "icon": "image_39.png"
   },
   {
     "id": "CR08",
@@ -429,7 +429,7 @@
     "rarity": "CURSED",
     "set": -1,
     "setEffect": "",
-    "image": "image_30.png"
+    "icon": "image_30.png"
   },
   {
     "id": "CR09",
@@ -438,7 +438,7 @@
     "rarity": "CURSED",
     "set": -1,
     "setEffect": "",
-    "image": "image_37.png"
+    "icon": "image_37.png"
   },
   {
     "id": "CR10",
@@ -447,7 +447,7 @@
     "rarity": "CURSED",
     "set": -1,
     "setEffect": "",
-    "image": "image_38.png"
+    "icon": "image_38.png"
   },
   {
     "id": "CR11",
@@ -456,7 +456,7 @@
     "rarity": "CURSED",
     "set": -1,
     "setEffect": "",
-    "image": "image_28.png"
+    "icon": "image_28.png"
   },
   {
     "id": "CR12",
@@ -465,7 +465,7 @@
     "rarity": "CURSED",
     "set": -1,
     "setEffect": "",
-    "image": "image_29.png"
+    "icon": "image_29.png"
   },
   {
     "id": "CR13",
@@ -474,6 +474,6 @@
     "rarity": "CURSED",
     "set": -1,
     "setEffect": "",
-    "image": "image_31.png"
+    "icon": "image_31.png"
   }
 ]
