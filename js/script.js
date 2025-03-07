@@ -328,7 +328,12 @@ detailPage.addEventListener("click", (event) => {
     if (!row) return; // row가 null인 경우 처리
     const rightCol = detailPage.querySelector(`[data-row="${row}"] .right-col`);
 
-    if (row === "4") {
+    const stackableRarities = ["COMMON", "RARE", "EPIC"];
+    const rarity = originalMagicalObjects.find(
+      (obj) => obj.id === itemBlock.dataset.itemId
+    );
+
+    if (row === "4" && stackableRarities.includes(rarity.rarity)) {
       // magicalObjects 행의 경우
       if (itemBlock.parentElement.classList.contains("right-col")) {
         // 오른쪽 열의 아이템 클릭 시 개수 감소
@@ -483,7 +488,14 @@ function showTooltip(event) {
 
   tooltip.classList.add("show"); // show 클래스 추가
   const rect = itemElement.getBoundingClientRect();
-  tooltip.style.left = rect.right + 5 + "px";
+  const tooltipRect = tooltip.getBoundingClientRect();
+  const isOverflowingRight = rect.right + tooltipRect.width + 5 > window.innerWidth;
+
+  if (isOverflowingRight) {
+    tooltip.style.left = rect.left - tooltipRect.width - 5 + "px";
+  } else {
+    tooltip.style.left = rect.right + 5 + "px";
+  }
   tooltip.style.top = rect.top + "px";
   tooltip.style.transform = "translateY(-5px)"; // 위치 변경 애니메이션
 
