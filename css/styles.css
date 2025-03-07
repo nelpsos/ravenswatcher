@@ -16,7 +16,7 @@
     --background-color: #121212;
     --text-color: #e0e0e0;
     --border-color: #444;
-    --tooltip-background: #555;
+    --tooltip-background: #333;
     --tooltip-text: #e0e0e0;
     --placeholder-border: #666;
   }
@@ -84,6 +84,7 @@ body {
   height: 50px;
   margin: 5px;
   display: inline-block;
+  position: relative;
 }
 
 #detail-page .item {
@@ -106,19 +107,42 @@ body {
   position: relative;
 }
 
+#detail-page .item-count {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #f5f5dc;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.8em;
+  font-weight: bold;
+  z-index: 1;
+  transform: translate(50%, 50%);
+}
+
 .tooltip {
-  display: none;
   position: absolute;
   background-color: var(--tooltip-background);
   color: var(--tooltip-text);
-  padding: 5px;
+  padding: 7px;
   border-radius: 5px;
   z-index: 1000;
-  border: 1px solid #fff; /* 테두리 추가 */
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5); /* 검은 외곽선 추가 */
+  border: 1px solid #fff;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
   max-width: 50%;
   white-space: pre-wrap;
   word-break: break-word;
+  transition: opacity 0.2s, visibility 0.2s, transform 0.1s; /* transform 애니메이션 추가 */
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tooltip.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* 위치 변경 애니메이션 */
 }
 
 #export-popup {
@@ -226,4 +250,15 @@ body {
 
 .save-area-inline button {
   margin-right: 5px;
+}
+
+.inline-box {
+  border: 1px solid #fff;
+  padding: 0 2px;
+  margin: 1px;
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 0.8em;
+  background-color: #333;
+  font-weight: bold;
 }

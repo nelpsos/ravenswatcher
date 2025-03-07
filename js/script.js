@@ -57,6 +57,8 @@ const closeButton = document.getElementById("close-button");
 
 const headerLogo = document.getElementById("header-logo");
 
+let tooltipTimer = null;
+
 // const darkModeToggle = document.getElementById("dark-mode-toggle");
 
 // darkModeToggle.addEventListener("click", () => {
@@ -212,8 +214,8 @@ async function showCharacterPage(characterId) {
       .map(makeObjectItemBlock)
       .join("");
 
-    // 각 row에 placeholder 추가
     addPlaceholders();
+    addTooltipEventListeners();
   } catch (error) {
     console.error("Error fetching talents:", error);
   }
@@ -229,8 +231,6 @@ function addPlaceholders() {
       const placeholder = document.createElement("div");
       placeholder.classList.add("item-block");
       placeholder.dataset.itemId = "";
-      placeholder.onmouseover = (event) => showTooltip(event);
-      placeholder.onmouseout = () => hideTooltip();
 
       const placeholderInner = document.createElement("div");
       placeholderInner.classList.add("placeholder");
@@ -238,14 +238,14 @@ function addPlaceholders() {
 
       rightCol.appendChild(placeholder);
     }
+  });
+}
 
-    // 왼쪽 열의 아이템에도 이벤트 추가
-    const leftCol = row.querySelector(".left-col");
-    const items = leftCol.querySelectorAll(".item");
-    items.forEach((item) => {
-      item.onmouseover = (event) => showTooltip(event);
-      item.onmouseout = () => hideTooltip();
-    });
+function addTooltipEventListeners() {
+  const items = document.querySelectorAll(".item");
+  items.forEach((item) => {
+    item.addEventListener("mouseover", showTooltip);
+    item.addEventListener("mouseout", hideTooltip);
   });
 }
 
@@ -263,9 +263,6 @@ function makeCharacterItemBlock(itemObject) {
 
     item.classList.add("item");
     item.dataset.itemId = itemId;
-    item.onmouseover = showTooltip;
-    item.onmouseout = hideTooltip;
-
     img.src = `/assets/${characterId}/${itemIcon}`;
     img.alt = itemName;
     img.classList.add("item-icon");
@@ -292,15 +289,23 @@ function makeObjectItemBlock(itemObject) {
 
     item.classList.add("item");
     item.dataset.itemId = itemId;
-    item.onmouseover = showTooltip;
-    item.onmouseout = hideTooltip;
-
     img.src = `/assets/magical_objects/${itemIcon}`;
     img.alt = itemName;
     img.classList.add("item-icon");
 
     item.appendChild(img);
     itemBlock.appendChild(item);
+
+    // 오른쪽 열에만 개수 표시를 위한 span 추가
+    if (
+      itemBlock.parentElement &&
+      itemBlock.parentElement.classList.contains("right-col")
+    ) {
+      const countSpan = document.createElement("span");
+      countSpan.classList.add("item-count");
+      countSpan.textContent = "1";
+      itemBlock.appendChild(countSpan);
+    }
 
     return itemBlock.outerHTML;
   } catch (error) {
@@ -319,33 +324,92 @@ detailPage.addEventListener("click", (event) => {
   const item = event.target.closest(".item");
   if (item) {
     const itemBlock = item.parentElement;
-    const row = itemBlock.parentElement.parentElement.dataset.row;
-    const leftCol = detailPage.querySelector(`[data-row="${row}"] .left-col`);
+    const row = itemBlock.parentElement?.parentElement?.dataset?.row;
+    if (!row) return; // row가 null인 경우 처리
     const rightCol = detailPage.querySelector(`[data-row="${row}"] .right-col`);
 
-    if (itemBlock.parentElement.classList.contains("right-col")) {
-      // 오른쪽 열의 아이템 클릭 시 왼쪽 열로 이동
-      const originalItemBlock = leftCol.querySelector(
-        `[data-item-id="${item.dataset.itemId}"]`
-      );
+    if (row === "4") {
+      // magicalObjects 행의 경우
+      if (itemBlock.parentElement.classList.contains("right-col")) {
+        // 오른쪽 열의 아이템 클릭 시 개수 감소
+        const countSpan = itemBlock.querySelector(".item-count");
+        countSpan.textContent = parseInt(countSpan.textContent) - 1;
+        if (parseInt(countSpan.textContent) === 0) {
+          // 개수가 0이 되면 아이템 블록 제거하고 placeholder 추가
+          const placeholder = document.createElement("div");
+          placeholder.classList.add("item-block");
+          placeholder.dataset.itemId = "";
 
-      if (originalItemBlock) {
-        const placeholder = originalItemBlock.querySelector(".placeholder");
-        if (placeholder) {
-          placeholder.replaceWith(item);
-          itemBlock.appendChild(placeholder);
-        } else {
-          originalItemBlock.appendChild(item);
+          const placeholderInner = document.createElement("div");
+          placeholderInner.classList.add("placeholder");
+          placeholder.appendChild(placeholderInner);
+
+          itemBlock.replaceWith(placeholder);
+          hideTooltip();
         }
+        // selectedTalents에서 아이템 제거
+        selectedTalents.magicalObjects = selectedTalents.magicalObjects.filter(
+          (obj) => obj.id !== item.dataset.itemId
+        );
+      } else {
+        const existingItemBlock = rightCol.querySelector(
+          `[data-item-id="${item.dataset.itemId}"]`
+        );
+        if (existingItemBlock) {
+          // 이미 존재하는 아이템 블록이 있으면 개수만 증가
+          const countSpan = existingItemBlock.querySelector(".item-count");
+          countSpan.textContent = parseInt(countSpan.textContent) + 1;
+        } else {
+          // 존재하지 않으면 새로운 아이템 블록 추가
+          const newItemBlock = itemBlock.cloneNode(true);
+          const countSpan = newItemBlock.querySelector(".item-count");
+          if (countSpan) {
+            countSpan.textContent = "1";
+          } else {
+            const newCountSpan = document.createElement("span");
+            newCountSpan.classList.add("item-count");
+            newCountSpan.textContent = "1";
+            newItemBlock.appendChild(newCountSpan);
+          }
+          const placeholder = rightCol.querySelector(".placeholder");
+          if (placeholder) {
+            placeholder.parentElement.replaceWith(newItemBlock);
+            newItemBlock.addEventListener("mouseover", showTooltip);
+            newItemBlock.addEventListener("mouseout", hideTooltip);
+          }
+        }
+        // selectedTalents에 아이템 추가
+        selectedTalents.magicalObjects.push({
+          id: item.dataset.itemId,
+          set: item.dataset.set,
+        });
       }
     } else {
-      const placeholder = rightCol.querySelector(".placeholder");
-
-      // 왼쪽 열의 아이템 클릭 시 오른쪽 열로 이동
-      if (placeholder) {
-        placeholder.parentElement.dataset.itemId = item.dataset.itemId;
-        placeholder.replaceWith(item);
-        itemBlock.appendChild(placeholder);
+      if (itemBlock.parentElement.classList.contains("right-col")) {
+        // 오른쪽 열의 아이템 클릭 시 왼쪽 열로 이동
+        const leftCol = detailPage.querySelector(
+          `[data-row="${row}"] .left-col`
+        );
+        const originalItemBlock = leftCol.querySelector(
+          `[data-item-id="${item.dataset.itemId}"]`
+        );
+        if (originalItemBlock) {
+          const placeholder = originalItemBlock.querySelector(".placeholder");
+          if (placeholder) {
+            placeholder.replaceWith(item);
+            itemBlock.appendChild(placeholder);
+          } else {
+            originalItemBlock.appendChild(item);
+          }
+        }
+      } else {
+        const placeholder = rightCol.querySelector(".placeholder");
+        // 왼쪽 열의 아이템 클릭 시 오른쪽 열로 이동
+        if (placeholder) {
+          placeholder.parentElement.dataset.itemId = item.dataset.itemId;
+          placeholder.replaceWith(item);
+          itemBlock.appendChild(placeholder);
+        }
       }
     }
   }
@@ -378,16 +442,59 @@ function showTooltip(event) {
   }
 
   const tooltip = document.getElementById("tooltip");
-  tooltip.innerHTML = `<strong style="font-size: 1.2em;">${name}</strong><br>${description}`;
-  tooltip.style.display = "block";
+  tooltip.innerHTML = `<strong style="font-size: 1.2em;">${name}</strong>`;
+
+  // magicalObject의 경우 rarity와 setEffect 추가
+  if (originalMagicalObjects.find((item) => item.id === itemId)) {
+    const rarity =
+      {
+        COMMON: "일반",
+        RARE: "희귀",
+        EPIC: "서사",
+        LEGENDARY: "전설",
+        CURSED: "저주받음",
+      }[item.rarity] || "Unknown";
+    const rarityColor =
+      {
+        COMMON: "#fff",
+        RARE: "#88f",
+        EPIC: "#d8bfd8",
+        LEGENDARY: "#ff0",
+        CURSED: "#f00",
+      }[item.rarity] || "#fff";
+    tooltip.innerHTML += ` <span class="inline-box" style="color: ${rarityColor}; border-color: ${rarityColor}">${rarity}</span>`;
+  }
+
+  tooltip.innerHTML += `<br>${description}`;
+
+  if (originalMagicalObjects.find((item) => item.id === itemId)) {
+    const rarity = item.rarity;
+    if (["COMMON", "RARE", "EPIC"].includes(rarity)) {
+      const set = item.set;
+      const setEffect = item.setEffect;
+      const selectedCount = selectedTalents.magicalObjects.filter(
+        (obj) => obj.id === itemId
+      ).length;
+      const setColor = selectedCount >= set ? "#ff0" : "#888";
+
+      tooltip.innerHTML += `<br><span class="inline-box">x${set}</span> <span style="color: ${setColor};">${setEffect}</span>`;
+    }
+  }
+
+  tooltip.classList.add("show"); // show 클래스 추가
   const rect = itemElement.getBoundingClientRect();
   tooltip.style.left = rect.right + 5 + "px";
   tooltip.style.top = rect.top + "px";
+  tooltip.style.transform = "translateY(-5px)"; // 위치 변경 애니메이션
+
+  clearTimeout(tooltipTimer); // 이전 타이머 제거
+  tooltipTimer = null;
 }
 
 function hideTooltip() {
   const tooltip = document.getElementById("tooltip");
-  tooltip.style.display = "none";
+  tooltip.classList.remove("show");
+  tooltip.style.transform = "translateY(0)"; // 위치 초기화
 }
 
 // 내보내기 버튼 클릭 이벤트 처리
