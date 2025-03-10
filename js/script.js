@@ -21,6 +21,11 @@ const initialTalents = {
   magicalObjects: [],
 };
 
+const COLOR_THEME = {
+  DARK: { name: "dark", icon: "☾" },
+  LIGHT: { name: "light", icon: "✵" },
+};
+
 let originalCharacterTalents = null;
 let originalMagicalObjects = null;
 let selectedTalents = {
@@ -71,24 +76,22 @@ function getUserColorTheme() {
   const savedColorTheme = localStorage.getItem("color-theme");
   if (savedColorTheme) return savedColorTheme;
   const osColorTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+    ? COLOR_THEME.DARK.name
+    : COLOR_THEME.LIGHT.name;
   return osColorTheme;
 }
 
 darkModeToggle.addEventListener("click", () => {
   const currentColorTheme =
     document.documentElement.getAttribute("color-theme");
+  const changedColorTheme =
+    currentColorTheme === COLOR_THEME.DARK.name
+      ? COLOR_THEME.LIGHT
+      : COLOR_THEME.DARK;
 
-  if (currentColorTheme === "dark") {
-    document.documentElement.setAttribute("color-theme", "light");
-    darkModeToggle.textContent = "✵";
-    localStorage.setItem("color-theme", "light"); // 로컬스토리지에 저장
-  } else {
-    document.documentElement.setAttribute("color-theme", "dark");
-    darkModeToggle.textContent = "☾";
-    localStorage.setItem("color-theme", "dark"); // 로컬스토리지에 저장
-  }
+  document.documentElement.setAttribute("color-theme", changedColorTheme.name);
+  darkModeToggle.textContent = changedColorTheme.icon;
+  localStorage.setItem("color-theme", changedColorTheme.name);
 });
 
 headerLogo.addEventListener("click", (event) => {
