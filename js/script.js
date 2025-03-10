@@ -60,16 +60,34 @@ let tooltipTimer = null;
 
 const darkModeToggle = document.getElementById("dark-mode-toggle");
 
+// 페이지 진입 시 로컬스토리지의 다크모드 값 읽기
+document.addEventListener("DOMContentLoaded", () => {
+  const savedColorTheme = getUserColorTheme();
+  document.documentElement.setAttribute("color-theme", savedColorTheme);
+  darkModeToggle.textContent = savedColorTheme === "dark" ? "☾" : "✵";
+});
+
+function getUserColorTheme() {
+  const savedColorTheme = localStorage.getItem("color-theme");
+  if (savedColorTheme) return savedColorTheme;
+  const osColorTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+  return osColorTheme;
+}
+
 darkModeToggle.addEventListener("click", () => {
   const currentColorTheme =
     document.documentElement.getAttribute("color-theme");
 
   if (currentColorTheme === "dark") {
     document.documentElement.setAttribute("color-theme", "light");
-    darkModeToggle.textContent = "🌙";
+    darkModeToggle.textContent = "✵";
+    localStorage.setItem("color-theme", "light"); // 로컬스토리지에 저장
   } else {
     document.documentElement.setAttribute("color-theme", "dark");
-    darkModeToggle.textContent = "☀️";
+    darkModeToggle.textContent = "☾";
+    localStorage.setItem("color-theme", "dark"); // 로컬스토리지에 저장
   }
 });
 

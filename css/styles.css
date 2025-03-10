@@ -176,11 +176,13 @@ body {
 #dark-mode-toggle {
   background: none;
   border: none;
-  color: inherit;
-  font-size: 1.5em;
+  font-size: 0.5em;
   cursor: pointer;
-  margin-left: 1em;
+  margin-left: auto;
   transition: transform 0.2s;
+  position: absolute; /* 위치 조정 */
+  right: 1em; /* 오른쪽에 위치 */
+  color: var(--text-color);
 }
 
 #dark-mode-toggle:hover {
@@ -199,8 +201,9 @@ body {
   font-size: 1em;
   user-select: none; /* 드래그 방지 */
   cursor: pointer; /* 커서 포인터 */
-  position: relative; /* 위치 조정 */
-  display: inline-block; /* 위치 조정 */
+  position: absolute; /* 위치 조정 */
+  left: 50%; /* 가운데 정렬 */
+  transform: translateX(-50%); /* 가운데 정렬 */
   padding: 0 0.3em; /* 좌우 여백 추가 */
 }
 
