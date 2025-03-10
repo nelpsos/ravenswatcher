@@ -1,17 +1,16 @@
 const characters = [
-  { id: "scarlet", name: "스칼렛", description: "캐릭터 1 설명" },
+  { id: "scarlet", name: "스칼렛" },
   {
     id: "the_piped_piper",
     name: "피리 부는 사나이",
-    description: "캐릭터 2 설명",
   },
-  { id: "beowulf", name: "베오울프", description: "캐릭터 3 설명" },
-  { id: "the_snow_queen", name: "눈의 여왕", description: "캐릭터 4 설명" },
-  { id: "aladdin", name: "알라딘", description: "캐릭터 5 설명" },
-  { id: "melusine", name: "멜루신", description: "캐릭터 6 설명" },
-  { id: "geppetto", name: "제페토", description: "캐릭터 7 설명" },
-  { id: "wukong", name: "오공", description: "캐릭터 8 설명" },
-  { id: "carmilla", name: "카르밀라", description: "캐릭터 9 설명" },
+  { id: "beowulf", name: "베오울프" },
+  { id: "the_snow_queen", name: "눈의 여왕" },
+  { id: "aladdin", name: "알라딘" },
+  { id: "melusine", name: "멜루신" },
+  { id: "geppetto", name: "제페토" },
+  { id: "wukong", name: "오공" },
+  { id: "carmilla", name: "카르밀라" },
 ];
 
 const initialTalents = {
@@ -59,16 +58,20 @@ const headerLogo = document.getElementById("header-logo");
 
 let tooltipTimer = null;
 
-// const darkModeToggle = document.getElementById("dark-mode-toggle");
+const darkModeToggle = document.getElementById("dark-mode-toggle");
 
-// darkModeToggle.addEventListener("click", () => {
-//   document.documentElement.classList.toggle("dark-mode");
-//   if (document.documentElement.classList.contains("dark-mode")) {
-//     darkModeToggle.textContent = "☀️";
-//   } else {
-//     darkModeToggle.textContent = "🌙";
-//   }
-// });
+darkModeToggle.addEventListener("click", () => {
+  const currentColorTheme =
+    document.documentElement.getAttribute("color-theme");
+
+  if (currentColorTheme === "dark") {
+    document.documentElement.setAttribute("color-theme", "light");
+    darkModeToggle.textContent = "🌙";
+  } else {
+    document.documentElement.setAttribute("color-theme", "dark");
+    darkModeToggle.textContent = "☀️";
+  }
+});
 
 headerLogo.addEventListener("click", (event) => {
   event.preventDefault();
@@ -489,7 +492,8 @@ function showTooltip(event) {
   tooltip.classList.add("show"); // show 클래스 추가
   const rect = itemElement.getBoundingClientRect();
   const tooltipRect = tooltip.getBoundingClientRect();
-  const isOverflowingRight = rect.right + tooltipRect.width + 5 > window.innerWidth;
+  const isOverflowingRight =
+    rect.right + tooltipRect.width + 5 > window.innerWidth;
 
   if (isOverflowingRight) {
     tooltip.style.left = rect.left - tooltipRect.width - 5 + "px";

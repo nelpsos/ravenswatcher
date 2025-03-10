@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-:root {
+:root[color-theme="light"] {
   --background-color: #fff;
   --text-color: #000;
   --border-color: #ccc;
@@ -11,15 +11,13 @@
   --placeholder-border: #aaa;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #121212;
-    --text-color: #e0e0e0;
-    --border-color: #444;
-    --tooltip-background: #333;
-    --tooltip-text: #e0e0e0;
-    --placeholder-border: #666;
-  }
+:root[color-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --border-color: #444;
+  --tooltip-background: #333;
+  --tooltip-text: #e0e0e0;
+  --placeholder-border: #666;
 }
 
 body {
