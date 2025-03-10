@@ -199,8 +199,8 @@ mainPage.addEventListener("click", (event) => {
 async function showCharacterPage(characterId) {
   try {
     const [characterResponse, magicalObjectsResponse] = await Promise.all([
-      fetch(`../assets/${characterId}/talents.json`),
-      fetch(`../assets/magical_objects/magicalObjects.json`),
+      fetch(`/assets/${characterId}/talents.json`),
+      fetch(`/assets/magical_objects/magicalObjects.json`),
     ]);
 
     originalCharacterTalents = await characterResponse.json();
@@ -219,7 +219,7 @@ async function showCharacterPage(characterId) {
     }
 
     characterImage.setAttribute("data-character", characterId);
-    characterImage.setAttribute("src", `../assets/${characterId}/icon.png`);
+    characterImage.setAttribute("src", `/assets/${characterId}/icon.png`);
     characterImage.setAttribute("alt", character.name);
 
     startTalents.innerHTML = originalCharacterTalents.startTalents
@@ -238,7 +238,6 @@ async function showCharacterPage(characterId) {
       .map(makeObjectItemBlock)
       .join("");
 
-    addPlaceholders();
     addTooltipEventListeners();
   } catch (error) {
     console.error("Error fetching talents:", error);
@@ -287,7 +286,7 @@ function makeCharacterItemBlock(itemObject) {
 
     item.classList.add("item");
     item.dataset.itemId = itemId;
-    img.src = `../assets/${characterId}/${itemIcon}`;
+    img.src = `/assets/${characterId}/${itemIcon}`;
     img.alt = itemName;
     img.classList.add("item-icon");
 
@@ -313,7 +312,7 @@ function makeObjectItemBlock(itemObject) {
 
     item.classList.add("item");
     item.dataset.itemId = itemId;
-    img.src = `../assets/magical_objects/${itemIcon}`;
+    img.src = `/assets/magical_objects/${itemIcon}`;
     img.alt = itemName;
     img.classList.add("item-icon");
 

@@ -1,66 +1,50 @@
 <!DOCTYPE html>
-<html lang="ko" color-theme="dark">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ravenswatcher</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/script.js" defer></script>
+    <meta charset="utf-8" />
+    <title>Single Page Apps for GitHub Pages</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script takes the current url and converts the path and query
+      // string into just a query string, and then redirects the browser
+      // to the new url with only a query string and hash fragment,
+      // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
+      // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
+      // Note: this 404.html file must be at least 512 bytes for it to work
+      // with Internet Explorer (it is currently > 512 bytes)
+
+      // If you're creating a Project Pages site and NOT using a custom domain,
+      // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
+      // This way the code will only replace the route part of the path, and not
+      // the real directory in which the app resides, for example:
+      // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
+      // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
+      // Otherwise, leave pathSegmentsToKeep as 0.
+      var pathSegmentsToKeep = 1;
+
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          "//" +
+          l.hostname +
+          (l.port ? ":" + l.port : "") +
+          l.pathname
+            .split("/")
+            .slice(0, 1 + pathSegmentsToKeep)
+            .join("/") +
+          "/?/" +
+          l.pathname
+            .slice(1)
+            .split("/")
+            .slice(pathSegmentsToKeep)
+            .join("/")
+            .replace(/&/g, "~and~") +
+          (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+          l.hash
+      );
+    </script>
   </head>
-  <body>
-    <div id="app">
-      <h1 class="header">
-        <a id="header-logo" data-text="Ravenswatcher">Ravenswatcher</a>
-        <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">☾</button>
-      </h1>
-      <div id="main-page">
-        <div id="character-buttons"></div>
-      </div>
-
-      <div id="detail-page">
-        <div id="character-header">
-          <img id="character-image" />
-          <h2 id="character-name"></h2>
-          <div class="save-area-inline">
-            <input type="text" id="build-name" placeholder="빌드 이름" />
-            <button id="save-button">저장</button>
-            <button id="export-button">내보내기</button>
-            <input type="file" id="import-file" accept=".json" />
-          </div>
-        </div>
-        <table>
-          <tr data-row="0">
-            <td id="start-talents" class="left-col"></td>
-            <td class="right-col"></td>
-          </tr>
-          <tr data-row="1">
-            <td id="talents" class="left-col"></td>
-            <td class="right-col"></td>
-          </tr>
-          <tr data-row="2">
-            <td id="ultimates" class="left-col"></td>
-            <td class="right-col"></td>
-          </tr>
-          <tr data-row="3">
-            <td id="ultimate-talents" class="left-col"></td>
-            <td class="right-col"></td>
-          </tr>
-          <tr data-row="4">
-            <td id="magical-objects" class="left-col"></td>
-            <td class="right-col"></td>
-          </tr>
-        </table>
-
-        <button id="back-button">돌아가기</button>
-
-        <div id="export-popup" style="display: none">
-          <pre id="export-data"></pre>
-          <button id="copy-button">복사</button>
-          <button id="download-button">다운로드</button>
-          <button id="close-button">닫기</button>
-        </div>
-      </div>
-    </div>
-    <div id="tooltip" class="tooltip"></div>
-  </body>
+  <body></body>
 </html>
