@@ -51,12 +51,7 @@ const mainPage = document.getElementById("main-page");
 const detailPage = document.getElementById("detail-page");
 
 const saveButton = document.getElementById("save-button");
-const exportButton = document.getElementById("export-button");
-const importFile = document.getElementById("import-file");
-const exportPopup = document.getElementById("export-popup");
-const exportData = document.getElementById("export-data");
-const copyButton = document.getElementById("copy-button");
-const downloadButton = document.getElementById("download-button");
+const loadPopup = document.getElementById("load-popup");
 const closeButton = document.getElementById("close-button");
 
 const headerLogo = document.getElementById("header-logo");
@@ -404,8 +399,6 @@ detailPage.addEventListener("click", (event) => {
           const placeholder = rightCol.querySelector(".placeholder");
           if (placeholder) {
             placeholder.parentElement.replaceWith(newItemBlock);
-            newItemBlock.addEventListener("mouseover", showTooltip);
-            newItemBlock.addEventListener("mouseout", hideTooltip);
           }
         }
         // selectedTalents에 아이템 추가
@@ -535,34 +528,9 @@ function hideTooltip() {
   tooltip.style.transform = "translateY(0)"; // 위치 초기화
 }
 
-// 내보내기 버튼 클릭 이벤트 처리
-exportButton.addEventListener("click", () => {
-  const data = getItemsData();
-  const json = JSON.stringify(data, null, 2); // 들여쓰기 추가
-  exportData.textContent = json;
-  exportPopup.style.display = "block";
-});
-
-// 복사 버튼 클릭 이벤트 처리
-copyButton.addEventListener("click", () => {
-  navigator.clipboard.writeText(exportData.textContent);
-});
-
-// 다운로드 버튼 클릭 이벤트 처리
-downloadButton.addEventListener("click", () => {
-  const json = exportData.textContent;
-  const blob = new Blob([json], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "itemsData.json";
-  a.click();
-  URL.revokeObjectURL(url);
-});
-
 // 닫기 버튼 클릭 이벤트 처리
 closeButton.addEventListener("click", () => {
-  exportPopup.style.display = "none";
+  loadPopup.style.display = "none";
 });
 
 // 저장 버튼 클릭 이벤트 처리
@@ -579,28 +547,5 @@ function loadItemsData() {
   }
 }
 
-// 가져오기 기능 구현
-importFile.addEventListener("change", (event) => {
-  const file = event.target.files[0];
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    const data = JSON.parse(e.target.result);
-    setItemsData(data);
-  };
-  reader.readAsText(file);
-});
 
-// 아이템 데이터 가져오기
-function getItemsData() {
-  const data = [];
-  // ... 아이템 데이터 추출 로직 ...
-  return data;
 }
-
-// 아이템 데이터 설정
-function setItemsData(data) {
-  // ... 아이템 데이터 표시 로직 ...
-}
-
-// 초기 로드 시 데이터 불러오기
-// loadItemsData();

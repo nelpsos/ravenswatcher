@@ -58,9 +58,11 @@
           <div class="save-area-inline">
             <input type="text" id="build-name" placeholder="빌드 이름" />
             <button id="save-button">저장</button>
-            <button id="export-button">내보내기</button>
-            <input type="file" id="import-file" accept=".json" />
+            <button id="load-button">불러오기</button>
           </div>
+        </div>
+        <div id="load-popup" style="display: none">
+          <button id="close-button">닫기</button>
         </div>
         <table>
           <tr data-row="0">
@@ -86,13 +88,6 @@
         </table>
 
         <button id="back-button">돌아가기</button>
-
-        <div id="export-popup" style="display: none">
-          <pre id="export-data"></pre>
-          <button id="copy-button">복사</button>
-          <button id="download-button">다운로드</button>
-          <button id="close-button">닫기</button>
-        </div>
       </div>
     </div>
     <div id="tooltip" class="tooltip"></div>
