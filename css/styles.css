@@ -85,8 +85,17 @@ body {
   position: relative;
 }
 
+#detail-page .item-block.disabled {
+  opacity: 0.5;
+  cursor: normal;
+}
+
 #detail-page .item {
   cursor: pointer;
+}
+
+#detail-page .disabled .item {
+  cursor: default;
 }
 
 #detail-page .item-icon {

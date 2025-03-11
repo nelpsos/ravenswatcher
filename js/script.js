@@ -235,6 +235,7 @@ async function showCharacterPage(characterId) {
 
     addPlaceholders();
     addTooltipEventListeners();
+    updateUltimateTalentsState(); // 초기 로드 시 ultimate-talents 비활성화
   } catch (error) {
     console.error("Error fetching talents:", error);
   }
@@ -290,6 +291,13 @@ function makeCharacterItemBlock(itemObject) {
     item.appendChild(img);
     itemBlock.appendChild(item);
 
+    if (
+      itemBlock.parentElement &&
+      itemBlock.parentElement.id === "ultimate-talents"
+    ) {
+      itemBlock.classList.add("disabled");
+    }
+
     return itemBlock.outerHTML;
   } catch (error) {
     console.error("Error making item block:", error);
@@ -334,6 +342,7 @@ function makeObjectItemBlock(itemObject) {
 }
 
 detailPage.addEventListener("click", (event) => {
+  if (event.target.closest(".disabled")) return;
   if (event.target.id === "back-button") {
     detailPage.style.display = "none";
     mainPage.style.display = "block";
@@ -408,6 +417,36 @@ detailPage.addEventListener("click", (event) => {
         });
       }
     } else {
+      if (row === "2") {
+        // ultimates 행의 아이템 클릭 시
+        if (itemBlock.parentElement.classList.contains("right-col")) {
+          // 선택 취소 시
+          selectedTalents.ultimates = [];
+          const ultimateTalentsItems = document.querySelectorAll(
+            "#ultimate-talents .right-col .item-block"
+          );
+          ultimateTalentsItems.forEach((itemBlock) => {
+            const placeholder = document.createElement("div");
+            placeholder.classList.add("item-block");
+            placeholder.dataset.itemId = "";
+
+            const placeholderInner = document.createElement("div");
+            placeholderInner.classList.add("placeholder");
+            placeholder.appendChild(placeholderInner);
+
+            itemBlock.replaceWith(placeholder);
+          });
+        } else {
+          // 선택 시
+          selectedTalents.ultimates = [{ id: item.dataset.itemId }];
+        }
+        updateUltimateTalentsState();
+      } else if (row === "3") {
+        // ultimate-talents 행의 아이템 클릭 시
+        if (!selectedTalents.ultimates.length) {
+          return; // ultimates가 선택되지 않았다면 클릭 무시
+        }
+      }
       if (itemBlock.parentElement.classList.contains("right-col")) {
         // 오른쪽 열의 아이템 클릭 시 왼쪽 열로 이동
         const leftCol = detailPage.querySelector(
@@ -547,5 +586,23 @@ function loadItemsData() {
   }
 }
 
+function updateUltimateTalentsState() {
+  const selectedUltimate = selectedTalents.ultimates[0];
+  const ultimateTalentsItems = document.querySelectorAll(
+    "#ultimate-talents .item-block"
+  );
 
+  ultimateTalentsItems.forEach((itemBlock) => {
+    const itemId = itemBlock.dataset.itemId;
+    if (!selectedUltimate) {
+      itemBlock.classList.add("disabled");
+    } else {
+      console.log(itemId, selectedUltimate.id);
+      if (itemId.startsWith(selectedUltimate.id)) {
+        itemBlock.classList.remove("disabled");
+      } else {
+        itemBlock.classList.add("disabled");
+      }
+    }
+  });
 }
