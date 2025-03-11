@@ -238,6 +238,7 @@ async function showCharacterPage(characterId) {
       .map(makeObjectItemBlock)
       .join("");
 
+    addPlaceholders();
     addTooltipEventListeners();
   } catch (error) {
     console.error("Error fetching talents:", error);
@@ -250,6 +251,7 @@ function addPlaceholders() {
 
   rows.forEach((row, index) => {
     const rightCol = row.querySelector(".right-col");
+    rightCol.innerHTML = null;
     for (let i = 0; i < placeholdersCount[index]; i++) {
       const placeholder = document.createElement("div");
       placeholder.classList.add("item-block");
