@@ -20,6 +20,14 @@
   --placeholder-border: #666;
 }
 
+:root[color-theme="light"] .light-mode {
+  display: block;
+}
+
+:root[color-theme="light"] .dark-mode {
+  display: none;
+}
+
 body {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -164,6 +172,7 @@ body {
 }
 
 .header {
+  padding: 0 20px;
   color: white;
   text-align: center;
   position: relative;
@@ -179,13 +188,32 @@ body {
   cursor: pointer;
   margin-left: auto;
   transition: transform 0.2s;
-  position: absolute; /* 위치 조정 */
+  position: relative; /* 위치 조정 */
   right: 1em; /* 오른쪽에 위치 */
   color: var(--text-color);
 }
 
 #dark-mode-toggle:hover {
   transform: scale(1.2);
+}
+
+#github-button {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5em; /* dark mode toggle 버튼 옆에 위치 */
+}
+
+.github-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.light-mode {
+  display: none;
+}
+
+.dark-mode {
+  display: block;
 }
 
 @font-face {
