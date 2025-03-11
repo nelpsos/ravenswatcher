@@ -355,6 +355,7 @@ detailPage.addEventListener("click", (event) => {
     const itemBlock = item.parentElement;
     const row = itemBlock.parentElement?.parentElement?.dataset?.row;
     if (!row) return; // row가 null인 경우 처리
+    const leftCol = detailPage.querySelector(`[data-row="${row}"] .left-col`);
     const rightCol = detailPage.querySelector(`[data-row="${row}"] .right-col`);
 
     const stackableRarities = ["COMMON", "RARE", "EPIC"];
@@ -417,65 +418,120 @@ detailPage.addEventListener("click", (event) => {
         });
       }
     } else {
-      if (row === "2") {
-        // ultimates 행의 아이템 클릭 시
-        if (itemBlock.parentElement.classList.contains("right-col")) {
-          // 선택 취소 시
-          selectedTalents.ultimates = [];
-          const ultimateTalentsItems = document.querySelectorAll(
-            "#ultimate-talents .right-col .item-block"
-          );
-          ultimateTalentsItems.forEach((itemBlock) => {
-            const placeholder = document.createElement("div");
-            placeholder.classList.add("item-block");
-            placeholder.dataset.itemId = "";
-
-            const placeholderInner = document.createElement("div");
-            placeholderInner.classList.add("placeholder");
-            placeholder.appendChild(placeholderInner);
-
-            itemBlock.replaceWith(placeholder);
-          });
-        } else {
-          // 선택 시
-          selectedTalents.ultimates = [{ id: item.dataset.itemId }];
-        }
-        updateUltimateTalentsState();
-      } else if (row === "3") {
-        // ultimate-talents 행의 아이템 클릭 시
-        if (!selectedTalents.ultimates.length) {
-          return; // ultimates가 선택되지 않았다면 클릭 무시
-        }
-      }
       if (itemBlock.parentElement.classList.contains("right-col")) {
-        // 오른쪽 열의 아이템 클릭 시 왼쪽 열로 이동
-        const leftCol = detailPage.querySelector(
-          `[data-row="${row}"] .left-col`
-        );
-        const originalItemBlock = leftCol.querySelector(
-          `[data-item-id="${item.dataset.itemId}"]`
-        );
-        if (originalItemBlock) {
-          const placeholder = originalItemBlock.querySelector(".placeholder");
-          if (placeholder) {
-            placeholder.replaceWith(item);
-            itemBlock.appendChild(placeholder);
-          } else {
-            originalItemBlock.appendChild(item);
-          }
+        if (row === "2") {
+          const ultimateTalentsItems = document.querySelectorAll(
+            "#ultimate-talents-row .right-col .item"
+          );
+          ultimateTalentsItems.forEach((innerItem) => {
+            const innerItemBlock = innerItem.parentElement;
+            moveRightToLeft(innerItemBlock);
+          });
         }
+        moveRightToLeft(itemBlock);
       } else {
-        const placeholder = rightCol.querySelector(".placeholder");
-        // 왼쪽 열의 아이템 클릭 시 오른쪽 열로 이동
-        if (placeholder) {
-          placeholder.parentElement.dataset.itemId = item.dataset.itemId;
-          placeholder.replaceWith(item);
-          itemBlock.appendChild(placeholder);
-        }
+        moveLeftToRight(itemBlock);
+      }
+
+      if (row === "2") {
+        updateUltimateTalentsState();
       }
     }
   }
 });
+
+function moveRightToLeft(itemBlock) {
+  // 오른쪽 열의 아이템 클릭 시 왼쪽 열로 이동
+  const item = itemBlock.querySelector(".item");
+  const rowElement = itemBlock.parentElement.parentElement;
+  const leftCol = rowElement.querySelector(".left-col");
+  const originalItemBlock = leftCol.querySelector(
+    `[data-item-id="${item.dataset.itemId}"]`
+  );
+
+  if (!originalItemBlock) {
+    return false;
+  }
+
+  const placeholder = originalItemBlock.querySelector(".placeholder");
+  if (placeholder) {
+    placeholder.replaceWith(item);
+    itemBlock.appendChild(placeholder);
+  } else {
+    originalItemBlock.appendChild(item);
+  }
+  syncSelectedData();
+  return true;
+}
+
+function moveLeftToRight(itemBlock) {
+  // 왼쪽 열의 아이템 클릭 시 오른쪽 열로 이동
+  const rowElement = itemBlock.parentElement.parentElement;
+  const rightCol = rowElement.querySelector(".right-col");
+  const placeholder = rightCol.querySelector(".placeholder");
+
+  if (!placeholder) {
+    return false;
+  }
+
+  const item = itemBlock.querySelector(".item");
+
+  placeholder.parentElement.dataset.itemId = item.dataset.itemId;
+  placeholder.replaceWith(item);
+  itemBlock.appendChild(placeholder);
+  syncSelectedData();
+  return true;
+}
+
+function syncSelectedData() {
+  const newTalents = {
+    startTalents: [],
+    talents: [],
+    ultimates: [],
+    ultimateTalents: [],
+    magicalObjects: [],
+  };
+
+  const rows = document.querySelectorAll("#detail-page table tr");
+  rows.forEach((row) => {
+    const rightCol = row.querySelector(".right-col");
+    const itemBlocks = rightCol.querySelectorAll(
+      ".item-block:not(.placeholder)"
+    );
+
+    itemBlocks.forEach((itemBlock) => {
+      const itemId = itemBlock.dataset.itemId;
+      const item = itemBlock.querySelector(".item");
+
+      if (item) {
+        const itemType = row.dataset.row;
+        switch (itemType) {
+          case "0":
+            newTalents.startTalents.push({ id: itemId });
+            break;
+          case "1":
+            newTalents.talents.push({ id: itemId });
+            break;
+          case "2":
+            newTalents.ultimates.push({ id: itemId });
+            break;
+          case "3":
+            newTalents.ultimateTalents.push({ id: itemId });
+            break;
+          case "4":
+            const countSpan = itemBlock.querySelector(".item-count");
+            const count = countSpan ? parseInt(countSpan.textContent) : 1;
+            for (let i = 0; i < count; i++) {
+              newTalents.magicalObjects.push({ id: itemId });
+            }
+            break;
+        }
+      }
+    });
+
+    selectedTalents = newTalents;
+  });
+}
 
 function showTooltip(event) {
   const itemElement = event.target.closest(".item");
@@ -597,7 +653,6 @@ function updateUltimateTalentsState() {
     if (!selectedUltimate) {
       itemBlock.classList.add("disabled");
     } else {
-      console.log(itemId, selectedUltimate.id);
       if (itemId.startsWith(selectedUltimate.id)) {
         itemBlock.classList.remove("disabled");
       } else {
