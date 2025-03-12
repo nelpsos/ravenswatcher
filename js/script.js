@@ -29,6 +29,7 @@ const COLOR_THEME = {
 let originalCharacterTalents = null;
 let originalMagicalObjects = null;
 let selectedTalents = {
+  characterId: "",
   startTalents: [],
   talents: [],
   ultimates: [],
@@ -120,18 +121,6 @@ function showPage(pageId, characterId) {
       img.setAttribute("alt", character.name);
       characterButtonsContainer.appendChild(img);
     });
-
-    // 선택된 아이템 초기화
-    startTalents.innerHTML = "";
-    talents.innerHTML = "";
-    ultimates.innerHTML = "";
-    ultimateTalents.innerHTML = "";
-    magicalObjects.innerHTML = "";
-    selectedTalents = { ...initialTalents }; // 선택된 아이템 초기화
-
-    // 오른쪽 열의 아이템 초기화
-    const rightCols = document.querySelectorAll("#detail-page .right-col");
-    rightCols.forEach((col) => (col.innerHTML = ""));
   } else if (pageId === "detail") {
     showCharacterPage(characterId);
     mainPage.style.display = "none";
@@ -169,8 +158,6 @@ function handleRouteChange() {
 function navigateTo(path) {
   history.pushState(null, "", path);
   handleRouteChange();
-  // 페이지 이동 시 초기화
-  selectedTalents = { ...initialTalents };
 }
 
 // 초기 로드 및 popstate 이벤트 처리
@@ -186,7 +173,6 @@ mainPage.addEventListener("click", (event) => {
     const characterId = event.target.dataset.character;
     showPage("detail", characterId);
     navigateTo(`/characters/${characterId}`);
-    selectedTalents = { ...initialTalents };
   }
 });
 
@@ -206,7 +192,7 @@ async function showCharacterPage(characterId) {
     }
 
     // 페이지를 다시 로드할 때 초기화
-    selectedTalents = { ...initialTalents };
+    selectedTalents = { ...initialTalents, characterId };
 
     const character = characters.find((char) => char.id === characterId);
     if (character) {
@@ -232,6 +218,10 @@ async function showCharacterPage(characterId) {
     magicalObjects.innerHTML = originalMagicalObjects
       .map(makeObjectItemBlock)
       .join("");
+
+    // 오른쪽 열의 아이템 초기화
+    const rightCols = document.querySelectorAll("#detail-page .right-col");
+    rightCols.forEach((col) => (col.innerHTML = ""));
 
     addPlaceholders();
     addTooltipEventListeners();
@@ -485,6 +475,7 @@ function moveLeftToRight(itemBlock) {
 
 function syncSelectedData() {
   const newTalents = {
+    characterId: selectedTalents.characterId,
     startTalents: [],
     talents: [],
     ultimates: [],
