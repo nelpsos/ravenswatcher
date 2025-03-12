@@ -619,35 +619,22 @@ function showTooltip(event) {
     tooltip.style.left = rect.right + 5 + "px";
   }
   tooltip.style.top = rect.top + "px";
-  tooltip.style.transform = "translateY(-5px)"; // 위치 변경 애니메이션
+  tooltip.style.transform = "translateY(-5px)";
 
-  clearTimeout(tooltipTimer); // 이전 타이머 제거
+  clearTimeout(tooltipTimer);
   tooltipTimer = null;
 }
 
 function hideTooltip() {
   const tooltip = document.getElementById("tooltip");
   tooltip.classList.remove("show");
-  tooltip.style.transform = "translateY(0)"; // 위치 초기화
+  tooltip.style.transform = "translateY(0)";
 }
 
 // 닫기 버튼 클릭 이벤트 처리
 closeButton.addEventListener("click", () => {
   loadPopup.style.display = "none";
 });
-
-// 저장 버튼 클릭 이벤트 처리
-saveButton.addEventListener("click", () => {
-  localStorage.setItem("itemsData", JSON.stringify(selectedTalents));
-});
-
-// 불러오기 기능 구현
-function loadItemsData() {
-  const data = JSON.parse(localStorage.getItem("itemsData"));
-  if (data) {
-    setItemsData(data);
-  }
-}
 
 function updateUltimateTalentsState() {
   const selectedUltimate = selectedTalents.ultimates[0];
@@ -762,6 +749,7 @@ function applySelectedTalents() {
   // 각 섹션을 초기화
   initializeTalents();
   initializePlaceholders();
+  addTooltipEventListeners();
 
   // startTalents 반영
   startTalents.forEach((talent) => {
