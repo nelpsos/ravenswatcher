@@ -290,3 +290,12 @@ body {
   background-color: #333;
   font-weight: bold;
 }
+
+#save-notice {
+  transition: 0.3s;
+  margin-right: 10px;
+}
+
+#save-notice.transparent {
+  opacity: 0;
+}

@@ -652,3 +652,117 @@ function updateUltimateTalentsState() {
     }
   });
 }
+
+const saveNotice = document.getElementById("save-notice");
+const loadButton = document.getElementById("load-button");
+const loadList = document.getElementById("load-list");
+
+// 저장 버튼 클릭 이벤트 처리
+saveButton.addEventListener("click", () => {
+  const buildName = document.getElementById("build-name").value.trim();
+  if (!buildName) {
+    showSaveNotice("빌드 이름을 입력하세요.");
+    return;
+  }
+
+  let savedBuildList = JSON.parse(localStorage.getItem("savedBuildList")) || [];
+  const existingBuild = savedBuildList.find(
+    (build) => build.name === buildName
+  );
+
+  if (existingBuild) {
+    if (saveNotice.textContent.includes("덮어쓰시겠습니까?")) {
+      showSaveNotice(`'${buildName}' 저장이 완료되었습니다.`);
+      saveBuild(buildName, savedBuildList);
+    } else {
+      showSaveNotice(`${buildName}은 이미 있는 빌드입니다. 덮어쓰시겠습니까?`);
+    }
+  } else {
+    showSaveNotice(`'${buildName}' 저장이 완료되었습니다.`);
+    saveBuild(buildName, savedBuildList);
+  }
+});
+
+let saveNoticeTimer = null;
+
+function showSaveNotice(message) {
+  clearTimeout(saveNoticeTimer);
+  saveNotice.textContent = message;
+  saveNotice.classList.remove("transparent");
+  saveNoticeTimer = setTimeout(() => {
+    saveNotice.classList.add("transparent");
+  }, 3000);
+}
+
+function saveBuild(buildName, savedBuildList) {
+  const newBuild = { name: buildName, selectedTalents };
+  savedBuildList = savedBuildList.filter((build) => build.name !== buildName);
+  savedBuildList.push(newBuild);
+  localStorage.setItem("savedBuildList", JSON.stringify(savedBuildList));
+}
+
+// 불러오기 버튼 클릭 이벤트 처리
+loadButton.addEventListener("click", () => {
+  loadPopup.style.display = "block";
+  const savedBuildList =
+    JSON.parse(localStorage.getItem("savedBuildList")) || [];
+  if (savedBuildList.length === 0) {
+    loadList.innerHTML = "<p>저장된 빌드가 없습니다.</p>";
+  } else {
+    loadList.innerHTML = savedBuildList
+      .map((build) => `<p class="load-item">${build.name}</p>`)
+      .join("");
+  }
+});
+
+// 닫기 버튼 클릭 이벤트 처리
+closeButton.addEventListener("click", () => {
+  loadPopup.style.display = "none";
+});
+
+// 불러오기 목록 클릭 이벤트 처리
+loadList.addEventListener("click", (event) => {
+  if (event.target.classList.contains("load-item")) {
+    const buildName = event.target.textContent;
+    const savedBuildList =
+      JSON.parse(localStorage.getItem("savedBuildList")) || [];
+    const selectedBuild = savedBuildList.find(
+      (build) => build.name === buildName
+    );
+    if (selectedBuild) {
+      selectedTalents = selectedBuild.selectedTalents;
+      applySelectedTalents();
+      loadPopup.style.display = "none";
+    }
+  }
+});
+
+function applySelectedTalents() {
+  // 선택된 talents를 페이지에 반영하는 로직
+  startTalents.innerHTML = originalCharacterTalents.startTalents
+    .map(makeCharacterItemBlock)
+    .join("");
+  talents.innerHTML = originalCharacterTalents.talents
+    .map(makeCharacterItemBlock)
+    .join("");
+  ultimates.innerHTML = originalCharacterTalents.ultimates
+    .map(makeCharacterItemBlock)
+    .join("");
+  ultimateTalents.innerHTML = originalCharacterTalents.ultimateTalents
+    .map(makeCharacterItemBlock)
+    .join("");
+  magicalObjects.innerHTML = originalMagicalObjects
+    .map(makeObjectItemBlock)
+    .join("");
+}
+
+function getItemsData() {
+  return {
+    characterId: selectedTalents.characterId,
+    startTalents: selectedTalents.startTalents,
+    talents: selectedTalents.talents,
+    ultimates: selectedTalents.ultimates,
+    ultimateTalents: selectedTalents.ultimateTalents,
+    magicalObjects: selectedTalents.magicalObjects,
+  };
+}
