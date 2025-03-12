@@ -9,6 +9,7 @@
   --tooltip-background: #333;
   --tooltip-text: #fff;
   --placeholder-border: #aaa;
+  --small-button-background: #181818;
 }
 
 :root[color-theme="dark"] {
@@ -18,19 +19,16 @@
   --tooltip-background: #333;
   --tooltip-text: #e0e0e0;
   --placeholder-border: #666;
-}
-
-:root[color-theme="light"] .light-mode {
-  display: block;
-}
-
-:root[color-theme="light"] .dark-mode {
-  display: none;
+  --small-button-background: #3e3e3e;
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+#app {
+  padding: 10px;
 }
 
 #main-page #character-buttons {
@@ -165,10 +163,12 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
+  background-color: var(--background-color);
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
 .header {
@@ -181,39 +181,15 @@ body {
   align-items: center;
 }
 
-#dark-mode-toggle {
-  background: none;
-  border: none;
-  font-size: 0.5em;
-  cursor: pointer;
-  margin-left: auto;
-  transition: transform 0.2s;
-  position: relative; /* 위치 조정 */
-  right: 1em; /* 오른쪽에 위치 */
-  color: var(--text-color);
-}
-
-#dark-mode-toggle:hover {
-  transform: scale(1.2);
-}
-
-#github-button {
+.icon-buttons {
   display: flex;
-  align-items: center;
-  margin-left: 0.5em; /* dark mode toggle 버튼 옆에 위치 */
+  flex-direction: row-reverse;
+  gap: 20px;
 }
 
 .github-icon {
-  width: 24px;
-  height: 24px;
-}
-
-.light-mode {
-  display: none;
-}
-
-.dark-mode {
-  display: block;
+  height: 1.6em;
+  width: 1.6em;
 }
 
 @font-face {
@@ -229,6 +205,7 @@ body {
   user-select: none; /* 드래그 방지 */
   cursor: pointer; /* 커서 포인터 */
   position: absolute; /* 위치 조정 */
+  top: -1.5em;
   left: 50%; /* 가운데 정렬 */
   transform: translateX(-50%); /* 가운데 정렬 */
   padding: 0 0.3em; /* 좌우 여백 추가 */
@@ -270,14 +247,7 @@ body {
   display: flex;
   align-items: center;
   margin-left: auto;
-}
-
-.save-area-inline input[type="text"] {
-  margin-right: 10px;
-}
-
-.save-area-inline button {
-  margin-right: 5px;
+  gap: 10px;
 }
 
 .inline-box {
@@ -298,4 +268,51 @@ body {
 
 #save-notice.transparent {
   opacity: 0;
+}
+
+#close-button {
+  background-color: #f44336; /* Red background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 10px 20px; /* Some padding */
+  text-align: center; /* Centered text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Get the element to respect width and height */
+  font-size: 16px; /* Increase font size */
+  margin: 4px 2px; /* Some margin */
+  cursor: pointer; /* Pointer/hand icon */
+  border-radius: 12px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+#close-button:hover {
+  background-color: #d32f2f; /* Darker red */
+}
+
+#load-list {
+  max-height: 300px; /* Max height for the list */
+  overflow-y: auto; /* Enable vertical scroll */
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  background-color: var(--background-color);
+  border-radius: 5px;
+}
+
+#build-name {
+  padding: 10px; /* Some padding */
+  border: 1px solid var(--border-color); /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Increase font size */
+  background-color: var(--background-color); /* Background color */
+  color: var(--text-color); /* Text color */
+  transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+#build-name:focus {
+  border-color: #4caf50; /* Green border on focus */
+  outline: none; /* Remove default outline */
+}
+
+.footer {
+  margin-top: 20px;
 }

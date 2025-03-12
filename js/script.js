@@ -61,12 +61,13 @@ const headerLogo = document.getElementById("header-logo");
 let tooltipTimer = null;
 
 const darkModeToggle = document.getElementById("dark-mode-toggle");
+const darkModeToggleIcon = document.getElementById("dark-mode-toggle-icon");
 
 // 페이지 진입 시 로컬스토리지의 다크모드 값 읽기
 document.addEventListener("DOMContentLoaded", () => {
   const savedColorTheme = getUserColorTheme();
   document.documentElement.setAttribute("color-theme", savedColorTheme);
-  darkModeToggle.textContent = savedColorTheme === "dark" ? "☾" : "✵";
+  darkModeToggleIcon.textContent = savedColorTheme === "dark" ? "☾" : "✵";
 });
 
 function getUserColorTheme() {
@@ -87,7 +88,7 @@ darkModeToggle.addEventListener("click", () => {
       : COLOR_THEME.DARK;
 
   document.documentElement.setAttribute("color-theme", changedColorTheme.name);
-  darkModeToggle.textContent = changedColorTheme.icon;
+  darkModeToggleIcon.textContent = changedColorTheme.icon;
   localStorage.setItem("color-theme", changedColorTheme.name);
 });
 

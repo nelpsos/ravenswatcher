@@ -10,6 +10,8 @@
     <link rel="icon" href="/assets/favicon.ico" />
 
     <!-- Start Single Page Apps for GitHub Pages -->
+    <script src="/js/IconButton.js"></script>
+    <script src="/js/FancyButton.js"></script>
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
       // MIT License
@@ -43,25 +45,47 @@
     <script src="/js/script.js" defer></script>
   </head>
   <body>
+    <template id="icon-button">
+      <button class="icon-button">
+        <span class="icon-container">
+          <slot name="icon"></slot>
+        </span>
+        <span class="icon-background"></span>
+      </button>
+    </template>
+    <template id="fancy-button">
+      <button class="fancy-button">
+        <span class="fancy-button-shadow"></span>
+        <span class="fancy-button-edge"></span>
+        <span class="fancy-button-front fancy-button-text">
+          <slot name="text"></slot>
+        </span>
+      </button>
+    </template>
+
     <div id="app">
-      <h1 class="header">
-        <a id="header-logo" data-text="Ravenswatcher">Ravenswatcher</a>
-        <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">☾</button>
-        <a
-          id="github-button"
-          aria-label="Go to GitHub"
-          href="https://github.com/nelpsos/ravenswatcher"
-          target="_blank">
-          <img
-            src="/assets/github-mark.svg"
-            alt="GitHub"
-            class="github-icon light-mode" />
-          <img
-            src="/assets/github-mark-white.svg"
-            alt="GitHub"
-            class="github-icon dark-mode" />
-        </a>
-      </h1>
+      <header>
+        <div class="icon-buttons">
+          <icon-button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
+            <span id="dark-mode-toggle-icon" slot="icon"> ☾ </span>
+          </icon-button>
+          <icon-button>
+            <a
+              slot="icon"
+              aria-label="Go to GitHub"
+              href="https://github.com/nelpsos/ravenswatcher"
+              target="_blank">
+              <img
+                src="/assets/github-mark-white.svg"
+                alt="GitHub"
+                class="github-icon" />
+            </a>
+          </icon-button>
+        </div>
+        <h1 class="header">
+          <a id="header-logo" data-text="Ravenswatcher">Ravenswatcher</a>
+        </h1>
+      </header>
       <div id="main-page">
         <div id="character-buttons"></div>
       </div>
@@ -73,8 +97,12 @@
           <div class="save-area-inline">
             <span id="save-notice" class="transparent"></span>
             <input type="text" id="build-name" placeholder="빌드 이름" />
-            <button id="save-button">저장</button>
-            <button id="load-button">불러오기</button>
+            <fancy-button id="save-button">
+              <span slot="text">저장</span>
+            </fancy-button>
+            <fancy-button id="load-button">
+              <span slot="text">불러오기</span>
+            </fancy-button>
           </div>
         </div>
         <div id="load-popup" style="display: none">
@@ -103,8 +131,11 @@
             <td class="right-col"></td>
           </tr>
         </table>
-
-        <button id="back-button">돌아가기</button>
+        <div class="footer">
+          <fancy-button id="back-button">
+            <span slot="text">돌아가기</span>
+          </fancy-button>
+        </div>
       </div>
     </div>
     <div id="tooltip" class="tooltip"></div>
