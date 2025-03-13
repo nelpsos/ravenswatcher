@@ -671,8 +671,8 @@ function initializeLoadPopup() {
         (build) => `
           <div class="load-item-container">
             <p class="load-item" data-build-name="${build.name}">${build.name}</p>
-            <fancy-button class="delete-load-item" data-build-name="${build.name}">
-              <span slot="text">삭제</slot>
+            <fancy-button variant="icon" background-color="red" class="delete-load-item" data-build-name="${build.name}">
+              <span slot="text"><img src="/assets/delete.svg"/></slot>
             </fancy-button>
           </div>
         `
@@ -682,23 +682,32 @@ function initializeLoadPopup() {
 }
 
 loadList.addEventListener("click", (event) => {
-  if (event.target.classList.contains("delete-load-item")) {
-    const buildName = event.target.dataset.buildName;
-    const loadItem = event.target.previousElementSibling;
+  const deleteButton = event.target.closest(".delete-load-item");
+  if (deleteButton) {
+    const buildName = deleteButton.dataset.buildName;
+    const loadItem = deleteButton.previousElementSibling;
     loadItem.textContent = "정말 삭제하시겠습니까?";
     loadItem.style.color = "red";
-
-    const deleteButton = event.target;
     deleteButton.style.display = "none";
 
-    const confirmDeleteButton = document.createElement("button");
-    confirmDeleteButton.textContent = "O";
+    const confirmDeleteButton = document.createElement("fancy-button");
+    const checkButton = document.createElement("span");
+    checkButton.textContent = "✔";
+    checkButton.setAttribute("slot", "text");
+    confirmDeleteButton.appendChild(checkButton);
     confirmDeleteButton.classList.add("confirm-delete-load-item");
     confirmDeleteButton.dataset.buildName = buildName;
+    confirmDeleteButton.setAttribute("variant", "icon");
+    confirmDeleteButton.setAttribute("background-color", "red");
 
-    const cancelDeleteButton = document.createElement("button");
-    cancelDeleteButton.textContent = "X";
+    const cancelDeleteButton = document.createElement("fancy-button");
+    const xButton = document.createElement("span");
+    xButton.textContent = "✖";
+    xButton.setAttribute("slot", "text");
+    cancelDeleteButton.appendChild(xButton);
     cancelDeleteButton.classList.add("cancel-delete-load-item");
+    cancelDeleteButton.setAttribute("variant", "icon");
+    cancelDeleteButton.setAttribute("background-color", "blue");
 
     deleteButton.parentElement.appendChild(confirmDeleteButton);
     deleteButton.parentElement.appendChild(cancelDeleteButton);
@@ -706,8 +715,11 @@ loadList.addEventListener("click", (event) => {
     return;
   }
 
-  if (event.target.classList.contains("confirm-delete-load-item")) {
-    const buildName = event.target.dataset.buildName;
+  const confirmDeleteLoadItem = event.target.closest(
+    ".confirm-delete-load-item"
+  );
+  if (confirmDeleteLoadItem) {
+    const buildName = confirmDeleteLoadItem.dataset.buildName;
     let savedBuildList =
       JSON.parse(localStorage.getItem("savedBuildList")) || [];
     savedBuildList = savedBuildList.filter(
@@ -718,41 +730,43 @@ loadList.addEventListener("click", (event) => {
     return;
   }
 
-  if (event.target.classList.contains("cancel-delete-load-item")) {
-    const loadItem = event.target.parentElement.querySelector(".load-item");
+  const cancelDeleteLoadItem = event.target.closest(".cancel-delete-load-item");
+  if (cancelDeleteLoadItem) {
+    const loadItem =
+      cancelDeleteLoadItem.parentElement.querySelector(".load-item");
     loadItem.textContent = loadItem.dataset.buildName;
     loadItem.style.color = "";
 
     const deleteButton =
-      event.target.parentElement.querySelector(".delete-load-item");
+      cancelDeleteLoadItem.parentElement.querySelector(".delete-load-item");
     deleteButton.style.display = "inline";
 
-    event.target.parentElement
+    cancelDeleteLoadItem.parentElement
       .querySelector(".confirm-delete-load-item")
       .remove();
-    event.target.remove();
+    cancelDeleteLoadItem.remove();
     return;
   }
 
-  if (!event.target.classList.contains("load-item")) {
+  const loadItem = event.target.closest(".load-item");
+  if (loadItem) {
+    const buildName = event.target.textContent;
+    const savedBuildList =
+      JSON.parse(localStorage.getItem("savedBuildList")) || [];
+    const selectedBuild = savedBuildList.find(
+      (build) => build.name === buildName
+    );
+
+    if (!selectedBuild) {
+      return;
+    }
+
+    selectedTalents = selectedBuild.selectedTalents;
+    applySelectedTalents();
+    hideLoadPopup();
+    showSaveNotice(`'${buildName}' 불러오기가 완료되었습니다.`);
     return;
   }
-
-  const buildName = event.target.textContent;
-  const savedBuildList =
-    JSON.parse(localStorage.getItem("savedBuildList")) || [];
-  const selectedBuild = savedBuildList.find(
-    (build) => build.name === buildName
-  );
-
-  if (!selectedBuild) {
-    return;
-  }
-
-  selectedTalents = selectedBuild.selectedTalents;
-  applySelectedTalents();
-  hideLoadPopup();
-  showSaveNotice(`'${buildName}' 불러오기가 완료되었습니다.`);
 });
 
 function updateUltimateTalentsState() {
