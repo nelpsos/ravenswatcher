@@ -63,6 +63,11 @@ let tooltipTimer = null;
 const darkModeToggle = document.getElementById("dark-mode-toggle");
 const darkModeToggleIcon = document.getElementById("dark-mode-toggle-icon");
 
+const saveNotice = document.getElementById("save-notice");
+const loadButton = document.getElementById("load-button");
+const loadList = document.getElementById("load-list");
+const mask = document.getElementById("mask");
+
 // 페이지 진입 시 로컬스토리지의 다크모드 값 읽기
 document.addEventListener("DOMContentLoaded", () => {
   const savedColorTheme = getUserColorTheme();
@@ -632,9 +637,34 @@ function hideTooltip() {
   tooltip.style.transform = "translateY(0)";
 }
 
-// 닫기 버튼 클릭 이벤트 처리
-closeButton.addEventListener("click", () => {
-  loadPopup.style.display = "none";
+function hideLoadPopup() {
+  loadPopup.classList.remove("show");
+  mask.classList.remove("show");
+  setTimeout(() => {
+    loadPopup.style.display = "none";
+    mask.style.display = "none";
+  }, 200); // transition duration과 동일하게 설정
+}
+
+closeButton.addEventListener("click", hideLoadPopup);
+mask.addEventListener("click", hideLoadPopup);
+
+loadButton.addEventListener("click", () => {
+  loadPopup.style.display = "block";
+  mask.style.display = "block";
+  setTimeout(() => {
+    loadPopup.classList.add("show");
+    mask.classList.add("show");
+  }, 10); // 약간의 지연을 주어 transition이 적용되도록 함
+  const savedBuildList =
+    JSON.parse(localStorage.getItem("savedBuildList")) || [];
+  if (savedBuildList.length === 0) {
+    loadList.innerHTML = "<p>저장된 빌드가 없습니다.</p>";
+  } else {
+    loadList.innerHTML = savedBuildList
+      .map((build) => `<p class="load-item">${build.name}</p>`)
+      .join("");
+  }
 });
 
 function updateUltimateTalentsState() {
@@ -656,10 +686,6 @@ function updateUltimateTalentsState() {
     }
   });
 }
-
-const saveNotice = document.getElementById("save-notice");
-const loadButton = document.getElementById("load-button");
-const loadList = document.getElementById("load-list");
 
 // 저장 버튼 클릭 이벤트 처리
 saveButton.addEventListener("click", () => {
@@ -704,25 +730,6 @@ function saveBuild(buildName, savedBuildList) {
   savedBuildList.push(newBuild);
   localStorage.setItem("savedBuildList", JSON.stringify(savedBuildList));
 }
-
-// 불러오기 버튼 클릭 이벤트 처리
-loadButton.addEventListener("click", () => {
-  loadPopup.style.display = "block";
-  const savedBuildList =
-    JSON.parse(localStorage.getItem("savedBuildList")) || [];
-  if (savedBuildList.length === 0) {
-    loadList.innerHTML = "<p>저장된 빌드가 없습니다.</p>";
-  } else {
-    loadList.innerHTML = savedBuildList
-      .map((build) => `<p class="load-item">${build.name}</p>`)
-      .join("");
-  }
-});
-
-// 닫기 버튼 클릭 이벤트 처리
-closeButton.addEventListener("click", () => {
-  loadPopup.style.display = "none";
-});
 
 // 불러오기 목록 클릭 이벤트 처리
 loadList.addEventListener("click", (event) => {
