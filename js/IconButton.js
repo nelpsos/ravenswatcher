@@ -11,8 +11,8 @@ class IconButton extends HTMLElement {
     style.textContent = `
         .icon-button {
           padding: 0;
-          width: 45px;
-          height: 45px;
+          width: 40px;
+          height: 40px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -37,6 +37,7 @@ class IconButton extends HTMLElement {
           border: 1px solid rgba(156, 156, 156, 0.466);
           font-size: 1.5em;
           color: white;
+          line-height: 0;
         }
         .icon-background {
           position: absolute;
