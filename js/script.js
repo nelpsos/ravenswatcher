@@ -649,22 +649,110 @@ function hideLoadPopup() {
 closeButton.addEventListener("click", hideLoadPopup);
 mask.addEventListener("click", hideLoadPopup);
 
-loadButton.addEventListener("click", () => {
+loadButton.addEventListener("click", initializeLoadPopup);
+
+function initializeLoadPopup() {
   loadPopup.style.display = "block";
   mask.style.display = "block";
+
   setTimeout(() => {
     loadPopup.classList.add("show");
     mask.classList.add("show");
-  }, 10); // 약간의 지연을 주어 transition이 적용되도록 함
+  }, 10);
+
   const savedBuildList =
     JSON.parse(localStorage.getItem("savedBuildList")) || [];
+
   if (savedBuildList.length === 0) {
     loadList.innerHTML = "<p>저장된 빌드가 없습니다.</p>";
   } else {
     loadList.innerHTML = savedBuildList
-      .map((build) => `<p class="load-item">${build.name}</p>`)
+      .map(
+        (build) => `
+          <div class="load-item-container">
+            <p class="load-item" data-build-name="${build.name}">${build.name}</p>
+            <fancy-button class="delete-load-item" data-build-name="${build.name}">
+              <span slot="text">삭제</slot>
+            </fancy-button>
+          </div>
+        `
+      )
       .join("");
   }
+}
+
+loadList.addEventListener("click", (event) => {
+  if (event.target.classList.contains("delete-load-item")) {
+    const buildName = event.target.dataset.buildName;
+    const loadItem = event.target.previousElementSibling;
+    loadItem.textContent = "정말 삭제하시겠습니까?";
+    loadItem.style.color = "red";
+
+    const deleteButton = event.target;
+    deleteButton.style.display = "none";
+
+    const confirmDeleteButton = document.createElement("button");
+    confirmDeleteButton.textContent = "O";
+    confirmDeleteButton.classList.add("confirm-delete-load-item");
+    confirmDeleteButton.dataset.buildName = buildName;
+
+    const cancelDeleteButton = document.createElement("button");
+    cancelDeleteButton.textContent = "X";
+    cancelDeleteButton.classList.add("cancel-delete-load-item");
+
+    deleteButton.parentElement.appendChild(confirmDeleteButton);
+    deleteButton.parentElement.appendChild(cancelDeleteButton);
+
+    return;
+  }
+
+  if (event.target.classList.contains("confirm-delete-load-item")) {
+    const buildName = event.target.dataset.buildName;
+    let savedBuildList =
+      JSON.parse(localStorage.getItem("savedBuildList")) || [];
+    savedBuildList = savedBuildList.filter(
+      (build) => build.name !== buildName
+    ); /** TODO: 캐릭터 이름도 동일한지 봐야함 */
+    localStorage.setItem("savedBuildList", JSON.stringify(savedBuildList));
+    initializeLoadPopup();
+    return;
+  }
+
+  if (event.target.classList.contains("cancel-delete-load-item")) {
+    const loadItem = event.target.parentElement.querySelector(".load-item");
+    loadItem.textContent = loadItem.dataset.buildName;
+    loadItem.style.color = "";
+
+    const deleteButton =
+      event.target.parentElement.querySelector(".delete-load-item");
+    deleteButton.style.display = "inline";
+
+    event.target.parentElement
+      .querySelector(".confirm-delete-load-item")
+      .remove();
+    event.target.remove();
+    return;
+  }
+
+  if (!event.target.classList.contains("load-item")) {
+    return;
+  }
+
+  const buildName = event.target.textContent;
+  const savedBuildList =
+    JSON.parse(localStorage.getItem("savedBuildList")) || [];
+  const selectedBuild = savedBuildList.find(
+    (build) => build.name === buildName
+  );
+
+  if (!selectedBuild) {
+    return;
+  }
+
+  selectedTalents = selectedBuild.selectedTalents;
+  applySelectedTalents();
+  hideLoadPopup();
+  showSaveNotice(`'${buildName}' 불러오기가 완료되었습니다.`);
 });
 
 function updateUltimateTalentsState() {
@@ -733,20 +821,25 @@ function saveBuild(buildName, savedBuildList) {
 
 // 불러오기 목록 클릭 이벤트 처리
 loadList.addEventListener("click", (event) => {
-  if (event.target.classList.contains("load-item")) {
-    const buildName = event.target.textContent;
-    const savedBuildList =
-      JSON.parse(localStorage.getItem("savedBuildList")) || [];
-    const selectedBuild = savedBuildList.find(
-      (build) => build.name === buildName
-    );
-    if (selectedBuild) {
-      selectedTalents = selectedBuild.selectedTalents;
-      applySelectedTalents();
-      loadPopup.style.display = "none";
-      showSaveNotice(`'${buildName}' 불러오기가 완료되었습니다.`);
-    }
+  if (!event.target.classList.contains("load-item")) {
+    return;
   }
+
+  const buildName = event.target.textContent;
+  const savedBuildList =
+    JSON.parse(localStorage.getItem("savedBuildList")) || [];
+  const selectedBuild = savedBuildList.find(
+    (build) => build.name === buildName
+  );
+
+  if (!selectedBuild) {
+    return;
+  }
+
+  selectedTalents = selectedBuild.selectedTalents;
+  applySelectedTalents();
+  hideLoadPopup();
+  showSaveNotice(`'${buildName}' 불러오기가 완료되었습니다.`);
 });
 
 function applySelectedTalents() {
