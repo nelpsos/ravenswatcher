@@ -36,6 +36,7 @@ let selectedTalents = {
   ultimateTalents: [],
   magicalObjects: [],
 };
+let selectedCharacter = null;
 const rarityColors = ["#fff", "#88f", "#d8bfd8", "#ff0"];
 const stackableRarities = ["COMMON", "RARE", "EPIC"];
 
@@ -202,6 +203,7 @@ async function showCharacterPage(characterId) {
     const character = characters.find((char) => char.id === characterId);
     if (character) {
       characterName.textContent = character.name;
+      selectedCharacter = character;
     }
 
     characterImage.setAttribute("data-character", characterId);
@@ -277,7 +279,7 @@ function makeCharacterItemBlock(itemObject) {
     const itemBlock = document.createElement("div");
     const item = document.createElement("div");
     const img = document.createElement("img");
-    const characterId = window.location.pathname.split("/")[2];
+    const characterId = selectedCharacter.id;
 
     itemBlock.classList.add("item-block");
     itemBlock.dataset.itemId = itemId;
@@ -515,7 +517,7 @@ function moveLeftToRight(item) {
 
 function syncSelectedData() {
   const newTalents = {
-    characterId: selectedTalents.characterId,
+    characterId: selectedCharacter.id,
     startTalents: [],
     talents: [],
     ultimates: [],
@@ -685,11 +687,15 @@ function initializeLoadPopup() {
 
   const savedBuildList =
     JSON.parse(localStorage.getItem("savedBuildList")) || [];
+  const filteredBuildList = savedBuildList.filter(
+    (build) => build.character === selectedCharacter.id
+  );
 
-  if (savedBuildList.length === 0) {
-    loadList.innerHTML = "<p>저장된 빌드가 없습니다.</p>";
+  if (filteredBuildList.length === 0) {
+    loadList.innerHTML =
+      '<p style="text-align: center">저장된 빌드가 없습니다.</p>';
   } else {
-    loadList.innerHTML = savedBuildList
+    loadList.innerHTML = filteredBuildList
       .map(
         (build) => `
           <div class="load-item-container">
@@ -746,8 +752,9 @@ loadList.addEventListener("click", (event) => {
     let savedBuildList =
       JSON.parse(localStorage.getItem("savedBuildList")) || [];
     savedBuildList = savedBuildList.filter(
-      (build) => build.name !== buildName
-    ); /** TODO: 캐릭터 이름도 동일한지 봐야함 */
+      (build) =>
+        build.name !== buildName || build.character !== selectedCharacter.id
+    );
     localStorage.setItem("savedBuildList", JSON.stringify(savedBuildList));
     initializeLoadPopup();
     return;
@@ -777,7 +784,8 @@ loadList.addEventListener("click", (event) => {
     const savedBuildList =
       JSON.parse(localStorage.getItem("savedBuildList")) || [];
     const selectedBuild = savedBuildList.find(
-      (build) => build.name === buildName
+      (build) =>
+        build.name === buildName && build.character === selectedCharacter.id
     );
 
     if (!selectedBuild) {
@@ -826,7 +834,8 @@ saveButton.addEventListener("click", () => {
 
   let savedBuildList = JSON.parse(localStorage.getItem("savedBuildList")) || [];
   const existingBuild = savedBuildList.find(
-    (build) => build.name === buildName
+    (build) =>
+      build.name === buildName && build.character === selectedCharacter.id
   );
 
   if (existingBuild) {
@@ -854,8 +863,15 @@ function showSaveNotice(message) {
 }
 
 function saveBuild(buildName, savedBuildList) {
-  const newBuild = { name: buildName, selectedTalents };
-  savedBuildList = savedBuildList.filter((build) => build.name !== buildName);
+  const newBuild = {
+    name: buildName,
+    character: selectedCharacter.id,
+    selectedTalents,
+  };
+  savedBuildList = savedBuildList.filter(
+    (build) =>
+      build.name !== buildName || build.character !== selectedCharacter.id
+  );
   savedBuildList.push(newBuild);
   localStorage.setItem("savedBuildList", JSON.stringify(savedBuildList));
 }
@@ -870,7 +886,8 @@ loadList.addEventListener("click", (event) => {
   const savedBuildList =
     JSON.parse(localStorage.getItem("savedBuildList")) || [];
   const selectedBuild = savedBuildList.find(
-    (build) => build.name === buildName
+    (build) =>
+      build.name === buildName && build.character === selectedCharacter.id
   );
 
   if (!selectedBuild) {
