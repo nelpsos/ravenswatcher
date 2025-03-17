@@ -4,6 +4,7 @@
 
 :root[color-theme="light"] {
   --background-color: #fff;
+  --emphasize-background-color: #eee;
   --text-color: #000;
   --border-color: #ccc;
   --tooltip-background: #333;
@@ -14,6 +15,7 @@
 
 :root[color-theme="dark"] {
   --background-color: #121212;
+  --emphasize-background-color: #222;
   --text-color: #e0e0e0;
   --border-color: #444;
   --tooltip-background: #333;
@@ -158,48 +160,6 @@ body {
   transform: translateY(0); /* 위치 변경 애니메이션 */
 }
 
-#load-popup {
-  position: fixed;
-  min-width: 20%;
-  max-width: 80%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  background-color: var(--background-color);
-  padding: 0 20px;
-  border: 1px solid var(--border-color);
-  z-index: 1000;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
-  opacity: 0;
-  visibility: hidden;
-}
-
-#load-popup.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-#mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  display: none;
-  transition: opacity 0.2s, visibility 0.2s;
-}
-
-#mask.show {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-}
-
 .header {
   padding: 0 20px;
   color: white;
@@ -263,16 +223,12 @@ body {
 
 #character-header #character-image,
 #character-header #character-name {
+  margin: 10px;
   display: inline-block;
+  flex-shrink: 0;
 }
 
 #character-header .save-area-inline {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-}
-
-.save-area-inline {
   display: flex;
   align-items: center;
   margin-left: auto;
@@ -295,19 +251,101 @@ body {
   margin-right: 10px;
   cursor: default;
   user-select: none;
+  flex-grow: 1;
+  word-break: break-all;
 }
 
 #save-notice.transparent {
   opacity: 0;
 }
 
-#load-list {
-  max-height: 300px; /* Max height for the list */
-  overflow-y: auto; /* Enable vertical scroll */
+#load-popup {
+  position: fixed;
+  min-width: 400px;
+  max-width: 80vw;
+  max-height: 80vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background-color: var(--background-color);
+  padding: 0;
   border: 1px solid var(--border-color);
-  padding: 10px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#load-popup.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+#mask.show {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+#load-title,
+#load-buttons {
+  text-align: center;
+}
+
+#load-list {
+  overflow-y: auto; /* Enable vertical scroll */
+  max-height: 60vh;
   background-color: var(--background-color);
   border-radius: 5px;
+}
+
+.load-item-container {
+  border-radius: 5px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.load-item {
+  display: inline;
+  flex-grow: 1;
+  padding: 10px;
+  margin: 5px;
+  transition: 0.2s ease;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  border-radius: 5px;
+  max-width: 100%;
+  text-wrap: wrap;
+  word-break: break-all;
+}
+.load-item.deleting {
+  color: red;
+}
+.load-item:not(.deleting):hover {
+  cursor: pointer;
+  background-color: var(--emphasize-background-color);
+}
+
+.delete-load-item,
+.confirm-delete-load-item,
+.cancel-delete-load-item {
+  margin: 10px;
 }
 
 #build-name {
@@ -318,11 +356,17 @@ body {
   background-color: var(--background-color); /* Background color */
   color: var(--text-color); /* Text color */
   transition: border-color 0.3s; /* Smooth transition for border color */
+  flex-shrink: 0;
 }
 
 #build-name:focus {
   border-color: #4caf50; /* Green border on focus */
   outline: none; /* Remove default outline */
+}
+
+#save-button,
+#load-button {
+  flex-shrink: 0;
 }
 
 .footer {

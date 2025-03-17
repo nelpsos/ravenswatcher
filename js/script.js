@@ -489,6 +489,8 @@ function moveRightToLeft(item) {
   } else {
     originalItemBlock.appendChild(item);
   }
+
+  hideTooltip();
   syncSelectedData();
   return true;
 }
@@ -708,7 +710,7 @@ loadList.addEventListener("click", (event) => {
     const buildName = deleteButton.dataset.buildName;
     const loadItem = deleteButton.previousElementSibling;
     loadItem.textContent = "정말 삭제하시겠습니까?";
-    loadItem.style.color = "red";
+    loadItem.classList.add("deleting");
     deleteButton.style.display = "none";
 
     const confirmDeleteButton = document.createElement("fancy-button");
@@ -756,7 +758,7 @@ loadList.addEventListener("click", (event) => {
     const loadItem =
       cancelDeleteLoadItem.parentElement.querySelector(".load-item");
     loadItem.textContent = loadItem.dataset.buildName;
-    loadItem.style.color = "";
+    loadItem.classList.remove("deleting");
 
     const deleteButton =
       cancelDeleteLoadItem.parentElement.querySelector(".delete-load-item");
@@ -815,6 +817,10 @@ saveButton.addEventListener("click", () => {
   const buildName = document.getElementById("build-name").value.trim();
   if (!buildName) {
     showSaveNotice("빌드 이름을 입력하세요.");
+    return;
+  }
+  if (buildName.length > 20) {
+    showSaveNotice("빌드 이름은 20자까지 작성 가능합니다.");
     return;
   }
 
