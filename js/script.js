@@ -384,11 +384,11 @@ detailPage.addEventListener("click", (event) => {
 
 function magicalObjectMoveLeftToRight(item) {
   const itemBlock = item.parentElement;
-  const rarity = originalMagicalObjects.find(
+  const itemData = originalMagicalObjects.find(
     (obj) => obj.id === itemBlock.dataset.itemId
   );
 
-  if (!stackableRarities.includes(rarity?.rarity)) {
+  if (!stackableRarities.includes(itemData?.rarity)) {
     return moveLeftToRight(item);
   }
 
@@ -417,28 +417,36 @@ function magicalObjectMoveLeftToRight(item) {
     if (placeholder) {
       placeholder.parentElement.replaceWith(newItemBlock);
     }
+    newItemBlock.addEventListener("mouseover", showTooltip);
+    newItemBlock.addEventListener("mouseout", hideTooltip);
   }
 
   syncSelectedData();
+
+  if (existingItemBlock) {
+    const tooltip = document.getElementById("tooltip");
+    tooltip.innerHTML = makeTooltipInnerHTML(itemData);
+  }
   return true;
 }
 
 function magicalObjectMoveRightToLeft(item) {
   const itemBlock = item.parentElement;
 
-  const rarity = originalMagicalObjects.find(
+  const itemData = originalMagicalObjects.find(
     (obj) => obj.id === itemBlock.dataset.itemId
   );
 
-  if (!stackableRarities.includes(rarity.rarity)) {
+  if (!stackableRarities.includes(itemData.rarity)) {
     return moveRightToLeft(item);
   }
 
   // 오른쪽 열의 아이템 클릭 시 개수 감소
   const countSpan = itemBlock.querySelector(".item-count");
-  countSpan.textContent = parseInt(countSpan.textContent) - 1;
+  let count = parseInt(countSpan.textContent);
+  countSpan.textContent = --count;
 
-  if (parseInt(countSpan.textContent) === 0) {
+  if (count === 0) {
     // 개수가 0이 되면 아이템 블록 제거하고 placeholder 추가
     const placeholder = document.createElement("div");
     placeholder.classList.add("item-block");
@@ -453,6 +461,12 @@ function magicalObjectMoveRightToLeft(item) {
   }
 
   syncSelectedData();
+
+  if (count !== 0) {
+    const tooltip = document.getElementById("tooltip");
+    tooltip.innerHTML = makeTooltipInnerHTML(itemData);
+  }
+
   return true;
 }
 
@@ -492,6 +506,7 @@ function moveLeftToRight(item) {
   placeholder.parentElement.dataset.itemId = item.dataset.itemId;
   placeholder.replaceWith(item);
   itemBlock.appendChild(placeholder);
+  hideTooltip();
   syncSelectedData();
   return true;
 }
@@ -559,59 +574,8 @@ function showTooltip(event) {
       (item) => item.id === itemId
     ) ||
     originalMagicalObjects.find((item) => item.id === itemId);
-  const name = item ? item.name : "Unknown Item";
-  let description = item ? item.description : "Description not found";
-
-  if (item && item.rarityValue) {
-    item.rarityValue.forEach((values, index) => {
-      const coloredValues = values
-        .map((value, i) => {
-          return `<span style="color: ${rarityColors[i]}">${value}</span>`;
-        })
-        .join("/");
-      description = description.replace(`{${index}}`, coloredValues);
-    });
-  }
-
   const tooltip = document.getElementById("tooltip");
-  tooltip.innerHTML = `<strong style="font-size: 1.2em;">${name}</strong>`;
-
-  // magicalObject의 경우 rarity와 setEffect 추가
-  if (originalMagicalObjects.find((item) => item.id === itemId)) {
-    const rarity =
-      {
-        COMMON: "일반",
-        RARE: "희귀",
-        EPIC: "서사",
-        LEGENDARY: "전설",
-        CURSED: "저주받음",
-      }[item.rarity] || "Unknown";
-    const rarityColor =
-      {
-        COMMON: "#fff",
-        RARE: "#88f",
-        EPIC: "#d8bfd8",
-        LEGENDARY: "#ff0",
-        CURSED: "#f00",
-      }[item.rarity] || "#fff";
-    tooltip.innerHTML += ` <span class="inline-box" style="color: ${rarityColor}; border-color: ${rarityColor}">${rarity}</span>`;
-  }
-
-  tooltip.innerHTML += `<br>${description}`;
-
-  if (originalMagicalObjects.find((item) => item.id === itemId)) {
-    const rarity = item.rarity;
-    if (["COMMON", "RARE", "EPIC"].includes(rarity)) {
-      const set = item.set;
-      const setEffect = item.setEffect;
-      const selectedCount = selectedTalents.magicalObjects.filter(
-        (obj) => obj.id === itemId
-      ).length;
-      const setColor = selectedCount >= set ? "#ff0" : "#888";
-
-      tooltip.innerHTML += `<br><span class="inline-box">x${set}</span> <span style="color: ${setColor};">${setEffect}</span>`;
-    }
-  }
+  tooltip.innerHTML = makeTooltipInnerHTML(item);
 
   tooltip.classList.add("show"); // show 클래스 추가
   const rect = itemElement.getBoundingClientRect();
@@ -629,6 +593,63 @@ function showTooltip(event) {
 
   clearTimeout(tooltipTimer);
   tooltipTimer = null;
+}
+
+function makeTooltipInnerHTML(item) {
+  const itemId = item.id;
+  const itemName = item ? item.name : "Unknown Item";
+  let itemDescription = item ? item.description : "Description not found";
+  let innerHTML = `<strong style="font-size: 1.2em;">${itemName}</strong>`;
+
+  if (item && item.rarityValue) {
+    item.rarityValue.forEach((values, index) => {
+      const coloredValues = values
+        .map((value, i) => {
+          return `<span style="color: ${rarityColors[i]}">${value}</span>`;
+        })
+        .join("/");
+      itemDescription = itemDescription.replace(`{${index}}`, coloredValues);
+    });
+  }
+
+  // magicalObject의 경우 rarity와 setEffect 추가
+  if (originalMagicalObjects.find((i) => i.id === itemId)) {
+    const rarity =
+      {
+        COMMON: "일반",
+        RARE: "희귀",
+        EPIC: "서사",
+        LEGENDARY: "전설",
+        CURSED: "저주받음",
+      }[item.rarity] || "Unknown";
+    const rarityColor =
+      {
+        COMMON: "#fff",
+        RARE: "#88f",
+        EPIC: "#d8bfd8",
+        LEGENDARY: "#ff0",
+        CURSED: "#f00",
+      }[item.rarity] || "#fff";
+    innerHTML += ` <span class="inline-box" style="color: ${rarityColor}; border-color: ${rarityColor}">${rarity}</span>`;
+  }
+
+  innerHTML += `<br>${itemDescription}`;
+
+  if (originalMagicalObjects.find((i) => i.id === itemId)) {
+    const rarity = item.rarity;
+    if (["COMMON", "RARE", "EPIC"].includes(rarity)) {
+      const set = item.set;
+      const setEffect = item.setEffect;
+      const selectedCount = selectedTalents.magicalObjects.filter(
+        (obj) => obj.id === itemId
+      ).length;
+      const setColor = selectedCount >= set ? "#ff0" : "#888";
+
+      innerHTML += `<br><span class="inline-box">x${set}</span> <span style="color: ${setColor};">${setEffect}</span>`;
+    }
+  }
+
+  return innerHTML;
 }
 
 function hideTooltip() {
