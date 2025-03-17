@@ -84,7 +84,7 @@ class FancyButton extends HTMLElement {
         color: white;
         background: hsl(120deg 50% 47%);
         will-change: transform;
-        transform: translateY(-4px);
+        transform: translateY(-3px);
         transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
       }
     `);
@@ -95,7 +95,7 @@ class FancyButton extends HTMLElement {
       }
 
       .fancy-button:hover .fancy-button-front {
-        transform: translateY(-6px);
+        transform: translateY(-4px);
         transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
       }
 
