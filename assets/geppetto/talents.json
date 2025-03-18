@@ -4,202 +4,205 @@
   "startTalents": [
     {
       "id": "s_1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "로켓 과학",
+      "description": "돌진을 최대 1초 동안 유지할 수 있으며 이동 경로에 {0}의 대미지를 입히고 적중하는 모든 적에게 점화 효과가 적용됩니다.",
+      "rarityValue": [["32", "40", "48", "56"]],
       "icon": "s_1.png"
     },
     {
       "id": "s_2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "마네킹볼",
+      "description": "특수 능력을 사용하면 마네킹이 제작되며, 폭발할 때 {0}의 대미지를 입힙니다.",
+      "rarityValue": [["155", "170", "185", "200"]],
       "icon": "s_2.png"
     },
     {
       "id": "s_3",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "쌍둥이 마네킹",
+      "description": "특성 사용 시 {0}% 확률로 한 번에 두 개의 마네킹을 동시에 제작합니다.",
+      "rarityValue": [["55", "70", "85", "100"]],
       "icon": "s_3.png"
     },
     {
       "id": "s_4",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "불안정한 핵",
+      "description": "생성된 마네킹이 5초 후 불안정한 상태가 됩니다.\n불안정한 마네킹이 파워 능력에 맞거나 파괴 및 분해될 경우, 폭발해 주변에 {0}의 광역 대미지를 입힙니다.",
+      "rarityValue": [["80", "90", "100", "110"]],
       "icon": "s_4.png"
     }
   ],
   "talents": [
     {
       "id": "1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "명확한 타격",
+      "description": "공격 콤보에 {0}%의 대미지를 입히는 추가 공격이 추가됩니다.",
+      "rarityValue": [["400", "500", "600", "700"]],
       "icon": "1.png"
     },
     {
       "id": "2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "원활한 메커니즘",
+      "description": "제페토의 공격에 맞는 마네킹이 현재 위치에서 즉시 공격을 가하여 {0}%의 대미지를 입힙니다.",
+      "rarityValue": [["50", "60", "70", "80"]],
       "icon": "2.png"
     },
     {
       "id": "3",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "심장 결속",
+      "description": "마네킹에 제페토의 활력의 {0}%에 해당하는 활력이 추가됩니다.\n제페토에는 활성 상태의 마네킹 하나당 방어력이 5 증가합니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "3.png"
     },
     {
       "id": "4",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "여러 갈래 번개",
+      "description": "방어 사용 시 마네킹 방향으로 번개 화살을 발사하여 {0}의 대미지를 입힙니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "4.png"
     },
     {
       "id": "5",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "대가족",
+      "description": "최대 활성 마네킹 개수가 1 증가합니다.\n특성 사용 시 재사용 대기 시간이 {0}% 감소합니다.",
+      "rarityValue": [["10", "15", "20", "25"]],
       "icon": "5.png"
     },
     {
       "id": "6",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "애통한 분노",
+      "description": "마네킹이 파괴될 떄마다 제페토 및 다른 마네킹이 {0}초 동안 힘을 얻습니다.",
+      "rarityValue": [["4", "6", "8", "10"]],
       "icon": "6.png"
     },
     {
       "id": "7",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "폭발적인 제작",
+      "description": "특성으로 제작한 마네킹이 작렬하는 파동을 발사해 {0}의 광역 대미지를 입힙니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "7.png"
     },
     {
       "id": "8",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "스카이콩콩",
+      "description": "마네킹이 공격 시 {0}% 더 멀리 이동합니다.",
+      "rarityValue": [["100", "115", "130", "145"]],
       "icon": "8.png"
     },
     {
       "id": "9",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "유동 콘덴서",
+      "description": "제페토에 보호막이 유지되는 동안 파워 능력은 범위 내의 모든 마네킹에 영향을 주며 입히는 대미지가 {0}% 증가합니다.",
+      "rarityValue": [["20", "30", "40", "50"]],
       "icon": "9.png"
     },
     {
       "id": "10",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "불꽃놀이",
+      "description": "마네킹이 최대 체력의 {0}%를 회복할 때마다 주위 적에게 15의 대미지를 입히는 유도탄을 발사합니다.",
+      "rarityValue": [["30", "25", "20", "15"]],
       "icon": "10.png"
     },
     {
       "id": "11",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "시계 태엽 약품",
+      "description": "마네킹이 특수 능력에 의해 치유될 때 재생 역시 {0}만큼 증가합니다.",
+      "rarityValue": [["8", "10", "12", "14"]],
       "icon": "11.png"
     },
     {
       "id": "12",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "광선 망막",
+      "description": "방어 효과 부여 시 마네킹이 안광을 발사하여 {0}%의 원거리 대미지를 입힙니다.",
+      "rarityValue": [["200", "300", "400", "500"]],
       "icon": "12.png"
     },
     {
       "id": "13",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "가족 회의",
+      "description": "3개 이상의 마네킹이 활성화된 경우 제페토 및 마네킹의 공격 속도가 {0}% 증가합니다.",
+      "rarityValue": [["20", "25", "30", "35"]],
       "icon": "13.png"
     },
     {
       "id": "14",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "진공 캡슐",
+      "description": "특수 능력에 적중당한 마네킹이 폭발 지점의 중앙으로 끌려가며 파워 능력 대미지의 {0}%에 해당하는 대미지를 받습니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "14.png"
     },
     {
       "id": "15",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "자석 망치",
+      "description": "파워 능력을 집중하면 제페토가 마네킹을 자신 앞으로 끌어올 수 있습니다.\n끌어당긴 마네킹을 발사하면 100% 더 넓은 범위에 추가로 {0}%의 대미지를 입힙니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "15.png"
     },
     {
       "id": "16",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "뾰족한 코",
+      "description": "마네킹이 50% 확률로 코를 사용해 공격해 적중한 모든 적에게 {0}%의 대미지를 입힙니다.",
+      "rarityValue": [["160", "180", "200", "220"]],
       "icon": "16.png"
     },
     {
       "id": "17",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "천재적인 발상",
+      "description": "즉시 {0}개의 무작위 마법 물체를 소환합니다.\n이 특성을 업그레이드할 때마다 소환되는 아이템의 수가 증가합니다.",
+      "rarityValue": [["1", "2", "3", "4"]],
       "icon": "17.png"
     },
     {
       "id": "18",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "피뢰침 마네킹",
+      "description": "방어 효과가 적용되면 잠시 후 마네킹 위로 벼락이 떨어집니다. 주변에 {0} 대미지를 입힙니다.",
+      "rarityValue": [["36", "46", "56", "66"]],
       "icon": "18.png"
     }
   ],
   "ultimates": [
     {
       "id": "u1",
-      "name": "",
-      "description": "",
+      "name": "메카 꼭두각시",
+      "description": "자율적으로 움직이는 꼭두각시를 제작하며, 꼭두각시는 가장 가까운 적을 공격하며 초당 최대 77의 대미지를 입힙니다.\n꼭두각시는 근처에 적이 없으면 제페토의 뒤를 따라다니며 최대 40초 동안 지속됩니다.",
       "icon": "u1.webp"
     },
     {
       "id": "u2",
-      "name": "",
-      "description": "",
+      "name": "오버클럭",
+      "description": "모든 마네킹이 회전하면서 근처 적을 추적하며, 각 마네킹이 초당 50의 광역 대미지를 입힙니다.",
       "icon": "u2.webp"
     }
   ],
   "ultimateTalents": [
     {
       "id": "u1_1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "폭탄 저장고",
+      "description": "전투 중 메카 꼭두각시가 1초마다 주위에 폭탄을 던져 {0}의 광역 대미지를 입힙니다.",
+      "rarityValue": [["40", "90", "140", "190"]],
       "icon": "u1_1.png"
     },
     {
       "id": "u1_2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "인형술사",
+      "description": "메카 꼭두각시가 완성되면 주위의 마네킹을 흡수합니다.\n흡수한 마네킹 하나당 최대 체력이 {0}%씩, 대미지는 {1}%씩 증가합니다.",
+      "rarityValue": [
+        ["20", "25", "30", "35"],
+        ["10", "15", "20", "25"]
+      ],
       "icon": "u1_2.png"
     },
     {
       "id": "u2_1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "고전압",
+      "description": "파워 능력으로 마네킹이 이동한 경우, 해당 마네킹이 {0}초 동안 궁극기 오버클럭의 효과를 활성화합니다.",
+      "rarityValue": [["1", "1.5", "2", "2.5"]],
       "icon": "u2_1.png"
     },
     {
       "id": "u2_2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "초가속",
+      "description": "오버클럭 효과를 받는 마네킹이 과열되어 적중하는 적에게 점화를 부여합니다. 궁극적으로는 폭발해 {0}의 광역 대미지를 입힙니다.",
+      "rarityValue": [["80", "?", "?", "?"]],
       "icon": "u2_2.png"
     }
   ]
