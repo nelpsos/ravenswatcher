@@ -4,202 +4,202 @@
   "startTalents": [
     {
       "id": "s_1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "박쥐의 지배자",
+      "description": "전투 중이지 않을 때 방어가 은신을 부여하며 피를 소모하지 않고 유지할 수 있습니다.\n방어가 +{0}%의 대미지를 입힙니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "s_1.png"
     },
     {
       "id": "s_2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "생명의 정수",
+      "description": "퀘스트 (x30): 특수 능력의 물기로 적을 처치하면 활력이 +1 증가합니다.\n완료: 이 행동을 반복하면 카르밀라의 체력이 {0} 회복됩니다.",
+      "rarityValue": [["20", "35", "50", "65"]],
       "icon": "s_2.png"
     },
     {
       "id": "s_3",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "핏빛 분노",
+      "description": "퀘스트 (x20): 적에게 파워 능력을 1초 이상 적중시키면 대미지가 +0.5 증가합니다.\n완료: 이 행동을 반복하면 파워 능력의 폭발 대미지가 +{0}% 증가합니다.",
+      "rarityValue": [["80", "100", "120", "140"]],
       "icon": "s_3.png"
     },
     {
       "id": "s_4",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "생명력 전환",
+      "description": "날개 형상일 때 특성을 다시 활성화하면 최대 체력의 20%에 해당하는 체력을 소모하여 최대 {0}의 피를 회복합니다.\n이 능력은 현재 체력이 비용 미만일 때 사용할 수 없으며 5초의 재사용 대기 시간이 적용됩니다.",
+      "rarityValue": [["30", "35", "40", "45"]],
       "icon": "s_4.png"
     }
   ],
   "talents": [
     {
       "id": "1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "서슬 발톱",
+      "description": "공격 시 +{0}%의 출혈 대미지를 입힙니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "1.png"
     },
     {
       "id": "2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "관통",
+      "description": "돌진으로 통과한 적 하나당 {0}의 피를 얻습니다.",
+      "rarityValue": [["8", "10", "12", "14"]],
       "icon": "2.png"
     },
     {
       "id": "3",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "분산",
+      "description": "방어 종료 시 박쥐 떼가 카르밀라 주위를 감싸 {0}의 출혈 광역 대미지를 입힙니다.",
+      "rarityValue": [["60", "?", "?", "?"]],
       "icon": "3.png"
     },
     {
       "id": "4",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "희생양",
+      "description": "특수 능력을 사용하면 {0}초 동안 물린 적에게 표식을 남깁니다. 표식이 붙은 적은 +25%의 추가 대미지를 받으며, 죽을 때 주변의 다른 적에게 표식을 넘깁니다.",
+      "rarityValue": [["4", "6", "8", "10"]],
       "icon": "4.png"
     },
     {
       "id": "5",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "가학성",
+      "description": "출혈에 영향을 받는 적에게 입히는 치명타 대미지가 +{0}% 증가합니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "5.png"
     },
     {
       "id": "6",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "끓어오르는 피",
+      "description": "1초 이상 체력을 소모해 능력을 사용하면 재생이 +{0} 증가합니다.",
+      "rarityValue": [["3", "4", "5", "6"]],
       "icon": "6.png"
     },
     {
       "id": "7",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "목을 노려라",
+      "description": "특수 능력으로 물기 전까지 이동한 거리에 따라 대미지와 치명타 확률이 최대 +{0}%까지 증가합니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "7.png"
     },
     {
       "id": "8",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "격노의 폭풍",
+      "description": "피를 파워 능력에 사용하면 점진적으로 대미지가 증가합니다.\n3초 동안 유지하면 최대 +{0}%까지 증가합니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "8.png"
     },
     {
       "id": "9",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "돌풍",
+      "description": "특성 사용 시 주위의 적을 뒤로 밀쳐내고 {0}의 광역 대미지를 입힙니다.",
+      "rarityValue": [["80", "100", "120", "140"]],
       "icon": "9.png"
     },
     {
       "id": "10",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "공격적인 무리",
+      "description": "방어가 활성화된 동안 카르밀라가 {0}초마다 박쥐를 내보냅니다. 박쥐는 주위의 적을 추적해 관통하여 18의 대미지를 입힙니다.",
+      "rarityValue": [["0.5", "0.33", "0.25", "0.2"]],
       "icon": "10.png"
     },
     {
       "id": "11",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "피 저장소",
+      "description": "최대 피 저장량이 {0}% 증가합니다.",
+      "rarityValue": [["20", "25", "30", "35"]],
       "icon": "11.png"
     },
     {
       "id": "12",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "맹공",
+      "description": "특수 능력 사용 후 다음 공격 시 카르밀라가 전방으로 돌진해 통과하는 적에게 {0}%의 공격 대미지를 입힙니다.",
+      "rarityValue": [["800", "1000", "1200", "1400"]],
       "icon": "12.png"
     },
     {
       "id": "13",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "살점 찢기",
+      "description": "출혈에 영향을 받는 적에 대한 파워 능력의 치명타 확률이 +{0}% 증가합니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "13.png"
     },
     {
       "id": "14",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "매혹적인 도발",
+      "description": "전투 중 카르밀라가 가만히 서 있으면 전방에 있는 우두머리가 아닌 적 최대 {0}명을 유혹해 6초 동안 약화와 취약 효과를 부여합니다.\n6초의 재사용 대기 시간이 적용됩니다.",
+      "rarityValue": [["2", "3", "4", "5"]],
       "icon": "14.png"
     },
     {
       "id": "15",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "잔혹한 일격",
+      "description": "돌진 또는 방어 발동 후 다음 공격 시 콤보가 마무리 공격으로 시작해 +{0}%의 대미지를 입힙니다.",
+      "rarityValue": [["100", "125", "150", "175"]],
       "icon": "15.png"
     },
     {
       "id": "16",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "천사와 악마",
+      "description": "특성 사용 시:\n낮: 주위 모든 영웅의 체력을 {0} 회복시킵니다.\n밤: 주위 모든 영웅에게 {1}초 동안 힘을 부여합니다.",
+      "rarityValue": [["20", "?", "?", "?"],["4", "5", "6", "7"]],
       "icon": "16.png"
     },
     {
       "id": "17",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "야성의 심장",
+      "description": "파워 능력의 구체 이동 속도가 100% 증가합니다.\n파워 능력의 폭발 범위가 +{0}% 증가합니다.",
+      "rarityValue": [["20", "25", "30", "35"]],
       "icon": "17.png"
     },
     {
       "id": "18",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "주입",
+      "description": "특수 능력으로 적을 물면 피의 씨앗을 심습니다. 피의 씨앗은 잠시 후 파워 능력의 폭발을 일으켜 {0}%의 광역 대미지를 입힙니다.",
+      "rarityValue": [["80", "100", "120", "140"]],
       "icon": "18.png"
     }
   ],
   "ultimates": [
     {
       "id": "u1",
-      "name": "",
-      "description": "",
+      "name": "꿰뚫기",
+      "description": "모든 피를 소모해 전방으로 피의 쐐기를 연달아 치솟아 오르게 합니다. 해당 지역 내의 적에게 450의 대미지를 입힙니다.\n소모한 피 1당 대미지가 1% 증가합니다.",
       "icon": "u1.webp"
     },
     {
       "id": "u2",
-      "name": "",
-      "description": "",
+      "name": "피의 채찍",
+      "description": "피의 채찍을 소환해 100의 광역 대미지를 입힙니다.\n다음 12회의 공격 시 채찍으로 넓은 지역을 타격하며 이 콤보는 총 140의 대미지를 입힙니다.",
       "icon": "u2.webp"
     }
   ],
   "ultimateTalents": [
     {
       "id": "u1_1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "창백한 자의 고문",
+      "description": "궁극기의 이동 경로가 끝에 도달하면 피의 쐐기가 카르밀라 방향으로 되돌아오며 {0}%의 대미지를 입힙니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "u1_1.png"
     },
     {
       "id": "u1_2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "심장 파괴",
+      "description": "공격 콤보에 4번째 공격이 추가되어, 전방의 적을 꿰뚫어 {0}%의 궁극기 대미지를 입힙니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "u1_2.png"
     },
     {
       "id": "u2_1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "고통의 여주인",
+      "description": "궁극기로 변형되는 공격의 최대 수가 {0} 증가합니다.",
+      "rarityValue": [["6", "8", "10", "12"]],
       "icon": "u2_1.png"
     },
     {
       "id": "u2_2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "대대적인 응징",
+      "description": "궁극기 콤보에 네 번째 공격이 추가되어 {0}%의 광역 대미지를 입힙니다.",
+      "rarityValue": [["240", "280", "320", "360"]],
       "icon": "u2_2.png"
     }
   ]
