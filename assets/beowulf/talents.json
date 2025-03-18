@@ -1,191 +1,205 @@
 {
   "id": "beowulf",
-  "name": "Beowulf",
+  "name": "베오울프",
   "startTalents": [
     {
       "id": "s_1",
       "name": "방패 돌진",
-      "description": "DEFENSE makes Beowulf dash forward and deal +{0}% damage along the path",
-      "questComplete": null,
-      "icon": "s_1.png",
-      "rarityValue": ["100", "125", "150", "175"],
-      "rarityValue2": []
+      "description": "방어 시 베오울프의 전방 돌진이 발동하며, 경로에 추가로 {0}%의 대미지를 입힙니다.",
+      "rarityValue": [["100", "125", "150", "175"]],
+      "icon": "s_1.png"
     },
     {
       "id": "s_2",
-      "name": "Explosive Fire",
-      "description": "IGNITED enemies explode when they die, dealing {0} damage and applying IGNITE to all nearby enemies",
-      "questComplete": null,
-      "icon": "s_2.png",
-      "rarityValue": ["20", "25", "30", "35"],
-      "rarityValue2": []
+      "name": "폭발적인 화염",
+      "description": "점화 상태의 적이 사망 시 폭발하면서 근처의 모든 적에게 {0}의 대미지를 입히고 점화 효과를 퍼뜨립니다.",
+      "rarityValue": [["20", "25", "30", "35"]],
+      "icon": "s_2.png"
     },
     {
       "id": "s_3",
-      "name": "Rampart",
-      "description": "Quest (x20): Blocking at least one attack during DEFENSE grants +1 ARMOR",
-      "questComplete": "Complete: Wyrm DEFENSE heals {0}% more and increases the area of effect by +3m",
-      "icon": "s_3.png",
-      "rarityValue": ["50", "60", "70", "80"],
-      "rarityValue2": []
+      "name": "성벽",
+      "description": "퀘스트 (x20): 방어 중에 공격을 최소 1회 이상 막으면 +1의 방어력이 추가로 부여됩니다.\n완료: 소룡 방어 시 더 넓은 반경 내에서 치유량이 {0}% 증가합니다.",
+      "rarityValue": [["50", "60", "70", "80"]],
+      "icon": "s_3.png"
     },
     {
       "id": "s_4",
-      "name": "Eruption",
-      "description": "Quest (x20): Hitting 2 enemies with a single Wyrm ability grants +0.5 DMG",
-      "questComplete": "Complete: TRAIT cooldown -25%. Wyrm abilities deal +{0}% damage",
-      "icon": "s_4.png",
-      "rarityValue": ["10", "15", "20", "25"],
-      "rarityValue2": []
+      "name": "용의 결속",
+      "description": "퀘스트 (x20): 하나의 소룡 능력으로 2명의 적을 공격하면 0.5대미지가 추가로 부여됩니다.\n완료: 특성 재사용 대기 시간이 25% 단축되고 소룡 능력의 대미지가 {0}% 추가됩니다.",
+      "rarityValue": [["10", "15", "20", "25"]],
+      "icon": "s_4.png"
     }
   ],
   "talents": [
     {
       "id": "1",
-      "name": "Talent 1",
-      "description": "Description of talent 1",
+      "name": "분화",
+      "description": "파워 능력의 충격파가 마지막에 폭발하면서 주위에 전체적으로 {0}%의 추가 대미지를 입힙니다.",
+      "rarityValue": [["60", "75", "90", "105"]],
       "icon": "1.png"
     },
     {
       "id": "2",
-      "name": "Talent 2",
-      "description": "Description of talent 2",
+      "name": "화염 숨결",
+      "description": "공격 마무리 시 소룡이 원뿔형의 화염을 뿜어 {0}%의 대미지를 입혀 적중한 모든 적에게 점화 효과를 부여합니다.",
+      "rarityValue": [["200", "250", "300", "350"]],
       "icon": "2.png"
     },
     {
       "id": "3",
-      "name": "Talent 3",
-      "description": "Description of talent 3",
+      "name": "불타는 지진",
+      "description": "소룡 특수 능력의 마무리 공격이 3회 타격하고 각 공격은 {0}%의 대미지를 입히며, 반경이 점점 증가합니다.",
+      "rarityValue": [["45", "50", "55", "60"]],
       "icon": "3.png"
     },
     {
       "id": "4",
-      "name": "Talent 4",
-      "description": "Description of talent 4",
+      "name": "칼날의 대가",
+      "description": "특성을 활성화할 때마다 다음 3회 공격 시 치명타 확률이 100% 증가합니다.\n공격 속도가 영구적으로 {0}% 증가합니다.",
+      "rarityValue": [["10", "12", "14", "16"]],
       "icon": "4.png"
     },
     {
       "id": "5",
-      "name": "Talent 5",
-      "description": "Description of talent 5",
+      "name": "강타",
+      "description": "공격이 느려지지만 더 넓은 영역을 공격하며 대미지가 {0}% 추가됩니다.",
+      "rarityValue": [["50", "60", "70", "80"]],
       "icon": "5.png"
     },
     {
       "id": "6",
-      "name": "Talent 6",
-      "description": "Description of talent 6",
+      "name": "칼날 폭풍",
+      "description": "특수 능력 사용 시 {0}회 추가로 회전하며, 회전당 100%의 대미지를 입힙니다.",
+      "rarityValue": [["2", "3", "4", "5"]],
       "icon": "6.png"
     },
     {
       "id": "7",
-      "name": "Talent 7",
-      "description": "Description of talent 7",
+      "name": "이중 충격",
+      "description": "파워 능력 사용 시 2회의 충격파가 연속으로 발사되며, 각각 {0}%의 대미지를 입힙니다.",
+      "rarityValue": [["-30", "-25", "-20", "-15"]],
       "icon": "7.png"
     },
     {
       "id": "8",
-      "name": "Talent 8",
-      "description": "Description of talent 8",
+      "name": "용광로",
+      "description": "점화 효과의 지속 시간이 2초 길어지고 {0}%의 대미지가 추가됩니다.",
+      "rarityValue": [["32", "40", "48", "56"]],
       "icon": "8.png"
     },
     {
       "id": "9",
-      "name": "Talent 9",
-      "description": "Description of talent 9",
+      "name": "불타는 룬",
+      "description": "점화 상태의 적에 대한 공격 및 특수 능력의 치명타 확률이 {0}% 증가합니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "9.png"
     },
     {
       "id": "10",
-      "name": "Talent 10",
-      "description": "Description of talent 10",
+      "name": "초토화",
+      "description": "소룡 파워 능력 사용 시 불길이 추가되며, 불길 위의 적에게 {0}의 지속 대미지를 입힙니다.",
+      "rarityValue": [["40", "60", "80", "100"]],
       "icon": "10.png"
     },
     {
       "id": "11",
-      "name": "Talent 11",
-      "description": "Description of talent 11",
+      "name": "불의 날개",
+      "description": "특성을 활성화하면 주위에 {0}의 대미지를 입히며, 적중한 모든 적에게 점화 효과가 적용됩니다.",
+      "rarityValue": [["30", "35", "40", "45"]],
       "icon": "11.png"
     },
     {
       "id": "12",
-      "name": "Talent 12",
-      "description": "Description of talent 12",
+      "name": "빛나는 방패",
+      "description": "방어의 지속시간 동안 공격을 막아낼 때마다 베오울프 전방에 막은 대미지의 {0}%에 해당하는 대미지를 입힙니다.",
+      "rarityValue": [["120", "140", "160", "180"]],
       "icon": "12.png"
     },
     {
       "id": "13",
-      "name": "Talent 13",
-      "description": "Description of talent 13",
+      "name": "응징",
+      "description": "방어 사용 후 2초 이내로 사용하는 다음 공격이 두 번 가격하는 응징을 발동시켜, 각각 {0}%의 대미지를 입힙니다.",
+      "rarityValue": [["360", "450", "540", "630"]],
       "icon": "13.png"
     },
     {
       "id": "14",
-      "name": "Talent 14",
-      "description": "Description of talent 14",
+      "name": "불타는 베기",
+      "description": "돌진 직후 공격이 발동하여, 적을 가격해 점화 효과를 걸고 {0}%의 대미지를 입힙니다.",
+      "rarityValue": [["400", "500", "600", "700"]],
       "icon": "14.png"
     },
     {
       "id": "15",
-      "name": "Talent 15",
-      "description": "Description of talent 15",
+      "name": "2차 충격",
+      "description": "특수 능력이 추가로 충격파에게 파워 대미지의 {0}%에 해당하는 대미지를 입힙니다.",
+      "rarityValue": [["120", "130", "140", "150"]],
       "icon": "15.png"
     },
     {
       "id": "16",
-      "name": "Talent 16",
-      "description": "Description of talent 16",
+      "name": "전투의 함성",
+      "description": "특성 활성화 시 유효 영영 내 모든 영웅의 파워 재사용 대기시간이 초기화되고 6초 동안 {0}의 보호막을 부여합니다.",
+      "rarityValue": [["12", "16", "20", "24"]],
       "icon": "16.png"
     },
     {
       "id": "17",
-      "name": "Talent 17",
-      "description": "Description of talent 17",
+      "name": "분노의 힘",
+      "description": "특수 능력을 사용한 후 다음 공격 시 각각 {0}%의 대미지를 입히는 연속 공격이 3회 발동됩니다.\n소룡으로 특수 능력을 강화한 경우, 공격 시 적에게 점화 상태를 부여하고 50% 대미지를 입힙니다.",
+      "rarityValue": [["100", "120", "140", "160"]],
       "icon": "17.png"
     },
     {
       "id": "18",
-      "name": "Talent 18",
-      "description": "Description of talent 18",
+      "name": "전쟁의 룬",
+      "description": "방어로 적을 적중시키면 베오울프 주위에 룬이 생성됩니다. 이 룬은 5초 동안 초당 {0}의 광역 대미지를 입힙니다.",
+      "rarityValue": [["16", "21", "26", "31"]],
       "icon": "18.png"
     }
   ],
   "ultimates": [
     {
-      "id": "u_1",
-      "name": "Ultimate 1",
-      "description": "Description of ultimate 1",
+      "id": "u1",
+      "name": "드래곤 비행",
+      "description": "소룡이 공중으로 날아 적을 따라가 화염을 지속적으로 뿜으며 초당 200의 대미지를 입히고 적중하는 모든 적에게 점화 효과가 적용됩니다.\n비행 중에는 특성이 비활성화됩니다.",
       "icon": "u1.webp"
     },
     {
-      "id": "u_2",
-      "name": "Ultimate 2",
-      "description": "Description of ultimate 2",
+      "id": "u2",
+      "name": "격렬한 연쇄 공격",
+      "description": "전방으로 강하게 돌진하면서 검과 소룡으로 여러 차례 연쇄 공격을 가합니다.",
       "icon": "u2.webp"
     }
   ],
   "ultimateTalents": [
     {
       "id": "u1_1",
-      "name": "Ultimate Talent 1",
-      "description": "Description of ultimate talent 1",
+      "name": "제물",
+      "description": "궁극기가 활성화된 동안, 베오울프가 주변의 적에게 {0}의 대미지를 입힙니다. 모든 능력이 소룡 강화와 같은 효과를 냅니다.",
+      "rarityValue": [["40", "?", "?", "?"]],
       "icon": "u1_1.png"
     },
     {
       "id": "u1_2",
-      "name": "Ultimate Talent 2",
-      "description": "Description of ultimate talent 2",
+      "name": "급속 성장",
+      "description": "궁극기가 활성화된 동안 소룡이 성장해 넓은 지역에 불을 내뿜어 +{0}%의 대미지를 입힙니다.",
+      "rarityValue": [["20", "25", "30", "35"]],
       "icon": "u1_2.png"
     },
     {
       "id": "u2_1",
-      "name": "Ultimate Talent 3",
-      "description": "Description of ultimate talent 3",
+      "name": "화산 같은 분노",
+      "description": "궁극기로 발사한 각각의 화염구에서 불타는 돌 {0}개가 주변 지역으로 터져 나가, 각각 50%의 대미지를 입힙니다.",
+      "rarityValue": [["4", "5", "6", "7"]],
       "icon": "u2_1.png"
     },
     {
       "id": "u2_2",
-      "name": "Ultimate Talent 4",
-      "description": "Description of ultimate talent 4",
+      "name": "화염구",
+      "description": "전투 중 돌진 사용 시 소룡이 주변 적에게 화염구를 방출해 {0}의 광역 대미지를 입힙니다.",
+      "rarityValue": [["40", "?", "?", "?"]],
       "icon": "u2_2.png"
     }
   ]

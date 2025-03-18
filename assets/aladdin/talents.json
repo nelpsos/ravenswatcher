@@ -1,0 +1,206 @@
+{
+  "id": "aladdin",
+  "name": "알라딘",
+  "startTalents": [
+    {
+      "id": "s_1",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "s_1.png"
+    },
+    {
+      "id": "s_2",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "s_2.png"
+    },
+    {
+      "id": "s_3",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "s_3.png"
+    },
+    {
+      "id": "s_4",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "s_4.png"
+    }
+  ],
+  "talents": [
+    {
+      "id": "1",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "1.png"
+    },
+    {
+      "id": "2",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "2.png"
+    },
+    {
+      "id": "3",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "3.png"
+    },
+    {
+      "id": "4",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "4.png"
+    },
+    {
+      "id": "5",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "5.png"
+    },
+    {
+      "id": "6",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "6.png"
+    },
+    {
+      "id": "7",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "7.png"
+    },
+    {
+      "id": "8",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "8.png"
+    },
+    {
+      "id": "9",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "9.png"
+    },
+    {
+      "id": "10",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "10.png"
+    },
+    {
+      "id": "11",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "11.png"
+    },
+    {
+      "id": "12",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "12.png"
+    },
+    {
+      "id": "13",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "13.png"
+    },
+    {
+      "id": "14",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "14.png"
+    },
+    {
+      "id": "15",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "15.png"
+    },
+    {
+      "id": "16",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "16.png"
+    },
+    {
+      "id": "17",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "17.png"
+    },
+    {
+      "id": "18",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "18.png"
+    }
+  ],
+  "ultimates": [
+    {
+      "id": "u1",
+      "name": "",
+      "description": "",
+      "icon": "u1.webp"
+    },
+    {
+      "id": "u2",
+      "name": "",
+      "description": "",
+      "icon": "u2.webp"
+    }
+  ],
+  "ultimateTalents": [
+    {
+      "id": "u1_1",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "u1_1.png"
+    },
+    {
+      "id": "u1_2",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "u1_2.png"
+    },
+    {
+      "id": "u2_1",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "u2_1.png"
+    },
+    {
+      "id": "u2_2",
+      "name": "",
+      "description": "",
+      "rarityValue": [["", "", "", ""]],
+      "icon": "u2_2.png"
+    }
+  ]
+}
