@@ -4,202 +4,202 @@
   "startTalents": [
     {
       "id": "s_1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "소리의 장벽",
+      "description": "퀘스트 (x20): 방어로 최소 2마리의 적을 적중할 때마다 방어력이 1 증가합니다.\n완료: 다시 반복하면 6초 동안 영웅 주위에 {0}의 보호막이 부여됩니다.",
+      "rarityValue": [["12", "15", "18", "21"]],
       "icon": "s_1.png"
     },
     {
       "id": "s_2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "폭발성 쥐",
+      "description": "쥐가 죽을 때 폭발하면서 주위에 {0}의 대미지를 입힙니다.",
+      "rarityValue": [["6", "7.5", "9", "10.5"]],
       "icon": "s_2.png"
     },
     {
       "id": "s_3",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "차디찬 덫",
+      "description": "특수 능력 유효 영역 안에 있는 적에게 빙결 효과가 추가되며, 적이 입는 대미지가 {0}% 증가합니다.",
+      "rarityValue": [["10", "15", "20", "25"]],
       "icon": "s_3.png"
     },
     {
       "id": "s_4",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "거장",
+      "description": "공격 또는 파워 능력을 사용할 때 이동속도가 30% 증가합니다.\n공격 속도가 {0}% 증가합니다.",
+      "rarityValue": [["10", "15", "20", "25"]],
       "icon": "s_4.png"
     }
   ],
   "talents": [
     {
       "id": "1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "장엄한 피날레",
+      "description": "특수 능력 효과가 종료되면 유효 영역이 폭발하면서 {0}의 대미지를 입힙니다.",
+      "rarityValue": [["60", "80", "100", "120"]],
       "icon": "1.png"
     },
     {
       "id": "2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "쥐떼",
+      "description": "쥐가 한 번에 (2마리 대신) 3마리 등장합니다.\n조종할 수 있는 쥐의 수가 {0}마리 증가합니다.",
+      "rarityValue": [["6", "8", "10", "12"]],
       "icon": "2.png"
     },
     {
       "id": "3",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "저격수",
+      "description": "공격 및 파워 능력 음표의 거리가 길어지며 절반 이상 이동한 후 적중할 경우 {0}%의 대미지가 추가됩니다.",
+      "rarityValue": [["20", "25", "30", "35"]],
       "icon": "3.png"
     },
     {
       "id": "4",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "폭발적인 작렬",
+      "description": "방어 기술이 {0}의 대미지를 입힙니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "4.png"
     },
     {
       "id": "5",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "거대한 쥐",
+      "description": "쥐의 공격을 받은 적에게 약화 상태가 추가되며, 대미지가 {0}% 증가합니다.",
+      "rarityValue": [["20", "25", "30", "35"]],
       "icon": "5.png"
     },
     {
       "id": "6",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "스포르찬도",
+      "description": "특수 능력 사용 시 안으로 폭발하는 방어 능력이 발동합니다. 이 방어 능력은 적을 안쪽으로 끌어당기며 범위가 {0}% 증가합니다.",
+      "rarityValue": [["20", "25", "30", "35"]],
       "icon": "6.png"
     },
     {
       "id": "7",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "추가 조치",
+      "description": "적을 방어한 이후 3초 이내에 다음 파워 능력 사용 시 공격 지속 시간이 증가합니다(선율 {0}회 추가).",
+      "rarityValue": [["2", "3", "4", "5"]],
       "icon": "7.png"
     },
     {
       "id": "8",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "5중주",
+      "description": "파워 능력 사용 시 선율당 3개가 아닌 5개의 음표를 연주하지만 각 음표의 대미지가 -{0}%로 줄어듭니다.",
+      "rarityValue": [["20", "15", "10", "5"]],
       "icon": "8.png"
     },
     {
       "id": "9",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "완벽한 화음",
+      "description": "방어 시 적중하는 적 1마리당(최대 4마리까지) 근처 모든 영웅의 체력을 {0} 회복합니다.",
+      "rarityValue": [["4", "6", "8", "10"]],
       "icon": "9.png"
     },
     {
       "id": "10",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "저음",
+      "description": "공격 시 유효 영역에 {0}%의 대미지를 추가로 입히는 더 큰 음표를 보내지만, 음표 발생 빈도가 40% 줄어듭니다.",
+      "rarityValue": [["60", "75", "90", "105"]],
       "icon": "10.png"
     },
     {
       "id": "11",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "음향의 맥동",
+      "description": "특수 능력이 초당 {0}의 대미지를 입힙니다.",
+      "rarityValue": [["8", "11", "14", "17"]],
       "icon": "11.png"
     },
     {
       "id": "12",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "회전 솔로",
+      "description": "돌진 후 발동하는 파워는 영웅의 이동 속도를 높이고 치명타 확률을 {0}% 증가시킵니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "12.png"
     },
     {
       "id": "13",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "자극적인 분위기",
+      "description": "특수 구역 내에서 공격하는 쥐들은 죽지 않고 +{0}% 추가 대미지를 가합니다.",
+      "rarityValue": [["20", "25", "30", "35"]],
       "icon": "13.png"
     },
     {
       "id": "14",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "구형의 음악",
+      "description": "돌진의 경우 적중 시 폭발하는 방울 음자리표를 남기고 적 주변에 {0}의 파워 음표를 보냅니다.",
+      "rarityValue": [["4", "5", "6", "7"]],
       "icon": "14.png"
     },
     {
       "id": "15",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "침입자의 나팔",
+      "description": "방어 능력이 하나 이상의 적에게 명중한 경우, 최대 {0}마리의 쥐를 소환합니다. 쥐는 소환된 즉시 주변 적을 공격합니다.",
+      "rarityValue": [["4", "5", "6", "7"]],
       "icon": "15.png"
     },
     {
       "id": "16",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "합창",
+      "description": "매 {0}초당 특수 능력의 유효 영역이 가장 가까운 적에게 5개의 공격 음표를 발사합니다.",
+      "rarityValue": [["1", "0.8", "0.65", "0.55"]],
       "icon": "16.png"
     },
     {
       "id": "17",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "고스트 노트",
+      "description": "{0}개의 음을 연주할 때마다, 가장 가까운 적을 향해 고스트 노트를 발사해 20의 광역 대미지를 입힙니다.",
+      "rarityValue": [["10", "8", "7", "6"]],
       "icon": "17.png"
     },
     {
       "id": "18",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "흡혈 부적",
+      "description": "쥐들이 적에게 20 공격을 가할 때마다 주변 영웅들의 체력이 {0} 회복됩니다.",
+      "rarityValue": [["4", "5", "6", "7"]],
       "icon": "18.png"
     }
   ],
   "ultimates": [
     {
       "id": "u1",
-      "name": "",
-      "description": "",
+      "name": "거침없는 멜로디",
+      "description": "매우 빠른 음표를 연속으로 연주합니다. 음표는 가장 가까운 적을 자동 공격하며 초당 최대 120의 대미지를 입힙니다.\n이 능력을 사용하는 동안에는 영웅이 전방으로 달리지만 방향을 조종할 수 있습니다.",
       "icon": "u1.webp"
     },
     {
       "id": "u2",
-      "name": "",
-      "description": "",
+      "name": "쥐들의 역병",
+      "description": "정신 집중을 통해 멜로디를 연주하여 전방으로 돌진하면서 넓은 지역에 초당 최대 100의 대미지를 입히는 쥐떼를 조종합니다.",
       "icon": "u2.webp"
     }
   ],
   "ultimateTalents": [
     {
       "id": "u1_1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "지그",
+      "description": "돌진 시 궁극기 음표 {0}개를 주변 적에게 발사합니다.",
+      "rarityValue": [["4", "5", "6", "7"]],
       "icon": "u1_1.png"
     },
     {
       "id": "u1_2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "빗발치는 음표",
+      "description": "궁극기가 활성화된 동안 1초마다 {0}개의 음표가 하늘에서 떨어져 내려 각각 10의 광역 대미지를 입힙니다.",
+      "rarityValue": [["12", "?", "?", "?"]],
       "icon": "u1_2.png"
     },
     {
       "id": "u2_1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "해충 박멸",
+      "description": "궁극기가 끊기지 않고 끝까지 발동한 경우, 쥐 떼가 폭발해 {0}의 광역 대미지를 줍니다.",
+      "rarityValue": [["200", "?", "?", "?"]],
       "icon": "u2_1.png"
     },
     {
       "id": "u2_2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "쥐의 왕",
+      "description": "쥐를 소환할 때마다 {0}% 확률로 쥐의 왕이 소환됩니다. 쥐의 왕은 2회 공격을 가하며 +100%의 대미지를 입힙니다.",
+      "rarityValue": [["10", "15", "20", "25"]],
       "icon": "u2_2.png"
     }
   ]
