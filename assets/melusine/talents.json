@@ -4,202 +4,208 @@
   "startTalents": [
     {
       "id": "s_1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "깊은 울림",
+      "description": "공격 4회가 적에게 적중할 때마다 주위로 공격 대미지의 {0}%에 해당하는 작렬 효과를 일으킵니다.\n노래 태세가 해제되면 카운터가 초기화됩니다.",
+      "rarityValue": [["100", "120", "140", "160"]],
       "icon": "s_1.png"
     },
     {
       "id": "s_2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "황홀한 노래",
+      "description": "노래 태세로 전환하면 근처의 모든 적이 {0}초 동안 약화 상태가 됩니다.",
+      "rarityValue": [["3", "4", "5", "6"]],
       "icon": "s_2.png"
     },
     {
       "id": "s_3",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "바다의 춤",
+      "description": "노래 태세에서 상황별 액션을 사용하면 도깨비불 쪽으로 빠르게 순간이동할 수 있습니다(대기 시간 5초).\n전투 중 순간이동을 사용하면 주변 영웅들의 체력이 {0} 회복됩니다.",
+      "rarityValue": [["8", "10", "12", "14"]],
       "icon": "s_3.png"
     },
     {
       "id": "s_4",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "샘물",
+      "description": "각 특수 능력의 파도가 적을 적중하면 유효 영역 안에 있는 모든 영웅의 체력을 {0} 회복합니다.",
+      "rarityValue": [["2", "2.5", "3", "3.5"]],
       "icon": "s_4.png"
     }
   ],
   "talents": [
     {
       "id": "1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "파워 급강하",
+      "description": "방어 시 파워 효과가 발동하면서 멜루신의 물 속 다이빙 시 대미지가 {0}% 증가합니다.",
+      "rarityValue": [["20", "25", "30", "35"]],
       "icon": "1.png"
     },
     {
       "id": "2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "보호의 물길",
+      "description": "공격당한 영웅에게 6초 동안 {0} 보호막을 추가합니다.",
+      "rarityValue": [["8", "11", "14", "17"]],
       "icon": "2.png"
     },
     {
       "id": "3",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "물방울",
+      "description": "방어를 발동한 후, 방울이 4초 동안 멜루신을 둘러싸며 공격 1회의 대미지를 흡수합니다.\n공격을 흡수한 방울은 폭발해 {0}의 광역 대미지를 입힙니다.",
+      "rarityValue": [["60", "?", "?", "?"]],
       "icon": "3.png"
     },
     {
       "id": "4",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "수중의 포식",
+      "description": "방어를 길게 누르면 물속에서 움직이며, 통과한 모든 적은 {0}초 동안 취약 상태가 됩니다.",
+      "rarityValue": [["4", "5", "6", "7"]],
       "icon": "4.png"
     },
     {
       "id": "5",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "여진",
+      "description": "파워 능력 사용 시 시전한 위치에 물의 정령이 배치되며, 이 정령은 1.5초 후에 파워 능력의 {0}%에 해당하는 대미지를 다시 발동합니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "5.png"
     },
     {
       "id": "6",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "역류",
+      "description": "특수 능력이 끝나면 각각 {0}%의 대미지를 입히는 파도가 3회 추가로 돌아옵니다.",
+      "rarityValue": [["50", "65", "80", "95"]],
       "icon": "6.png"
     },
     {
       "id": "7",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "차디찬 물보라",
+      "description": "파워 능력 사용 시 적중한 모든 적에게 빙결 효과가 적용되며 범위가 {0}% 넓어집니다.",
+      "rarityValue": [["15", "20", "25", "30"]],
       "icon": "7.png"
     },
     {
       "id": "8",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "해일",
+      "description": "특수 능력 파도의 너비와 지속 시간이 {0}% 증가합니다.",
+      "rarityValue": [["20", "25", "30", "35"]],
       "icon": "8.png"
     },
     {
       "id": "9",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "잠수 공격",
+      "description": "적중하는 적마다 공격 대미지가 {0}%씩 추가됩니다(최대 6회 적중, {1}% 추가).\n멜루신에 대미지를 입히거나 노래 태세가 해제되면 초기화됩니다.",
+      "rarityValue": [
+        ["8", "9", "10", "11"],
+        ["48", "54", "60", "66"]
+      ],
       "icon": "9.png"
     },
     {
       "id": "10",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "온천",
+      "description": "파워 능력의 중심부 대미지가 {0}% 증가합니다.",
+      "rarityValue": [["50", "60", "70", "80"]],
       "icon": "10.png"
     },
     {
       "id": "11",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "물의 교감",
+      "description": "방어 시 특수 능력의 재사용 대기 시간이 초기화되며 3초 이내에 다음 특수 능력 사용 시 대미지가 {0}% 증가합니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "11.png"
     },
     {
       "id": "12",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "편안한 기운",
+      "description": "전투 중 5초마다 유효 영역 내 모든 영웅의 체력을 {0}만큼 회복시킵니다.",
+      "rarityValue": [["4", "5", "6", "7"]],
       "icon": "12.png"
     },
     {
       "id": "13",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "서슬 꼬리",
+      "description": "방어 사용 시 멜루신의 꼬리가 뻗어 나가며 공격 능력의 {0}%에 해당하는 대미지를 입힙니다.",
+      "rarityValue": [["400", "500", "600", "700"]],
       "icon": "13.png"
     },
     {
       "id": "14",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "도깨비불 쇄도",
+      "description": "특수 능력 사용 후 3초 동안 공격 속도가 {0}% 증가합니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "14.png"
     },
     {
       "id": "15",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "마지막 일격",
+      "description": "도깨비불의 공격이 3회 이상 명중하면, 사라지기 전에 폭발하면서 {0}의 광역 대미지를 입힙니다.",
+      "rarityValue": [["40", "?", "?", "?"]],
       "icon": "15.png"
     },
     {
       "id": "16",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "침수",
+      "description": "도깨비불이 특수 능력의 파동에 닿을 때마다 2 성장 충전을 획득합니다(최대 12 충전).\n충전 횟수마다 공격으로 입히는 대미지가 {0}% 증가합니다. 공격 시 충전 횟수를 소비합니다.",
+      "rarityValue": [["20", "25", "30", "35"]],
       "icon": "16.png"
     },
     {
       "id": "17",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "빛나는 비늘",
+      "description": "노래 태세에서 멜루신이 매초 {0}의 임시 방어력을 획득합니다(최대 {1}).",
+      "rarityValue": [
+        ["4", "6", "8", "10"],
+        ["40", "60", "80", "100"]
+      ],
       "icon": "17.png"
     },
     {
       "id": "18",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "도깨비불의 인내",
+      "description": "멜루신이 노래 태세를 중단해도 도깨비불이 즉시 사라지지 않습니다. 도깨비불은 주변 적을 최대 {0}회 자동 공격한 후 사라집니다.",
+      "rarityValue": [["4", "5", "6", "7"]],
       "icon": "18.png"
     }
   ],
   "ultimates": [
     {
       "id": "u1",
-      "name": "",
-      "description": "",
+      "name": "물폭탄",
+      "description": "사용 시 멜루신이 물의 구체로 자신을 감싸면서 무적 상태가 됩니다.\n약간의 시간이 지난 후, 또는 재사용 시 구체가 폭발하면서 근처의 모든 적에게 400의 대미지를 입힙니다.",
       "icon": "u1.webp"
     },
     {
       "id": "u2",
-      "name": "",
-      "description": "",
+      "name": "도깨비불 발레",
+      "description": "자동으로 주변의 적을 추적해 공격하는 도깨비불 6마리를 소환합니다.\n4초가 지나면 도깨비불이 물보라 능력을 시전하고 사라집니다.",
       "icon": "u2.webp"
     }
   ],
   "ultimateTalents": [
     {
       "id": "u1_1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "소용돌이 폭탄",
+      "description": "궁극기의 물 구체가 주변 적을 끌어들이며 적중당한 적에게 초당 {0}의 대미지를 입힙니다.",
+      "rarityValue": [["40", "?", "?", "?"]],
       "icon": "u1_1.png"
     },
     {
       "id": "u1_2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "치유의 작렬",
+      "description": "궁극기 폭발이 주위 모든 영웅을 60 치유하고 재생을 +{0} 증가시킵니다.",
+      "rarityValue": [["5", "6", "7", "8"]],
       "icon": "u1_2.png"
     },
     {
       "id": "u2_1",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "크레센도",
+      "description": "궁극기가 발동 중인 동안, 멜루신이 도깨비불을 서서히 추가로 소환합니다. 최대 {0}마리까지 소환됩니다.",
+      "rarityValue": [["3", "4", "5", "6"]],
       "icon": "u2_1.png"
     },
     {
       "id": "u2_2",
-      "name": "",
-      "description": "",
-      "rarityValue": [["", "", "", ""]],
+      "name": "함축된 노래",
+      "description": "노래 태세 진입 시 멜루신이 자율적으로 행동하는 궁극기 도깨비불을 추가로 불러내 {0}%의 대미지를 입힙니다.",
+      "rarityValue": [["40", "50", "60", "70"]],
       "icon": "u2_2.png"
     }
   ]
