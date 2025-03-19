@@ -48,6 +48,8 @@ body {
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  object-fit: cover; /* Ensures the image covers the container */
+  aspect-ratio: 1 / 1; /* Maintains a 1:1 aspect ratio */
 }
 
 #main-page .character-image:hover {
