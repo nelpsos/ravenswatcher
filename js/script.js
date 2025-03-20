@@ -60,6 +60,7 @@ const closeButton = document.getElementById("close-button");
 const headerLogo = document.getElementById("header-logo");
 
 let tooltipTimer = null;
+let saveNoticeTimer = null;
 
 const darkModeToggle = document.getElementById("dark-mode-toggle");
 const darkModeToggleIcon = document.getElementById("dark-mode-toggle-icon");
@@ -72,8 +73,235 @@ const mask = document.getElementById("mask");
 // 페이지 진입 시 로컬스토리지의 다크모드 값 읽기
 document.addEventListener("DOMContentLoaded", () => {
   const savedColorTheme = getUserColorTheme();
-  document.documentElement.setAttribute("color-theme", savedColorTheme);
-  darkModeToggleIcon.textContent = savedColorTheme === "dark" ? "☾" : "✵";
+  applyColorTheme(savedColorTheme);
+});
+
+darkModeToggle.addEventListener("click", () => {
+  const currentColorTheme =
+    document.documentElement.getAttribute("color-theme");
+  const changedColorTheme =
+    currentColorTheme === COLOR_THEME.DARK.name
+      ? COLOR_THEME.LIGHT
+      : COLOR_THEME.DARK;
+
+  applyColorTheme(changedColorTheme.name);
+  localStorage.setItem("color-theme", changedColorTheme.name);
+});
+
+headerLogo.addEventListener("click", (event) => {
+  event.preventDefault();
+  navigateTo("/");
+});
+
+characters.forEach((character) => {
+  createCharacterImage(character);
+});
+
+// 초기 로드 및 popstate 이벤트 처리
+handleRouteChange();
+window.addEventListener("popstate", () => {
+  handleRouteChange();
+  hideTooltip(); // 툴팁 숨기기
+});
+
+// 캐릭터 버튼 클릭 이벤트 처리 (navigateTo() 사용)
+mainPage.addEventListener("click", (event) => {
+  if (event.target.classList.contains("character-image")) {
+    const characterId = event.target.dataset.character;
+    showPage("detail", characterId);
+    navigateTo(`/characters/${characterId}`);
+  }
+});
+
+detailPage.addEventListener("click", (event) => {
+  if (event.target.closest(".disabled")) return;
+  if (event.target.id === "back-button") {
+    detailPage.style.display = "none";
+    mainPage.style.display = "block";
+    navigateTo("/");
+    return;
+  }
+
+  const item = event.target.closest(".item");
+  if (item) {
+    const itemBlock = item.parentElement;
+    const row = itemBlock.parentElement?.parentElement?.dataset?.row;
+    if (!row) return;
+
+    if (row === "4") {
+      if (itemBlock.parentElement.classList.contains("right-col")) {
+        magicalObjectMoveRightToLeft(item);
+      } else {
+        magicalObjectMoveLeftToRight(item);
+      }
+    } else {
+      if (itemBlock.parentElement.classList.contains("right-col")) {
+        if (row === "2") {
+          const ultimateTalentsItems = document.querySelectorAll(
+            "#ultimate-talents-row .right-col .item"
+          );
+          ultimateTalentsItems.forEach(moveRightToLeft);
+        }
+        moveRightToLeft(item);
+      } else {
+        moveLeftToRight(item);
+      }
+
+      if (row === "2") {
+        updateUltimateTalentsState();
+      }
+    }
+  }
+});
+
+closeButton.addEventListener("click", hideLoadPopup);
+mask.addEventListener("click", hideLoadPopup);
+
+loadButton.addEventListener("click", initializeLoadPopup);
+
+loadList.addEventListener("click", (event) => {
+  const deleteButton = event.target.closest(".delete-load-item");
+  if (deleteButton) {
+    const buildName = deleteButton.dataset.buildName;
+    const loadItem = deleteButton.previousElementSibling;
+    loadItem.textContent = "정말 삭제하시겠습니까?";
+    loadItem.classList.add("deleting");
+    deleteButton.style.display = "none";
+
+    const confirmDeleteButton = document.createElement("fancy-button");
+    const checkButton = document.createElement("span");
+    checkButton.textContent = "✔";
+    checkButton.setAttribute("slot", "text");
+    confirmDeleteButton.appendChild(checkButton);
+    confirmDeleteButton.classList.add("confirm-delete-load-item");
+    confirmDeleteButton.dataset.buildName = buildName;
+    confirmDeleteButton.setAttribute("variant", "icon");
+    confirmDeleteButton.setAttribute("background-color", "red");
+
+    const cancelDeleteButton = document.createElement("fancy-button");
+    const xButton = document.createElement("span");
+    xButton.textContent = "✖";
+    xButton.setAttribute("slot", "text");
+    cancelDeleteButton.appendChild(xButton);
+    cancelDeleteButton.classList.add("cancel-delete-load-item");
+    cancelDeleteButton.setAttribute("variant", "icon");
+    cancelDeleteButton.setAttribute("background-color", "blue");
+
+    deleteButton.parentElement.appendChild(confirmDeleteButton);
+    deleteButton.parentElement.appendChild(cancelDeleteButton);
+
+    return;
+  }
+
+  const confirmDeleteLoadItem = event.target.closest(
+    ".confirm-delete-load-item"
+  );
+  if (confirmDeleteLoadItem) {
+    const buildName = confirmDeleteLoadItem.dataset.buildName;
+    let savedBuildList =
+      JSON.parse(localStorage.getItem("savedBuildList")) || [];
+    savedBuildList = savedBuildList.filter(
+      (build) =>
+        build.name !== buildName || build.character !== selectedCharacter.id
+    );
+    localStorage.setItem("savedBuildList", JSON.stringify(savedBuildList));
+    initializeLoadPopup();
+    return;
+  }
+
+  const cancelDeleteLoadItem = event.target.closest(".cancel-delete-load-item");
+  if (cancelDeleteLoadItem) {
+    const loadItem =
+      cancelDeleteLoadItem.parentElement.querySelector(".load-item");
+    loadItem.textContent = loadItem.dataset.buildName;
+    loadItem.classList.remove("deleting");
+
+    const deleteButton =
+      cancelDeleteLoadItem.parentElement.querySelector(".delete-load-item");
+    deleteButton.style.display = "inline";
+
+    cancelDeleteLoadItem.parentElement
+      .querySelector(".confirm-delete-load-item")
+      .remove();
+    cancelDeleteLoadItem.remove();
+    return;
+  }
+
+  const loadItem = event.target.closest(".load-item");
+  if (loadItem) {
+    const buildName = event.target.textContent;
+    const savedBuildList =
+      JSON.parse(localStorage.getItem("savedBuildList")) || [];
+    const selectedBuild = savedBuildList.find(
+      (build) =>
+        build.name === buildName && build.character === selectedCharacter.id
+    );
+
+    if (!selectedBuild) {
+      return;
+    }
+
+    selectedTalents = selectedBuild.selectedTalents;
+    applySelectedTalents();
+    hideLoadPopup();
+    showSaveNotice(`'${buildName}' 불러오기가 완료되었습니다.`);
+    return;
+  }
+});
+
+// 저장 버튼 클릭 이벤트 처리
+saveButton.addEventListener("click", () => {
+  const buildName = document.getElementById("build-name").value.trim();
+  if (!buildName) {
+    showSaveNotice("빌드 이름을 입력하세요.");
+    return;
+  }
+  if (buildName.length > 20) {
+    showSaveNotice("빌드 이름은 20자까지 작성 가능합니다.");
+    return;
+  }
+
+  let savedBuildList = JSON.parse(localStorage.getItem("savedBuildList")) || [];
+  const existingBuild = savedBuildList.find(
+    (build) =>
+      build.name === buildName && build.character === selectedCharacter.id
+  );
+
+  if (existingBuild) {
+    if (saveNotice.textContent.includes("덮어쓰시겠습니까?")) {
+      showSaveNotice(`'${buildName}' 저장이 완료되었습니다.`);
+      saveBuild(buildName, savedBuildList);
+    } else {
+      showSaveNotice(`${buildName}은 이미 있는 빌드입니다. 덮어쓰시겠습니까?`);
+    }
+  } else {
+    showSaveNotice(`'${buildName}' 저장이 완료되었습니다.`);
+    saveBuild(buildName, savedBuildList);
+  }
+});
+
+// 불러오기 목록 클릭 이벤트 처리
+loadList.addEventListener("click", (event) => {
+  if (!event.target.classList.contains("load-item")) {
+    return;
+  }
+
+  const buildName = event.target.textContent;
+  const savedBuildList =
+    JSON.parse(localStorage.getItem("savedBuildList")) || [];
+  const selectedBuild = savedBuildList.find(
+    (build) =>
+      build.name === buildName && build.character === selectedCharacter.id
+  );
+
+  if (!selectedBuild) {
+    return;
+  }
+
+  selectedTalents = selectedBuild.selectedTalents;
+  applySelectedTalents();
+  hideLoadPopup();
+  showSaveNotice(`'${buildName}' 불러오기가 완료되었습니다.`);
 });
 
 function getUserColorTheme() {
@@ -85,25 +313,12 @@ function getUserColorTheme() {
   return osColorTheme;
 }
 
-darkModeToggle.addEventListener("click", () => {
-  const currentColorTheme =
-    document.documentElement.getAttribute("color-theme");
-  const changedColorTheme =
-    currentColorTheme === COLOR_THEME.DARK.name
-      ? COLOR_THEME.LIGHT
-      : COLOR_THEME.DARK;
+function applyColorTheme(theme) {
+  document.documentElement.setAttribute("color-theme", theme);
+  darkModeToggleIcon.textContent = theme === COLOR_THEME.DARK.name ? "☾" : "✵";
+}
 
-  document.documentElement.setAttribute("color-theme", changedColorTheme.name);
-  darkModeToggleIcon.textContent = changedColorTheme.icon;
-  localStorage.setItem("color-theme", changedColorTheme.name);
-});
-
-headerLogo.addEventListener("click", (event) => {
-  event.preventDefault();
-  navigateTo("/");
-});
-
-characters.forEach((character) => {
+function createCharacterImage(character) {
   const img = document.createElement("img");
   img.id = character.id;
   img.classList.add("character-image");
@@ -111,7 +326,7 @@ characters.forEach((character) => {
   img.setAttribute("src", `assets/${character.id}/portrait.webp`);
   img.setAttribute("alt", character.name);
   characterButtonsContainer.appendChild(img);
-});
+}
 
 function showPage(pageId, characterId) {
   if (pageId === "main") {
@@ -121,13 +336,7 @@ function showPage(pageId, characterId) {
     // 메인 페이지로 돌아올 때 캐릭터 이미지를 다시 로드
     characterButtonsContainer.innerHTML = "";
     characters.forEach((character) => {
-      const img = document.createElement("img");
-      img.id = character.id;
-      img.classList.add("character-image");
-      img.setAttribute("data-character", character.id);
-      img.setAttribute("src", `assets/${character.id}/portrait.webp`);
-      img.setAttribute("alt", character.name);
-      characterButtonsContainer.appendChild(img);
+      createCharacterImage(character);
     });
   } else if (pageId === "detail") {
     showCharacterPage(characterId);
@@ -167,22 +376,6 @@ function navigateTo(path) {
   history.pushState(null, "", path);
   handleRouteChange();
 }
-
-// 초기 로드 및 popstate 이벤트 처리
-handleRouteChange();
-window.addEventListener("popstate", () => {
-  handleRouteChange();
-  hideTooltip(); // 툴팁 숨기기
-});
-
-// 캐릭터 버튼 클릭 이벤트 처리 (navigateTo() 사용)
-mainPage.addEventListener("click", (event) => {
-  if (event.target.classList.contains("character-image")) {
-    const characterId = event.target.dataset.character;
-    showPage("detail", characterId);
-    navigateTo(`/characters/${characterId}`);
-  }
-});
 
 // 캐릭터 페이지 표시
 async function showCharacterPage(characterId) {
@@ -249,19 +442,25 @@ function initializePlaceholders() {
 
   rows.forEach((row, index) => {
     const rightCol = row.querySelector(".right-col");
+    const count = placeholdersCount[index];
     rightCol.innerHTML = null;
-    for (let i = 0; i < placeholdersCount[index]; i++) {
-      const placeholder = document.createElement("div");
-      placeholder.classList.add("item-block");
-      placeholder.dataset.itemId = "";
 
-      const placeholderInner = document.createElement("div");
-      placeholderInner.classList.add("placeholder");
-      placeholder.appendChild(placeholderInner);
-
-      rightCol.appendChild(placeholder);
+    for (let i = 0; i < count; i++) {
+      rightCol.appendChild(createPlaceholder());
     }
   });
+}
+
+function createPlaceholder() {
+  const placeholder = document.createElement("div");
+  placeholder.classList.add("item-block");
+  placeholder.dataset.itemId = "";
+
+  const placeholderInner = document.createElement("div");
+  placeholderInner.classList.add("placeholder");
+  placeholder.appendChild(placeholderInner);
+
+  return placeholder;
 }
 
 function addTooltipEventListeners() {
@@ -275,31 +474,18 @@ function addTooltipEventListeners() {
 function makeCharacterItemBlock(itemObject) {
   try {
     const { id: itemId, name: itemName, icon: itemIcon } = itemObject;
-
-    const itemBlock = document.createElement("div");
-    const item = document.createElement("div");
-    const img = document.createElement("img");
-    const characterId = selectedCharacter.id;
-
-    itemBlock.classList.add("item-block");
-    itemBlock.dataset.itemId = itemId;
-
-    item.classList.add("item");
-    item.dataset.itemId = itemId;
-    img.src = `/assets/${characterId}/${itemIcon}`;
-    img.alt = itemName;
-    img.classList.add("item-icon");
-
-    item.appendChild(img);
-    itemBlock.appendChild(item);
-
+    const itemBlock = createItemBlock(
+      itemId,
+      itemName,
+      itemIcon,
+      selectedCharacter.id
+    );
     if (
       itemBlock.parentElement &&
       itemBlock.parentElement.id === "ultimate-talents"
     ) {
       itemBlock.classList.add("disabled");
     }
-
     return itemBlock.outerHTML;
   } catch (error) {
     console.error("Error making item block:", error);
@@ -309,24 +495,12 @@ function makeCharacterItemBlock(itemObject) {
 function makeObjectItemBlock(itemObject) {
   try {
     const { id: itemId, name: itemName, icon: itemIcon } = itemObject;
-
-    const itemBlock = document.createElement("div");
-    const item = document.createElement("div");
-    const img = document.createElement("img");
-
-    itemBlock.classList.add("item-block");
-    itemBlock.dataset.itemId = itemId;
-
-    item.classList.add("item");
-    item.dataset.itemId = itemId;
-    img.src = `/assets/magical_objects/${itemIcon}`;
-    img.alt = itemName;
-    img.classList.add("item-icon");
-
-    item.appendChild(img);
-    itemBlock.appendChild(item);
-
-    // 오른쪽 열에만 개수 표시를 위한 span 추가
+    const itemBlock = createItemBlock(
+      itemId,
+      itemName,
+      itemIcon,
+      "magical_objects"
+    );
     if (
       itemBlock.parentElement &&
       itemBlock.parentElement.classList.contains("right-col")
@@ -336,53 +510,31 @@ function makeObjectItemBlock(itemObject) {
       countSpan.textContent = "1";
       itemBlock.appendChild(countSpan);
     }
-
     return itemBlock.outerHTML;
   } catch (error) {
     console.error("Error making item block:", error);
   }
 }
 
-detailPage.addEventListener("click", (event) => {
-  if (event.target.closest(".disabled")) return;
-  if (event.target.id === "back-button") {
-    detailPage.style.display = "none";
-    mainPage.style.display = "block";
-    navigateTo("/");
-    return;
-  }
+function createItemBlock(itemId, itemName, itemIcon, characterId) {
+  const itemBlock = document.createElement("div");
+  const item = document.createElement("div");
+  const img = document.createElement("img");
 
-  const item = event.target.closest(".item");
-  if (item) {
-    const itemBlock = item.parentElement;
-    const row = itemBlock.parentElement?.parentElement?.dataset?.row;
-    if (!row) return;
+  itemBlock.classList.add("item-block");
+  itemBlock.dataset.itemId = itemId;
 
-    if (row === "4") {
-      if (itemBlock.parentElement.classList.contains("right-col")) {
-        magicalObjectMoveRightToLeft(item);
-      } else {
-        magicalObjectMoveLeftToRight(item);
-      }
-    } else {
-      if (itemBlock.parentElement.classList.contains("right-col")) {
-        if (row === "2") {
-          const ultimateTalentsItems = document.querySelectorAll(
-            "#ultimate-talents-row .right-col .item"
-          );
-          ultimateTalentsItems.forEach(moveRightToLeft);
-        }
-        moveRightToLeft(item);
-      } else {
-        moveLeftToRight(item);
-      }
+  item.classList.add("item");
+  item.dataset.itemId = itemId;
+  img.src = `/assets/${characterId}/${itemIcon}`;
+  img.alt = itemName;
+  img.classList.add("item-icon");
 
-      if (row === "2") {
-        updateUltimateTalentsState();
-      }
-    }
-  }
-});
+  item.appendChild(img);
+  itemBlock.appendChild(item);
+
+  return itemBlock;
+}
 
 function magicalObjectMoveLeftToRight(item) {
   const itemBlock = item.parentElement;
@@ -450,14 +602,7 @@ function magicalObjectMoveRightToLeft(item) {
 
   if (count === 0) {
     // 개수가 0이 되면 아이템 블록 제거하고 placeholder 추가
-    const placeholder = document.createElement("div");
-    placeholder.classList.add("item-block");
-    placeholder.dataset.itemId = "";
-
-    const placeholderInner = document.createElement("div");
-    placeholderInner.classList.add("placeholder");
-    placeholder.appendChild(placeholderInner);
-
+    const placeholder = createPlaceholder();
     itemBlock.replaceWith(placeholder);
     hideTooltip();
   }
@@ -671,11 +816,6 @@ function hideLoadPopup() {
   }, 200); // transition duration과 동일하게 설정
 }
 
-closeButton.addEventListener("click", hideLoadPopup);
-mask.addEventListener("click", hideLoadPopup);
-
-loadButton.addEventListener("click", initializeLoadPopup);
-
 function initializeLoadPopup() {
   loadPopup.style.display = "block";
   mask.style.display = "block";
@@ -710,96 +850,6 @@ function initializeLoadPopup() {
   }
 }
 
-loadList.addEventListener("click", (event) => {
-  const deleteButton = event.target.closest(".delete-load-item");
-  if (deleteButton) {
-    const buildName = deleteButton.dataset.buildName;
-    const loadItem = deleteButton.previousElementSibling;
-    loadItem.textContent = "정말 삭제하시겠습니까?";
-    loadItem.classList.add("deleting");
-    deleteButton.style.display = "none";
-
-    const confirmDeleteButton = document.createElement("fancy-button");
-    const checkButton = document.createElement("span");
-    checkButton.textContent = "✔";
-    checkButton.setAttribute("slot", "text");
-    confirmDeleteButton.appendChild(checkButton);
-    confirmDeleteButton.classList.add("confirm-delete-load-item");
-    confirmDeleteButton.dataset.buildName = buildName;
-    confirmDeleteButton.setAttribute("variant", "icon");
-    confirmDeleteButton.setAttribute("background-color", "red");
-
-    const cancelDeleteButton = document.createElement("fancy-button");
-    const xButton = document.createElement("span");
-    xButton.textContent = "✖";
-    xButton.setAttribute("slot", "text");
-    cancelDeleteButton.appendChild(xButton);
-    cancelDeleteButton.classList.add("cancel-delete-load-item");
-    cancelDeleteButton.setAttribute("variant", "icon");
-    cancelDeleteButton.setAttribute("background-color", "blue");
-
-    deleteButton.parentElement.appendChild(confirmDeleteButton);
-    deleteButton.parentElement.appendChild(cancelDeleteButton);
-
-    return;
-  }
-
-  const confirmDeleteLoadItem = event.target.closest(
-    ".confirm-delete-load-item"
-  );
-  if (confirmDeleteLoadItem) {
-    const buildName = confirmDeleteLoadItem.dataset.buildName;
-    let savedBuildList =
-      JSON.parse(localStorage.getItem("savedBuildList")) || [];
-    savedBuildList = savedBuildList.filter(
-      (build) =>
-        build.name !== buildName || build.character !== selectedCharacter.id
-    );
-    localStorage.setItem("savedBuildList", JSON.stringify(savedBuildList));
-    initializeLoadPopup();
-    return;
-  }
-
-  const cancelDeleteLoadItem = event.target.closest(".cancel-delete-load-item");
-  if (cancelDeleteLoadItem) {
-    const loadItem =
-      cancelDeleteLoadItem.parentElement.querySelector(".load-item");
-    loadItem.textContent = loadItem.dataset.buildName;
-    loadItem.classList.remove("deleting");
-
-    const deleteButton =
-      cancelDeleteLoadItem.parentElement.querySelector(".delete-load-item");
-    deleteButton.style.display = "inline";
-
-    cancelDeleteLoadItem.parentElement
-      .querySelector(".confirm-delete-load-item")
-      .remove();
-    cancelDeleteLoadItem.remove();
-    return;
-  }
-
-  const loadItem = event.target.closest(".load-item");
-  if (loadItem) {
-    const buildName = event.target.textContent;
-    const savedBuildList =
-      JSON.parse(localStorage.getItem("savedBuildList")) || [];
-    const selectedBuild = savedBuildList.find(
-      (build) =>
-        build.name === buildName && build.character === selectedCharacter.id
-    );
-
-    if (!selectedBuild) {
-      return;
-    }
-
-    selectedTalents = selectedBuild.selectedTalents;
-    applySelectedTalents();
-    hideLoadPopup();
-    showSaveNotice(`'${buildName}' 불러오기가 완료되었습니다.`);
-    return;
-  }
-});
-
 function updateUltimateTalentsState() {
   const selectedUltimate = selectedTalents.ultimates[0];
   const ultimateTalentsItems = document.querySelectorAll(
@@ -819,39 +869,6 @@ function updateUltimateTalentsState() {
     }
   });
 }
-
-// 저장 버튼 클릭 이벤트 처리
-saveButton.addEventListener("click", () => {
-  const buildName = document.getElementById("build-name").value.trim();
-  if (!buildName) {
-    showSaveNotice("빌드 이름을 입력하세요.");
-    return;
-  }
-  if (buildName.length > 20) {
-    showSaveNotice("빌드 이름은 20자까지 작성 가능합니다.");
-    return;
-  }
-
-  let savedBuildList = JSON.parse(localStorage.getItem("savedBuildList")) || [];
-  const existingBuild = savedBuildList.find(
-    (build) =>
-      build.name === buildName && build.character === selectedCharacter.id
-  );
-
-  if (existingBuild) {
-    if (saveNotice.textContent.includes("덮어쓰시겠습니까?")) {
-      showSaveNotice(`'${buildName}' 저장이 완료되었습니다.`);
-      saveBuild(buildName, savedBuildList);
-    } else {
-      showSaveNotice(`${buildName}은 이미 있는 빌드입니다. 덮어쓰시겠습니까?`);
-    }
-  } else {
-    showSaveNotice(`'${buildName}' 저장이 완료되었습니다.`);
-    saveBuild(buildName, savedBuildList);
-  }
-});
-
-let saveNoticeTimer = null;
 
 function showSaveNotice(message) {
   clearTimeout(saveNoticeTimer);
@@ -875,30 +892,6 @@ function saveBuild(buildName, savedBuildList) {
   savedBuildList.push(newBuild);
   localStorage.setItem("savedBuildList", JSON.stringify(savedBuildList));
 }
-
-// 불러오기 목록 클릭 이벤트 처리
-loadList.addEventListener("click", (event) => {
-  if (!event.target.classList.contains("load-item")) {
-    return;
-  }
-
-  const buildName = event.target.textContent;
-  const savedBuildList =
-    JSON.parse(localStorage.getItem("savedBuildList")) || [];
-  const selectedBuild = savedBuildList.find(
-    (build) =>
-      build.name === buildName && build.character === selectedCharacter.id
-  );
-
-  if (!selectedBuild) {
-    return;
-  }
-
-  selectedTalents = selectedBuild.selectedTalents;
-  applySelectedTalents();
-  hideLoadPopup();
-  showSaveNotice(`'${buildName}' 불러오기가 완료되었습니다.`);
-});
 
 function applySelectedTalents() {
   // 선택된 talents를 페이지에 반영하는 로직

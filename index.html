@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko" color-theme="dark">
   <head>
-    <!-- <base href="https://nelpsos.github.io/ravenswatcher" /> -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ravenswatcher</title>
@@ -9,42 +8,24 @@
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="icon" href="/assets/favicon.ico" />
 
-    <!-- Start Single Page Apps for GitHub Pages -->
+    <!-- Google AdSense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2832402680512876"
+      crossorigin="anonymous"></script>
+
+    <!-- SPA Script -->
+    <script src="/js/SPA.js" type="text/javascript"></script>
+
+    <!-- Components -->
     <script src="/js/IconButton.js"></script>
     <script src="/js/FancyButton.js"></script>
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      // This script checks to see if a redirect is present in the query string,
-      // converts it back into the correct url and adds it to the
-      // browser's history using window.history.replaceState(...),
-      // which won't cause the browser to attempt to load the new url.
-      // When the single page app is loaded further down in this file,
-      // the correct url will be waiting in the browser's history for
-      // the single page app to route accordingly.
-      (function (l) {
-        if (l.search[1] === "/") {
-          var decoded = l.search
-            .slice(1)
-            .split("&")
-            .map(function (s) {
-              return s.replace(/~and~/g, "&");
-            })
-            .join("?");
-          window.history.replaceState(
-            null,
-            null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      })(window.location);
-    </script>
-    <!-- End Single Page Apps for GitHub Pages -->
 
+    <!-- Main Script -->
     <script src="/js/script.js" defer></script>
   </head>
   <body>
+    <!-- Custom component templates -->
     <template id="icon-button">
       <button class="icon-button">
         <span class="icon-container">
@@ -63,6 +44,7 @@
       </button>
     </template>
 
+    <!-- Main content -->
     <div id="app">
       <header>
         <div class="icon-buttons">
@@ -86,6 +68,7 @@
           <a id="header-logo" data-text="Ravenswatcher">Ravenswatcher</a>
         </h1>
       </header>
+
       <div id="main-page">
         <div id="character-buttons"></div>
       </div>
@@ -105,6 +88,7 @@
             </fancy-button>
           </div>
         </div>
+
         <div id="load-popup" style="display: none">
           <h3 id="load-title">빌드 불러오기</h3>
           <div id="load-list"></div>
@@ -115,6 +99,7 @@
           </h3>
         </div>
         <div id="mask" style="display: none"></div>
+
         <table>
           <tr id="start-talents-row" data-row="0">
             <td id="start-talents" class="left-col"></td>
@@ -137,6 +122,7 @@
             <td class="right-col"></td>
           </tr>
         </table>
+
         <div class="footer">
           <fancy-button id="back-button">
             <span slot="text">돌아가기</span>
@@ -145,9 +131,5 @@
       </div>
     </div>
     <div id="tooltip" class="tooltip"></div>
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2832402680512876"
-      crossorigin="anonymous"></script>
   </body>
 </html>
