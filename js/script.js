@@ -710,7 +710,7 @@ function showTooltip(event) {
   } else {
     tooltip.style.left = rect.right + 5 + "px";
   }
-  tooltip.style.top = rect.top + "px";
+  tooltip.style.top = rect.top + window.scrollY + "px"; // 스크롤 위치 반영
   tooltip.style.transform = "translateY(-5px)";
 
   clearTimeout(tooltipTimer);
