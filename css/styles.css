@@ -261,7 +261,7 @@ body {
   opacity: 0;
 }
 
-#load-popup {
+#load-popup, #share-popup {
   position: fixed;
   min-width: 400px;
   max-width: 80vw;
@@ -280,7 +280,7 @@ body {
   visibility: hidden;
 }
 
-#load-popup.show {
+#load-popup.show, #share-popup.show {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, -50%) scale(1);

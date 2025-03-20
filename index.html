@@ -86,6 +86,9 @@
             <fancy-button id="load-button">
               <span slot="text">불러오기</span>
             </fancy-button>
+            <fancy-button id="share-button">
+              <span slot="text">공유</span>
+            </fancy-button>
           </div>
         </div>
 
@@ -99,6 +102,17 @@
           </h3>
         </div>
         <div id="mask" style="display: none"></div>
+
+        <div id="share-popup" style="display: none">
+          <h3>공유</h3>
+          <textarea id="share-text" readonly></textarea>
+          <button id="copy-share-text">텍스트 복사</button>
+          <input type="text" id="share-uri" readonly />
+          <button id="copy-share-uri">URI 복사</button>
+          <fancy-button id="close-share-popup">
+            <span slot="text">닫기</span>
+          </fancy-button>
+        </div>
 
         <table>
           <tr id="start-talents-row" data-row="0">

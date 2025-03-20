@@ -65,6 +65,13 @@ const loadButton = document.getElementById("load-button");
 const backButton = document.getElementById("back-button");
 const loadList = document.getElementById("load-list");
 const mask = document.getElementById("mask");
+const shareButton = document.getElementById("share-button");
+const sharePopup = document.getElementById("share-popup");
+const shareText = document.getElementById("share-text");
+const copyShareTextButton = document.getElementById("copy-share-text");
+const shareUri = document.getElementById("share-uri");
+const copyShareUriButton = document.getElementById("copy-share-uri");
+const closeSharePopupButton = document.getElementById("close-share-popup");
 
 document.addEventListener("DOMContentLoaded", DOMContentLoadedHandler);
 characters.forEach(createCharacterImage);
@@ -77,10 +84,15 @@ mainPage.addEventListener("click", mainPageClickHandler);
 detailPage.addEventListener("click", detailPageClickHandler);
 closeButton.addEventListener("click", hideLoadPopup);
 mask.addEventListener("click", hideLoadPopup);
+mask.addEventListener("click", hideSharePopup);
 loadButton.addEventListener("click", initializeLoadPopup);
 backButton.addEventListener("click", backButtonClickHandler);
 loadList.addEventListener("click", loadListClickHandler);
 saveButton.addEventListener("click", saveButtonClickHandler);
+shareButton.addEventListener("click", shareButtonClickHandler);
+copyShareTextButton.addEventListener("click", copyShareText);
+copyShareUriButton.addEventListener("click", copyShareUri);
+closeSharePopupButton.addEventListener("click", hideSharePopup);
 
 function DOMContentLoadedHandler() {
   const savedColorTheme = getUserColorTheme();
@@ -377,7 +389,15 @@ async function showCharacterPage(characterId) {
     selectedTalents = { ...initialTalents, characterId };
 
     addTooltipEventListeners();
-    updateUltimateTalentsState(); // 초기 로드 시 ultimate-talents 비활성화
+    updateUltimateTalentsState();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const shareData = urlParams.get("share");
+
+    if (shareData) {
+      selectedTalents = JSON.parse(decodeURIComponent(atob(shareData)));
+      applySelectedTalents();
+    }
   } catch (error) {
     console.error("Error fetching talents:", error);
   }
@@ -668,8 +688,13 @@ function syncSelectedData() {
           case "4":
             const countSpan = itemBlock.querySelector(".item-count");
             const count = countSpan ? parseInt(countSpan.textContent) : 1;
-            for (let i = 0; i < count; i++) {
-              newTalents.magicalObjects.push({ id: itemId });
+            const existingObject = newTalents.magicalObjects.find(
+              (obj) => obj.id === itemId
+            );
+            if (existingObject) {
+              existingObject.count += count;
+            } else {
+              newTalents.magicalObjects.push({ id: itemId, count });
             }
             break;
         }
@@ -912,11 +937,103 @@ function applySelectedTalents() {
 
   // magicalObjects 반영
   magicalObjects.forEach((object) => {
-    const item = document.querySelector(
-      `#magical-objects [data-item-id="${object.id}"] .item`
-    );
-    if (item) magicalObjectMoveLeftToRight(item);
+    for (let i = 0; i < object.count; i++) {
+      const item = document.querySelector(
+        `#magical-objects [data-item-id="${object.id}"] .item`
+      );
+      if (item) magicalObjectMoveLeftToRight(item);
+    }
   });
 
-  updateUltimateTalentsState(); // ultimate-talents 상태 업데이트
+  updateUltimateTalentsState();
+}
+
+function formatJsonToReadableText(json) {
+  const talentFinder = (category) => (talent) =>
+    originalCharacterTalents[category].find((origin) => origin.id === talent.id)
+      ?.name || "";
+
+  const magicalObjectFinder = (object) => {
+    const result = originalMagicalObjects.find(
+      (origin) => origin.id === object.id
+    );
+    if (!result) return "";
+    if (object.count === 1) return result.name;
+    return `${result.name}(${object.count})`;
+  };
+
+  const characterName =
+    characters.find((char) => char.id === json.characterId)?.name ||
+    "Unknown Character";
+
+  const startTalents =
+    json.startTalents
+      .map(talentFinder("startTalents"))
+      .filter((item) => item !== "")
+      .join(", ") || "None";
+  const talents =
+    json.talents
+      .map(talentFinder("talents"))
+      .filter((item) => item !== "")
+      .join(", ") || "None";
+  const ultimates =
+    json.ultimates
+      .map(talentFinder("ultimates"))
+      .filter((item) => item !== "")
+      .join(", ") || "None";
+  const ultimateTalents =
+    json.ultimateTalents
+      .map(talentFinder("ultimateTalents"))
+      .filter((item) => item !== "")
+      .join(", ") || "None";
+  const magicalObjects =
+    json.magicalObjects
+      .map(magicalObjectFinder)
+      .filter((item) => item !== "")
+      .join(", ") || "None";
+
+  return `캐릭터명: ${characterName}\n시작 특성: ${startTalents}\n특성: ${talents}\n궁극기: ${ultimates}\n궁극기 특성: ${ultimateTalents}\n마법 물체: ${magicalObjects}`;
+}
+
+function shareButtonClickHandler() {
+  const shareData = formatJsonToReadableText(selectedTalents);
+  shareText.value = shareData;
+
+  const shareUriData = JSON.stringify(selectedTalents);
+  const encodedShareUri = encodeURIComponent(btoa(shareUriData));
+  const shareUriString = `${window.location}?share=${encodedShareUri}`;
+  shareUri.value = shareUriString;
+
+  showSharePopup();
+}
+
+function copyShareText() {
+  shareText.select();
+  window.navigator.clipboard.writeText(shareText.value);
+  alert("텍스트가 복사되었습니다.");
+}
+
+function copyShareUri() {
+  shareUri.select();
+  window.navigator.clipboard.writeText(shareUri.value);
+  alert("URI가 복사되었습니다.");
+}
+
+function hideSharePopup() {
+  sharePopup.classList.remove("show");
+  mask.classList.remove("show");
+  setTimeout(() => {
+    loadPopup.style.display = "none";
+    mask.style.display = "none";
+  }, 200);
+}
+
+function showSharePopup() {
+  sharePopup.style.display = "block";
+  mask.style.display = "block";
+
+  setTimeout(() => {
+    sharePopup.classList.add("show");
+    mask.classList.add("show");
+  }, 10);
 }
