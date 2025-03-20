@@ -26,6 +26,9 @@ const COLOR_THEME = {
   LIGHT: { name: "light", icon: "✵" },
 };
 
+const rarityColors = ["#fff", "#88f", "#d8bfd8", "#ff0"];
+const stackableRarities = ["COMMON", "RARE", "EPIC"];
+
 let originalCharacterTalents = null;
 let originalMagicalObjects = null;
 let selectedTalents = {
@@ -37,46 +40,52 @@ let selectedTalents = {
   magicalObjects: [],
 };
 let selectedCharacter = null;
-const rarityColors = ["#fff", "#88f", "#d8bfd8", "#ff0"];
-const stackableRarities = ["COMMON", "RARE", "EPIC"];
+
+let tooltipTimer = null;
+let saveNoticeTimer = null;
 
 const characterName = document.getElementById("character-name");
 const characterImage = document.getElementById("character-image");
 const characterButtonsContainer = document.getElementById("character-buttons");
-
 const startTalents = document.getElementById("start-talents");
 const talents = document.getElementById("talents");
 const ultimates = document.getElementById("ultimates");
 const ultimateTalents = document.getElementById("ultimate-talents");
 const magicalObjects = document.getElementById("magical-objects");
-
 const mainPage = document.getElementById("main-page");
 const detailPage = document.getElementById("detail-page");
-
 const saveButton = document.getElementById("save-button");
 const loadPopup = document.getElementById("load-popup");
 const closeButton = document.getElementById("close-button");
-
 const headerLogo = document.getElementById("header-logo");
-
-let tooltipTimer = null;
-let saveNoticeTimer = null;
-
 const darkModeToggle = document.getElementById("dark-mode-toggle");
 const darkModeToggleIcon = document.getElementById("dark-mode-toggle-icon");
-
 const saveNotice = document.getElementById("save-notice");
 const loadButton = document.getElementById("load-button");
 const loadList = document.getElementById("load-list");
 const mask = document.getElementById("mask");
 
-// 페이지 진입 시 로컬스토리지의 다크모드 값 읽기
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", DOMContentLoadedHandler);
+characters.forEach(createCharacterImage);
+handleRouteChange();
+window.addEventListener("popstate", popstateHandler);
+
+darkModeToggle.addEventListener("click", darkModeToggleClickHandler);
+headerLogo.addEventListener("click", headerLogoClickHandler);
+mainPage.addEventListener("click", mainPageClickHandler);
+detailPage.addEventListener("click", detailPageClickHandler);
+closeButton.addEventListener("click", hideLoadPopup);
+mask.addEventListener("click", hideLoadPopup);
+loadButton.addEventListener("click", initializeLoadPopup);
+loadList.addEventListener("click", loadListClickHandler);
+saveButton.addEventListener("click", saveButtonClickHandler);
+
+function DOMContentLoadedHandler() {
   const savedColorTheme = getUserColorTheme();
   applyColorTheme(savedColorTheme);
-});
+}
 
-darkModeToggle.addEventListener("click", () => {
+function darkModeToggleClickHandler() {
   const currentColorTheme =
     document.documentElement.getAttribute("color-theme");
   const changedColorTheme =
@@ -86,34 +95,28 @@ darkModeToggle.addEventListener("click", () => {
 
   applyColorTheme(changedColorTheme.name);
   localStorage.setItem("color-theme", changedColorTheme.name);
-});
+}
 
-headerLogo.addEventListener("click", (event) => {
+function headerLogoClickHandler(event) {
   event.preventDefault();
   navigateTo("/");
-});
+}
 
-characters.forEach((character) => {
-  createCharacterImage(character);
-});
-
-// 초기 로드 및 popstate 이벤트 처리
-handleRouteChange();
-window.addEventListener("popstate", () => {
+function popstateHandler() {
   handleRouteChange();
-  hideTooltip(); // 툴팁 숨기기
-});
+  hideTooltip();
+}
 
-// 캐릭터 버튼 클릭 이벤트 처리 (navigateTo() 사용)
-mainPage.addEventListener("click", (event) => {
+function mainPageClickHandler(event) {
+  // 캐릭터 버튼 클릭 이벤트 처리 (navigateTo() 사용)
   if (event.target.classList.contains("character-image")) {
     const characterId = event.target.dataset.character;
     showPage("detail", characterId);
     navigateTo(`/characters/${characterId}`);
   }
-});
+}
 
-detailPage.addEventListener("click", (event) => {
+function detailPageClickHandler(event) {
   if (event.target.closest(".disabled")) return;
   if (event.target.id === "back-button") {
     detailPage.style.display = "none";
@@ -152,14 +155,9 @@ detailPage.addEventListener("click", (event) => {
       }
     }
   }
-});
+}
 
-closeButton.addEventListener("click", hideLoadPopup);
-mask.addEventListener("click", hideLoadPopup);
-
-loadButton.addEventListener("click", initializeLoadPopup);
-
-loadList.addEventListener("click", (event) => {
+function loadListClickHandler(event) {
   const deleteButton = event.target.closest(".delete-load-item");
   if (deleteButton) {
     const buildName = deleteButton.dataset.buildName;
@@ -247,10 +245,9 @@ loadList.addEventListener("click", (event) => {
     showSaveNotice(`'${buildName}' 불러오기가 완료되었습니다.`);
     return;
   }
-});
+}
 
-// 저장 버튼 클릭 이벤트 처리
-saveButton.addEventListener("click", () => {
+function saveButtonClickHandler() {
   const buildName = document.getElementById("build-name").value.trim();
   if (!buildName) {
     showSaveNotice("빌드 이름을 입력하세요.");
@@ -278,31 +275,7 @@ saveButton.addEventListener("click", () => {
     showSaveNotice(`'${buildName}' 저장이 완료되었습니다.`);
     saveBuild(buildName, savedBuildList);
   }
-});
-
-// 불러오기 목록 클릭 이벤트 처리
-loadList.addEventListener("click", (event) => {
-  if (!event.target.classList.contains("load-item")) {
-    return;
-  }
-
-  const buildName = event.target.textContent;
-  const savedBuildList =
-    JSON.parse(localStorage.getItem("savedBuildList")) || [];
-  const selectedBuild = savedBuildList.find(
-    (build) =>
-      build.name === buildName && build.character === selectedCharacter.id
-  );
-
-  if (!selectedBuild) {
-    return;
-  }
-
-  selectedTalents = selectedBuild.selectedTalents;
-  applySelectedTalents();
-  hideLoadPopup();
-  showSaveNotice(`'${buildName}' 불러오기가 완료되었습니다.`);
-});
+}
 
 function getUserColorTheme() {
   const savedColorTheme = localStorage.getItem("color-theme");
