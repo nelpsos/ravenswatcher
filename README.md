@@ -36,3 +36,9 @@ python ./http-server.py
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 후원
+
+[![Buy me a game](assets/bmc_qr.png)](https://buymeacoffee.com/nelpsos)
+
+여러분의 후원은 제 Ravenswatch 스킨 팩 구매에 사용됩니다.
