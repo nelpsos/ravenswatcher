@@ -1,6 +1,6 @@
 # Ravenswatcher
 
-Ravenswatcher는 게임 [Ravenswatch](https://ravenswatch.com/en/)의 빌더 웹 애플리케이션입니다.
+[Ravenswatcher](http://build.ravenswatcher.click/)는 게임 [Ravenswatch](https://ravenswatch.com/en/)의 빌더 웹 애플리케이션입니다.
 
 Ravenswatch는 [Steam](https://store.steampowered.com/app/2071280/Ravenswatch/), [Playstation](https://store.playstation.com/ko-kr/concept/10005682), [Xbox](https://www.xbox.com/ko-KR/games/store/ravenswatch/9P4NX9RD7FRG), [Nintendo Switch](https://www.nintendo.com/us/store/products/ravenswatch-switch/) 플랫폼에서 구매해 플레이할 수 있습니다. 정말 재밌으니 꼭 플레이해보세요!
 
