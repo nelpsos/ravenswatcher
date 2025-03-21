@@ -10,6 +10,6 @@ class SPAHandler(http.server.SimpleHTTPRequestHandler):
 
 PORT = 8000
 
-with socketserver.TCPServer(("", PORT), SPAHandler) as httpd:
+with socketserver.ThreadingTCPServer(("", PORT), SPAHandler) as httpd:
     print(f"Serving at port {PORT}")
     httpd.serve_forever()
