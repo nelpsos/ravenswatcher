@@ -118,7 +118,7 @@ function mainPageClickHandler(event) {
 
 function detailPageClickHandler(event) {
   if (event.target.closest(".disabled")) return;
-  if (event.target.closest("back-button")) {
+  if (event.target.closest(".back-button")) {
     detailPage.style.display = "none";
     mainPage.style.display = "block";
     navigateTo("/");
