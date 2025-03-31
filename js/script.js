@@ -839,7 +839,7 @@ function initializeLoadPopup() {
           <div class="load-item-container">
             <p class="load-item" data-build-name="${build.name}">${build.name}</p>
             <fancy-button variant="icon" background-color="red" class="delete-load-item" data-build-name="${build.name}">
-              <span slot="text"><img src="/assets/delete.svg"/></slot>
+              <span slot="text"><img src="/assets/delete.svg"/></span>
             </fancy-button>
           </div>
         `
@@ -996,7 +996,7 @@ function formatJsonToReadableText(json) {
       .filter((item) => item !== "")
       .join(", ") || "None";
 
-  return `캐릭터명: ${characterName}\n시작 특성: ${startTalents}\n특성: ${talents}\n궁극기: ${ultimates}\n궁극기 특성: ${ultimateTalents}\n마법 물체: ${magicalObjects}`;
+  return `# 캐릭터: ${characterName}\n○ 시작 특성: ${startTalents}\n○ 특성: ${talents}\n○ 궁극기: ${ultimates}\n○ 궁극기 특성: ${ultimateTalents}\n○ 마법 물체: ${magicalObjects}`;
 }
 
 function shareButtonClickHandler() {

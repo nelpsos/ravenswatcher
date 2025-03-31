@@ -261,7 +261,8 @@ body {
   opacity: 0;
 }
 
-#load-popup, #share-popup {
+#load-popup,
+#share-popup {
   position: fixed;
   min-width: 400px;
   max-width: 80vw;
@@ -280,7 +281,8 @@ body {
   visibility: hidden;
 }
 
-#load-popup.show, #share-popup.show {
+#load-popup.show,
+#share-popup.show {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, -50%) scale(1);
@@ -305,8 +307,47 @@ body {
 }
 
 #load-title,
-#load-buttons {
+#load-buttons,
+#share-title,
+#share-buttons {
   text-align: center;
+}
+
+#load-buttons,
+#share-buttons {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#share-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.share-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 10px;
+  gap: 10px;
+}
+
+#share-text,
+#share-uri {
+  flex-grow: 1;
+}
+
+#share-text {
+  resize: none;
+  height: 10rem;
+}
+
+#copy-share-text,
+#copy-share-uri {
+  flex-shrink: 0;
 }
 
 #load-list {
@@ -350,7 +391,8 @@ body {
   margin: 10px;
 }
 
-#build-name {
+input[type="text"],
+textarea {
   padding: 10px; /* Some padding */
   border: 1px solid var(--border-color); /* Border color */
   border-radius: 5px; /* Rounded corners */
@@ -361,7 +403,8 @@ body {
   flex-shrink: 0;
 }
 
-#build-name:focus {
+input[type="text"]:focus,
+textarea:focus {
   border-color: #4caf50; /* Green border on focus */
   outline: none; /* Remove default outline */
 }
