@@ -62,6 +62,7 @@ const darkModeToggle = document.getElementById("dark-mode-toggle");
 const darkModeToggleIcon = document.getElementById("dark-mode-toggle-icon");
 const saveNotice = document.getElementById("save-notice");
 const loadButton = document.getElementById("load-button");
+const backButton = document.getElementById("back-button");
 const loadList = document.getElementById("load-list");
 const mask = document.getElementById("mask");
 
@@ -77,6 +78,7 @@ detailPage.addEventListener("click", detailPageClickHandler);
 closeButton.addEventListener("click", hideLoadPopup);
 mask.addEventListener("click", hideLoadPopup);
 loadButton.addEventListener("click", initializeLoadPopup);
+backButton.addEventListener("click", backButtonClickHandler);
 loadList.addEventListener("click", loadListClickHandler);
 saveButton.addEventListener("click", saveButtonClickHandler);
 
@@ -118,41 +120,35 @@ function mainPageClickHandler(event) {
 
 function detailPageClickHandler(event) {
   if (event.target.closest(".disabled")) return;
-  if (event.target.closest(".back-button")) {
-    detailPage.style.display = "none";
-    mainPage.style.display = "block";
-    navigateTo("/");
-    return;
-  }
 
   const item = event.target.closest(".item");
-  if (item) {
-    const itemBlock = item.parentElement;
-    const row = itemBlock.parentElement?.parentElement?.dataset?.row;
-    if (!row) return;
+  if (!item) return;
+  
+  const itemBlock = item.parentElement;
+  const row = itemBlock.parentElement?.parentElement?.dataset?.row;
+  if (!row) return;
 
-    if (row === "4") {
-      if (itemBlock.parentElement.classList.contains("right-col")) {
-        magicalObjectMoveRightToLeft(item);
-      } else {
-        magicalObjectMoveLeftToRight(item);
-      }
+  if (row === "4") {
+    if (itemBlock.parentElement.classList.contains("right-col")) {
+      magicalObjectMoveRightToLeft(item);
     } else {
-      if (itemBlock.parentElement.classList.contains("right-col")) {
-        if (row === "2") {
-          const ultimateTalentsItems = document.querySelectorAll(
-            "#ultimate-talents-row .right-col .item"
-          );
-          ultimateTalentsItems.forEach(moveRightToLeft);
-        }
-        moveRightToLeft(item);
-      } else {
-        moveLeftToRight(item);
-      }
-
+      magicalObjectMoveLeftToRight(item);
+    }
+  } else {
+    if (itemBlock.parentElement.classList.contains("right-col")) {
       if (row === "2") {
-        updateUltimateTalentsState();
+        const ultimateTalentsItems = document.querySelectorAll(
+          "#ultimate-talents-row .right-col .item"
+        );
+        ultimateTalentsItems.forEach(moveRightToLeft);
       }
+      moveRightToLeft(item);
+    } else {
+      moveLeftToRight(item);
+    }
+
+    if (row === "2") {
+      updateUltimateTalentsState();
     }
   }
 }
@@ -821,6 +817,12 @@ function initializeLoadPopup() {
       )
       .join("");
   }
+}
+
+function backButtonClickHandler() {
+  detailPage.style.display = "none";
+  mainPage.style.display = "block";
+  navigateTo("/");
 }
 
 function updateUltimateTalentsState() {
