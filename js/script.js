@@ -135,7 +135,7 @@ function detailPageClickHandler(event) {
 
   const item = event.target.closest(".item");
   if (!item) return;
-  
+
   const itemBlock = item.parentElement;
   const row = itemBlock.parentElement?.parentElement?.dataset?.row;
   if (!row) return;
@@ -397,6 +397,10 @@ async function showCharacterPage(characterId) {
     if (shareData) {
       selectedTalents = JSON.parse(decodeURIComponent(atob(shareData)));
       applySelectedTalents();
+
+      const url = new URL(window.location);
+      url.searchParams.delete("share");
+      history.replaceState(null, "", url);
     }
   } catch (error) {
     console.error("Error fetching talents:", error);
@@ -1001,7 +1005,9 @@ function shareButtonClickHandler() {
 
   const shareUriData = JSON.stringify(selectedTalents);
   const encodedShareUri = encodeURIComponent(btoa(shareUriData));
-  const shareUriString = `${window.location}?share=${encodedShareUri}`;
+  const currentUrl = new URL(window.location);
+  currentUrl.search = `?share=${encodedShareUri}`;
+  const shareUriString = currentUrl.toString();
   shareUri.value = shareUriString;
 
   showSharePopup();
