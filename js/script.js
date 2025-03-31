@@ -1016,13 +1016,11 @@ function shareButtonClickHandler() {
 function copyShareText() {
   shareText.select();
   window.navigator.clipboard.writeText(shareText.value);
-  alert("텍스트가 복사되었습니다.");
 }
 
 function copyShareUri() {
   shareUri.select();
   window.navigator.clipboard.writeText(shareUri.value);
-  alert("URI가 복사되었습니다.");
 }
 
 function hideSharePopup() {
