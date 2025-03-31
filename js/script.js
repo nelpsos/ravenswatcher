@@ -1014,13 +1014,42 @@ function shareButtonClickHandler() {
 }
 
 function copyShareText() {
-  shareText.select();
-  window.navigator.clipboard.writeText(shareText.value);
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    shareText.select();
+    navigator.clipboard.writeText(shareText.value).catch(() => {
+      fallbackCopyToClipboard(shareText.value);
+    });
+  } else {
+    fallbackCopyToClipboard(shareText.value);
+  }
 }
 
 function copyShareUri() {
-  shareUri.select();
-  window.navigator.clipboard.writeText(shareUri.value);
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    shareUri.select();
+    navigator.clipboard.writeText(shareUri.value).catch(() => {
+      fallbackCopyToClipboard(shareUri.value);
+    });
+  } else {
+    fallbackCopyToClipboard(shareUri.value);
+  }
+}
+
+function fallbackCopyToClipboard(text) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.style.position = "fixed"; // 화면에서 보이지 않도록 고정
+  textarea.style.opacity = "0";
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+  try {
+    document.execCommand("copy");
+    console.log("텍스트가 복사되었습니다:", text);
+  } catch (err) {
+    console.error("텍스트 복사 실패:", err);
+  }
+  document.body.removeChild(textarea);
 }
 
 function hideSharePopup() {
