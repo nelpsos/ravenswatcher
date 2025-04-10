@@ -44,6 +44,8 @@ let selectedCharacter = null;
 let tooltipTimer = null;
 let saveNoticeTimer = null;
 
+let lastTouchedItem = null;
+
 const characterName = document.getElementById("character-name");
 const characterImage = document.getElementById("character-image");
 const characterButtonsContainer = document.getElementById("character-buttons");
@@ -136,6 +138,24 @@ function detailPageClickHandler(event) {
   const item = event.target.closest(".item");
   if (!item) return;
 
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    // 모바일에서는 두 번 터치 시 선택
+    if (lastTouchedItem === item) {
+      // 두 번째 터치 시 선택
+      itemClickHandler(item);
+      lastTouchedItem = null;
+    } else {
+      // 첫 번째 터치 시 설명 표시
+      showTooltip({ target: item });
+      lastTouchedItem = item;
+    }
+  } else {
+    // PC에서는 바로 선택
+    itemClickHandler(item);
+  }
+}
+
+function itemClickHandler(item) {
   const itemBlock = item.parentElement;
   const row = itemBlock.parentElement?.parentElement?.dataset?.row;
   if (!row) return;
