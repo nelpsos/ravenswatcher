@@ -422,6 +422,8 @@ async function showCharacterPage(characterId) {
       url.searchParams.delete("share");
       history.replaceState(null, "", url);
     }
+
+    buildName.value = "";
   } catch (error) {
     console.error("Error fetching talents:", error);
   }
