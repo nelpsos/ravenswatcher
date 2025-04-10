@@ -75,20 +75,27 @@
 
       <div id="detail-page">
         <div id="character-header">
-          <img id="character-image" />
-          <h2 id="character-name"></h2>
+          <div class="character-area-inline">
+            <img id="character-image" />
+            <h2 id="character-name"></h2>
+          </div>
           <div class="save-area-inline">
             <span id="save-notice" class="transparent"></span>
-            <input type="text" id="build-name" placeholder="빌드 이름" />
-            <fancy-button id="save-button">
-              <span slot="text">저장</span>
-            </fancy-button>
-            <fancy-button id="load-button">
-              <span slot="text">불러오기</span>
-            </fancy-button>
-            <fancy-button id="share-button">
-              <span slot="text">공유</span>
-            </fancy-button>
+            <div class="action-buttons">
+              <input type="text" id="build-name" placeholder="빌드 이름" />
+              <fancy-button id="save-button" variant="icon">
+                <span slot="text"><img src="/assets/save.svg" /></span>
+              </fancy-button>
+              <fancy-button id="load-button" variant="icon">
+                <span slot="text"><img src="/assets/load.svg" /></span>
+              </fancy-button>
+              <fancy-button
+                id="share-button"
+                variant="icon"
+                background-color="blue">
+                <span slot="text"><img src="/assets/share.svg" /></span>
+              </fancy-button>
+            </div>
           </div>
         </div>
 
@@ -132,7 +139,7 @@
           </div>
         </div>
 
-        <table>
+        <table id="character-table">
           <tr id="start-talents-row" data-row="0">
             <td id="start-talents" class="left-col"></td>
             <td class="right-col"></td>

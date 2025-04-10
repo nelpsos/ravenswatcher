@@ -33,31 +33,32 @@ body {
   padding: 10px;
 }
 
-#main-page #character-buttons {
+#character-buttons {
   width: 50%;
   height: auto;
   margin: 0 auto;
-  display: block;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px;
 }
 
-#main-page .character-image {
-  width: calc(33.33% - 20px);
-  margin: 10px;
-  display: inline-block;
+.character-image {
+  width: 100%;
   transition: transform 0.2s;
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  object-fit: cover; /* Ensures the image covers the container */
-  aspect-ratio: 1 / 1; /* Maintains a 1:1 aspect ratio */
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
 }
 
-#main-page .character-image:hover {
+.character-image:hover {
   transform: scale(1.05);
   filter: brightness(1.2);
 }
 
-#main-page .character-image:active {
+.character-image:active {
   transform: scale(0.95);
 }
 
@@ -71,9 +72,10 @@ body {
   display: none;
 }
 
-#detail-page table {
+#character-table {
   width: 100%;
   border-collapse: collapse;
+  user-select: none;
 }
 
 #detail-page td {
@@ -82,12 +84,12 @@ body {
   vertical-align: top;
 }
 
-#detail-page .left-col,
-#detail-page .right-col {
+.left-col,
+.right-col {
   width: 50%;
 }
 
-#detail-page .item-block {
+.item-block {
   width: 50px;
   height: 50px;
   margin: 5px;
@@ -95,36 +97,36 @@ body {
   position: relative;
 }
 
-#detail-page .item-block.disabled {
+.item-block.disabled {
   opacity: 0.5;
   cursor: normal;
 }
 
-#detail-page .item {
+.item {
   cursor: pointer;
 }
 
-#detail-page .disabled .item {
+.disabled .item {
   cursor: default;
 }
 
-#detail-page .item-icon {
+.item-icon {
   width: 50px;
   height: 50px;
 }
 
-#detail-page .placeholder {
+.placeholder {
   height: 50px;
   width: 50px;
   border: 1px dashed var(--placeholder-border);
   display: inline-block;
 }
 
-#detail-page .item {
+.item {
   position: relative;
 }
 
-#detail-page .item-count {
+.item-count {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -223,18 +225,28 @@ body {
   align-items: center;
 }
 
-#character-header #character-image,
-#character-header #character-name {
+#character-image,
+#character-name {
   margin: 10px;
   display: inline-block;
   flex-shrink: 0;
 }
 
-#character-header .save-area-inline {
+.character-area-inline {
+  display: flex;
+}
+
+.save-area-inline {
   display: flex;
   align-items: center;
   margin-left: auto;
   gap: 10px;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .inline-box {
@@ -264,8 +276,8 @@ body {
 #load-popup,
 #share-popup {
   position: fixed;
-  min-width: 400px;
-  max-width: 80vw;
+  min-width: 300px;
+  max-width: 90vw;
   max-height: 80vh;
   top: 50%;
   left: 50%;
@@ -393,20 +405,20 @@ body {
 
 input[type="text"],
 textarea {
-  padding: 10px; /* Some padding */
-  border: 1px solid var(--border-color); /* Border color */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 16px; /* Increase font size */
-  background-color: var(--background-color); /* Background color */
-  color: var(--text-color); /* Text color */
-  transition: border-color 0.3s; /* Smooth transition for border color */
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: border-color 0.3s;
   flex-shrink: 0;
 }
 
 input[type="text"]:focus,
 textarea:focus {
-  border-color: #4caf50; /* Green border on focus */
-  outline: none; /* Remove default outline */
+  border-color: #4caf50;
+  outline: none;
 }
 
 #save-button,
@@ -416,4 +428,49 @@ textarea:focus {
 
 .footer {
   margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  #character-buttons {
+    width: 100%;
+  }
+
+  .icon-buttons {
+    justify-content: space-between;
+  }
+
+  #character-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .save-area-inline {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  #save-notice {
+    min-height: 21px;
+    margin-right: 0;
+  }
+
+  .action-buttons {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #build-name {
+    flex-grow: 1;
+  }
+
+  #save-button,
+  #load-button,
+  #share-button {
+    flex-shrink: 0;
+    height: 32px;
+  }
 }
