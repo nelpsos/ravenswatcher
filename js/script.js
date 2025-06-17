@@ -324,28 +324,10 @@ function applyColorTheme(theme) {
 function createCharacterImage(character) {
   const img = document.createElement("img");
   img.id = character.id;
-  img.classList.add("character-image");
+  img.classList.add("character-portrait");
   img.setAttribute("data-character", character.id);
   img.setAttribute("src", `assets/${character.id}/portrait.webp`);
   img.setAttribute("alt", character.name);
-  img.onerror = function () {
-    img.style.display = "none";
-    const fallback = document.createElement("div");
-    fallback.className = "character-image no-image";
-    fallback.textContent = "No image";
-    fallback.style.display = "flex";
-    fallback.style.alignItems = "center";
-    fallback.style.justifyContent = "center";
-    fallback.style.background = "#444";
-    fallback.style.color = "#fff";
-    fallback.style.fontWeight = "bold";
-    fallback.style.fontSize = "1.2em";
-    fallback.style.height = img.height ? img.height + "px" : "100px";
-    fallback.style.width = img.width ? img.width + "px" : "100px";
-    fallback.setAttribute("data-character", character.id);
-    fallback.onclick = img.onclick;
-    characterButtonsContainer.appendChild(fallback);
-  };
   characterButtonsContainer.appendChild(img);
 }
 
@@ -406,8 +388,17 @@ async function showCharacterPage(characterId) {
       fetch(`/assets/magical_objects/magicalObjects.json`),
     ]);
 
-    originalCharacterTalents = await characterResponse.json();
-    originalMagicalObjects = await magicalObjectsResponse.json();
+    if (characterResponse.ok) {
+      originalCharacterTalents = await characterResponse.json();
+    } else {
+      originalCharacterTalents = null;
+    }
+
+    if (magicalObjectsResponse.ok) {
+      originalMagicalObjects = await characterResponse.json();
+    } else {
+      originalMagicalObjects = null;
+    }
 
     if (!originalCharacterTalents) {
       throw new Error("Character talents not found");
@@ -423,23 +414,6 @@ async function showCharacterPage(characterId) {
     characterImage.setAttribute("data-character", characterId);
     characterImage.setAttribute("src", `/assets/${characterId}/icon.png`);
     characterImage.setAttribute("alt", character.name);
-    characterImage.onerror = function () {
-      characterImage.style.display = "none";
-      const fallback = document.createElement("div");
-      fallback.className = "character-image no-image";
-      fallback.textContent = "No image";
-      fallback.style.display = "flex";
-      fallback.style.alignItems = "center";
-      fallback.style.justifyContent = "center";
-      fallback.style.background = "#444";
-      fallback.style.color = "#fff";
-      fallback.style.fontWeight = "bold";
-      fallback.style.fontSize = "1.2em";
-      fallback.style.height = characterImage.height ? characterImage.height + "px" : "100px";
-      fallback.style.width = characterImage.width ? characterImage.width + "px" : "100px";
-      fallback.setAttribute("data-character", characterId);
-      characterImage.parentNode.insertBefore(fallback, characterImage.nextSibling);
-    };
 
     initializeTalents();
     initializePlaceholders();
@@ -582,22 +556,6 @@ function createItemBlock(itemId, itemName, itemIcon, characterId) {
   img.src = `/assets/${characterId}/${itemIcon}`;
   img.alt = itemName;
   img.classList.add("item-icon");
-  img.onerror = function () {
-    img.style.display = "none";
-    const fallback = document.createElement("div");
-    fallback.className = "item-icon no-image";
-    fallback.textContent = "No image";
-    fallback.style.display = "flex";
-    fallback.style.alignItems = "center";
-    fallback.style.justifyContent = "center";
-    fallback.style.background = "#444";
-    fallback.style.color = "#fff";
-    fallback.style.fontWeight = "bold";
-    fallback.style.fontSize = "0.9em";
-    fallback.style.height = img.height ? img.height + "px" : "50px";
-    fallback.style.width = img.width ? img.width + "px" : "50px";
-    item.appendChild(fallback);
-  };
 
   item.appendChild(img);
   itemBlock.appendChild(item);
