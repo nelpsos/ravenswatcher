@@ -11,6 +11,8 @@ const characters = [
   { id: "geppetto", name: "제페토" },
   { id: "wukong", name: "오공" },
   { id: "carmilla", name: "카르밀라" },
+  { id: "romeo", name: "로미오" },
+  { id: "juliet", name: "줄리엣" },
 ];
 
 const initialTalents = {
@@ -326,6 +328,24 @@ function createCharacterImage(character) {
   img.setAttribute("data-character", character.id);
   img.setAttribute("src", `assets/${character.id}/portrait.webp`);
   img.setAttribute("alt", character.name);
+  img.onerror = function () {
+    img.style.display = "none";
+    const fallback = document.createElement("div");
+    fallback.className = "character-image no-image";
+    fallback.textContent = "No image";
+    fallback.style.display = "flex";
+    fallback.style.alignItems = "center";
+    fallback.style.justifyContent = "center";
+    fallback.style.background = "#444";
+    fallback.style.color = "#fff";
+    fallback.style.fontWeight = "bold";
+    fallback.style.fontSize = "1.2em";
+    fallback.style.height = "100%";
+    fallback.style.width = "100%";
+    fallback.setAttribute("data-character", character.id);
+    fallback.onclick = img.onclick;
+    img.parentNode.insertBefore(fallback, img.nextSibling);
+  };
   characterButtonsContainer.appendChild(img);
 }
 
