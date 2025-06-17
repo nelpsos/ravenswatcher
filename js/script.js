@@ -388,17 +388,8 @@ async function showCharacterPage(characterId) {
       fetch(`/assets/magical_objects/magicalObjects.json`),
     ]);
 
-    if (characterResponse.ok) {
-      originalCharacterTalents = await characterResponse.json();
-    } else {
-      originalCharacterTalents = null;
-    }
-
-    if (magicalObjectsResponse.ok) {
-      originalMagicalObjects = await characterResponse.json();
-    } else {
-      originalMagicalObjects = null;
-    }
+    originalCharacterTalents = await characterResponse.json();
+    originalMagicalObjects = await magicalObjectsResponse.json();
 
     if (!originalCharacterTalents) {
       throw new Error("Character talents not found");
