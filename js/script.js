@@ -127,7 +127,7 @@ function popstateHandler() {
 
 function mainPageClickHandler(event) {
   // 캐릭터 버튼 클릭 이벤트 처리 (navigateTo() 사용)
-  if (event.target.classList.contains("character-image")) {
+  if (event.target.classList.contains("character-portrait")) {
     const characterId = event.target.dataset.character;
     showPage("detail", characterId);
     navigateTo(`/characters/${characterId}`);
