@@ -340,11 +340,11 @@ function createCharacterImage(character) {
     fallback.style.color = "#fff";
     fallback.style.fontWeight = "bold";
     fallback.style.fontSize = "1.2em";
-    fallback.style.height = "100%";
-    fallback.style.width = "100%";
+    fallback.style.height = img.height ? img.height + "px" : "100px";
+    fallback.style.width = img.width ? img.width + "px" : "100px";
     fallback.setAttribute("data-character", character.id);
     fallback.onclick = img.onclick;
-    img.parentNode.insertBefore(fallback, img.nextSibling);
+    characterButtonsContainer.appendChild(fallback);
   };
   characterButtonsContainer.appendChild(img);
 }
@@ -423,6 +423,23 @@ async function showCharacterPage(characterId) {
     characterImage.setAttribute("data-character", characterId);
     characterImage.setAttribute("src", `/assets/${characterId}/icon.png`);
     characterImage.setAttribute("alt", character.name);
+    characterImage.onerror = function () {
+      characterImage.style.display = "none";
+      const fallback = document.createElement("div");
+      fallback.className = "character-image no-image";
+      fallback.textContent = "No image";
+      fallback.style.display = "flex";
+      fallback.style.alignItems = "center";
+      fallback.style.justifyContent = "center";
+      fallback.style.background = "#444";
+      fallback.style.color = "#fff";
+      fallback.style.fontWeight = "bold";
+      fallback.style.fontSize = "1.2em";
+      fallback.style.height = characterImage.height ? characterImage.height + "px" : "100px";
+      fallback.style.width = characterImage.width ? characterImage.width + "px" : "100px";
+      fallback.setAttribute("data-character", characterId);
+      characterImage.parentNode.insertBefore(fallback, characterImage.nextSibling);
+    };
 
     initializeTalents();
     initializePlaceholders();
@@ -565,6 +582,22 @@ function createItemBlock(itemId, itemName, itemIcon, characterId) {
   img.src = `/assets/${characterId}/${itemIcon}`;
   img.alt = itemName;
   img.classList.add("item-icon");
+  img.onerror = function () {
+    img.style.display = "none";
+    const fallback = document.createElement("div");
+    fallback.className = "item-icon no-image";
+    fallback.textContent = "No image";
+    fallback.style.display = "flex";
+    fallback.style.alignItems = "center";
+    fallback.style.justifyContent = "center";
+    fallback.style.background = "#444";
+    fallback.style.color = "#fff";
+    fallback.style.fontWeight = "bold";
+    fallback.style.fontSize = "0.9em";
+    fallback.style.height = img.height ? img.height + "px" : "50px";
+    fallback.style.width = img.width ? img.width + "px" : "50px";
+    item.appendChild(fallback);
+  };
 
   item.appendChild(img);
   itemBlock.appendChild(item);
