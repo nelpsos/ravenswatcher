@@ -423,6 +423,7 @@ async function showCharacterPage(characterId) {
       history.replaceState(null, "", url);
     }
 
+    const buildName = document.getElementById("build-name");
     buildName.value = "";
   } catch (error) {
     console.error("Error fetching talents:", error);
