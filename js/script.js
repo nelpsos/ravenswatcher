@@ -810,9 +810,8 @@ function makeTooltipInnerHTML(item) {
     if (["COMMON", "RARE", "EPIC"].includes(rarity)) {
       const set = item.set;
       const setEffect = item.setEffect;
-      const selectedCount = selectedTalents.magicalObjects.filter(
-        (obj) => obj.id === itemId
-      ).length;
+      const selectedObj = selectedTalents.magicalObjects.find((obj) => obj.id === itemId);
+      const selectedCount = selectedObj ? selectedObj.count : 0;
       const setColor = selectedCount >= set ? "#ff0" : "#888";
 
       innerHTML += `<br><span class="inline-box">x${set}</span> <span style="color: ${setColor};">${setEffect}</span>`;
