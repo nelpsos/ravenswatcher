@@ -11,6 +11,8 @@ const characters = [
   { id: "geppetto", name: "제페토" },
   { id: "wukong", name: "오공" },
   { id: "carmilla", name: "카르밀라" },
+  { id: "romeo", name: "로미오" },
+  { id: "juliet", name: "줄리엣" },
 ];
 
 const initialTalents = {
@@ -125,7 +127,7 @@ function popstateHandler() {
 
 function mainPageClickHandler(event) {
   // 캐릭터 버튼 클릭 이벤트 처리 (navigateTo() 사용)
-  if (event.target.classList.contains("character-image")) {
+  if (event.target.classList.contains("character-portrait")) {
     const characterId = event.target.dataset.character;
     showPage("detail", characterId);
     navigateTo(`/characters/${characterId}`);
@@ -322,7 +324,7 @@ function applyColorTheme(theme) {
 function createCharacterImage(character) {
   const img = document.createElement("img");
   img.id = character.id;
-  img.classList.add("character-image");
+  img.classList.add("character-portrait");
   img.setAttribute("data-character", character.id);
   img.setAttribute("src", `assets/${character.id}/portrait.webp`);
   img.setAttribute("alt", character.name);

@@ -38,12 +38,12 @@ body {
   height: auto;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   gap: 10px;
 }
 
-.character-image {
+.character-portrait {
   width: 100%;
   transition: transform 0.2s;
   border-radius: 10px;
@@ -53,12 +53,12 @@ body {
   aspect-ratio: 1 / 1;
 }
 
-.character-image:hover {
+.character-portrait:hover {
   transform: scale(1.05);
   filter: brightness(1.2);
 }
 
-.character-image:active {
+.character-portrait:active {
   transform: scale(0.95);
 }
 
@@ -225,8 +225,13 @@ body {
   align-items: center;
 }
 
-#character-image,
+.character-image {
+  width: 40px;
+}
+
+.character-image,
 #character-name {
+  height: 40px;
   margin: 10px;
   display: inline-block;
   flex-shrink: 0;
