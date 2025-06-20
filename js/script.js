@@ -752,15 +752,14 @@ function showTooltip(event) {
   tooltip.classList.add("show"); // show 클래스 추가
   const rect = itemElement.getBoundingClientRect();
   const tooltipRect = tooltip.getBoundingClientRect();
-  const isOverflowingRight =
-    rect.right + tooltipRect.width + 5 > window.innerWidth;
+  const isOverflowingRight = rect.right + tooltipRect.width > window.innerWidth;
 
   if (isOverflowingRight) {
-    tooltip.style.left = rect.left - tooltipRect.width - 5 + "px";
+    tooltip.style.left = rect.left - tooltipRect.width + rect.width + "px";
   } else {
-    tooltip.style.left = rect.right + 5 + "px";
+    tooltip.style.left = rect.left + "px";
   }
-  tooltip.style.top = rect.top + window.scrollY + "px"; // 스크롤 위치 반영
+  tooltip.style.top = rect.bottom + 5 + window.scrollY + "px"; // 스크롤 위치 반영
   tooltip.style.transform = "translateY(-5px)";
 
   clearTimeout(tooltipTimer);
@@ -812,9 +811,10 @@ function makeTooltipInnerHTML(item) {
     if (["COMMON", "RARE", "EPIC"].includes(rarity)) {
       const set = item.set;
       const setEffect = item.setEffect;
-      const selectedCount = selectedTalents.magicalObjects.filter(
+      const selectedObj = selectedTalents.magicalObjects.find(
         (obj) => obj.id === itemId
-      ).length;
+      );
+      const selectedCount = selectedObj ? selectedObj.count : 0;
       const setColor = selectedCount >= set ? "#ff0" : "#888";
 
       innerHTML += `<br><span class="inline-box">x${set}</span> <span style="color: ${setColor};">${setEffect}</span>`;
