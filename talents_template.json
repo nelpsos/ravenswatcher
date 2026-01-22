@@ -1,0 +1,206 @@
+{
+  "id": "",
+  "name": "",
+  "startTalents": [
+    {
+      "id": "s_1",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "s_2",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "s_3",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "s_4",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    }
+  ],
+  "talents": [
+    {
+      "id": "1",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "2",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "3",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "4",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "5",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "6",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "7",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "8",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "9",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "10",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "11",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "12",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },    
+    {
+      "id": "13",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "14",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "15",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "16",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "17",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "18",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    }
+  ],
+  "ultimates": [
+    {
+      "id": "u1",
+      "name": "",
+      "description": "",
+      "icon": ""
+    },
+    {
+      "id": "u2",
+      "name": "",
+      "description": "",
+      "icon": ""
+    }
+  ],
+  "ultimateTalents": [
+    {
+      "id": "u1_1",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "u1_2",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "u2_1",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    },
+    {
+      "id": "u2_2",
+      "name": "",
+      "description": "",
+      "rarityValue": [],
+      "icon": ""
+    }
+  ]
+}
