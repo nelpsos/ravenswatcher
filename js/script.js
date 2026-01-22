@@ -9,7 +9,7 @@ const characters = [
   { id: "aladdin", name: "알라딘" },
   { id: "melusine", name: "멜루신" },
   { id: "geppetto", name: "제페토" },
-  { id: "wukong", name: "오공" },
+  { id: "wukong", name: "손오공" },
   { id: "carmilla", name: "카르밀라" },
   { id: "romeo", name: "로미오" },
   { id: "juliet", name: "줄리엣" },
