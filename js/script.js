@@ -456,7 +456,7 @@ function initializePlaceholders() {
   rightCols.forEach((col) => (col.innerHTML = ""));
 
   const rows = document.querySelectorAll("#detail-page table tr");
-  const placeholdersCount = [1, 7, 1, 1, 53]; // 각 줄에 필요한 placeholder 개수
+  const placeholdersCount = [1, 7, 1, 1, 1]; // 각 줄에 필요한 placeholder 개수
 
   rows.forEach((row, index) => {
     const rightCol = row.querySelector(".right-col");
@@ -512,13 +512,17 @@ function makeCharacterItemBlock(itemObject) {
 
 function makeObjectItemBlock(itemObject) {
   try {
-    const { id: itemId, name: itemName, icon: itemIcon } = itemObject;
+    const { id: itemId, name: itemName, icon: itemIcon, rarity: itemRarity } = itemObject;
     const itemBlock = createItemBlock(
       itemId,
       itemName,
       itemIcon,
       "magical_objects"
     );
+    const item = itemBlock.querySelector(".item");
+    if (item) {
+      item.dataset.rarity = itemRarity;
+    }
     if (
       itemBlock.parentElement &&
       itemBlock.parentElement.classList.contains("right-col")
@@ -560,45 +564,52 @@ function magicalObjectMoveLeftToRight(item) {
     (obj) => obj.id === itemBlock.dataset.itemId
   );
 
-  if (!stackableRarities.includes(itemData?.rarity)) {
-    return moveLeftToRight(item);
-  }
-
   const rowElement = itemBlock.parentElement.parentElement;
   const rightCol = rowElement.querySelector(".right-col");
   const existingItemBlock = rightCol.querySelector(
     `[data-item-id="${item.dataset.itemId}"]`
   );
-  if (existingItemBlock) {
+
+  if (existingItemBlock && stackableRarities.includes(itemData?.rarity)) {
     // 이미 존재하는 아이템 블록이 있으면 개수만 증가
     const countSpan = existingItemBlock.querySelector(".item-count");
     countSpan.textContent = parseInt(countSpan.textContent) + 1;
+
+    const tooltip = document.getElementById("tooltip");
+    tooltip.innerHTML = makeTooltipInnerHTML(itemData);
   } else {
+    if (existingItemBlock && !stackableRarities.includes(itemData?.rarity)) {
+      return false;
+    }
+
     // 존재하지 않으면 새로운 아이템 블록 추가
     const newItemBlock = itemBlock.cloneNode(true);
-    const countSpan = newItemBlock.querySelector(".item-count");
-    if (countSpan) {
-      countSpan.textContent = "1";
-    } else {
-      const newCountSpan = document.createElement("span");
-      newCountSpan.classList.add("item-count");
-      newCountSpan.textContent = "1";
-      newItemBlock.appendChild(newCountSpan);
+
+    if (stackableRarities.includes(itemData?.rarity)) {
+      const countSpan = newItemBlock.querySelector(".item-count");
+      if (countSpan) {
+        countSpan.textContent = "1";
+      } else {
+        const newCountSpan = document.createElement("span");
+        newCountSpan.classList.add("item-count");
+        newCountSpan.textContent = "1";
+        newItemBlock.appendChild(newCountSpan);
+      }
     }
-    const placeholder = rightCol.querySelector(".placeholder");
-    if (placeholder) {
-      placeholder.parentElement.replaceWith(newItemBlock);
+
+    const placeholderInner = rightCol.querySelector(".placeholder");
+    if (placeholderInner) {
+      const placeholderBlock = placeholderInner.parentElement;
+      rightCol.insertBefore(newItemBlock, placeholderBlock);
+    } else {
+      rightCol.appendChild(newItemBlock);
+      rightCol.appendChild(createPlaceholder());
     }
     newItemBlock.addEventListener("mouseover", showTooltip);
     newItemBlock.addEventListener("mouseout", hideTooltip);
   }
 
   syncSelectedData();
-
-  if (existingItemBlock) {
-    const tooltip = document.getElementById("tooltip");
-    tooltip.innerHTML = makeTooltipInnerHTML(itemData);
-  }
   return true;
 }
 
@@ -609,28 +620,27 @@ function magicalObjectMoveRightToLeft(item) {
     (obj) => obj.id === itemBlock.dataset.itemId
   );
 
-  if (!stackableRarities.includes(itemData.rarity)) {
-    return moveRightToLeft(item);
-  }
+  if (stackableRarities.includes(itemData.rarity)) {
+    // 오른쪽 열의 아이템 클릭 시 개수 감소
+    const countSpan = itemBlock.querySelector(".item-count");
+    let count = parseInt(countSpan.textContent);
+    countSpan.textContent = --count;
 
-  // 오른쪽 열의 아이템 클릭 시 개수 감소
-  const countSpan = itemBlock.querySelector(".item-count");
-  let count = parseInt(countSpan.textContent);
-  countSpan.textContent = --count;
-
-  if (count === 0) {
-    // 개수가 0이 되면 아이템 블록 제거하고 placeholder 추가
-    const placeholder = createPlaceholder();
-    itemBlock.replaceWith(placeholder);
+    if (count === 0) {
+      // 개수가 0이 되면 아이템 블록 제거
+      itemBlock.remove();
+      hideTooltip();
+    } else {
+      const tooltip = document.getElementById("tooltip");
+      tooltip.innerHTML = makeTooltipInnerHTML(itemData);
+    }
+  } else {
+    // 중첩 불가능한 아이템 제거
+    itemBlock.remove();
     hideTooltip();
   }
 
   syncSelectedData();
-
-  if (count !== 0) {
-    const tooltip = document.getElementById("tooltip");
-    tooltip.innerHTML = makeTooltipInnerHTML(itemData);
-  }
 
   return true;
 }
