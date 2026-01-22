@@ -9,10 +9,11 @@ const characters = [
   { id: "aladdin", name: "알라딘" },
   { id: "melusine", name: "멜루신" },
   { id: "geppetto", name: "제페토" },
-  { id: "wukong", name: "오공" },
+  { id: "wukong", name: "손오공" },
   { id: "carmilla", name: "카르밀라" },
   { id: "romeo", name: "로미오" },
   { id: "juliet", name: "줄리엣" },
+  { id: "merlin", name: "멀린" },
 ];
 
 const initialTalents = {
@@ -172,7 +173,7 @@ function itemClickHandler(item) {
     if (itemBlock.parentElement.classList.contains("right-col")) {
       if (row === "2") {
         const ultimateTalentsItems = document.querySelectorAll(
-          "#ultimate-talents-row .right-col .item"
+          "#ultimate-talents-row .right-col .item",
         );
         ultimateTalentsItems.forEach(moveRightToLeft);
       }
@@ -222,7 +223,7 @@ function loadListClickHandler(event) {
   }
 
   const confirmDeleteLoadItem = event.target.closest(
-    ".confirm-delete-load-item"
+    ".confirm-delete-load-item",
   );
   if (confirmDeleteLoadItem) {
     const buildName = confirmDeleteLoadItem.dataset.buildName;
@@ -230,7 +231,7 @@ function loadListClickHandler(event) {
       JSON.parse(localStorage.getItem("savedBuildList")) || [];
     savedBuildList = savedBuildList.filter(
       (build) =>
-        build.name !== buildName || build.character !== selectedCharacter.id
+        build.name !== buildName || build.character !== selectedCharacter.id,
     );
     localStorage.setItem("savedBuildList", JSON.stringify(savedBuildList));
     initializeLoadPopup();
@@ -262,7 +263,7 @@ function loadListClickHandler(event) {
       JSON.parse(localStorage.getItem("savedBuildList")) || [];
     const selectedBuild = savedBuildList.find(
       (build) =>
-        build.name === buildName && build.character === selectedCharacter.id
+        build.name === buildName && build.character === selectedCharacter.id,
     );
 
     if (!selectedBuild) {
@@ -291,7 +292,7 @@ function saveButtonClickHandler() {
   let savedBuildList = JSON.parse(localStorage.getItem("savedBuildList")) || [];
   const existingBuild = savedBuildList.find(
     (build) =>
-      build.name === buildName && build.character === selectedCharacter.id
+      build.name === buildName && build.character === selectedCharacter.id,
   );
 
   if (existingBuild) {
@@ -456,7 +457,7 @@ function initializePlaceholders() {
   rightCols.forEach((col) => (col.innerHTML = ""));
 
   const rows = document.querySelectorAll("#detail-page table tr");
-  const placeholdersCount = [1, 7, 1, 1, 53]; // 각 줄에 필요한 placeholder 개수
+  const placeholdersCount = [1, 7, 1, 1, 1]; // 각 줄에 필요한 placeholder 개수
 
   rows.forEach((row, index) => {
     const rightCol = row.querySelector(".right-col");
@@ -496,7 +497,7 @@ function makeCharacterItemBlock(itemObject) {
       itemId,
       itemName,
       itemIcon,
-      selectedCharacter.id
+      selectedCharacter.id,
     );
     if (
       itemBlock.parentElement &&
@@ -512,13 +513,22 @@ function makeCharacterItemBlock(itemObject) {
 
 function makeObjectItemBlock(itemObject) {
   try {
-    const { id: itemId, name: itemName, icon: itemIcon } = itemObject;
+    const {
+      id: itemId,
+      name: itemName,
+      icon: itemIcon,
+      rarity: itemRarity,
+    } = itemObject;
     const itemBlock = createItemBlock(
       itemId,
       itemName,
       itemIcon,
-      "magical_objects"
+      "magical_objects",
     );
+    const item = itemBlock.querySelector(".item");
+    if (item) {
+      item.dataset.rarity = itemRarity;
+    }
     if (
       itemBlock.parentElement &&
       itemBlock.parentElement.classList.contains("right-col")
@@ -557,48 +567,55 @@ function createItemBlock(itemId, itemName, itemIcon, characterId) {
 function magicalObjectMoveLeftToRight(item) {
   const itemBlock = item.parentElement;
   const itemData = originalMagicalObjects.find(
-    (obj) => obj.id === itemBlock.dataset.itemId
+    (obj) => obj.id === itemBlock.dataset.itemId,
   );
-
-  if (!stackableRarities.includes(itemData?.rarity)) {
-    return moveLeftToRight(item);
-  }
 
   const rowElement = itemBlock.parentElement.parentElement;
   const rightCol = rowElement.querySelector(".right-col");
   const existingItemBlock = rightCol.querySelector(
-    `[data-item-id="${item.dataset.itemId}"]`
+    `[data-item-id="${item.dataset.itemId}"]`,
   );
-  if (existingItemBlock) {
+
+  if (existingItemBlock && stackableRarities.includes(itemData?.rarity)) {
     // 이미 존재하는 아이템 블록이 있으면 개수만 증가
     const countSpan = existingItemBlock.querySelector(".item-count");
     countSpan.textContent = parseInt(countSpan.textContent) + 1;
+
+    const tooltip = document.getElementById("tooltip");
+    tooltip.innerHTML = makeTooltipInnerHTML(itemData);
   } else {
+    if (existingItemBlock && !stackableRarities.includes(itemData?.rarity)) {
+      return false;
+    }
+
     // 존재하지 않으면 새로운 아이템 블록 추가
     const newItemBlock = itemBlock.cloneNode(true);
-    const countSpan = newItemBlock.querySelector(".item-count");
-    if (countSpan) {
-      countSpan.textContent = "1";
-    } else {
-      const newCountSpan = document.createElement("span");
-      newCountSpan.classList.add("item-count");
-      newCountSpan.textContent = "1";
-      newItemBlock.appendChild(newCountSpan);
+
+    if (stackableRarities.includes(itemData?.rarity)) {
+      const countSpan = newItemBlock.querySelector(".item-count");
+      if (countSpan) {
+        countSpan.textContent = "1";
+      } else {
+        const newCountSpan = document.createElement("span");
+        newCountSpan.classList.add("item-count");
+        newCountSpan.textContent = "1";
+        newItemBlock.appendChild(newCountSpan);
+      }
     }
-    const placeholder = rightCol.querySelector(".placeholder");
-    if (placeholder) {
-      placeholder.parentElement.replaceWith(newItemBlock);
+
+    const placeholderInner = rightCol.querySelector(".placeholder");
+    if (placeholderInner) {
+      const placeholderBlock = placeholderInner.parentElement;
+      rightCol.insertBefore(newItemBlock, placeholderBlock);
+    } else {
+      rightCol.appendChild(newItemBlock);
+      rightCol.appendChild(createPlaceholder());
     }
     newItemBlock.addEventListener("mouseover", showTooltip);
     newItemBlock.addEventListener("mouseout", hideTooltip);
   }
 
   syncSelectedData();
-
-  if (existingItemBlock) {
-    const tooltip = document.getElementById("tooltip");
-    tooltip.innerHTML = makeTooltipInnerHTML(itemData);
-  }
   return true;
 }
 
@@ -606,31 +623,30 @@ function magicalObjectMoveRightToLeft(item) {
   const itemBlock = item.parentElement;
 
   const itemData = originalMagicalObjects.find(
-    (obj) => obj.id === itemBlock.dataset.itemId
+    (obj) => obj.id === itemBlock.dataset.itemId,
   );
 
-  if (!stackableRarities.includes(itemData.rarity)) {
-    return moveRightToLeft(item);
-  }
+  if (stackableRarities.includes(itemData.rarity)) {
+    // 오른쪽 열의 아이템 클릭 시 개수 감소
+    const countSpan = itemBlock.querySelector(".item-count");
+    let count = parseInt(countSpan.textContent);
+    countSpan.textContent = --count;
 
-  // 오른쪽 열의 아이템 클릭 시 개수 감소
-  const countSpan = itemBlock.querySelector(".item-count");
-  let count = parseInt(countSpan.textContent);
-  countSpan.textContent = --count;
-
-  if (count === 0) {
-    // 개수가 0이 되면 아이템 블록 제거하고 placeholder 추가
-    const placeholder = createPlaceholder();
-    itemBlock.replaceWith(placeholder);
+    if (count === 0) {
+      // 개수가 0이 되면 아이템 블록 제거
+      itemBlock.remove();
+      hideTooltip();
+    } else {
+      const tooltip = document.getElementById("tooltip");
+      tooltip.innerHTML = makeTooltipInnerHTML(itemData);
+    }
+  } else {
+    // 중첩 불가능한 아이템 제거
+    itemBlock.remove();
     hideTooltip();
   }
 
   syncSelectedData();
-
-  if (count !== 0) {
-    const tooltip = document.getElementById("tooltip");
-    tooltip.innerHTML = makeTooltipInnerHTML(itemData);
-  }
 
   return true;
 }
@@ -640,7 +656,7 @@ function moveRightToLeft(item) {
   const rowElement = itemBlock.parentElement.parentElement;
   const leftCol = rowElement.querySelector(".left-col");
   const originalItemBlock = leftCol.querySelector(
-    `[data-item-id="${item.dataset.itemId}"]`
+    `[data-item-id="${item.dataset.itemId}"]`,
   );
 
   if (!originalItemBlock) {
@@ -692,7 +708,7 @@ function syncSelectedData() {
   rows.forEach((row) => {
     const rightCol = row.querySelector(".right-col");
     const itemBlocks = rightCol.querySelectorAll(
-      ".item-block:not(.placeholder)"
+      ".item-block:not(.placeholder)",
     );
 
     itemBlocks.forEach((itemBlock) => {
@@ -718,7 +734,7 @@ function syncSelectedData() {
             const countSpan = itemBlock.querySelector(".item-count");
             const count = countSpan ? parseInt(countSpan.textContent) : 1;
             const existingObject = newTalents.magicalObjects.find(
-              (obj) => obj.id === itemId
+              (obj) => obj.id === itemId,
             );
             if (existingObject) {
               existingObject.count += count;
@@ -743,7 +759,7 @@ function showTooltip(event) {
     originalCharacterTalents.talents.find((item) => item.id === itemId) ||
     originalCharacterTalents.ultimates.find((item) => item.id === itemId) ||
     originalCharacterTalents.ultimateTalents.find(
-      (item) => item.id === itemId
+      (item) => item.id === itemId,
     ) ||
     originalMagicalObjects.find((item) => item.id === itemId);
   const tooltip = document.getElementById("tooltip");
@@ -812,7 +828,7 @@ function makeTooltipInnerHTML(item) {
       const set = item.set;
       const setEffect = item.setEffect;
       const selectedObj = selectedTalents.magicalObjects.find(
-        (obj) => obj.id === itemId
+        (obj) => obj.id === itemId,
       );
       const selectedCount = selectedObj ? selectedObj.count : 0;
       const setColor = selectedCount >= set ? "#ff0" : "#888";
@@ -851,7 +867,7 @@ function initializeLoadPopup() {
   const savedBuildList =
     JSON.parse(localStorage.getItem("savedBuildList")) || [];
   const filteredBuildList = savedBuildList.filter(
-    (build) => build.character === selectedCharacter.id
+    (build) => build.character === selectedCharacter.id,
   );
 
   if (filteredBuildList.length === 0) {
@@ -867,7 +883,7 @@ function initializeLoadPopup() {
               <span slot="text"><img src="/assets/delete.svg"/></span>
             </fancy-button>
           </div>
-        `
+        `,
       )
       .join("");
   }
@@ -882,7 +898,7 @@ function backButtonClickHandler() {
 function updateUltimateTalentsState() {
   const selectedUltimate = selectedTalents.ultimates[0];
   const ultimateTalentsItems = document.querySelectorAll(
-    "#ultimate-talents .item-block"
+    "#ultimate-talents .item-block",
   );
 
   ultimateTalentsItems.forEach((itemBlock) => {
@@ -916,7 +932,7 @@ function saveBuild(buildName, savedBuildList) {
   };
   savedBuildList = savedBuildList.filter(
     (build) =>
-      build.name !== buildName || build.character !== selectedCharacter.id
+      build.name !== buildName || build.character !== selectedCharacter.id,
   );
   savedBuildList.push(newBuild);
   localStorage.setItem("savedBuildList", JSON.stringify(savedBuildList));
@@ -935,7 +951,7 @@ function applySelectedTalents() {
   // startTalents 반영
   startTalents.forEach((talent) => {
     const item = document.querySelector(
-      `#start-talents [data-item-id="${talent.id}"] .item`
+      `#start-talents [data-item-id="${talent.id}"] .item`,
     );
     if (item) moveLeftToRight(item);
   });
@@ -943,7 +959,7 @@ function applySelectedTalents() {
   // talents 반영
   talents.forEach((talent) => {
     const item = document.querySelector(
-      `#talents [data-item-id="${talent.id}"] .item`
+      `#talents [data-item-id="${talent.id}"] .item`,
     );
     if (item) moveLeftToRight(item);
   });
@@ -951,7 +967,7 @@ function applySelectedTalents() {
   // ultimates 반영
   ultimates.forEach((talent) => {
     const item = document.querySelector(
-      `#ultimates [data-item-id="${talent.id}"] .item`
+      `#ultimates [data-item-id="${talent.id}"] .item`,
     );
     if (item) moveLeftToRight(item);
   });
@@ -959,7 +975,7 @@ function applySelectedTalents() {
   // ultimateTalents 반영
   ultimateTalents.forEach((talent) => {
     const item = document.querySelector(
-      `#ultimate-talents [data-item-id="${talent.id}"] .item`
+      `#ultimate-talents [data-item-id="${talent.id}"] .item`,
     );
     if (item) moveLeftToRight(item);
   });
@@ -968,7 +984,7 @@ function applySelectedTalents() {
   magicalObjects.forEach((object) => {
     for (let i = 0; i < object.count; i++) {
       const item = document.querySelector(
-        `#magical-objects [data-item-id="${object.id}"] .item`
+        `#magical-objects [data-item-id="${object.id}"] .item`,
       );
       if (item) magicalObjectMoveLeftToRight(item);
     }
@@ -984,7 +1000,7 @@ function formatJsonToReadableText(json) {
 
   const magicalObjectFinder = (object) => {
     const result = originalMagicalObjects.find(
-      (origin) => origin.id === object.id
+      (origin) => origin.id === object.id,
     );
     if (!result) return "";
     if (object.count === 1) return result.name;

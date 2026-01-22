@@ -7,14 +7,14 @@
       "name": "돌원숭이",
       "description": "퀘스트 (x40): 방어에 성공할 때마다 방어력이 0.5 증가합니다.\n완료: 방어에 성공할 때마다, 막은 대미지의 {0}%에 해당하는 광역 대미지를 입히는 공격을 시전합니다.",
       "rarityValue": [["100", "125", "150", "175"]],
-      "icon": "s_1.png"
+      "icon": "Skill_Defense_Quest.png"
     },
     {
       "id": "s_2",
       "name": "불로불사를 향하여",
       "description": "퀘스트 (x7): 희귀 등급 이상의 마법 물체를 획득하면 2 대미지를 추가로 얻습니다.\n완료: 활력이 {0} 증가하지만 영웅이나 마법 물체를 통해서만 체력을 회복할 수 있습니다.",
       "rarityValue": [["100", "125", "150", "175"]],
-      "icon": "s_2.png"
+      "icon": "Skill_Passive_Objects_Quest.png"
     },
     {
       "id": "s_3",
@@ -24,14 +24,14 @@
         ["4", "5", "6", "7"],
         ["20", "25", "30", "35"]
       ],
-      "icon": "s_3.png"
+      "icon": "Skill_Trait_Better_Stances.png"
     },
     {
       "id": "s_4",
       "name": "깨달음의 길",
       "description": "방어에 8번 성공하면 다음 특성이 {0}초 동안 각성 태세를 활성화합니다.\n각성 태세에서는 추가 대미지를 받지 않으면서도 음과 양의 효과가 모두 부여됩니다.",
       "rarityValue": [["12", "15", "18", "21"]],
-      "icon": "s_4.png"
+      "icon": "Skill_Trait_Awakened.png"
     }
   ],
   "talents": [
@@ -43,91 +43,91 @@
         ["4", "5", "6", "7"],
         ["6", "8", "10", "12"]
       ],
-      "icon": "1.png"
+      "icon": "Skill_Special_Debuff.png"
     },
     {
       "id": "2",
       "name": "천상의 기둥",
       "description": "공격 콤보에 강력한 일격을 추가하여, 충격 지점 주변에 {0}의 대미지를 입힙니다.",
       "rarityValue": [["80", "105", "130", "155"]],
-      "icon": "2.png"
+      "icon": "Skill_Attack_Finisher.png"
     },
     {
       "id": "3",
       "name": "회오리봉",
       "description": "돌진 이후에 공격을 시전하면 5차례의 연속 공격이 시작되며, 각 공격은 {0}%의 광역 대미지를 입힙니다.",
       "rarityValue": [["60", "75", "90", "105"]],
-      "icon": "3.png"
+      "icon": "Skill_Dash_Attack.png"
     },
     {
       "id": "4",
       "name": "질주",
       "description": "이동 속도가 {0}% 증가합니다.\n돌진을 길게 눌러 최대 3초 동안 고속으로 달릴 수 있습니다.",
       "rarityValue": [["10", "12", "14", "16"]],
-      "icon": "4.png"
+      "icon": "Skill_Dash_Sprint.png"
     },
     {
       "id": "5",
       "name": "염주의 울림",
       "description": "특수 능력이 활성화되어 있는 동안, 공격할 때 구슬이 울리며 주변에 {0}%의 공격 대미지를 입힙니다.",
       "rarityValue": [["30", "35", "40", "45"]],
-      "icon": "5.png"
+      "icon": "Skill_Special_Attack_AOE.png"
     },
     {
       "id": "6",
       "name": "공명",
       "description": "특수 능력의 효과가 끝나면 현재 태세의 모든 활성화 효과가 재시작됩니다.\n특수 능력이 {0}%의 추가 대미지를 입힙니다.",
       "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "6.png"
+      "icon": "Skill_Special_Triggers_Stance.png"
     },
     {
       "id": "7",
       "name": "공기술사",
       "description": "파워 능력의 공격 횟수가 최대 {0}회 증가합니다.",
       "rarityValue": [["1", "2", "3", "4"]],
-      "icon": "7.png"
+      "icon": "Skill_Power_Extra_Targets.png"
     },
     {
       "id": "8",
       "name": "옴",
       "description": "특수 능력이 활성화 중일 때, 염주의 회전 반경이 최대 {0}%까지 서서히 증가하며 범위 내의 모든 적을 공격합니다.",
       "rarityValue": [["24", "30", "36", "42"]],
-      "icon": "8.png"
+      "icon": "Skill_Special_Beads_Increase.png"
     },
     {
       "id": "9",
       "name": "뇌운",
       "description": "파워 능력에 맞은 적 위로 번개가 떨어져 충격 지점 주변에 {0}%의 대미지를 입힙니다.",
       "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "9.png"
+      "icon": "Skill_Power_Lightning.png"
     },
     {
       "id": "10",
       "name": "촌경",
       "description": "방어에 성공한 후 공격을 시전하면, 적에게 강력한 펀치를 날려 {0}%의 대미지를 입힙니다.",
       "rarityValue": [["600", "750", "900", "1050"]],
-      "icon": "10.png"
+      "icon": "Skill_Defense_Retaliate.png"
     },
     {
       "id": "11",
       "name": "정신의 요새",
       "description": "특성 활성화 시 부여되는 보호막과 힘 효과의 지속시간이 {0}% 증가합니다.",
       "rarityValue": [["60", "75", "90", "105"]],
-      "icon": "11.png"
+      "icon": "Skill_Trait_Longer_Effects.png"
     },
     {
       "id": "12",
       "name": "화룡",
       "description": "양 태세의 활성화 효과에 화염 폭발을 추가하여 {0}의 광역 대미지를 입히고 적에게 점화를 부여합니다.",
       "rarityValue": [["55", "70", "85", "100"]],
-      "icon": "12.png"
+      "icon": "Skill_Trait_Fire.png"
     },
     {
       "id": "13",
       "name": "빙호",
       "description": "음 태세의 활성화 효과에 서리 폭발을 추가하여 {0}의 광역 대미지를 입히고 적에게 빙결을 부여합니다.",
       "rarityValue": [["44", "55", "66", "77"]],
-      "icon": "13.png"
+      "icon": "Skill_Trait_Frost.png"
     },
     {
       "id": "14",
@@ -137,35 +137,35 @@
         ["4", "5", "6", "7"],
         ["80", "110", "140", "170"]
       ],
-      "icon": "14.png"
+      "icon": "Skill_Defense_Perfect.png"
     },
     {
       "id": "15",
       "name": "집중타",
       "description": "파워 능력을 길게 누르면 다음 공격 시 같은 대상에게 {0}%의 추가 대미지를 입힙니다.",
       "rarityValue": [["12", "16", "20", "24"]],
-      "icon": "15.png"
+      "icon": "Skill_Power_Hold.png"
     },
     {
       "id": "16",
       "name": "신성한 인장",
       "description": "특수 능력이 끝나면 염주가 땅으로 가라앉으며 땅에 성스러운 무늬를 그립니다. 이 무늬는 잠시 후 폭발하여 {0}의 광역 대미지를 입힙니다.",
       "rarityValue": [["100", "135", "170", "205"]],
-      "icon": "16.png"
+      "icon": "Skill_Special_Explosion.png"
     },
     {
       "id": "17",
       "name": "기 폭발",
       "description": "파워 능력이 하나 이상의 적에게 명중한 경우, 다음 공격을 길게 눌러 힘을 모으면 에너지 빔을 발사할 수 있습니다.\n에너지 빔은 경로상의 모든 적에게 {0}의 파워 대미지를 입힙니다.",
       "rarityValue": [["220", "275", "330", "385"]],
-      "icon": "17.png"
+      "icon": "Skill_Attack_Beam.png"
     },
     {
       "id": "18",
       "name": "불타는 황금 눈",
       "description": "낮과 밤이 시작될 때마다 맵상에 관심 지점 2개를 드러냅니다.\n꿈의 파편 획득량이 {0}% 증가합니다.",
       "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "18.png"
+      "icon": "Skill_Passive_Reveal.png"
     }
   ],
   "ultimates": [
@@ -173,13 +173,13 @@
       "id": "u1",
       "name": "원숭이 분신",
       "description": "해당 지역에 분신 6개체를 소환해 주변 적과 싸우고 주의를 끌게 합니다.\n분신은 손오공의 활력과 대미지를 그대로 복제하며, 10초 후에 사라집니다.",
-      "icon": "u1.webp"
+      "icon": "Ability_SunWukong_Ultimate_1.png"
     },
     {
       "id": "u2",
       "name": "둔갑술",
       "description": "손오공이 20초 동안 다른 무작위 영웅으로 변신합니다. 이때 모든 기본 특성이 서사 등급으로 활성화됩니다.",
-      "icon": "u2.webp"
+      "icon": "Ability_SunWukong_Ultimate_2.png"
     }
   ],
   "ultimateTalents": [
@@ -188,28 +188,28 @@
       "name": "원숭이 군대",
       "description": "궁극기 사용 시 분신을 {0}개체 더 소환합니다.",
       "rarityValue": [["3", "4", "5", "6"]],
-      "icon": "u1_1.png"
+      "icon": "Skill_Ultimate_1_More_Monkeys.png"
     },
     {
       "id": "u1_2",
       "name": "증식의 진언",
       "description": "특수 능력을 사용할 때마다 {0}초 동안 전투를 돕는 원숭이 3마리를 소환합니다.",
       "rarityValue": [["8", "10", "12", "14"]],
-      "icon": "u1_2.png"
+      "icon": "Skill_Ultimate_1_Special_Monkey.png"
     },
     {
       "id": "u2_1",
       "name": "완벽한 둔갑",
       "description": "궁극기로 변신 중일 때, 손오공이 둔갑한 영웅의 무작위 궁극기 능력을 사용할 수 있게 됩니다.\n둔갑술의 지속 시간이 {0}초 증가합니다.",
       "rarityValue": [["4", "5", "6", "7"]],
-      "icon": "u2_1.png"
+      "icon": "Skill_Ultimate_2_Perfect_Copy.png"
     },
     {
       "id": "u2_2",
       "name": "천상의 음료",
       "description": "궁극기 변신 시 주위 모든 영웅에게 {0}초 동안 전능 효과를 부여합니다.\n전능의 지속시간 동안 영웅의 파워, 특수, 방어 능력의 재사용 대기 시간이 0.5초가 됩니다.",
       "rarityValue": [["8", "10", "12", "14"]],
-      "icon": "u2_2.png"
+      "icon": "Skill_Ultimate_2_Omnipotence.png"
     }
   ]
 }
