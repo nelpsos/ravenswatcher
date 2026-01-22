@@ -227,11 +227,11 @@ body {
   align-items: center;
 }
 
-.character-image {
+#character-image {
   width: 40px;
 }
 
-.character-image,
+#character-image,
 #character-name {
   height: 40px;
   margin: 10px;
