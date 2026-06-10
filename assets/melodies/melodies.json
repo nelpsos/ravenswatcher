@@ -1,0 +1,86 @@
+[
+  {
+    "id": "lady_of_the_lake",
+    "name": "호수의 여인 멜로디",
+    "effect": "치유의 샘과 제물로 바쳐진 우상이 +100% 활력 또는 대미지를 부여합니다.",
+    "notes": 4,
+    "slot": [true, true, false]
+  },
+  {
+    "id": "galahad",
+    "name": "갤러헤드 멜로디",
+    "effect": "까마귀의 깃털 1개를 부여하고, 매일 낮이나 밤 시작 시 모든 영웅의 체력을 완전히 회복시킵니다.",
+    "notes": 4,
+    "slot": [true, true, true]
+  },
+  {
+    "id": "fairy_godmother",
+    "name": "요정 대모 멜로디",
+    "effect": "모든 영웅이 즉시 레벨업합니다.",
+    "notes": 4,
+    "slot": [false, false, true]
+  },
+  {
+    "id": "turtoise",
+    "name": "거북이 멜로디",
+    "effect": "모든 영웅의 이동 속도를 20% 증가시킵니다.",
+    "notes": 4,
+    "slot": [true, true, true]
+  },
+  {
+    "id": "hansel_and_gretel",
+    "name": "헨젤과 그레텔 멜로디",
+    "effect": "마스터 나이트메어가 깨어나면 최종 결전이 시작될 때까지 매 20초마다 8 대미지를 부여합니다.",
+    "notes": 5,
+    "slot": [true, true, true]
+  },
+  {
+    "id": "the_little_tailor",
+    "name": "재단사 멜로디",
+    "effect": "영웅이 레벨 10 초과로 레벨업할 때마다 3개의 소모품을 지급합니다.",
+    "notes": 5,
+    "slot": [false, false, true]
+  },
+  {
+    "id": "the_goose_girl",
+    "name": "거위치는 소녀 멜로디",
+    "effect": "전투 중, 매 15초마다 각 영웅이 자신 주변에 강력한 바람을 일으켜 150 광역 피해를 입힙니다.",
+    "notes": 5,
+    "slot": [false, true, true]
+  },
+  {
+    "id": "merry_men",
+    "name": "메리 맨 멜로디",
+    "effect": "이제 자물쇠를 열기 위해 열쇠가 필요하지 않습니다. 열쇠는 이제 각각 150개의 꿈의 조각을 부여합니다.",
+    "notes": 5,
+    "slot": [true, true, true]
+  },
+  {
+    "id": "sheherazad",
+    "name": "셰헤라자드 멜로디",
+    "effect": "샌드맨에게서 얻은 꿈은 구매 후 1번 재입고됩니다.",
+    "notes": 6,
+    "slot": [true, true, true]
+  },
+  {
+    "id": "otohime",
+    "name": "오토히메 멜로디",
+    "effect": "꿈의 모래시계가 25% 더 느리게 떨어집니다.",
+    "notes": 6,
+    "slot": [true, true, false]
+  },
+  {
+    "id": "long_john_silver",
+    "name": "롱 존 실버 멜로디",
+    "effect": "맵 위의 모든 까마귀 표식을 표시합니다.",
+    "notes": 6,
+    "slot": [true, true, true]
+  },
+  {
+    "id": "lucky_hans",
+    "name": "운이 좋은 한스 멜로디",
+    "effect": "마법 물체를 1개 덜 모아도 컬렉션이 완성됩니다.",
+    "notes": 6,
+    "slot": [false, true, true]
+  }
+]

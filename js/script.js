@@ -21,6 +21,7 @@ const initialTalents = {
   talents: [],
   ultimates: [],
   ultimateTalents: [],
+  melodies: [],
   magicalObjects: [],
 };
 
@@ -34,12 +35,14 @@ const stackableRarities = ["COMMON", "RARE", "EPIC"];
 
 let originalCharacterTalents = null;
 let originalMagicalObjects = null;
+let originalMelodies = null;
 let selectedTalents = {
   characterId: "",
   startTalents: [],
   talents: [],
   ultimates: [],
   ultimateTalents: [],
+  melodies: [],
   magicalObjects: [],
 };
 let selectedCharacter = null;
@@ -56,6 +59,7 @@ const startTalents = document.getElementById("start-talents");
 const talents = document.getElementById("talents");
 const ultimates = document.getElementById("ultimates");
 const ultimateTalents = document.getElementById("ultimate-talents");
+const melodies = document.getElementById("melodies");
 const magicalObjects = document.getElementById("magical-objects");
 const mainPage = document.getElementById("main-page");
 const detailPage = document.getElementById("detail-page");
@@ -159,18 +163,25 @@ function detailPageClickHandler(event) {
 }
 
 function itemClickHandler(item) {
-  const itemBlock = item.parentElement;
-  const row = itemBlock.parentElement?.parentElement?.dataset?.row;
+  const tr = item.closest("tr");
+  const row = tr.dataset.row;
   if (!row) return;
 
   if (row === "4") {
-    if (itemBlock.parentElement.classList.contains("right-col")) {
+    if (item.closest(".right-col")) {
+      melodyMoveRightToLeft(item);
+    } else {
+      melodyMoveLeftToRight(item);
+    }
+    updateMelodyState();
+  } else if (row === "5") {
+    if (item.closest(".right-col")) {
       magicalObjectMoveRightToLeft(item);
     } else {
       magicalObjectMoveLeftToRight(item);
     }
   } else {
-    if (itemBlock.parentElement.classList.contains("right-col")) {
+    if (item.closest(".right-col")) {
       if (row === "2") {
         const ultimateTalentsItems = document.querySelectorAll(
           "#ultimate-talents-row .right-col .item",
@@ -384,13 +395,16 @@ function navigateTo(path) {
 // 캐릭터 페이지 표시
 async function showCharacterPage(characterId) {
   try {
-    const [characterResponse, magicalObjectsResponse] = await Promise.all([
-      fetch(`/assets/${characterId}/talents.json`),
-      fetch(`/assets/magical_objects/magicalObjects.json`),
-    ]);
+    const [characterResponse, magicalObjectsResponse, melodiesResponse] =
+      await Promise.all([
+        fetch(`/assets/${characterId}/talents.json`),
+        fetch(`/assets/magical_objects/magicalObjects.json`),
+        fetch(`/assets/melodies/melodies.json`),
+      ]);
 
     originalCharacterTalents = await characterResponse.json();
     originalMagicalObjects = await magicalObjectsResponse.json();
+    originalMelodies = await melodiesResponse.json();
 
     if (!originalCharacterTalents) {
       throw new Error("Character talents not found");
@@ -413,6 +427,7 @@ async function showCharacterPage(characterId) {
 
     addTooltipEventListeners();
     updateUltimateTalentsState();
+    updateMelodyState();
 
     const urlParams = new URLSearchParams(window.location.search);
     const shareData = urlParams.get("share");
@@ -433,6 +448,31 @@ async function showCharacterPage(characterId) {
   }
 }
 
+function updateMelodyState() {
+  const rightCol = document.querySelector("#melodies-row .right-col");
+  const measures = rightCol.querySelectorAll(".measure");
+  const slotAvailability = Array.from(measures).map(
+    (measure) => !!measure.querySelector(".placeholder"),
+  );
+
+  const melodyItems = document.querySelectorAll("#melodies .item-block");
+  melodyItems.forEach((itemBlock) => {
+    const melodyId = itemBlock.dataset.itemId;
+    const itemData = originalMelodies.find((m) => m.id === melodyId);
+
+    if (itemData) {
+      const canBePlaced = itemData.slot.some(
+        (isAllowed, index) => isAllowed && slotAvailability[index],
+      );
+      if (canBePlaced) {
+        itemBlock.classList.remove("disabled");
+      } else {
+        itemBlock.classList.add("disabled");
+      }
+    }
+  });
+}
+
 function initializeTalents() {
   startTalents.innerHTML = originalCharacterTalents.startTalents
     .map(makeCharacterItemBlock)
@@ -446,9 +486,40 @@ function initializeTalents() {
   ultimateTalents.innerHTML = originalCharacterTalents.ultimateTalents
     .map(makeCharacterItemBlock)
     .join("");
+  melodies.innerHTML = makeMelodiesContainer();
   magicalObjects.innerHTML = originalMagicalObjects
     .map(makeObjectItemBlock)
     .join("");
+}
+
+function makeMelodiesContainer() {
+  const noteCounts = [4, 5, 6];
+  return `<div class="melody-row-container">
+    ${noteCounts
+      .map((notes) => {
+        const filtered = originalMelodies.filter((m) => m.notes === notes);
+        return `<div class="musical-staff">
+          <div class="staff-rows">
+            <div></div><div></div><div></div><div></div>
+          </div>
+          <div class="measures">
+            ${filtered
+              .map(
+                (m) => `<div class="measure">${makeMelodyItemBlock(m)}</div>`,
+              )
+              .join("")}
+          </div>
+        </div>`;
+      })
+      .join("")}
+  </div>`;
+}
+
+function makeMelodyItemBlock(itemObject) {
+  const { id: itemId, name: itemName } = itemObject;
+  const itemIcon = `${itemId}.png`;
+  const itemBlock = createItemBlock(itemId, itemName, itemIcon, "melodies");
+  return itemBlock.outerHTML;
 }
 
 function initializePlaceholders() {
@@ -457,15 +528,38 @@ function initializePlaceholders() {
   rightCols.forEach((col) => (col.innerHTML = ""));
 
   const rows = document.querySelectorAll("#detail-page table tr");
-  const placeholdersCount = [1, 7, 1, 1, 1]; // 각 줄에 필요한 placeholder 개수
+  const placeholdersCount = [1, 7, 1, 1, 3, 1]; // 각 줄에 필요한 placeholder 개수
 
   rows.forEach((row, index) => {
     const rightCol = row.querySelector(".right-col");
     const count = placeholdersCount[index];
     rightCol.innerHTML = null;
 
-    for (let i = 0; i < count; i++) {
-      rightCol.appendChild(createPlaceholder());
+    if (row.id === "melodies-row") {
+      const staff = document.createElement("div");
+      staff.classList.add("musical-staff");
+
+      const staffRows = document.createElement("div");
+      staffRows.classList.add("staff-rows");
+      for (let i = 0; i < 4; i++) {
+        staffRows.appendChild(document.createElement("div"));
+      }
+      staff.appendChild(staffRows);
+
+      const measures = document.createElement("div");
+      measures.classList.add("measures");
+      for (let i = 0; i < count; i++) {
+        const measure = document.createElement("div");
+        measure.classList.add("measure");
+        measure.appendChild(createPlaceholder());
+        measures.appendChild(measure);
+      }
+      staff.appendChild(measures);
+      rightCol.appendChild(staff);
+    } else {
+      for (let i = 0; i < count; i++) {
+        rightCol.appendChild(createPlaceholder());
+      }
     }
   });
 }
@@ -562,6 +656,60 @@ function createItemBlock(itemId, itemName, itemIcon, characterId) {
   itemBlock.appendChild(item);
 
   return itemBlock;
+}
+
+function melodyMoveLeftToRight(item) {
+  const tr = item.closest("tr");
+  const rightCol = tr.querySelector(".right-col");
+  const itemData = originalMelodies.find(
+    (m) => m.id === item.dataset.itemId,
+  );
+  if (!itemData) return false;
+
+  const measures = rightCol.querySelectorAll(".measure");
+  for (let i = 0; i < measures.length; i++) {
+    const measure = measures[i];
+    const placeholder = measure.querySelector(".placeholder");
+
+    if (itemData.slot[i] && placeholder) {
+      const itemBlock = item.parentElement;
+      const placeholderBlock = placeholder.parentElement;
+
+      placeholderBlock.dataset.itemId = item.dataset.itemId;
+      placeholder.replaceWith(item);
+      itemBlock.appendChild(placeholder);
+      hideTooltip();
+      syncSelectedData();
+      return true;
+    }
+  }
+  return false;
+}
+
+function melodyMoveRightToLeft(item) {
+  const tr = item.closest("tr");
+  const leftCol = tr.querySelector(".left-col");
+  const originalItemBlock = leftCol.querySelector(
+    `[data-item-id="${item.dataset.itemId}"]`,
+  );
+
+  if (!originalItemBlock) {
+    return false;
+  }
+
+  const itemBlock = item.parentElement;
+  const placeholder = originalItemBlock.querySelector(".placeholder");
+
+  if (placeholder) {
+    placeholder.replaceWith(item);
+    itemBlock.appendChild(placeholder);
+  } else {
+    originalItemBlock.appendChild(item);
+  }
+
+  hideTooltip();
+  syncSelectedData();
+  return true;
 }
 
 function magicalObjectMoveLeftToRight(item) {
@@ -701,6 +849,7 @@ function syncSelectedData() {
     talents: [],
     ultimates: [],
     ultimateTalents: [],
+    melodies: [],
     magicalObjects: [],
   };
 
@@ -731,6 +880,9 @@ function syncSelectedData() {
             newTalents.ultimateTalents.push({ id: itemId });
             break;
           case "4":
+            newTalents.melodies.push({ id: itemId });
+            break;
+          case "5":
             const countSpan = itemBlock.querySelector(".item-count");
             const count = countSpan ? parseInt(countSpan.textContent) : 1;
             const existingObject = newTalents.magicalObjects.find(
@@ -761,6 +913,7 @@ function showTooltip(event) {
     originalCharacterTalents.ultimateTalents.find(
       (item) => item.id === itemId,
     ) ||
+    originalMelodies.find((item) => item.id === itemId) ||
     originalMagicalObjects.find((item) => item.id === itemId);
   const tooltip = document.getElementById("tooltip");
   tooltip.innerHTML = makeTooltipInnerHTML(item);
@@ -785,7 +938,9 @@ function showTooltip(event) {
 function makeTooltipInnerHTML(item) {
   const itemId = item.id;
   const itemName = item ? item.name : "Unknown Item";
-  let itemDescription = item ? item.description : "Description not found";
+  let itemDescription = item
+    ? item.description || item.effect
+    : "Description not found";
   let innerHTML = `<strong style="font-size: 1.2em;">${itemName}</strong>`;
 
   if (item && item.rarityValue) {
@@ -820,7 +975,25 @@ function makeTooltipInnerHTML(item) {
     innerHTML += ` <span class="inline-box" style="color: ${rarityColor}; border-color: ${rarityColor}">${rarity}</span>`;
   }
 
+  // melody의 경우 음표 개수 추가
+  if (originalMelodies.find((i) => i.id === itemId)) {
+    innerHTML += ` <span class="inline-box" style="color: #ff0; border-color: #ff0">음표 ${item.notes}</span>`;
+  }
+
   innerHTML += `<br>${itemDescription}`;
+
+  // melody의 경우 slot 표시 추가
+  if (originalMelodies.find((i) => i.id === itemId)) {
+    const slots = item.slot || [false, false, false];
+    innerHTML += `<div class="melody-slots">
+      ${slots
+        .map(
+          (isActive) =>
+            `<div class="melody-slot ${isActive ? "active" : ""}">♪</div>`,
+        )
+        .join("")}
+    </div>`;
+  }
 
   if (originalMagicalObjects.find((i) => i.id === itemId)) {
     const rarity = item.rarity;
@@ -938,10 +1111,43 @@ function saveBuild(buildName, savedBuildList) {
   localStorage.setItem("savedBuildList", JSON.stringify(savedBuildList));
 }
 
+function updateMelodyState() {
+  const rightCol = document.querySelector("#melodies-row .right-col");
+  if (!rightCol) return;
+
+  const measures = rightCol.querySelectorAll(".measure");
+  const slotAvailability = Array.from(measures).map(
+    (measure) => !!measure.querySelector(".placeholder"),
+  );
+
+  const melodyItems = document.querySelectorAll("#melodies .item-block");
+  melodyItems.forEach((itemBlock) => {
+    const melodyId = itemBlock.dataset.itemId;
+    const itemData = originalMelodies.find((m) => m.id === melodyId);
+
+    if (itemData) {
+      const canBePlaced = itemData.slot.some(
+        (isAllowed, index) => isAllowed && slotAvailability[index],
+      );
+      if (canBePlaced) {
+        itemBlock.classList.remove("disabled");
+      } else {
+        itemBlock.classList.add("disabled");
+      }
+    }
+  });
+}
+
 function applySelectedTalents() {
   // 선택된 talents를 페이지에 반영하는 로직
-  const { startTalents, talents, ultimates, ultimateTalents, magicalObjects } =
-    selectedTalents;
+  const {
+    startTalents,
+    talents,
+    ultimates,
+    ultimateTalents,
+    melodies,
+    magicalObjects,
+  } = selectedTalents;
 
   // 각 섹션을 초기화
   initializeTalents();
@@ -980,6 +1186,16 @@ function applySelectedTalents() {
     if (item) moveLeftToRight(item);
   });
 
+  // melodies 반영
+  if (melodies) {
+    melodies.forEach((melody) => {
+      const item = document.querySelector(
+        `#melodies [data-item-id="${melody.id}"] .item`,
+      );
+      if (item) melodyMoveLeftToRight(item);
+    });
+  }
+
   // magicalObjects 반영
   magicalObjects.forEach((object) => {
     for (let i = 0; i < object.count; i++) {
@@ -991,6 +1207,7 @@ function applySelectedTalents() {
   });
 
   updateUltimateTalentsState();
+  updateMelodyState();
 }
 
 function formatJsonToReadableText(json) {
@@ -1005,6 +1222,11 @@ function formatJsonToReadableText(json) {
     if (!result) return "";
     if (object.count === 1) return result.name;
     return `${result.name}(${object.count})`;
+  };
+
+  const melodyFinder = (melody) => {
+    const result = originalMelodies.find((origin) => origin.id === melody.id);
+    return result ? result.name : "";
   };
 
   const characterName =
@@ -1031,14 +1253,20 @@ function formatJsonToReadableText(json) {
       .map(talentFinder("ultimateTalents"))
       .filter((item) => item !== "")
       .join(", ") || "None";
+  const melodiesText =
+    json.melodies
+      .map(melodyFinder)
+      .filter((item) => item !== "")
+      .join(", ") || "None";
   const magicalObjects =
     json.magicalObjects
       .map(magicalObjectFinder)
       .filter((item) => item !== "")
       .join(", ") || "None";
 
-  return `# 캐릭터: ${characterName}\n○ 시작 특성: ${startTalents}\n○ 특성: ${talents}\n○ 궁극기: ${ultimates}\n○ 궁극기 특성: ${ultimateTalents}\n○ 마법 물체: ${magicalObjects}`;
+  return `# 캐릭터: ${characterName}\n○ 시작 특성: ${startTalents}\n○ 특성: ${talents}\n○ 궁극기: ${ultimates}\n○ 궁극기 특성: ${ultimateTalents}\n○ 멜로디: ${melodiesText}\n○ 마법 물체: ${magicalObjects}`;
 }
+
 
 function shareButtonClickHandler() {
   const shareData = formatJsonToReadableText(selectedTalents);
