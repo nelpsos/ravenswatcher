@@ -1,0 +1,552 @@
+{
+    "id": "kintaro",
+    "name": "킨타로",
+    "name_en": "Kintarō",
+    "startTalents": [
+        {
+            "id": "s_1",
+            "name": "뇌신의 도끼",
+            "name_en": "Raijin Axe",
+            "description": "퀘스트(x10): 꿈의 조각 100개를 사용하면 치명타 확률이 1 증가합니다.\n완료: 공격 마무리 시 근처 적들에게 번개를 3번 날리며, 각 번개는 {0}의 대미지를 줍니다.",
+            "description_en": "Quest (x10): Spending 100 Dream Shards grants +1 Crit Chance\nComplete: ATTACK finisher sends 3 lightning strikes to nearby enemies, with each strike dealing {0} damage",
+            "rarityValue": [
+                [
+                    "12",
+                    "15",
+                    "18",
+                    "21"
+                ]
+            ],
+            "icon": "Skill_Attack_Quest_Lightning.png",
+            "tags": [
+                "attack"
+            ]
+        },
+        {
+            "id": "s_2",
+            "name": "해방된 야수",
+            "name_en": "Unchained Beast",
+            "description": "킨타로가 걸어다니는 동안, 쿠마는 킨타로가 타고 있을 때와 마찬가지로 연쇄 공격을 할 수 있으며, 총 +{0}%의 대미지를 줍니다.",
+            "description_en": "While Kintarō is on foot, Kuma can chain attacks the same way he does while Kintarō is riding him, dealing +{0}% damage in total",
+            "rarityValue": [
+                [
+                    "100",
+                    "125",
+                    "150",
+                    "175"
+                ]
+            ],
+            "icon": "Skill_Passive_Bear_Combo.png",
+            "tags": [
+                "attack",
+                "trait"
+            ]
+        },
+        {
+            "id": "s_3",
+            "name": "활력의 오라",
+            "name_en": "Hearty Aura",
+            "description": "킨타로가 쿠마를 타고 있는 동안, 그와 주변 모든 영웅들의 이동 속도가 {0}% 증가합니다.",
+            "description_en": "While Kintarō is riding Kuma, he and all nearby Heroes gain +{0}% MOVE SPEED",
+            "rarityValue": [
+                [
+                    "16",
+                    "20",
+                    "24",
+                    "28"
+                ]
+            ],
+            "icon": "Skill_Passive_Move_Speed.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "s_4",
+            "name": "맹렬한 돌진",
+            "name_en": "Stampede",
+            "description": "킨타로가 걸어갈 때, 쿠마를 이동시키면 표시된 방향으로 돌진하여 적중시킨 적에게 {0}% 파워 대미지를 줍니다.\n이 특성은 5초의 대기 시간 후 다시 사용할 수 있습니다.",
+            "description_en": "When Kintarō is on foot, moving Kuma causes him to charge in the indicated direction, dealing {0}% POWER damage to enemies hit\nThis talent has a cooldown of 5 seconds",
+            "rarityValue": [
+                [
+                    "80",
+                    "100",
+                    "120",
+                    "140"
+                ]
+            ],
+            "icon": "Skill_Power_Bear_Charge.png",
+            "tags": [
+                "power",
+                "trait"
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "id": "1",
+            "name": "표적 물어뜯기",
+            "name_en": "Targeted Bite",
+            "description": "쿠마의 공격은 물어뜯기로 변할 확률이 50%이며, 단일 대상을 {0}의 대미지로 적중시킵니다.",
+            "description_en": "Kuma's ATTACKS have a 50% chance to turn into a bite, hitting a single target for {0} damage",
+            "rarityValue": [
+                [
+                    "60",
+                    "75",
+                    "90",
+                    "105"
+                ]
+            ],
+            "icon": "Skill_Attack_Bite.png",
+            "tags": [
+                "attack"
+            ]
+        },
+        {
+            "id": "2",
+            "name": "광란",
+            "name_en": "Frenzy",
+            "description": "공격을 적에게 적중시킬 때마다 킨타로와 쿠마의 공격 속도가 {0}% 증가합니다(최대 +25%)\n이러한 보너스는 3초 동안 공격을 적에게 적중시키지 않으면 사라집니다.",
+            "description_en": "Each ATTACK that hits an enemy grants Kintarō and Kuma +{0}% ATTACK SPEED (up to +25%)\nThese bonuses are lost after going 3 seconds without hitting an enemy with an ATTACK",
+            "rarityValue": [
+                [
+                    "3",
+                    "5",
+                    "7",
+                    "9"
+                ]
+            ],
+            "icon": "Skill_Attack_Chain_Speed.png",
+            "tags": [
+                "attack"
+            ]
+        },
+        {
+            "id": "3",
+            "name": "벌목꾼의 일격",
+            "name_en": "Woodcutter's Swipe",
+            "description": "킨타로의 공격은 특수 능력 직후에 발동되며, 도끼를 휘둘러 {0}의 광역 대미지를 줍니다.",
+            "description_en": "Kintarō's ATTACK, triggered shortly after a SPECIAL, performs a sweep of his axe that deals {0} area damage",
+            "rarityValue": [
+                [
+                    "90",
+                    "112",
+                    "135",
+                    "157"
+                ]
+            ],
+            "icon": "Skill_Attack_Special_Swipe.png",
+            "tags": [
+                "attack",
+                "special"
+            ]
+        },
+        {
+            "id": "4",
+            "name": "돌진 타격",
+            "name_en": "Rush Strikes",
+            "description": "돌진 직후에 발동되는 공격은 빠르게 두 번 타격하며, 각각 {0}%의 공격 대미지를 줍니다.",
+            "description_en": "ATTACK triggered right after DASH quickly strikes twice, with each strike dealing {0}% ATTACK damage",
+            "rarityValue": [
+                [
+                    "200",
+                    "250",
+                    "300",
+                    "350"
+                ]
+            ],
+            "icon": "Skill_Dash_Attack.png",
+            "tags": [
+                "attack",
+                "dash"
+            ]
+        },
+        {
+            "id": "5",
+            "name": "용맹한 타격",
+            "name_en": "Bold Strike",
+            "description": "방어를 공격으로 취소하면 적의 공격을 막고 {0}%의 대미지를 주는 마무리 공격이 발동됩니다.",
+            "description_en": "Canceling DEFENSE with an ATTACK triggers a finisher that blocks enemy attacks and deals {0}% damage",
+            "rarityValue": [
+                [
+                    "200",
+                    "250",
+                    "300",
+                    "350"
+                ]
+            ],
+            "icon": "Skill_Defense_Attack_Block.png",
+            "tags": [
+                "attack",
+                "defense"
+            ]
+        },
+        {
+            "id": "6",
+            "name": "귀청을 찢는 듯한 울부짖음",
+            "name_en": "Deafening Cry",
+            "description": "방어 능력을 사용하는 동안 쿠마가 그의 앞쪽 영역에 최대 {0}의 대미지를 줍니다.\n킨타로가 걸어다니는 경우, 앞에 있는 적에게 {1}초 동안 취약 효과를 적용합니다.",
+            "description_en": "While using DEFENSE, Kuma deals up to {0} damage in an area in front of him\nIf Kintarō is on foot, he applies VULNERABLE to enemies in front of him for {1} seconds",
+            "rarityValue": [
+                [
+                    "60",
+                    "75",
+                    "90",
+                    "105"
+                ],
+                [
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                ]
+            ],
+            "icon": "Skill_Defense_Deals_Damage.png",
+            "tags": [
+                "defense",
+                "trait"
+            ]
+        },
+        {
+            "id": "7",
+            "name": "숲의 정령",
+            "name_en": "Forest Spirits",
+            "description": "킨타로가 공격을 막을 때마다 그의 주위에 숲의 정령이 나타납니다(최대 6).\n공격이 성공할 때마다 숲의 정령이 나타나 {0}의 대미지를 준 후 사라집니다.",
+            "description_en": "Whenever Kintarō blocks an attack, a Forest Spirit appears around him (up to 6)\nFor each successful ATTACK, a Forest Spirit is released, dealing {0} damage, and then disappears",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Defense_Summon_Spirit.png",
+            "tags": [
+                "attack",
+                "defense"
+            ]
+        },
+        {
+            "id": "8",
+            "name": "광폭화",
+            "name_en": "Berserk",
+            "description": "내부 대미지로 설정되는 최대 체력의 10%마다 +{0} 대미지를 획득합니다.",
+            "description_en": "Gain +{0} DMG for every 10% of maximum health set as INTERNAL DAMAGE",
+            "rarityValue": [
+                [
+                    "8",
+                    "10",
+                    "12",
+                    "14"
+                ]
+            ],
+            "icon": "Skill_Passive_Damage_Per_Internal_Damage.png",
+            "tags": []
+        },
+        {
+            "id": "9",
+            "name": "에너지 방출",
+            "name_en": "Energy Discharge",
+            "description": "킨타로가 걸어다니는 동안 파워, 특수 또는 방어 능력을 사용하면 킨타로와 쿠마 사이에 에너지 방출이 발생하여 통과한 적에게 {0}의 대미지를 줍니다.",
+            "description_en": "While Kintarō is on foot, using POWER, SPECIAL or DEFENSE triggers an energy discharge between Kintarō and Kuma, dealing {0} damage to enemies passed through",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Passive_Ability_Attack.png",
+            "tags": [
+                "power",
+                "special",
+                "defense",
+                "trait"
+            ]
+        },
+        {
+            "id": "10",
+            "name": "강화 피부",
+            "name_en": "Hardened Skin",
+            "description": "+{0} 방어력 획득\n킨타로가 걸어다니는 동안 쿠마는 킨타로의 방어력 중 25%를 획득합니다.",
+            "description_en": "Gain +{0}  ARMOR\nWhile Kintarō is on foot, Kuma benefits from  25% of Kintarō's ARMOR",
+            "rarityValue": [
+                [
+                    "30",
+                    "45",
+                    "60",
+                    "75"
+                ]
+            ],
+            "icon": "Skill_Passive_Armor.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "11",
+            "name": "강인한 의지",
+            "name_en": "Strong-Willed",
+            "description": "킨타로가 걸어갈 때, 그가 받는 대미지의 {0}%는 내부 대미지로 간주됩니다.",
+            "description_en": "When Kintarō is on foot, he takes {0}% of the damage he suffers as INTERNAL DAMAGE",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Passive_Internal_Damage.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "12",
+            "name": "꿰뚫기",
+            "name_en": "Skewer",
+            "description": "파워 능력은 적중시킨 서로 다른 적에게 +{0}%의 대미지를 줍니다(최대 +{1}%).",
+            "description_en": "POWER deals +{0}% damage for each different enemy hit (up to +{1}%)",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ],
+                [
+                    "160",
+                    "200",
+                    "240",
+                    "280"
+                ]
+            ],
+            "icon": "Skill_Power_Chain_Damage.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "13",
+            "name": "파워 충전",
+            "name_en": "Power Charge",
+            "description": "파워 능력을 길게 눌러 최대 3단계까지 충전할 수 있습니다.\n충전 단계당 치명타 확률이 {0}% 증가합니다.",
+            "description_en": "POWER can be held to store up to 3 levels of charge before it is released\nEach charge level increases its Crit Chance by {0}%",
+            "rarityValue": [
+                [
+                    "12",
+                    "15",
+                    "18",
+                    "21"
+                ]
+            ],
+            "icon": "Skill_Power_Hold.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "14",
+            "name": "부메랑 도끼",
+            "name_en": "Boomerang Axe",
+            "description": "파워 능력을 발동시키면 킨타로가 도끼를 던지는데, 이 도끼는 근처 적들 사이에서 최대 2번 튕기며 적중시킨 대상마다 {0}%의 대미지를 줍니다.",
+            "description_en": "When triggering POWER, Kintarō throws his axe, which bounces up to 2 times between nearby enemies, dealing {0}% damage to each target hit",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Power_Throws_Axe.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "15",
+            "name": "강타 콤보",
+            "name_en": "Crushing Combo",
+            "description": "특수 능력은 파워 능력이 +25% 범위를 획득한 직후에 발동되어 +{0}%의 대미지를 줍니다.",
+            "description_en": "SPECIAL triggered shortly after POWER gains +25% range and deals +{0}% damage",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Special_Buff_After_Power.png",
+            "tags": [
+                "power",
+                "special"
+            ]
+        },
+        {
+            "id": "16",
+            "name": "도약 돌진",
+            "name_en": "Leaping Dash",
+            "description": "파워 능력 직후에 돌진 능력을 사용하면 킨타로가 앞으로 도약하고 착지 지점 주변에 특수 효과를 발동시켜 {0}%의 특수 대미지를 줍니다.",
+            "description_en": "Using DASH just after POWER makes Kintarō leap forward and triggers a SPECIAL effect in the area around where he lands, dealing {0}% SPECIAL damage",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Special_Dash_After_Power.png",
+            "tags": [
+                "power",
+                "special",
+                "dash"
+            ]
+        },
+        {
+            "id": "17",
+            "name": "대지 분쇄",
+            "name_en": "Shattered Earth",
+            "description": "특수 능력은 짧은 시간 후에 폭발하는 균열 영역을 남겨 {0}%의 광역 대미지를 줍니다.",
+            "description_en": "SPECIAL leaves a fractured area that explodes after a short time, dealing {0}% area damage",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Special_Delayed_AOE.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "18",
+            "name": "펫 치유",
+            "name_en": "Mend Pet",
+            "description": "킨타로가 쿠마에 올라탈 때마다 {0}의 체력을 회복합니다.\n이 특성은 10초의 대기 시간 후 다시 사용할 수 있습니다.",
+            "description_en": "Whenever Kintarō mounts Kuma, he recovers {0} health\nThis Talent has a 10 second cooldown",
+            "rarityValue": [
+                [
+                    "8",
+                    "10",
+                    "12",
+                    "14"
+                ]
+            ],
+            "icon": "Skill_Trait_Heal.png",
+            "tags": [
+                "trait"
+            ]
+        }
+    ],
+    "ultimates": [
+        {
+            "id": "u1",
+            "name": "거대 잉어 수플렉스",
+            "name_en": "Giant Carp Suplex",
+            "description": "거대 잉어가 땅에서 솟아올라 킨타로 주변에 대미지를 줍니다. 킨타로가 잉어를 공중에서 휘두른 다음 아래로 내리쳐 충격 지점 주변에 더 많은 대미지를 줍니다.",
+            "description_en": "A giant carp emerges from the ground, dealing damage around Kintarō. Kintarō wrestles the carp in the air then slams it down to deal more damage in the area around the point of impact.",
+            "icon": "Ability_Kintaro_Ultimate_1.png",
+            "tags": [
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2",
+            "name": "리키시",
+            "name_en": "Rikishi",
+            "description": "킨타로가 스모 자세를 취하고 빠른 속도로 손바닥 공격을 퍼붓습니다.",
+            "description_en": "Kintarō adopts a sumo stance and unleashes a rapid-fire series of palm strikes.",
+            "icon": "Ability_Kintaro_Ultimate_2.png",
+            "tags": [
+                "ultimate"
+            ]
+        }
+    ],
+    "ultimateTalents": [
+        {
+            "id": "u1_1",
+            "name": "물고기 비",
+            "name_en": "Rain of Fish",
+            "description": "궁극기 슬램이 {0}마리의 물고기를 공중에 떠올랐다가 땅으로 떨어지게 하며, 각각 20의 광역 대미지를 줍니다.",
+            "description_en": "ULTIMATE slam launches {0} fishes in the air that then fall to the ground, with each one dealing 20 area damage",
+            "rarityValue": [
+                [
+                    "12",
+                    "15",
+                    "18",
+                    "21"
+                ]
+            ],
+            "icon": "Skill_Ultimate_1_Projectile.png",
+            "tags": [
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u1_2",
+            "name": "거친 조련",
+            "name_en": "Brutal Taming",
+            "description": "궁극기를 사용하는 동안, 킨타로가 잉어의 꼬리를 잡고 땅에 세 번 세게 내리칩니다. 각 타격은 {0}%의 광역 대미지를 줍니다.",
+            "description_en": "During ULTIMATE, Kintarō grabs the carp by the tail and slams it violently against the ground three times, with each strike dealing {0}% area damage",
+            "rarityValue": [
+                [
+                    "60",
+                    "75",
+                    "90",
+                    "105"
+                ]
+            ],
+            "icon": "Skill_Ultimate_1_Slam.png",
+            "tags": [
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2_1",
+            "name": "네코다마시",
+            "name_en": "Nekodamashi",
+            "description": "킨타로가 궁극기를 발동하기 전에 손뼉을 쳐서 앞에 있는 적에게 {0}의 대미지를 주고 100 의 경직을 부여합니다.",
+            "description_en": "Before channeling his ULTIMATE, Kintarō claps his hands to deal {0} damage and 100 stagger points to enemies in front of him",
+            "rarityValue": [
+                [
+                    "100",
+                    "125",
+                    "150",
+                    "175"
+                ]
+            ],
+            "icon": "Skill_Ultimate_2_Clap.png",
+            "tags": [
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2_2",
+            "name": "도효",
+            "name_en": "Dohyo",
+            "description": "킨타로가 자신의 궁극기를 사용하기 전에 공중에 소금을 뿌려 자신 주변에 경기장을 만듭니다.\n경기장 내 모든 영웅은 최대 매초마다 최대 체력의 {0}%를 회복합니다.",
+            "description_en": "Before channeling his ULTIMATE, Kintarō tosses salt into the air to create an arena around him\nAll Heroes within the arena recover health equal to {0}% of their maximum health every second",
+            "rarityValue": [
+                [
+                    "12",
+                    "15",
+                    "18",
+                    "21"
+                ]
+            ],
+            "icon": "Skill_Ultimate_2_Heal.png",
+            "tags": [
+                "ultimate"
+            ]
+        }
+    ]
+}

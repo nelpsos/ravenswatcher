@@ -39,7 +39,7 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
   gap: 10px;
 }
 
@@ -601,3 +601,124 @@ textarea:focus {
 .melody-slot:not(.active) {
   color: transparent;
 }
+
+#filter-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  background-color: var(--emphasize-background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-label {
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-right: 4px;
+  white-space: nowrap;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filter-btn {
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 0.85em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.filter-btn:hover {
+  filter: brightness(1.2);
+  border-color: #999;
+}
+
+.rarity-btn.active {
+  background-color: #3a3a3a;
+  color: #fff;
+  border-color: #fff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+.rarity-btn.rarity-common.active {
+  border-color: #fff;
+  color: #fff;
+}
+
+.rarity-btn.rarity-rare.active {
+  border-color: #88f;
+  color: #aaf;
+  box-shadow: 0 0 6px rgba(136, 136, 255, 0.5);
+}
+
+.rarity-btn.rarity-epic.active {
+  border-color: #d8bfd8;
+  color: #f0d8f0;
+  box-shadow: 0 0 6px rgba(216, 191, 216, 0.5);
+}
+
+.rarity-btn.rarity-legendary.active {
+  border-color: #ff0;
+  color: #ff0;
+  box-shadow: 0 0 6px rgba(255, 255, 0, 0.5);
+}
+
+.ability-btn.active {
+  background-color: #b8860b;
+  color: #fff;
+  border-color: #ffd700;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.ability-clear-btn {
+  background-color: #5a2222;
+  color: #ffcccc;
+  border-color: #aa4444;
+}
+
+.item.ability-highlighted {
+  outline: 2px solid #ffd700;
+  box-shadow: 0 0 10px 2px rgba(255, 215, 0, 0.85);
+  border-radius: 6px;
+  transform: scale(1.06);
+  z-index: 2;
+  transition: all 0.15s ease;
+}
+
+.item.ability-dimmed {
+  opacity: 0.22;
+  filter: grayscale(80%);
+  transition: all 0.15s ease;
+}
+
+.tooltip-tag-badge {
+  display: inline-block;
+  font-size: 0.75em;
+  padding: 1px 5px;
+  margin-left: 4px;
+  border-radius: 3px;
+  background-color: #444;
+  color: #ffd700;
+  border: 1px solid #887020;
+  vertical-align: middle;
+}

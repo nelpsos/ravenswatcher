@@ -1,209 +1,543 @@
 {
-  "id": "carmilla",
-  "name": "카르밀라",
-  "startTalents": [
-    {
-      "id": "s_1",
-      "name": "박쥐의 지배자",
-      "description": "전투 중이지 않을 때 방어가 은신을 부여하며 피를 소모하지 않고 유지할 수 있습니다.\n방어가 +{0}%의 대미지를 입힙니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Defense_Master.png"
-    },
-    {
-      "id": "s_2",
-      "name": "생명의 정수",
-      "description": "퀘스트 (x30): 특수 능력의 물기로 적을 처치하면 활력이 +1 증가합니다.\n완료: 이 행동을 반복하면 카르밀라의 체력이 {0} 회복됩니다.",
-      "rarityValue": [["20", "35", "50", "65"]],
-      "icon": "Skill_Special_Quest.png"
-    },
-    {
-      "id": "s_3",
-      "name": "핏빛 분노",
-      "description": "퀘스트 (x20): 적에게 파워 능력을 1초 이상 적중시키면 대미지가 +0.5 증가합니다.\n완료: 이 행동을 반복하면 파워 능력의 폭발 대미지가 +{0}% 증가합니다.",
-      "rarityValue": [["80", "100", "120", "140"]],
-      "icon": "Skill_Power_Quest.png"
-    },
-    {
-      "id": "s_4",
-      "name": "생명력 전환",
-      "description": "날개 형상일 때 특성을 다시 활성화하면 최대 체력의 20%에 해당하는 체력을 소모하여 최대 {0}의 피를 회복합니다.\n이 능력은 현재 체력이 비용 미만일 때 사용할 수 없으며 5초의 재사용 대기 시간이 적용됩니다.",
-      "rarityValue": [["30", "35", "40", "45"]],
-      "icon": "Skill_Trait_Life_Tap.png"
-    }
-  ],
-  "talents": [
-    {
-      "id": "1",
-      "name": "서슬 발톱",
-      "description": "공격 시 +{0}%의 출혈 대미지를 입힙니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Attack_Bleed.png"
-    },
-    {
-      "id": "2",
-      "name": "관통",
-      "description": "돌진으로 통과한 적 하나당 {0}의 피를 얻습니다.",
-      "rarityValue": [["8", "10", "12", "14"]],
-      "icon": "Skill_Dash_Blood.png"
-    },
-    {
-      "id": "3",
-      "name": "분산",
-      "description": "방어 종료 시 박쥐 떼가 카르밀라 주위를 감싸 {0}의 출혈 광역 대미지를 입힙니다.",
-      "rarityValue": [["60", "75", "90", "105"]],
-      "icon": "Skill_Defense_Aoe_Bleed.png"
-    },
-    {
-      "id": "4",
-      "name": "희생양",
-      "description": "특수 능력을 사용하면 {0}초 동안 물린 적에게 표식을 남깁니다. 표식이 붙은 적은 +25%의 추가 대미지를 받으며, 죽을 때 주변의 다른 적에게 표식을 넘깁니다.",
-      "rarityValue": [["4", "6", "8", "10"]],
-      "icon": "Skill_Special_Marked.png"
-    },
-    {
-      "id": "5",
-      "name": "가학성",
-      "description": "출혈에 영향을 받는 적에게 입히는 치명타 대미지가 +{0}% 증가합니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Passive_Critical_Bleed.png"
-    },
-    {
-      "id": "6",
-      "name": "끓어오르는 피",
-      "description": "1초 이상 체력을 소모해 능력을 사용하면 재생이 +{0} 증가합니다.",
-      "rarityValue": [["3", "4", "5", "6"]],
-      "icon": "Skill_Passive_Life_Use_Regen.png"
-    },
-    {
-      "id": "7",
-      "name": "목을 노려라",
-      "description": "특수 능력으로 물기 전까지 이동한 거리에 따라 대미지와 치명타 확률이 최대 +{0}%까지 증가합니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Special_Critical_Distance.png"
-    },
-    {
-      "id": "8",
-      "name": "격노의 폭풍",
-      "description": "피를 파워 능력에 사용하면 점진적으로 대미지가 증가합니다.\n3초 동안 유지하면 최대 +{0}%까지 증가합니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Power_Maintained_Damage.png"
-    },
-    {
-      "id": "9",
-      "name": "돌풍",
-      "description": "특성 사용 시 주위의 적을 뒤로 밀쳐내고 {0}의 광역 대미지를 입힙니다.",
-      "rarityValue": [["80", "100", "120", "140"]],
-      "icon": "Skill_Trait_Push_Back.png"
-    },
-    {
-      "id": "10",
-      "name": "공격적인 무리",
-      "description": "방어가 활성화된 동안 카르밀라가 {0}초마다 박쥐를 내보냅니다. 박쥐는 주위의 적을 추적해 관통하여 18의 대미지를 입힙니다.",
-      "rarityValue": [["0.5", "0.33", "0.25", "0.2"]],
-      "icon": "Skill_Defense_Projectile.png"
-    },
-    {
-      "id": "11",
-      "name": "피 저장소",
-      "description": "최대 피 저장량이 {0}% 증가합니다.",
-      "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "Skill_Passive_Blood_Reserve.png"
-    },
-    {
-      "id": "12",
-      "name": "맹공",
-      "description": "특수 능력 사용 후 다음 공격 시 카르밀라가 전방으로 돌진해 통과하는 적에게 {0}%의 공격 대미지를 입힙니다.",
-      "rarityValue": [["800", "1000", "1200", "1400"]],
-      "icon": "Skill_Attack_Special_Rush.png"
-    },
-    {
-      "id": "13",
-      "name": "살점 찢기",
-      "description": "출혈에 영향을 받는 적에 대한 파워 능력의 치명타 확률이 +{0}% 증가합니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Power_Bleed_Crit.png"
-    },
-    {
-      "id": "14",
-      "name": "매혹적인 도발",
-      "description": "이동 방향을 정하지 않고 돌진을 사용하면 전방에 있는 우두머리가 아닌 적 최대 {0}명을 카르밀라가 유혹해 6초 동안 약화와 취약 효과를 부여합니다.",
-      "rarityValue": [["2", "3", "4", "5"]],
-      "icon": "Skill_Passive_Taunt.png"
-    },
-    {
-      "id": "15",
-      "name": "잔혹한 일격",
-      "description": "돌진 또는 방어 발동 후 다음 공격 시 콤보가 마무리 공격으로 시작해 +{0}%의 대미지를 입힙니다.",
-      "rarityValue": [["100", "125", "150", "175"]],
-      "icon": "Skill_Attack_Last_Combo_Move.png"
-    },
-    {
-      "id": "16",
-      "name": "천사와 악마",
-      "description": "특성 사용 시:\n낮: 주위 모든 영웅의 체력을 {0} 회복시킵니다.\n밤: 주위 모든 영웅에게 {1}초 동안 힘을 부여합니다.",
-      "rarityValue": [
-        ["20", "25", "30", "35"],
-        ["4", "5", "6", "7"]
-      ],
-      "icon": "Skill_Trait_Heal_Buff.png"
-    },
-    {
-      "id": "17",
-      "name": "야성의 심장",
-      "description": "파워 능력의 구체 이동 속도가 100% 증가합니다.\n파워 능력의 폭발 범위가 +{0}% 증가합니다.",
-      "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "Skill_Power_Range.png"
-    },
-    {
-      "id": "18",
-      "name": "주입",
-      "description": "특수 능력으로 적을 물면 피의 씨앗을 심습니다. 피의 씨앗은 잠시 후 파워 능력의 폭발을 일으켜 {0}%의 광역 대미지를 입힙니다.",
-      "rarityValue": [["80", "100", "120", "140"]],
-      "icon": "Skill_Power_Special_Bomb.png"
-    }
-  ],
-  "ultimates": [
-    {
-      "id": "u1",
-      "name": "꿰뚫기",
-      "description": "모든 피를 소모해 전방으로 피의 쐐기를 연달아 치솟아 오르게 합니다. 해당 지역 내의 적에게 450의 대미지를 입힙니다.\n소모한 피 1당 대미지가 1% 증가합니다.",
-      "icon": "Ability_Carmilla_Ultimate_1.png"
-    },
-    {
-      "id": "u2",
-      "name": "피의 채찍",
-      "description": "피의 채찍을 소환해 100의 광역 대미지를 입힙니다.\n다음 12회의 공격 시 채찍으로 넓은 지역을 타격하며 이 콤보는 총 140의 대미지를 입힙니다.",
-      "icon": "Ability_Carmilla_Ultimate_2.png"
-    }
-  ],
-  "ultimateTalents": [
-    {
-      "id": "u1_1",
-      "name": "창백한 자의 고문",
-      "description": "궁극기의 이동 경로가 끝에 도달하면 피의 쐐기가 카르밀라 방향으로 되돌아오며 {0}%의 대미지를 입힙니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Ultimate_1_Return.png"
-    },
-    {
-      "id": "u1_2",
-      "name": "심장 파괴",
-      "description": "공격 콤보에 4번째 공격이 추가되어, 전방의 적을 꿰뚫어 {0}%의 궁극기 대미지를 입힙니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Ultimate_1_Combo_Pike.png"
-    },
-    {
-      "id": "u2_1",
-      "name": "고통의 여주인",
-      "description": "궁극기로 변형되는 공격의 최대 수가 {0} 증가합니다.",
-      "rarityValue": [["6", "8", "10", "12"]],
-      "icon": "Skill_Ultimate_2_Increase_Max_attack.png"
-    },
-    {
-      "id": "u2_2",
-      "name": "대대적인 응징",
-      "description": "궁극기 콤보에 네 번째 공격이 추가되어 {0}%의 광역 대미지를 입힙니다.",
-      "rarityValue": [["240", "280", "320", "360"]],
-      "icon": "Skill_Ultimate_2_Add_Zone_Attack.png"
-    }
-  ]
+    "id": "carmilla",
+    "name": "카르밀라",
+    "startTalents": [
+        {
+            "id": "s_1",
+            "name": "박쥐의 지배자",
+            "name_en": "Bat Master",
+            "description": "전투 중이지 않을 때 방어가 은신을 부여하며 피를 소모하지 않고 유지할 수 있습니다.\n방어가 +{0}%의 대미지를 입힙니다.",
+            "description_en": "When not in combat, DEFENSE grants STEALTH and can be held without consuming BLOOD\nDEFENSE deals +{0}% damage\nSTEALTH make Carmilla undetectable by enemies",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Defense_Master.png",
+            "tags": [
+                "defense",
+                "trait"
+            ]
+        },
+        {
+            "id": "s_2",
+            "name": "생명의 정수",
+            "name_en": "Life Essence",
+            "description": "퀘스트 (x30): 특수 능력의 물기로 적을 처치하면 활력이 +1 증가합니다.\n완료: 이 행동을 반복하면 카르밀라의 체력이 {0} 회복됩니다.",
+            "description_en": "Quest (x30): Killing an enemy with SPECIAL's bite earns VITALITY +1\nComplete: Repeating this action restores {0} health to Carmilla",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Special_Quest.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "s_3",
+            "name": "핏빛 분노",
+            "name_en": "Blood Rage",
+            "description": "퀘스트(x20): 적에게 파워 능력을 1초 이상 적중시키면 대미지가 +0.5 증가합니다.\n완료: 이 행동을 반복하면 파워 능력의 폭발 대미지가 +{0}% 증가합니다.",
+            "description_en": "Quest(x20): Hitting an enemy with the POWER held for at least 1 second to gain +0.5 DMG\nComplete: Repeating this action increases POWER explosion damage by +{0}%",
+            "rarityValue": [
+                [
+                    "80",
+                    "100",
+                    "120",
+                    "140"
+                ]
+            ],
+            "icon": "Skill_Power_Quest.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "s_4",
+            "name": "생명력 전환",
+            "name_en": "Life Tap",
+            "description": "날개 형상일 때 특성을 다시 활성화하면 최대 체력의 15%에 해당하는 체력을 소모하여 최대 {0}의 피를 회복합니다.\n이 능력은 현재 체력이 비용 미만일 때 사용할 수 없으며 10초의 재사용 대기 시간이 적용됩니다.",
+            "description_en": "In Winged Form, activating TRAIT again consumes health equivalent to 15% of max health to recover up to {0} BLOOD points\nThis ability cannot be used when below health cost and has a 10-second cooldown",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Trait_Life_Tap.png",
+            "tags": [
+                "trait"
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "id": "1",
+            "name": "서슬 발톱",
+            "name_en": "Razor Claws",
+            "description": "공격 시 +{0}%의 출혈 대미지를 입힙니다.",
+            "description_en": "ATTACK deals +{0}% damage as BLEED",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Attack_Bleed.png",
+            "tags": [
+                "attack"
+            ]
+        },
+        {
+            "id": "2",
+            "name": "관통",
+            "name_en": "Puncture",
+            "description": "돌진으로 통과한 적 하나당 {0}의 피를 얻습니다.",
+            "description_en": "Each enemy passed through while using DASH earns {0} BLOOD",
+            "rarityValue": [
+                [
+                    "8",
+                    "10",
+                    "12",
+                    "14"
+                ]
+            ],
+            "icon": "Skill_Dash_Blood.png",
+            "tags": [
+                "trait",
+                "dash"
+            ]
+        },
+        {
+            "id": "3",
+            "name": "분산",
+            "name_en": "Dispersion",
+            "description": "방어를 발동한 후 박쥐 떼가 카르밀라 주위를 감싸 {0}의 출혈 광역 대미지를 입힙니다.",
+            "description_en": "After DEFENSE, bats disperse around Carmilla, dealing {0} area damage as BLEED",
+            "rarityValue": [
+                [
+                    "60",
+                    "75",
+                    "90",
+                    "105"
+                ]
+            ],
+            "icon": "Skill_Defense_Aoe_Bleed.png",
+            "tags": [
+                "defense"
+            ]
+        },
+        {
+            "id": "4",
+            "name": "희생양",
+            "name_en": "Victimization",
+            "description": "특수 능력을 사용하면 {0}초 동안 물린 적에게 표식을 남깁니다.\n표식이 붙은 적은 +25%의 추가 대미지를 받으며, 죽을 때 주변의 다른 적에게 표식을 넘깁니다.",
+            "description_en": "SPECIAL applies MARKED to bitten enemy for {0} seconds\nMARKED targets take +25% damage and spread this status to another nearby enemy when they die",
+            "rarityValue": [
+                [
+                    "4.0",
+                    "6.0",
+                    "8.0",
+                    "10.0"
+                ]
+            ],
+            "icon": "Skill_Special_Marked.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "5",
+            "name": "가학성",
+            "name_en": "Sadism",
+            "description": "출혈에 영향을 받는 적에게 입히는 치명타 대미지가 +{0}% 증가합니다.",
+            "description_en": "Critical Hits deal +{0}% damage on enemies affected by BLEED",
+            "rarityValue": [
+                [
+                    "40",
+                    "60",
+                    "80",
+                    "100"
+                ]
+            ],
+            "icon": "Skill_Passive_Critical_Bleed.png",
+            "tags": []
+        },
+        {
+            "id": "6",
+            "name": "끓어오르는 피",
+            "name_en": "Boiling Blood",
+            "description": "1초 이상 체력을 소모해 능력을 사용하면 재생이 +{0} 증가합니다.",
+            "description_en": "After consuming Health for at least 1 second(s) to fuel an ability, gain REGENERATION +{0}",
+            "rarityValue": [
+                [
+                    "3",
+                    "4",
+                    "5",
+                    "6"
+                ]
+            ],
+            "icon": "Skill_Passive_Life_Use_Regen.png",
+            "tags": []
+        },
+        {
+            "id": "7",
+            "name": "목을 노려라",
+            "name_en": "Go for the Throat",
+            "description": "특수 능력으로 물기 전까지 이동한 거리에 따라 대미지와 치명타 확률이 최대 +{0}%까지 증가합니다.",
+            "description_en": "Distance covered before SPECIAL's bite increases its damage and Crit Chance, up to +{0}%",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Special_Critical_Distance.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "8",
+            "name": "격노의 폭풍",
+            "name_en": "Furious Tempest",
+            "description": "피를 파워 능력에 사용하면 점진적으로 대미지가 증가합니다. 3.0초 동안 유지하면 최대 +{0}%까지 증가합니다.",
+            "description_en": "Consuming BLOOD to fuel POWER gradually increases its damage, up to +{0}% after 3.0 seconds of holding",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Power_Maintained_Damage.png",
+            "tags": [
+                "power",
+                "trait"
+            ]
+        },
+        {
+            "id": "9",
+            "name": "돌풍",
+            "name_en": "Gust",
+            "description": "특성 사용 시 주위의 적을 뒤로 밀쳐내고 {0}의 광역 대미지를 입힙니다.",
+            "description_en": "TRAIT pushes back nearby enemies and deals {0} area damage",
+            "rarityValue": [
+                [
+                    "80",
+                    "100",
+                    "120",
+                    "140"
+                ]
+            ],
+            "icon": "Skill_Trait_Push_Back.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "10",
+            "name": "공격적인 무리",
+            "name_en": "Aggressive Flock",
+            "description": "방어가 활성화된 동안 카르밀라가 {0}초마다 박쥐를 내보냅니다. 박쥐는 주위의 적을 추적해 관통하여 10의 대미지를 입힙니다.",
+            "description_en": "During DEFENSE, Carmilla casts a bat every {0} second(s) that seeks out nearby enemies and pierces through them, dealing 10 damage",
+            "rarityValue": [
+                [
+                    "0.5",
+                    "0.35",
+                    "0.3",
+                    "0.25"
+                ]
+            ],
+            "icon": "Skill_Defense_Projectile.png",
+            "tags": [
+                "defense"
+            ]
+        },
+        {
+            "id": "11",
+            "name": "피 저장소",
+            "name_en": "Blood Reserve",
+            "description": "최대 피 저장량이 {0}% 증가합니다.",
+            "description_en": "Increase maximum BLOOD reserve by {0}%",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Passive_Blood_Reserve.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "12",
+            "name": "맹공",
+            "name_en": "Onslaught",
+            "description": "특수 능력 사용 후 다음 공격 시 카르밀라가 전방으로 돌진해 통과하는 적에게 {0}%의 공격 대미지를 입힙니다.",
+            "description_en": "After a SPECIAL, the next ATTACK makes Carmilla rush forward, dealing {0}% ATTACK damage to enemies passed through",
+            "rarityValue": [
+                [
+                    "800",
+                    "1000",
+                    "1200",
+                    "1400"
+                ]
+            ],
+            "icon": "Skill_Attack_Special_Rush.png",
+            "tags": [
+                "attack",
+                "special"
+            ]
+        },
+        {
+            "id": "13",
+            "name": "살점 찢기",
+            "name_en": "Flesh Rip",
+            "description": "출혈에 영향을 받는 적에 대한 파워 능력의 치명타 확률이 +{0}% 증가합니다.",
+            "description_en": "POWER has +{0}% Crit Chance on enemies affected by BLEED",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Power_Bleed_Crit.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "14",
+            "name": "매혹적인 도발",
+            "name_en": "Seductive Provocation",
+            "description": "이동 방향을 정하지 않고 돌진을 사용하면 카르밀라가 전방에 있는 우두머리가 아닌 적 최대 4명을 유혹해 {0}초 동안 약화와 취약 효과를 부여합니다.",
+            "description_en": "Using DASH without specifying a move direction makes Carmilla seduce up to 4 non-boss enemies in front of her, applying WEAKENED and VULNERABLE to them for {0} seconds (every 6 seconds max)",
+            "rarityValue": [
+                [
+                    "6",
+                    "7",
+                    "9",
+                    "10"
+                ]
+            ],
+            "icon": "Skill_Passive_Taunt.png",
+            "tags": [
+                "dash"
+            ]
+        },
+        {
+            "id": "15",
+            "name": "잔혹한 일격",
+            "name_en": "Cruel Strike",
+            "description": "돌진 또는 방어 발동 후 다음 공격 시 콤보가 마무리 공격으로 시작해 +{0}%의 대미지를 입힙니다.",
+            "description_en": "After DASH or DEFENSE, the next ATTACK starts with a combo finishing move, dealing +{0}% damage",
+            "rarityValue": [
+                [
+                    "100",
+                    "125",
+                    "150",
+                    "175"
+                ]
+            ],
+            "icon": "Skill_Attack_Last_Combo_Move.png",
+            "tags": [
+                "attack",
+                "defense",
+                "dash"
+            ]
+        },
+        {
+            "id": "16",
+            "name": "천사와 악마",
+            "name_en": "Angel and Demon",
+            "description": "특성 사용 시:\n낮: 주위 모든 영웅의 체력을 {0} 회복시킵니다.\n밤 : 주위 모든 영웅에게 {1}초 동안 힘을 부여합니다.",
+            "description_en": "When using TRAIT:\nDAY : restore {0} health to all nearby heroes\nNIGHT : Grants STRENGTH to all nearby heroes for {1} seconds",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ],
+                [
+                    "4.0",
+                    "5.0",
+                    "6.0",
+                    "7.0"
+                ]
+            ],
+            "icon": "Skill_Trait_Heal_Buff.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "17",
+            "name": "야성의 심장",
+            "name_en": "Wild Heart",
+            "description": "파워 능력의 구체 이동 속도가 100% 증가합니다.\n파워 능력의 폭발 범위가 +{0}% 증가합니다.",
+            "description_en": "POWER's orb move speed is increased by 100%\nPOWER explosion gains +{0}% range",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Power_Range.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "18",
+            "name": "주입",
+            "name_en": "Injection",
+            "description": "특수 능력으로 적을 물면 피의 씨앗을 심습니다. 피의 씨앗은 잠시 후 파워 능력의 폭발을 일으켜 {0}%의 광역 대미지를 입힙니다.",
+            "description_en": "SPECIAL implants a blood seed into the bitten enemy that shortly after triggers an explosion of POWER, dealing {0}% area damage",
+            "rarityValue": [
+                [
+                    "80",
+                    "100",
+                    "120",
+                    "140"
+                ]
+            ],
+            "icon": "Skill_Power_Special_Bomb.png",
+            "tags": [
+                "power",
+                "special"
+            ]
+        }
+    ],
+    "ultimates": [
+        {
+            "id": "u1",
+            "name": "꿰뚫기",
+            "name_en": "Impalement",
+            "description": "모든 피를 소모해 전방으로 피의 쐐기를 연달아 치솟아 오르게 하여 통과한 적에게 대미지를 입힙니다.",
+            "description_en": "Consume all BLOOD to launch a series of blood spikes errupting from the ground in front, dealing damage to enemies passed",
+            "icon": "Ability_Carmilla_Ultimate_1.png",
+            "tags": [
+                "trait",
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2",
+            "name": "피의 채찍",
+            "name_en": "Blood Lash",
+            "description": "피의 채찍을 소환해 광역 대미지를 입힙니다.\n다음 12회의 공격 시 채찍으로 넓은 지역을 타격합니다.",
+            "description_en": "Summon a whip of blood, dealing area damage\nNext 12 ATTACKS use the whip to strike in large areas",
+            "icon": "Ability_Carmilla_Ultimate_2.png",
+            "tags": [
+                "attack",
+                "ultimate"
+            ]
+        }
+    ],
+    "ultimateTalents": [
+        {
+            "id": "u1_1",
+            "name": "창백한 자의 고문",
+            "name_en": "Torture of the Pale",
+            "description": "궁극기의 이동 경로가 끝에 도달하면 피의 쐐기가 카르밀라 방향으로 되돌아오며 {0}%의 대미지를 입힙니다.",
+            "description_en": "At the end of their course, ULTIMATE blood spikes return toward Carmilla, dealing {0}% damage",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Ultimate_1_Return.png",
+            "tags": [
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u1_2",
+            "name": "심장 파괴",
+            "name_en": "Heartbreak",
+            "description": "공격 콤보에 4번째 공격이 추가되어, 전방의 적을 꿰뚫어 {0}%의 궁극기 대미지를 입힙니다.",
+            "description_en": "Add a fourth move to ATTACK combo, impaling enemies in front, dealing {0}% ULTIMATE damage",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Ultimate_1_Combo_Pike.png",
+            "tags": [
+                "attack",
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2_1",
+            "name": "고통의 여주인",
+            "name_en": "Mistress of Pain",
+            "description": "궁극기로 변형되는 공격의 최대 수가 {0} 증가합니다.",
+            "description_en": "Increase maximum number of ATTACKS transformed by ULTIMATE by {0}",
+            "rarityValue": [
+                [
+                    "6",
+                    "8",
+                    "10",
+                    "12"
+                ]
+            ],
+            "icon": "Skill_Ultimate_2_Increase_Max_attack.png",
+            "tags": [
+                "attack",
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2_2",
+            "name": "대대적인 응징",
+            "name_en": "Mass Punishment",
+            "description": "궁극기 콤보에 네 번째 공격이 추가되어 {0}%의 광역 대미지를 입힙니다.",
+            "description_en": "Add a fourth ATTACK to ULTIMATE combo, dealing {0}% area damage",
+            "rarityValue": [
+                [
+                    "240",
+                    "300",
+                    "360",
+                    "420"
+                ]
+            ],
+            "icon": "Skill_Ultimate_2_Add_Zone_Attack.png",
+            "tags": [
+                "attack",
+                "ultimate"
+            ]
+        }
+    ],
+    "name_en": "Carmilla"
 }

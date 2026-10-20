@@ -1,209 +1,544 @@
 {
-  "id": "the_snow_queen",
-  "name": "눈의 여왕",
-  "startTalents": [
-    {
-      "id": "s_1",
-      "name": "얼음 클론",
-      "description": "방어 사용 시 영웅 최대 체력의 40%를 가진 얼음 클론을 남겨 적을 유인합니다.\n얼음 클론이 파괴되거나 10초가 지나면 {0}의 광역 대미지를 입히고 적중당한 적에게 빙결 효과를 부여합니다.",
-      "rarityValue": [["40", "60", "80", "100"]],
-      "icon": "Skill_Defense_Clone.png"
-    },
-    {
-      "id": "s_2",
-      "name": "파열",
-      "description": "퀘스트 (x20): 단일 특성으로 2명의 적을 산산조각 내면 대미지가 0.5 증가합니다.\n완료: 산산조각 효과가 적을 {0}초 동안 취약 상태로 만듭니다.",
-      "rarityValue": [["4", "5", "6", "7"]],
-      "icon": "Skill_Trait_Quest.png"
-    },
-    {
-      "id": "s_3",
-      "name": "얼음의 여왕",
-      "description": "능력으로 생성한 서리가 추가로 {0}초 동안 지면에 남습니다.\n빙결 효과가 적의 이동 속도를 추가로 20% 감소시킵니다.",
-      "rarityValue": [["2", "3", "4", "5"]],
-      "icon": "Skill_Passive_Better_Frost.png"
-    },
-    {
-      "id": "s_4",
-      "name": "이중 얼음창",
-      "description": "공격하면 얼음창 두 개가 전면으로 나란히 발사되지만 최대 사거리가 45% 줄어듭니다.\n각 얼음창은 {0}%의 대미지를 입힙니다.",
-      "rarityValue": [["70", "80", "90", "100"]],
-      "icon": "Skill_Attack_Dual.png"
-    }
-  ],
-  "talents": [
-    {
-      "id": "1",
-      "name": "눈덩이",
-      "description": "파워 능력 발동 시 눈덩이를 발사합니다 눈덩이는 경로상의 적에게 초당 {0}의 대미지를 입히고 적중당한 적에게 빙결 효과를 부여합니다.\n적에게 명중할 때마다 눈덩이의 크기와 대미지가 {1}%씩 감소합니다.",
-      "rarityValue": [
-        ["20", "25", "30", "35"],
-        ["12", "10", "8", "7"]
-      ],
-      "icon": "Skill_Power_Snowball.png"
-    },
-    {
-      "id": "2",
-      "name": "강풍의 창",
-      "description": "공격 시 창이 곡선을 그리면서 적을 추적하며, 적에게 적중할 때마다 최대 {0}회까지 지속 시간이 초기화됩니다.",
-      "rarityValue": [["3", "4", "5", "6"]],
-      "icon": "Skill_Attack_Seeking.png"
-    },
-    {
-      "id": "3",
-      "name": "창 폭발",
-      "description": "특성 사용 시 전방 원뿔 모양 범위에 {0}회의 공격을 가합니다.",
-      "rarityValue": [["3", "4", "5", "6"]],
-      "icon": "Skill_Trait_Sends_Attacks.png"
-    },
-    {
-      "id": "4",
-      "name": "슬라이드",
-      "description": "돌진 사용 시 지면에 서리를 생성합니다. 유효 영역 내의 적에게 방어의 {0}%에 해당하는 대미지를 입힙니다.",
-      "rarityValue": [["100", "120", "140", "160"]],
-      "icon": "Skill_Dash_Frost.png"
-    },
-    {
-      "id": "5",
-      "name": "휘몰아치는 파편",
-      "description": "특수 능력을 길게 눌러 최대 {0}회 추가로 사격할 수 있습니다.",
-      "rarityValue": [["2", "3", "4", "5"]],
-      "icon": "Skill_Special_Extra_Waves.png"
-    },
-    {
-      "id": "6",
-      "name": "우박 폭풍",
-      "description": "파워 능력을 사용하면 {0}번의 얼음 폭풍이 특정 영역을 강타하며, 각각 20의 대미지를 입힙니다.",
-      "rarityValue": [["3", "4", "5", "6"]],
-      "icon": "Skill_Power_Ice_Waves.png"
-    },
-    {
-      "id": "7",
-      "name": "치밀어오르는 한기",
-      "description": "파워 능력을 길게 눌러 최대 3단계까지 충전할 수 있습니다.\n충전 단계당 대미지가 {0}%, 유효 영역이 10% 증가합니다.",
-      "rarityValue": [["20", "30", "40", "50"]],
-      "icon": "Skill_Power_Hold.png"
-    },
-    {
-      "id": "8",
-      "name": "차디찬 심장",
-      "description": "주위에 있는 빙결 상태의 적 하나당 치명타 확률이 {0}% 증가합니다.(최대 5회까지 중첩)",
-      "rarityValue": [["4", "5", "6", "7"]],
-      "icon": "Skill_Passive_Chilled_Crit.png"
-    },
-    {
-      "id": "9",
-      "name": "광휘의 왕관",
-      "description": "특성이 1 충전됩니다.\n산산조각 효과가 {0}%의 추가 대미지를 입힙니다.",
-      "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "Skill_Trait_Charge.png"
-    },
-    {
-      "id": "10",
-      "name": "급습",
-      "description": "방어 사용 시 주위의 적에게 최대 {0}회의 공격을 연속으로 가합니다.",
-      "rarityValue": [["5", "6", "7", "8"]],
-      "icon": "Skill_Defense_Sends_Attacks.png"
-    },
-    {
-      "id": "11",
-      "name": "얼음 분사",
-      "description": "특수 능력 사용 시 반대 방향으로 얼음 파편을 두 번 분사하여 빙결 효과가 부여된 적에게 {0}%의 추가 대미지를 입힙니다.",
-      "rarityValue": [["20", "30", "40", "50"]],
-      "icon": "Skill_Special_Double.png"
-    },
-    {
-      "id": "12",
-      "name": "얼음 보호막",
-      "description": "방어 사용 시 눈의 여왕 및 유효 영역 내 모든 영웅에게 6초 동안 {0}의 보호막을 부여합니다.",
-      "rarityValue": [["16", "22", "28", "34"]],
-      "icon": "Skill_Defense_Shield.png"
-    },
-    {
-      "id": "13",
-      "name": "산산조각 작렬",
-      "description": "파워 능력을 사용하면 이미 빙결된 적에게 산산조각 효과가 발동합니다.\n모든 산산조각 효과의 대미지가 {0}% 증가합니다.",
-      "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "Skill_Power_Shatter.png"
-    },
-    {
-      "id": "14",
-      "name": "혹한의 별",
-      "description": "돌진 사용 시 얼음의 별을 남깁니다. 이 얼음의 별은 산산조각 효과를 받거나 생성 후 10초가 지나면 폭발합니다.\n얼음의 별은 폭발 시 {0}의 광역 대미지를 입히고 적중당한 적에게 빙결 효과를 부여합니다.",
-      "rarityValue": [["32", "42", "52", "62"]],
-      "icon": "Skill_Dash_Freeze_Trap.png"
-    },
-    {
-      "id": "15",
-      "name": "방어용 왕관",
-      "description": "특성 사용 시 주변의 영웅들이 공격받을 때마다 6초 동안 {0}의 보호막을 부여합니다. (최대 4회)",
-      "rarityValue": [["4", "5", "6", "7"]],
-      "icon": "Skill_Trait_Shield.png"
-    },
-    {
-      "id": "16",
-      "name": "얼음 핵",
-      "description": "파워 능력에 적중당한 적이 얼음 핵을 소환합니다.(최대 6)\n특수 능력이 얼음 핵을 소비해 {0}%의 대미지를 입히는 공격을 발동합니다.",
-      "rarityValue": [["80", "100", "120", "140"]],
-      "icon": "Skill_Special_Icicles.png"
-    },
-    {
-      "id": "17",
-      "name": "피루엣",
-      "description": "사용 중인 방어를 다시 시전하면 회전 공격이 발동합니다. {0}의 광역 대미지를 입히고, 빙결 상태의 적에게 50% 추가 대미지를 입힙니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Defense_Final.png"
-    },
-    {
-      "id": "18",
-      "name": "동상",
-      "description": "빙결 상태의 적에게 추가 대미지를 입히는 모든 능력이 {0}%의 추가 대미지를 입힙니다.",
-      "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "Skill_Passive_Damage_To_Chilled.png"
-    }
-  ],
-  "ultimates": [
-    {
-      "id": "u1",
-      "name": "냉기 광선",
-      "description": "지면에 냉기 광선을 집중하여 적에게 1초마다 160의 대미지를 입히고 빙결 효과를 부여합니다.",
-      "icon": "Ability_Snow_Queen_Ultimate_1.png"
-    },
-    {
-      "id": "u2",
-      "name": "눈폭풍",
-      "description": "눈폭풍을 소환하여 유효 영역 내의 적에게 1초마다 5의 대미지를 입히고 빙결 효과를 부여합니다.\n10초 동안 지속됩니다.",
-      "icon": "Ability_Snow_Queen_Ultimate_2.png"
-    }
-  ],
-  "ultimateTalents": [
-    {
-      "id": "u1_1",
-      "name": "고귀한 광선",
-      "description": "궁극기 시전 시 특성이 발동합니다. 산산조각난 적 하나마다 궁극기가 추가로 +{0}% 피해를 줍니다. (최대 +40%)",
-      "rarityValue": [["8", "10", "12", "14"]],
-      "icon": "Skill_Ultimate_1_Casts_Trait.png"
-    },
-    {
-      "id": "u1_2",
-      "name": "얼음 광선",
-      "description": "궁극기가 얼음 광선이 되어 처음으로 적중하는 적에게 {0}%의 대미지를 입히고 빙결 상태로 만듭니다.",
-      "rarityValue": [["160", "200", "240", "280"]],
-      "icon": "Skill_Ultimate_1_Ice_Beam.png"
-    },
-    {
-      "id": "u2_1",
-      "name": "찢어발기는 폭풍",
-      "description": "눈의 여왕이 특성이나 파워, 특수 능력을 궁극기 구역 내에서 발동할 때마다 폭풍이 크게 발동해 {0}의 대미지를 입힙니다.",
-      "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "Skill_Ultimate_2_Ability_Blast.png"
-    },
-    {
-      "id": "u2_2",
-      "name": "분쇄의 폭풍",
-      "description": "궁극기 효과가 끝날 때 해당 지역에 폭발이 일어나 그 안의 모든 적을 산산조각내 {0}의 대미지를 입힙니다.",
-      "rarityValue": [["72", "90", "108", "126"]],
-      "icon": "Skill_Ultimate_2_Shatter.png"
-    }
-  ]
+    "id": "the_snow_queen",
+    "name": "눈의 여왕",
+    "startTalents": [
+        {
+            "id": "s_1",
+            "name": "얼음 클론",
+            "name_en": "Ice Clone",
+            "description": "방어 사용 시 영웅 최대 체력의 40%를 가진 얼음 클론을 남겨 적을 유인합니다.\n얼음 클론이 파괴되거나 10초가 지나면 {0}의 광역 대미지를 입히고 적중당한 적에게 빙결 효과를 부여합니다.",
+            "description_en": "DEFENSE leaves an ice clone with 40% of Hero's Maximum Health, attracting enemies' attention\nWhen destroyed or after 10 seconds have passed, it deals {0} area damage and inflicts CHILLED to enemies hit",
+            "rarityValue": [
+                [
+                    "40",
+                    "60",
+                    "80",
+                    "100"
+                ]
+            ],
+            "icon": "Skill_Defense_Clone.png",
+            "tags": [
+                "defense"
+            ]
+        },
+        {
+            "id": "s_2",
+            "name": "파열",
+            "name_en": "Rupture",
+            "description": "퀘스트 (x20): 단일 특성으로 2명의 적을 산산조각 내면 대미지가 0.5 증가합니다.\n완료: 산산조각 효과가 적을 {0}초 동안 취약 상태로 만듭니다.",
+            "description_en": "Quest (x20): SHATTER 2 enemies with a single TRAIT to earn +0.5 DMG\nComplete: SHATTER leaves affected enemies VULNERABLE for {0} seconds",
+            "rarityValue": [
+                [
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                ]
+            ],
+            "icon": "Skill_Trait_Quest.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "s_3",
+            "name": "얼음의 여왕",
+            "name_en": "Frost Queen",
+            "description": "능력으로 생성한 서리가 {0}초 동안 지면에 남습니다.\n눈의 여왕에 의해 빙결된 적은 초당 5의 대미지를 받습니다.",
+            "description_en": "Frost generated by your abilities remains on the ground for {0} seconds\nEnemies CHILLED by The Snow Queen suffer 5 damage per second",
+            "rarityValue": [
+                [
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                ]
+            ],
+            "icon": "Skill_Passive_Better_Frost.png",
+            "tags": []
+        },
+        {
+            "id": "s_4",
+            "name": "이중 얼음창",
+            "name_en": "Dual Lances",
+            "description": "공격하면 얼음창 두 개가 전면으로 나란히 발사되지만 최대 사거리가 45% 줄어듭니다.\n각 얼음창은 {0}%의 대미지를 입힙니다.",
+            "description_en": "ATTACK sends forth two lances side by side but their maximum range is reduced by 45%\nEach lance deals {0}% damage",
+            "rarityValue": [
+                [
+                    "70",
+                    "80",
+                    "90",
+                    "100"
+                ]
+            ],
+            "icon": "Skill_Attack_Dual.png",
+            "tags": [
+                "attack"
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "id": "1",
+            "name": "눈덩이",
+            "name_en": "Snowball",
+            "description": "파워 능력 발동 시 눈덩이를 발사합니다. 눈덩이는 경로상의 적에게 초당 {0}의 대미지를 입히고 적중당한 적에게 빙결 효과를 부여합니다.\n적에게 명중할 때마다 눈덩이의 크기와 대미지가 {1}%씩 감소합니다.",
+            "description_en": "POWER sends a snowball that deals {0} damage per second to enemies in its path and inflicts them with CHILLED\nEach enemy hit reduces the size and damage of the snowball by {1}%",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ],
+                [
+                    "12",
+                    "10",
+                    "8",
+                    "7"
+                ]
+            ],
+            "icon": "Skill_Power_Snowball.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "2",
+            "name": "강풍의 창",
+            "name_en": "Windy Lances",
+            "description": "공격 시 창이 공선을 그리면서 적을 추적하며, 적에게 적중할 때마다 최대 {0}회까지 지속 시간이 초기화됩니다.",
+            "description_en": "ATTACK's lances can curve to seek out targets, and their duration resets whenever they hit an enemy, up to {0} times",
+            "rarityValue": [
+                [
+                    "3",
+                    "4",
+                    "5",
+                    "6"
+                ]
+            ],
+            "icon": "Skill_Attack_Seeking.png",
+            "tags": [
+                "attack"
+            ]
+        },
+        {
+            "id": "3",
+            "name": "창 폭발",
+            "name_en": "Lance Burst",
+            "description": "특성 사용 시 전방 원뿔 모양 범위에 {0}회의 공격을 가합니다.",
+            "description_en": "TRAIT sends {0} ATTACKS forward in a cone-shaped burst",
+            "rarityValue": [
+                [
+                    "3",
+                    "4",
+                    "5",
+                    "6"
+                ]
+            ],
+            "icon": "Skill_Trait_Sends_Attacks.png",
+            "tags": [
+                "attack",
+                "trait"
+            ]
+        },
+        {
+            "id": "4",
+            "name": "슬라이드",
+            "name_en": "Slide",
+            "description": "돌진 사용 시 지면에 서리를 생성합니다. 유효 영역 내의 적에게 방어의 {0}%에 해당하는 대미지를 입힙니다.",
+            "description_en": "DASH creates frost underfoot, dealing {0}% of DEFENSE damage to enemies passed",
+            "rarityValue": [
+                [
+                    "100",
+                    "125",
+                    "150",
+                    "175"
+                ]
+            ],
+            "icon": "Skill_Dash_Frost.png",
+            "tags": [
+                "defense",
+                "dash"
+            ]
+        },
+        {
+            "id": "5",
+            "name": "휘몰아치는 파편",
+            "name_en": "Flurry of Shards",
+            "description": "특수 능력을 길게 눌러 최대 {0}회 추가로 사격할 수 있습니다.",
+            "description_en": "SPECIAL can be held to hit up to {0} more time(s)",
+            "rarityValue": [
+                [
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                ]
+            ],
+            "icon": "Skill_Special_Extra_Waves.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "6",
+            "name": "우박 폭풍",
+            "name_en": "Hailstorm",
+            "description": "파워 능력을 사용하면 {0}번의 얼음 폭풍이 특정 영역을 강타하며, 각각 20의 대미지를 입힙니다.",
+            "description_en": "After using POWER, {0} waves of ice strike the area and deal 20 damage each",
+            "rarityValue": [
+                [
+                    "3",
+                    "4",
+                    "5",
+                    "6"
+                ]
+            ],
+            "icon": "Skill_Power_Ice_Waves.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "7",
+            "name": "치밀어오르는 한기",
+            "name_en": "Frost Surge",
+            "description": "파워 능력을 길게 눌러 최대 3단계까지 충전할 수 있습니다.\n충전 단계당 대미지가 {0}%, 유효 영역이 10% 증가합니다.",
+            "description_en": "POWER can be held to store up to 3 levels of charge before being released\nEach charge level increases damage dealt by {0}% and the effect radius by 10%",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Power_Hold.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "8",
+            "name": "차디찬 심장",
+            "name_en": "Cold Heart",
+            "description": "주위에 있는 빙결 상태의 적 하나당 치명타 확률이 {0}% 증가합니다(최대 5회까지 중첩).",
+            "description_en": "Gain +{0}% Crit Chance for each CHILLED enemy nearby (can stack up to 5 times)",
+            "rarityValue": [
+                [
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                ]
+            ],
+            "icon": "Skill_Passive_Chilled_Crit.png",
+            "tags": []
+        },
+        {
+            "id": "9",
+            "name": "광휘의 왕관",
+            "name_en": "Radiant Crown",
+            "description": "특성이 1 충전됩니다.\n산산조각 효과가 {0}%의 추가 대미지를 입힙니다.",
+            "description_en": "Gain +1 TRAIT charge\nAny Shatter effect deals +{0}% damage",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Trait_Charge.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "10",
+            "name": "급습",
+            "name_en": "Strafe",
+            "description": "방어 사용 시 주위의 적에게 최대 {0}회의 공격을 연속으로 가합니다.",
+            "description_en": "DEFENSE sends up to {0} successive ATTACKS to nearby enemies",
+            "rarityValue": [
+                [
+                    "5",
+                    "6",
+                    "7",
+                    "8"
+                ]
+            ],
+            "icon": "Skill_Defense_Sends_Attacks.png",
+            "tags": [
+                "attack",
+                "defense"
+            ]
+        },
+        {
+            "id": "11",
+            "name": "얼음 분사",
+            "name_en": "Ice Spray",
+            "description": "특수 능력 사용 시 반대 방향으로 얼음 파편을 두 번 분사하여 빙결 효과가 부여된 적에게 {0}%의 추가 대미지를 입힙니다.",
+            "description_en": "SPECIAL sprays two bursts of ice shards in opposite directions, dealing +{0}% damage to CHILLED enemies.",
+            "rarityValue": [
+                [
+                    "32",
+                    "40",
+                    "48",
+                    "56"
+                ]
+            ],
+            "icon": "Skill_Special_Double.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "12",
+            "name": "얼음 보호막",
+            "name_en": "Ice Shield",
+            "description": "방어 사용 시 눈의 여왕 및 유효 영역 내 모든 영웅에게 6초 동안 {0}의 보호막을 부여합니다.",
+            "description_en": "DEFENSE grants a {0} SHIELD to The Snow Queen and all Heroes passed for 6 seconds",
+            "rarityValue": [
+                [
+                    "16",
+                    "20",
+                    "24",
+                    "28"
+                ]
+            ],
+            "icon": "Skill_Defense_Shield.png",
+            "tags": [
+                "defense"
+            ]
+        },
+        {
+            "id": "13",
+            "name": "산산조각 작렬",
+            "name_en": "Shattering Blast",
+            "description": "파워 능력을 사용하면 이미 빙결된 적에게 산산조각 효과가 발동합니다.\n모든 산산조각 효과의 대미지가 {0}% 증가합니다.",
+            "description_en": "POWER triggers SHATTER when hitting enemies that are already CHILLED\nEach SHATTER deals +{0}% damage",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Power_Shatter.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "14",
+            "name": "혹한의 별",
+            "name_en": "Freezing Stars",
+            "description": "돌진 사용 시 얼음의 별을 남깁니다. 이 얼음의 별은 산산조각 효과를 받거나 생성 후 10초가 지나면 폭발합니다.\n얼음의 별은 폭발 시 {0}의 광역 대미지를 입히고 적중당한 적에게 빙결 효과를 부여합니다.",
+            "description_en": "DASH leaves behind an ice star that explodes due to a Shattering effect or after 10 seconds\nThe ice star's explosion deals {0} area damage and inflicts CHILLED to enemies hit",
+            "rarityValue": [
+                [
+                    "32",
+                    "40",
+                    "48",
+                    "56"
+                ]
+            ],
+            "icon": "Skill_Dash_Freeze_Trap.png",
+            "tags": [
+                "dash"
+            ]
+        },
+        {
+            "id": "15",
+            "name": "방어용 왕관",
+            "name_en": "Protective Crown",
+            "description": "특성 사용 시 주변의 영웅들이 공격받을 때마다 6초 동안 {0}의 보호막을 부여합니다(최대 4회).",
+            "description_en": "TRAIT grants {0} SHIELD for 6 seconds to all Heroes around for each enemy hit (up to 4 times)",
+            "rarityValue": [
+                [
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                ]
+            ],
+            "icon": "Skill_Trait_Shield.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "16",
+            "name": "얼음 핵",
+            "name_en": "Ice Cores",
+            "description": "파워 능력에 적중당한 적이 2개의 얼음 핵을 소환합니다(최대 6).\n특수 능력이 얼음 핵을 소비해 {0}%의 대미지를 입히는 공격을 발동합니다.",
+            "description_en": "Each enemy hit by POWER summons 2 cores of ice (up to 6)\nThe SPECIAL consumes each core to fire an ATTACK dealing {0}% damage",
+            "rarityValue": [
+                [
+                    "80",
+                    "100",
+                    "120",
+                    "140"
+                ]
+            ],
+            "icon": "Skill_Special_Icicles.png",
+            "tags": [
+                "attack",
+                "power",
+                "special"
+            ]
+        },
+        {
+            "id": "17",
+            "name": "피루엣",
+            "name_en": "Pirouette",
+            "description": "사용 중인 방어를 다시 시전하면 회전 공격이 발동합니다. {0}의 광역 대미지를 입히고, 빙결 상태의 적에게 50% 추가 대미지를 입힙니다.",
+            "description_en": "Retriggering DEFENSE while it is in progress triggers a spin dealing {0} area damage, +50% to CHILLED enemies",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Defense_Final.png",
+            "tags": [
+                "defense"
+            ]
+        },
+        {
+            "id": "18",
+            "name": "동상",
+            "name_en": "Frostbite",
+            "description": "빙결 상태의 적에게 추가 대미지를 입히는 모든 능력이 {0}% 의 추가 대미지를 입힙니다.",
+            "description_en": "All abilities that deal extra damage to CHILLED enemies deal +{0}% extra damage",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Passive_Damage_To_Chilled.png",
+            "tags": []
+        }
+    ],
+    "ultimates": [
+        {
+            "id": "u1",
+            "name": "냉기 광선",
+            "name_en": "Frost Ray",
+            "description": "땅에 냉기 광선을 발사하여 지속 대미지를 입히며 공격 영역에 냉기 효과를 유발합니다",
+            "description_en": "Channel a frost ray to the ground that deals damage over time and creates FROST in a targetable area",
+            "icon": "Ability_Snow_Queen_Ultimate_1.png",
+            "tags": [
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2",
+            "name": "눈폭풍",
+            "name_en": "Snowstorm",
+            "description": "눈폭풍을 소환하여 유효 영역 내의 적에게 1초마다 {0}의 대미지를 입히고 빙결 효과를 부여합니다.",
+            "description_en": "Summon a snow storm that deals damage over time, inflicting all enemies within range with CHILLED",
+            "icon": "Ability_Snow_Queen_Ultimate_2.png",
+            "tags": [
+                "ultimate"
+            ]
+        }
+    ],
+    "ultimateTalents": [
+        {
+            "id": "u1_1",
+            "name": "고귀한 광선",
+            "name_en": "Royal Ray",
+            "description": "궁극기 시전 시 시작 시점에 특성이 발동합니다. 산산이 조각난 적 하나마다 {0}% 피해를 줍니다. (최대 +{1}%)",
+            "description_en": "ULTIMATE triggers TRAIT at its start and deals +{0}% damage for each shattered enemy (up to +{1}%)",
+            "rarityValue": [
+                [
+                    "8",
+                    "10",
+                    "12",
+                    "14"
+                ],
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Ultimate_1_Casts_Trait.png",
+            "tags": [
+                "trait",
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u1_2",
+            "name": "얼음 광선",
+            "name_en": "Ice Beam",
+            "description": "궁극기 사용 시 얼음 광선을 집중해 {0}%의 대미지를 입힙니다. 처음으로 적중하는 적은 빙결 상태로 만듭니다.",
+            "description_en": "ULTIMATE now channels an ice beam, dealing {0}% damage and inflicting CHILLED to first enemy hit",
+            "rarityValue": [
+                [
+                    "180",
+                    "225",
+                    "270",
+                    "315"
+                ]
+            ],
+            "icon": "Skill_Ultimate_1_Ice_Beam.png",
+            "tags": [
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2_1",
+            "name": "찢어발기는 폭풍",
+            "name_en": "Rending Storm",
+            "description": "눈의 여왕이 특성이나 파워, 특수 능력을 궁극기 구역 내에서 발동할 때마다 폭풍이 크게 폭발해 {0}의 대미지를 입힙니다.",
+            "description_en": "Each time The Snow Queen casts TRAIT, POWER or SPECIAL within the ULTIMATE zone, the storm unleashes a burst dealing {0} damage",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Ultimate_2_Ability_Blast.png",
+            "tags": [
+                "power",
+                "special",
+                "trait",
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2_2",
+            "name": "분쇄의 폭풍",
+            "name_en": "Shattering Storm",
+            "description": "궁극기 효과가 끝날 때 해당 지역에 폭발이 일어나 그 안의 모든 적을 산산조각내 {0}의 대미지를 입힙니다.",
+            "description_en": "When ULTIMATE effect ends, zone explodes and SHATTERS all enemies insides, dealing {0} damage",
+            "rarityValue": [
+                [
+                    "72",
+                    "90",
+                    "108",
+                    "126"
+                ]
+            ],
+            "icon": "Skill_Ultimate_2_Shatter.png",
+            "tags": [
+                "ultimate"
+            ]
+        }
+    ],
+    "name_en": "The Snow Queen"
 }

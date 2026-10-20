@@ -51,6 +51,9 @@
           <icon-button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
             <span id="dark-mode-toggle-icon" slot="icon"> ☾ </span>
           </icon-button>
+          <icon-button id="lang-toggle" aria-label="Toggle Language">
+            <span id="lang-toggle-icon" slot="icon" style="font-size: 0.6em; font-weight: bold;">KO</span>
+          </icon-button>
           <icon-button>
             <a
               slot="icon"
@@ -104,7 +107,7 @@
           <div id="load-list"></div>
           <div id="load-buttons">
             <fancy-button id="close-button">
-              <span slot="text">닫기</span>
+              <span id="close-button-text" slot="text">닫기</span>
             </fancy-button>
           </div>
         </div>
@@ -134,8 +137,34 @@
           </div>
           <div id="share-buttons">
             <fancy-button id="close-share-popup">
-              <span slot="text">닫기</span>
+              <span id="close-share-button-text" slot="text">닫기</span>
             </fancy-button>
+          </div>
+        </div>
+
+        <div id="filter-toolbar">
+          <div class="filter-group" id="rarity-filter-group">
+            <span class="filter-label" id="rarity-filter-label">등급 수치</span>
+            <div class="filter-buttons" id="rarity-filter-buttons">
+              <button type="button" class="filter-btn rarity-btn active" data-rarity-idx="all" id="rarity-btn-all">전체</button>
+              <button type="button" class="filter-btn rarity-btn rarity-common" data-rarity-idx="0" id="rarity-btn-0">일반</button>
+              <button type="button" class="filter-btn rarity-btn rarity-rare" data-rarity-idx="1" id="rarity-btn-1">희귀</button>
+              <button type="button" class="filter-btn rarity-btn rarity-epic" data-rarity-idx="2" id="rarity-btn-2">서사</button>
+              <button type="button" class="filter-btn rarity-btn rarity-legendary" data-rarity-idx="3" id="rarity-btn-3">전설</button>
+            </div>
+          </div>
+          <div class="filter-group" id="ability-filter-group">
+            <span class="filter-label" id="ability-filter-label">능력 하이라이트</span>
+            <div class="filter-buttons" id="ability-filter-buttons">
+              <button type="button" class="filter-btn ability-btn" data-ability-tag="attack" id="ability-btn-attack">공격</button>
+              <button type="button" class="filter-btn ability-btn" data-ability-tag="power" id="ability-btn-power">파워</button>
+              <button type="button" class="filter-btn ability-btn" data-ability-tag="special" id="ability-btn-special">특수</button>
+              <button type="button" class="filter-btn ability-btn" data-ability-tag="defense" id="ability-btn-defense">방어</button>
+              <button type="button" class="filter-btn ability-btn" data-ability-tag="trait" id="ability-btn-trait">고유 능력</button>
+              <button type="button" class="filter-btn ability-btn" data-ability-tag="dash" id="ability-btn-dash">돌진</button>
+              <button type="button" class="filter-btn ability-btn" data-ability-tag="ultimate" id="ability-btn-ultimate">궁극기</button>
+              <button type="button" class="filter-btn ability-clear-btn" id="ability-btn-clear" style="display: none;">해제</button>
+            </div>
           </div>
         </div>
 
@@ -168,7 +197,7 @@
 
         <div class="footer">
           <fancy-button id="back-button">
-            <span slot="text">돌아가기</span>
+            <span id="back-button-text" slot="text">돌아가기</span>
           </fancy-button>
         </div>
       </div>

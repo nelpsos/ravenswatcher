@@ -1,206 +1,542 @@
 {
-  "id": "the_piped_piper",
-  "name": "피리 부는 사나이",
-  "startTalents": [
-    {
-      "id": "s_1",
-      "name": "쥐떼",
-      "description": "쥐가 한 번에 (2마리 대신) 3마리 등장합니다.\n조종할 수 있는 쥐의 수가 {0}마리 증가합니다.",
-      "rarityValue": [["6", "8", "10", "12"]],
-      "icon": "Skill_Trait_More_Controllable_Pets.png"
-    },
-    {
-      "id": "s_2",
-      "name": "소리의 장벽",
-      "description": "퀘스트 (x20): 방어로 최소 2마리의 적을 적중할 때마다 방어력이 1 증가합니다.\n완료: 다시 반복하면 6초 동안 영웅 주위에 {0}의 보호막이 부여됩니다.",
-      "rarityValue": [["12", "15", "18", "21"]],
-      "icon": "Skill_Defense_Armor_Quest.png"
-    },
-    {
-      "id": "s_3",
-      "name": "차디찬 덫",
-      "description": "특수 능력 유효 영역 안에 있는 적에게 빙결 효과가 추가되며, 적이 입는 대미지가 {0}% 증가합니다.",
-      "rarityValue": [["10", "15", "20", "25"]],
-      "icon": "Skill_Special_Static_Zone.png"
-    },
-    {
-      "id": "s_4",
-      "name": "거장",
-      "description": "공격 또는 파워 능력을 사용할 때 이동속도가 30% 증가합니다.\n공격 속도가 {0}% 증가합니다.",
-      "rarityValue": [["10", "15", "20", "25"]],
-      "icon": "Skill_Attack_Move_Speed.png"
-    }
-  ],
-  "talents": [
-    {
-      "id": "1",
-      "name": "장엄한 피날레",
-      "description": "특수 능력 효과가 종료되면 유효 영역이 폭발하면서 {0}의 대미지를 입힙니다.",
-      "rarityValue": [["60", "80", "100", "120"]],
-      "icon": "Skill_Special_Explosive_Zone.png"
-    },
-    {
-      "id": "2",
-      "name": "저격수",
-      "description": "공격 및 파워 능력 음표의 거리가 길어지며 절반 이상 이동한 후 적중할 경우 {0}%의 대미지가 추가됩니다.",
-      "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "Skill_Attack_Power_Long_Shots.png"
-    },
-    {
-      "id": "3",
-      "name": "폭발성 쥐",
-      "description": "쥐가 죽을 때 폭발하면서 주위에 {0}의 대미지를 입힙니다.",
-      "rarityValue": [["6", "7.5", "9", "10.5"]],
-      "icon": "Skill_Trait_Explosive_Pets.png"
-    },
-    {
-      "id": "4",
-      "name": "폭발적인 작렬",
-      "description": "방어 기술이 {0}의 대미지를 입힙니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Defense_Deals_Damage.png"
-    },
-    {
-      "id": "5",
-      "name": "거대한 쥐",
-      "description": "쥐의 공격을 받은 적에게 약화 상태가 추가되며, 대미지가 {0}% 증가합니다.",
-      "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "Skill_Trait_Big_Pets.png"
-    },
-    {
-      "id": "6",
-      "name": "스포르찬도",
-      "description": "특수 능력 사용 시 안으로 폭발하는 방어 능력이 발동합니다. 이 방어 능력은 적을 안쪽으로 끌어당기며 범위가 {0}% 증가합니다.",
-      "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "Skill_Special_Implosive.png"
-    },
-    {
-      "id": "7",
-      "name": "추가 조치",
-      "description": "적을 방어한 이후 3초 이내에 다음 파워 능력 사용 시 공격 지속 시간이 증가합니다(선율 {0}회 추가).",
-      "rarityValue": [["2", "3", "4", "5"]],
-      "icon": "Skill_Power_More_Waves_After_Kill.png"
-    },
-    {
-      "id": "8",
-      "name": "5중주",
-      "description": "파워 능력 사용 시 선율당 3개가 아닌 5개의 음표를 연주하지만 각 음표의 대미지가 -{0}%로 줄어듭니다.",
-      "rarityValue": [["20", "15", "10", "5"]],
-      "icon": "Skill_Power_Wide_Spread.png"
-    },
-    {
-      "id": "9",
-      "name": "완벽한 화음",
-      "description": "방어 시 적중하는 적 1마리당(최대 4마리까지) 근처 모든 영웅의 체력을 {0} 회복합니다.",
-      "rarityValue": [["4", "6", "8", "10"]],
-      "icon": "Skill_Defense_Heal_On_Hit.png"
-    },
-    {
-      "id": "10",
-      "name": "저음",
-      "description": "공격 시 유효 영역에 {0}%의 대미지를 추가로 입히는 더 큰 음표를 보내지만, 음표 발생 빈도가 40% 줄어듭니다.",
-      "rarityValue": [["60", "75", "90", "105"]],
-      "icon": "Skill_Attack_Big_Shots.png"
-    },
-    {
-      "id": "11",
-      "name": "음향의 맥동",
-      "description": "특수 능력이 초당 {0}의 대미지를 입힙니다.",
-      "rarityValue": [["8", "11", "14", "17"]],
-      "icon": "Skill_Special_DOT.png"
-    },
-    {
-      "id": "12",
-      "name": "회전 솔로",
-      "description": "돌진 후 발동하는 파워는 영웅의 이동 속도를 높이고 치명타 확률을 {0}% 증가시킵니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Primary_Evasion.png"
-    },
-    {
-      "id": "13",
-      "name": "자극적인 분위기",
-      "description": "특수 구역 내에서 공격하는 쥐들은 죽지 않고 +{0}% 추가 대미지를 가합니다.",
-      "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "Skill_Trait_Pets_Within_Special.png"
-    },
-    {
-      "id": "14",
-      "name": "구형의 음악",
-      "description": "돌진하면 적중 시 폭발하는 방울 음자리표를 남깁니다. 방울 음자리표가 폭발하면 가까운 적에게 파워 음표를 {0}개 보냅니다.",
-      "rarityValue": [["4", "5", "6", "7"]],
-      "icon": "Skill_Dash_Trap.png"
-    },
-    {
-      "id": "15",
-      "name": "침입자의 나팔",
-      "description": "방어 능력이 하나 이상의 적에게 명중한 경우, 최대 {0}마리의 쥐를 소환합니다. 쥐는 소환된 즉시 주변 적을 공격합니다.",
-      "rarityValue": [["4", "5", "6", "7"]],
-      "icon": "Skill_Defense_Spawn_Pets.png"
-    },
-    {
-      "id": "16",
-      "name": "합창",
-      "description": "매 {0}초당 특수 능력의 유효 영역이 가장 가까운 적에게 5개의 공격 음표를 발사합니다.",
-      "rarityValue": [["1", "0.8", "0.65", "0.55"]],
-      "icon": "Skill_Special_Sends_Attacks.png"
-    },
-    {
-      "id": "17",
-      "name": "고스트 노트",
-      "description": "{0}개의 음을 연주할 때마다, 가장 가까운 적을 향해 고스트 노트를 발사해 20의 광역 대미지를 입힙니다.",
-      "rarityValue": [["10", "8", "7", "6"]],
-      "icon": "Skill_Attack_Ghost_Notes.png"
-    },
-    {
-      "id": "18",
-      "name": "흡혈 부적",
-      "description": "쥐들이 적에게 20 공격을 가할 때마다 주변 영웅들의 체력이 {0} 회복됩니다.",
-      "rarityValue": [["4", "5", "6", "7"]],
-      "icon": "Skill_Trait_Pets_Heal.png"
-    }
-  ],
-  "ultimates": [
-    {
-      "id": "u1",
-      "name": "거침없는 멜로디",
-      "description": "매우 빠른 음표를 연속으로 연주합니다. 음표는 가장 가까운 적을 자동 공격하며 초당 최대 120의 대미지를 입힙니다.\n이 능력을 사용하는 동안에는 영웅이 전방으로 달리지만 방향을 조종할 수 있습니다.",
-      "icon": "Ability_Piper_Ultimate_1.png"
-    },
-    {
-      "id": "u2",
-      "name": "쥐들의 역병",
-      "description": "정신 집중을 통해 멜로디를 연주하여 전방으로 돌진하면서 넓은 지역에 초당 최대 100의 대미지를 입히는 쥐떼를 조종합니다.",
-      "icon": "Ability_Piper_Ultimate_2.png"
-    }
-  ],
-  "ultimateTalents": [
-    {
-      "id": "u1_1",
-      "name": "지그",
-      "description": "돌진 시 궁극기 음표 {0}개를 주변 적에게 발사합니다.",
-      "rarityValue": [["4", "5", "6", "7"]],
-      "icon": "Skill_Ultimate_1_Dash.png"
-    },
-    {
-      "id": "u1_2",
-      "name": "빗발치는 음표",
-      "description": "궁극기가 활성화된 동안 1초마다 {0}개의 음표가 하늘에서 떨어져 내려 각각 10의 광역 대미지를 입힙니다.",
-      "rarityValue": [["12", "15", "18", "21"]],
-      "icon": "Skill_Ultimate_1_Notes_Rain.png"
-    },
-    {
-      "id": "u2_1",
-      "name": "해충 박멸",
-      "description": "궁극기가 끊기지 않고 끝까지 발동한 경우, 쥐 떼가 폭발해 {0}의 광역 대미지를 줍니다.",
-      "rarityValue": [["200", "250", "300", "350"]],
-      "icon": "Skill_Ultimate_2_Explosion.png"
-    },
-    {
-      "id": "u2_2",
-      "name": "쥐의 왕",
-      "description": "쥐를 소환할 때마다 {0}% 확률로 쥐의 왕이 소환됩니다. 쥐의 왕은 2회 공격을 가하며 +100%의 대미지를 입힙니다.",
-      "rarityValue": [["10", "15", "20", "25"]],
-      "icon": "Skill_Ultimate_2_Rat_King.png"
-    }
-  ]
+    "id": "the_piped_piper",
+    "name": "피리 부는 사나이",
+    "startTalents": [
+        {
+            "id": "s_1",
+            "name": "쥐떼",
+            "name_en": "Horde",
+            "description": "쥐가 (2마리 대신) 한 번에 최대 3마리까지 등장합니다.\n조종할 수 있는 쥐의 수가 {0}마리 증가합니다.",
+            "description_en": "Rats spawn in groups of 3 (instead of 2)\nIncrease maximum controllable rats by {0}",
+            "rarityValue": [
+                [
+                    "6",
+                    "8",
+                    "10",
+                    "12"
+                ]
+            ],
+            "icon": "Skill_Trait_More_Controllable_Pets.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "s_2",
+            "name": "소리의 장벽",
+            "name_en": "Sound Barrier",
+            "description": "퀘스트(x20): 방어로 최소 2마리의 적을 적중할 때마다 방어력이 1.5 증가합니다.\n완료: 다시 반복하면 6초 동안 영웅 주위에 {0}의 보호막이 부여됩니다.",
+            "description_en": "Quest (x20): Gain +1.5 ARMOR whenever DEFENSE hits at least 2 enemies\nComplete: Doing so again grants {0} SHIELD to all nearby Heroes for 6 seconds",
+            "rarityValue": [
+                [
+                    "15",
+                    "18",
+                    "21",
+                    "24"
+                ]
+            ],
+            "icon": "Skill_Defense_Armor_Quest.png",
+            "tags": [
+                "defense"
+            ]
+        },
+        {
+            "id": "s_3",
+            "name": "차디찬 덫",
+            "name_en": "Freezing Trap",
+            "description": "특수 능력 유효 영역 안에 있는 적에게 빙결 효과가 추가되며, 적이 입는 대미지가 {0}% 증가합니다.",
+            "description_en": "Enemies within SPECIAL's area of effect are CHILLED and take +{0}% damage",
+            "rarityValue": [
+                [
+                    "10",
+                    "15",
+                    "20",
+                    "25"
+                ]
+            ],
+            "icon": "Skill_Special_Static_Zone.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "s_4",
+            "name": "거장",
+            "name_en": "Virtuoso",
+            "description": "공격 또는 파워 능력을 사용할 때 이동 속도가 30% 증가합니다.\n공격 속도가 {0}% 증가합니다.",
+            "description_en": "Move Speed when using ATTACK or POWER is increased by 30%\nGain +{0}% ATTACK Speed",
+            "rarityValue": [
+                [
+                    "10",
+                    "15",
+                    "20",
+                    "25"
+                ]
+            ],
+            "icon": "Skill_Attack_Move_Speed.png",
+            "tags": [
+                "attack",
+                "power"
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "id": "1",
+            "name": "장엄한 피날레",
+            "name_en": "Grand Finale",
+            "description": "특수 능력 효과가 종료되면 유효 영역이 폭발하면서 {0}의 대미지를 입힙니다.",
+            "description_en": "When SPECIAL's effect expires, the area of effect explodes and deals {0} damage",
+            "rarityValue": [
+                [
+                    "60",
+                    "75",
+                    "90",
+                    "105"
+                ]
+            ],
+            "icon": "Skill_Special_Explosive_Zone.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "2",
+            "name": "저격수",
+            "name_en": "Sniper",
+            "description": "공격 및 파워 능력 음표의 거리가 길어지며 절반 이상 이동한 후 적중할 경우 {0}%의 대미지가 추가됩니다.",
+            "description_en": "Notes from ATTACK and POWER have a longer range and deal +{0}% damage if they hit after halfway",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Attack_Power_Long_Shots.png",
+            "tags": [
+                "attack",
+                "power"
+            ]
+        },
+        {
+            "id": "3",
+            "name": "폭발성 쥐",
+            "name_en": "Explosive Rats",
+            "description": "쥐가 죽을 때 폭발하면서 주위에 {0}의 대미지를 입힙니다.",
+            "description_en": "Rats explode when they die and deal {0} damage all around",
+            "rarityValue": [
+                [
+                    "6",
+                    "7",
+                    "9",
+                    "10"
+                ]
+            ],
+            "icon": "Skill_Trait_Explosive_Pets.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "4",
+            "name": "폭발적인 작렬",
+            "name_en": "Explosive Blast",
+            "description": "방어 기술이 {0}의 대미지를 입힙니다.",
+            "description_en": "DEFENSE deals {0} damage",
+            "rarityValue": [
+                [
+                    "45",
+                    "56",
+                    "67",
+                    "78"
+                ]
+            ],
+            "icon": "Skill_Defense_Deals_Damage.png",
+            "tags": [
+                "defense"
+            ]
+        },
+        {
+            "id": "5",
+            "name": "거대한 쥐",
+            "name_en": "Giant Rats",
+            "description": "쥐의 공격을 받은 적에게 약화 상태가 추가되며, 대미지가 {0}% 증가합니다.",
+            "description_en": "Rats' attacks WEAKEN enemies and deal +{0}% damage",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Trait_Big_Pets.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "6",
+            "name": "스포르찬도",
+            "name_en": "Sforzando",
+            "description": "특수 능력 시전 시 안으로 폭발하는 방어 능력이 발동합니다. 이 방어 능력은 적을 안쪽으로 끌어당기며 범위가 {0}% 증가합니다.",
+            "description_en": "SPECIAL triggers an implosive DEFENSE (pulling enemies inwards) with its range increased by {0}%",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Special_Implosive.png",
+            "tags": [
+                "special",
+                "defense"
+            ]
+        },
+        {
+            "id": "7",
+            "name": "추가 조치",
+            "name_en": "Extra Measure",
+            "description": "적을 방어한 이후 3초 이내에 다음 파워 능력 사용 시 공격 지속 시간이 증가합니다(선율 {0}회 추가).",
+            "description_en": "After hitting an enemy with DEFENSE, the next POWER within 3 seconds lasts longer (+{0} waves of notes)",
+            "rarityValue": [
+                [
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                ]
+            ],
+            "icon": "Skill_Power_More_Waves_After_Kill.png",
+            "tags": [
+                "power",
+                "defense"
+            ]
+        },
+        {
+            "id": "8",
+            "name": "5중주",
+            "name_en": "Quintuplets",
+            "description": "파워 능력 사용 시 선율당 3개가 아닌 5개의 음표를 연주하지만 각 음표의 대미지가 -{0}%로 줄어듭니다.",
+            "description_en": "POWER plays 5 notes each wave (instead of 3) but each note deals -{0}% damage",
+            "rarityValue": [
+                [
+                    "20",
+                    "15",
+                    "10",
+                    "5"
+                ]
+            ],
+            "icon": "Skill_Power_Wide_Spread.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "9",
+            "name": "완벽한 화음",
+            "name_en": "Perfect Harmony",
+            "description": "방어 시 적중하는 적 1마리당 {0} 근처 모든 영웅의 체력을 회복합니다(최대 4).",
+            "description_en": "DEFENSE restores {0} Health to all nearby Heroes for each enemy hit (up to 4)",
+            "rarityValue": [
+                [
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                ]
+            ],
+            "icon": "Skill_Defense_Heal_On_Hit.png",
+            "tags": [
+                "defense"
+            ]
+        },
+        {
+            "id": "10",
+            "name": "저음",
+            "name_en": "Low Notes",
+            "description": "공격 시 유효 영역에 {0}%의 대미지를 추가로 입히는 더 큰 음표를 보내지만, 음표 발생 빈도가 40% 줄어듭니다.",
+            "description_en": "ATTACK sends bigger notes that deal +{0}% damage in an area of effect but at a 40% reduced frequency",
+            "rarityValue": [
+                [
+                    "60",
+                    "75",
+                    "90",
+                    "105"
+                ]
+            ],
+            "icon": "Skill_Attack_Big_Shots.png",
+            "tags": [
+                "attack"
+            ]
+        },
+        {
+            "id": "11",
+            "name": "음향의 맥동",
+            "name_en": "Acoustic Pulses",
+            "description": "특수 능력이 초당 {0}의 대미지를 입힙니다.",
+            "description_en": "SPECIAL deals {0} damage every second",
+            "rarityValue": [
+                [
+                    "8",
+                    "10",
+                    "12",
+                    "14"
+                ]
+            ],
+            "icon": "Skill_Special_DOT.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "12",
+            "name": "회전 솔로",
+            "name_en": "Spinning Solo",
+            "description": "돌진 후 발동하는 파워는 영웅의 이동 속도를 높이고 치명타 확률을 {0}% 증가시킵니다.",
+            "description_en": "POWER triggered after DASH makes Hero move quicker and has +{0}% Crit Chance",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Primary_Evasion.png",
+            "tags": [
+                "power",
+                "dash"
+            ]
+        },
+        {
+            "id": "13",
+            "name": "자극적인 분위기",
+            "name_en": "Stimulant Vibes",
+            "description": "특수 구역 내에서 공격하는 쥐들은 +20%의 대미지를 주며, 죽을 때 새로운 쥐를 소환할 확률은 {0}%입니다.",
+            "description_en": "Rats attacking within SPECIAL's zone deal +20% damage and have a {0}% chance to summon a new rat upon death",
+            "rarityValue": [
+                [
+                    "50",
+                    "63",
+                    "75",
+                    "88"
+                ]
+            ],
+            "icon": "Skill_Trait_Pets_Within_Special.png",
+            "tags": [
+                "special",
+                "trait"
+            ]
+        },
+        {
+            "id": "14",
+            "name": "구형의 음악",
+            "name_en": "Music of the Spheres",
+            "description": "돌진의 경우 적중 시 폭발하는 방울 음자리표를 남기고 적 주변에 {0}의 파워 음표를 보냅니다.",
+            "description_en": "DASH leaves a bubbled clef that explodes when hit, sending {0} POWER music notes to enemies around",
+            "rarityValue": [
+                [
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                ]
+            ],
+            "icon": "Skill_Dash_Trap.png",
+            "tags": [
+                "power",
+                "dash"
+            ]
+        },
+        {
+            "id": "15",
+            "name": "침입자의 나팔",
+            "name_en": "Invasive Blast",
+            "description": "방어 능력이 하나 이상의 적에게 명중한 경우, 최대 {0}마리의 쥐를 소환합니다. 쥐는 소환된 즉시 주변 적을 공격합니다.",
+            "description_en": "Hitting at least one enemy with DEFENSE spawns up to {0} rats, which immediately attack nearby enemies",
+            "rarityValue": [
+                [
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                ]
+            ],
+            "icon": "Skill_Defense_Spawn_Pets.png",
+            "tags": [
+                "defense",
+                "trait"
+            ]
+        },
+        {
+            "id": "16",
+            "name": "합창",
+            "name_en": "Chorus",
+            "description": "매 {0}초당 특수 능력의 유효 영역이 가장 가까운 적에게 5개의 공격 음표를 발사합니다.",
+            "description_en": "Every {0} second(s), the SPECIAL area of effect fires 5 ATTACK notes, targeting the closest enemies",
+            "rarityValue": [
+                [
+                    "1",
+                    "0.8",
+                    "0.65",
+                    "0.55"
+                ]
+            ],
+            "icon": "Skill_Special_Sends_Attacks.png",
+            "tags": [
+                "attack",
+                "special"
+            ]
+        },
+        {
+            "id": "17",
+            "name": "고스트 노트",
+            "name_en": "Ghost Notes",
+            "description": "{0}개의 음을 연주할 때마다, 가장 가까운 적을 향해 고스트 노트를 발사해 20의 광역 대미지를 입힙니다.",
+            "description_en": "For every {0} notes played, a ghost note is sent towards the nearest enemy, dealing 20 area damage",
+            "rarityValue": [
+                [
+                    "10",
+                    "8",
+                    "7",
+                    "6"
+                ]
+            ],
+            "icon": "Skill_Attack_Ghost_Notes.png",
+            "tags": [
+                "attack"
+            ]
+        },
+        {
+            "id": "18",
+            "name": "흡혈 부적",
+            "name_en": "Leeching Charm",
+            "description": "쥐들이 적에게 20 공격을 가할 때마다 주변 영웅들의 체력이 {0} 회복됩니다.",
+            "description_en": "For every 20 attacks that rats made on enemies, restore {0} health to all nearby heroes",
+            "rarityValue": [
+                [
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                ]
+            ],
+            "icon": "Skill_Trait_Pets_Heal.png",
+            "tags": [
+                "trait"
+            ]
+        }
+    ],
+    "ultimates": [
+        {
+            "id": "u1",
+            "name": "거침없는 멜로디",
+            "name_en": "Unchained Melody",
+            "description": "가장 가까운 적을 표적으로 음표를 계속 연주합니다\n강제로 이동하지만 방향을 조종할 수 있습니다",
+            "description_en": "Continuously play notes that target the closest enemy\nMovement is FORCED but the direction can be controlled",
+            "icon": "Ability_Piper_Ultimate_1.png",
+            "tags": [
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2",
+            "name": "쥐들의 역병",
+            "name_en": "Plague of Rats",
+            "description": "정신 집중을 통해 멜로디를 연주하여 전방으로 돌진하면서 넓은 지역에 대미지를 입히는 쥐떼를 조종합니다",
+            "description_en": "Channel a melody to control a swarm of rats that rushes forward and deals damage over a large area",
+            "icon": "Ability_Piper_Ultimate_2.png",
+            "tags": [
+                "trait",
+                "ultimate"
+            ]
+        }
+    ],
+    "ultimateTalents": [
+        {
+            "id": "u1_1",
+            "name": "지그",
+            "name_en": "Jig",
+            "description": "돌진 시 궁극기 음표 {0}개를 주변 적에게 발사합니다.",
+            "description_en": "DASH sends {0} ULTIMATE notes to nearby enemies",
+            "rarityValue": [
+                [
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                ]
+            ],
+            "icon": "Skill_Ultimate_1_Dash.png",
+            "tags": [
+                "dash",
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u1_2",
+            "name": "빗발치는 음표",
+            "name_en": "Rain of Notes",
+            "description": "궁극기가 활성화된 동안 1초마다 {0}개의 음표가 하늘에서 떨어져 내려 각각 10의 광역 대미지를 입힙니다.",
+            "description_en": "During ULTIMATE, {0} notes per second fall from the sky in the surroundings, each dealing 10 area damage",
+            "rarityValue": [
+                [
+                    "12",
+                    "15",
+                    "18",
+                    "21"
+                ]
+            ],
+            "icon": "Skill_Ultimate_1_Notes_Rain.png",
+            "tags": [
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2_1",
+            "name": "해충 박멸",
+            "name_en": "Vermin Massacre",
+            "description": "궁극기가 끊기지 않고 끝까지 발동한 경우, 쥐 떼가 폭발해 {0}의 광역 대미지를 줍니다.",
+            "description_en": "When ULTIMATE is channeled to completion, the swarm of rats explodes, dealing {0} area damage",
+            "rarityValue": [
+                [
+                    "200",
+                    "250",
+                    "300",
+                    "350"
+                ]
+            ],
+            "icon": "Skill_Ultimate_2_Explosion.png",
+            "tags": [
+                "trait",
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2_2",
+            "name": "쥐의 왕",
+            "name_en": "Rat King",
+            "description": "쥐를 소환할 때마다 {0}% 확률로 쥐의 왕이 소환됩니다. 쥐의 왕은 2회 공격을 가하며 +150%의 대미지를 입힙니다.",
+            "description_en": "Each rat summoned has a {0}% chance to be a Rat King, capable of attacking twice as much and dealing +150% damage",
+            "rarityValue": [
+                [
+                    "10",
+                    "15",
+                    "20",
+                    "25"
+                ]
+            ],
+            "icon": "Skill_Ultimate_2_Rat_King.png",
+            "tags": [
+                "trait",
+                "ultimate"
+            ]
+        }
+    ],
+    "name_en": "The Pied Piper"
 }
