@@ -1,212 +1,550 @@
 {
-  "id": "romeo",
-  "name": "로미오",
-  "startTalents": [
-    {
-      "id": "s_1",
-      "name": "위풍당당",
-      "description": "돌진 공격이나 방어의 받아치기 등 추가 공격을 적에게 적중시키면 위풍당당 중첩이 하나 부여됩니다.(최대 3번 중첩)\n위풍당당 중첩 하나당 공격 속도가 +{0}%, 대미지가 5 증가합니다.\n로미오가 적중당하면 위풍당당 중첩을 모두 잃습니다.",
-      "rarityValue": [["4", "5", "6", "7"]],
-      "icon": "Skill_Attack_Panache.png"
-    },
-    {
-      "id": "s_2",
-      "name": "신부에게 입맞춤을",
-      "description": "퀘스트 (x20): 특수 능력을 1명 이상의 적에게 적중시키면 치명타 확률이 +0.5 증가합니다.\n완료: 특수 능력에 적중당한 적 하나당 {0}%의 확률로 로미오가 꿈의 파편 2개를 얻습니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Special_Quest_Dream_Shard.png"
-    },
-    {
-      "id": "s_3",
-      "name": "비밀 무기",
-      "description": "퀘스트 (x20): 방어 중 공격을 1회 이상 막으면 대미지가 +0.5 증가합니다.\n완료: 막기 성공 1회당 방어 후에 가하는 받아치기 공격의 대미지가 +{0}% 증가합니다. (최대 3번 중첩)",
-      "rarityValue": [["32", "40", "48", "56"]],
-      "icon": "Skill_Defense_Quest.png"
-    },
-    {
-      "id": "s_4",
-      "name": "얼음 장미",
-      "description": "파워 사용 시 얼음 장미를 던져 적중당한 적에게 빙결 효과를 부여합니다.\n파워가 +{0}%의 대미지를 입힙니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Power_Chilled.png"
-    }
-  ],
-  "talents": [
-    {
-      "id": "1",
-      "name": "치유의 장미",
-      "description": "파워 장미가 적에게 2회 적중할 때마다 주위 모든 영웅을 {0}만큼 치유합니다.",
-      "rarityValue": [["2", "2.5", "3", "3.5"]],
-      "icon": "Skill_Power_Heal.png"
-    },
-    {
-      "id": "2",
-      "name": "발차기",
-      "description": "공격 콤보에 발차기가 추가되어 {0}%의 대미지를 입히며,\n가벼운 적은 뒤로 밀쳐냅니다.",
-      "rarityValue": [["400", "500", "600", "700"]],
-      "icon": "Skill_Attack_Kick.png"
-    },
-    {
-      "id": "3",
-      "name": "맹공",
-      "description": "파워 사용 직후 공격 시 방어의 받아치기가 발동해 연속 공격으로 최대 {0}의 대미지를 입힙니다.",
-      "rarityValue": [["64", "80", "96", "112"]],
-      "icon": "Skill_Attack_Power_Ripost.png"
-    },
-    {
-      "id": "4",
-      "name": "용기의 쇄도",
-      "description": "특수 입맞춤 후, 다음 {0}회의 공격 범위가 +30%, 대미지는 +30% 증가합니다.",
-      "rarityValue": [["6", "8", "10", "12"]],
-      "icon": "Skill_Special_Buff_Attack.png"
-    },
-    {
-      "id": "5",
-      "name": "가시 장미",
-      "description": "파워 장미가 개화하면 가시의 길 5개가 뻗어나가며 접촉하는 적에게 1초마다 {0}의 대미지를 입힙니다.",
-      "rarityValue": [["13", "16", "20", "23"]],
-      "icon": "Skill_Power_Trail.png"
-    },
-    {
-      "id": "6",
-      "name": "흐드러지는 회피",
-      "description": "방어 시 파워 장미를 생성하여 {0}%의 대미지를 입힙니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Defense_Power.png"
-    },
-    {
-      "id": "7",
-      "name": "불타는 입맞춤",
-      "description": "특수 능력의 유효 영역이 +25% 넓어집니다. 적중당한 적에게 +{0}%의 대미지를 입히고 점화 효과를 부여합니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Special_Ignite.png"
-    },
-    {
-      "id": "8",
-      "name": "가시의 오라",
-      "description": "특성을 사용하거나 줄리엣의 특성 효과를 받으면 로미오 주위로 가시의 오라가 형성되어 6초 동안 1초마다 {0}의 광역 대미지를 입힙니다.",
-      "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "Skill_Trait_AOE.png"
-    },
-    {
-      "id": "9",
-      "name": "사랑의 인연",
-      "description": "특성 사용 시 7초 동안 줄리엣 방향으로 광선을 방출해 접촉하는 적에게 1초마다 {0}의 대미지를 입힙니다.",
-      "rarityValue": [["33", "42", "51", "60"]],
-      "icon": "Skill_Trait_Beam.png"
-    },
-    {
-      "id": "10",
-      "name": "번뜩이는 칼날",
-      "description": "돌진 공격 중 돌진을 길게 누르면 로미오가 시작점으로 돌진해 경로상의 적에게 {0}%의 대미지를 입힙니다.",
-      "rarityValue": [["120", "150", "180", "210"]],
-      "icon": "Skill_Dash_Attack_Return.png"
-    },
-    {
-      "id": "11",
-      "name": "헌신적인 수호자",
-      "description": "방어 중 공격을 1회 이상 막으면 주위 모든 영웅에게 8초 동안 {0}의 보호막을 부여합니다.",
-      "rarityValue": [["12", "15", "18", "21"]],
-      "icon": "Skill_Defense_Shield.png"
-    },
-    {
-      "id": "12",
-      "name": "치명적인 가시덤불",
-      "description": "공격 콤보의 4번째 공격이 적에게 가시덤불을 심어 5초에 걸쳐 {0}의 대미지를 입힙니다.\n로미오가 영향을 받는 적에게 다시 가시덤불을 심거나 해당 적이 사망하면 가시덤불이 폭발해 {1}%의 광역 대미지를 입힙니다.",
-      "rarityValue": [
-        ["40", "50", "60", "70"],
-        ["200", "250", "300", "350"]
-      ],
-      "icon": "Skill_Attack_Rose_Seed.png"
-    },
-    {
-      "id": "13",
-      "name": "검객의 반사신경",
-      "description": "로미오가 기본 공격 중 적중당하면 막습니다. (5초마다 발동)\n공격을 막으면 4초 동안 로미오의 치명타 확률이 +{0}% 증가합니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Attack_Block.png"
-    },
-    {
-      "id": "14",
-      "name": "꽃잎의 향연",
-      "description": "파워 사용 시 원뿔 모양 범위에 무수한 꽃잎을 방출해 {0}%의 대미지를 입히고 가벼운 적은 뒤로 밀쳐냅니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Power_Cone_Attack.png"
-    },
-    {
-      "id": "15",
-      "name": "소용돌이치는 바람",
-      "description": "방어 시 로미오 주위로 소용돌이치는 바람을 생성하여 {0}의 광역 대미지를 입힙니다.",
-      "rarityValue": [["60", "75", "90", "105"]],
-      "icon": "Skill_Defense_AOE.png"
-    },
-    {
-      "id": "16",
-      "name": "광역 타격",
-      "description": "돌진 직후에 공격 사용 시 광역 타격이 발동해 사방에 {0}%의 대미지를 입힙니다.",
-      "rarityValue": [["400", "500", "600", "700"]],
-      "icon": "Skill_Dash_AOE_Attack.png"
-    },
-    {
-      "id": "17",
-      "name": "사랑의 방패",
-      "description": "특수 입맞춤 후, 로미오와 줄리엣이 사랑의 보호막으로 감싸여 4초 동안 무적 상태가 됩니다.\n이 효과는 {0}초마다 발동합니다.",
-      "rarityValue": [["14", "12", "10", "8"]],
-      "icon": "Skill_Special_Invulnerable.png"
-    },
-    {
-      "id": "18",
-      "name": "폭발하는 만개",
-      "description": "파워 장미가 개화하면 꽃잎이 폭발하며 {0}%의 광역 대미지를 입힙니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Power_Burst.png"
-    }
-  ],
-  "ultimates": [
-    {
-      "id": "u1",
-      "name": "광란의 왈츠",
-      "description": "로미오이 줄리엣 방향으로 질주하며 7초 동안 적의 공격을 차단하는 춤을 선보입니다.\n두 영웅 모두 춤추는 동안 이동 방향에 영향을 줍니다. 방향이 일치할수록 더 빠르게 움직입니다.\n1초마다 130에서 260의 광역 대미지를 입힙니다. (이동 속도에 비례)",
-      "icon": "Ability_Romeo_Ultimate_1.png"
-    },
-    {
-      "id": "u2",
-      "name": "검은 장미",
-      "description": "검은 장미 42송이를 보내 적을 관통하고 각각 13의 대미지를 입힙니다.",
-      "icon": "Ability_Romeo_Ultimate_2.png"
-    }
-  ],
-  "ultimateTalents": [
-    {
-      "id": "u1_1",
-      "name": "타오르는 춤",
-      "description": "궁극기가 적중당한 적에게 점화 효과를 부여하고 +{0}%의 대미지를 입힙니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Ultimate_1_Ignite.png"
-    },
-    {
-      "id": "u1_2",
-      "name": "폭발적인 공연",
-      "description": "궁극기 춤이 지속되는 동안 사방으로 {0}개의 폭죽을 발사합니다. 폭죽은 접촉 시 폭발해 각각 17의 대미지를 입힙니다.",
-      "rarityValue": [["24", "30", "36", "42"]],
-      "icon": "Skill_Ultimate_1_Projectile.png"
-    },
-    {
-      "id": "u2_1",
-      "name": "근조 화환",
-      "description": "공격 시 궁극기의 검은 장미를 던져 각각 {0}의 대미지를 입힙니다.",
-      "rarityValue": [["3", "3", "4", "5"]],
-      "icon": "Skill_Ultimate_2_Attack_Rose.png"
-    },
-    {
-      "id": "u2_2",
-      "name": "매혹의 장미",
-      "description": "로미오가 넓은 원뿔 모양 범위에 {0}송이의 검은 장미를 던져 각각 13의 대미지를 입힌 다음, 소용돌이에 둘러싸여 1초마다 {1}의 광역 대미지를 입힙니다.",
-      "rarityValue": [
-        ["56", "64", "72", "80"],
-        ["32", "40", "48", "56"]
-      ],
-      "icon": "Skill_Ultimate_2_Wide_And_AOE.png"
-    }
-  ]
+    "id": "romeo",
+    "name": "로미오",
+    "startTalents": [
+        {
+            "id": "s_1",
+            "name": "위풍당당",
+            "name_en": "Panache",
+            "description": "돌진 공격이나 방어의 받아치기 등 추가 공격을 적에게 적중시키면 위풍당당 중첩이 하나 부여됩니다(최대 3).\n위풍당당 중첩 하나당 공격 대미지가 20% 증가하고 공격 속도가 {0}% 증가합니다. 로미오가 적중당하면 위풍당당 중첩을 모두 잃습니다.",
+            "description_en": "Hitting an enemy with any additional ATTACK move, such as DASH attack or DEFENSE's Ripost, grants one Panache token (up to 3)\nEach Panache token increases ATTACK damage by 20% and grants +{0}% ATTACK SPEED, all Panache tokens are lost when Romeo is hit",
+            "rarityValue": [
+                [
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                ]
+            ],
+            "icon": "Skill_Attack_Panache.png",
+            "tags": [
+                "attack",
+                "defense",
+                "dash"
+            ]
+        },
+        {
+            "id": "s_2",
+            "name": "신부에게 입맞춤을",
+            "name_en": "Kiss the Bride",
+            "description": "퀘스트 (x20): 특수 능력을 1명 이상의 적에게 적중시키면 치명타 확률이 +0.5 증가합니다.\n완료: 특수 능력에 적중당한 적 하나당 {0}%의 확률로 로미오(이)가 꿈의 파편 2개를 얻습니다.",
+            "description_en": "Quest (x20): Hitting at least one enemy with SPECIAL grants +0.5 Crit Chance\nComplete: Any enemy hit by SPECIAL has a {0}% chance to grant Romeo 2 Dream Shard(s)",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Special_Quest_Dream_Shard.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "s_3",
+            "name": "비밀 무기",
+            "name_en": "Secret Weapon",
+            "description": "퀘스트 (x20): 방어 중 공격을 1회 이상 막으면 대미지가 +0.5 증가합니다.\n완료: 막기 성공 1회당 방어 후에 가하는 받이치기 공격의 대미지가 +{0}% 증가합니다. (최대 4번 중첩)",
+            "description_en": "Quest(x20): Blocking at least once during DEFENSE grants +0.5 DMG\nComplete: Ripost ATTACK after DEFENSE deals +{0}% damage per successful block (up to 4 times)",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Defense_Quest.png",
+            "tags": [
+                "attack",
+                "defense"
+            ]
+        },
+        {
+            "id": "s_4",
+            "name": "얼음 장미",
+            "name_en": "Ice Rose",
+            "description": "파워 사용 시 얼음 장미를 던져 적중당한 적에게 빙결 효과를 부여합니다.\n파워가 +{0}%의 대미지를 입힙니다.",
+            "description_en": "POWER now throws ice Roses, applying CHILLED to hit enemies\nPOWER deals +{0}% damage",
+            "rarityValue": [
+                [
+                    "32",
+                    "40",
+                    "48",
+                    "56"
+                ]
+            ],
+            "icon": "Skill_Power_Chilled.png",
+            "tags": [
+                "power"
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "id": "1",
+            "name": "치유의 장미",
+            "name_en": "Healing Rose",
+            "description": "파워 장미가 적에게 2회 적중할 때마다 주위 모든 영웅을 {0}만큼 치유합니다.",
+            "description_en": "Every 2 times the POWER Rose hits an enemy, it restores {0} Health to all Heroes around",
+            "rarityValue": [
+                [
+                    "2",
+                    "2.5",
+                    "3",
+                    "3.5"
+                ]
+            ],
+            "icon": "Skill_Power_Heal.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "2",
+            "name": "발차기",
+            "name_en": "Kick",
+            "description": "공격 콤보에 발차기가 추가되어 {0}의 대미지를 주며, 가벼운 적은 뒤로 밀쳐냅니다.",
+            "description_en": "Adds a kick to ATTACK combo, dealing {0} damage and pushing light enemies back",
+            "rarityValue": [
+                [
+                    "48",
+                    "60",
+                    "72",
+                    "84"
+                ]
+            ],
+            "icon": "Skill_Attack_Kick.png",
+            "tags": [
+                "attack"
+            ]
+        },
+        {
+            "id": "3",
+            "name": "맹공",
+            "name_en": "Relentless Assaults",
+            "description": "파워 사용 직후 공격 시 방어의 받아치기가 발동해 연속 공격으로 최대 {0}의 대미지를 입힙니다.",
+            "description_en": "ATTACK used right after POWER triggers DEFENSE's Ripost launching a flurry of attacks, dealing up to {0} damage",
+            "rarityValue": [
+                [
+                    "64",
+                    "80",
+                    "96",
+                    "112"
+                ]
+            ],
+            "icon": "Skill_Attack_Power_Ripost.png",
+            "tags": [
+                "attack",
+                "power",
+                "defense"
+            ]
+        },
+        {
+            "id": "4",
+            "name": "용기의 쇄도",
+            "name_en": "Surge of bravery",
+            "description": "특수 입맞춤 후, 다음 {0}회의 공격 범위가 +30%, 대미지는 +30% 증가합니다.",
+            "description_en": "After SPECIAL's kiss, next {0} ATTACKS gain +30% range and deal +30% damage",
+            "rarityValue": [
+                [
+                    "6",
+                    "8",
+                    "10",
+                    "12"
+                ]
+            ],
+            "icon": "Skill_Special_Buff_Attack.png",
+            "tags": [
+                "attack",
+                "special"
+            ]
+        },
+        {
+            "id": "5",
+            "name": "가시 장미",
+            "name_en": "Thorny Rose",
+            "description": "파워 장미가 개화하면 가시의 길 5개가 뻗어나가며 접촉하는 적에게 1초마다 {0}의 대미지를 입힙니다.",
+            "description_en": "When POWER Rose blooms, 5 paths of thorns spread around, dealing {0} damage per second to enemies crossing through",
+            "rarityValue": [
+                [
+                    "13",
+                    "16",
+                    "20",
+                    "23"
+                ]
+            ],
+            "icon": "Skill_Power_Trail.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "6",
+            "name": "흐드러지는 회피",
+            "name_en": "Floral Dodge",
+            "description": "방어 시 파워 장미를 생성하여 {0}%의 대미지를 입힙니다.",
+            "description_en": "DEFENSE now creates a POWER Rose dealing {0}% damage",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Defense_Power.png",
+            "tags": [
+                "power",
+                "defense"
+            ]
+        },
+        {
+            "id": "7",
+            "name": "불타는 입맞춤",
+            "name_en": "Burning Kiss",
+            "description": "특수 능력의 유효 영역이 +25% 넓어집니다. 적중당한 적에게 +{0}%의 대미지를 입히고 점화 효과를 부여합니다.",
+            "description_en": "SPECIAL's area of effect gains +25% range, +{0}% damage and applies IGNITE to hit enemies",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Special_Ignite.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "8",
+            "name": "가시의 오라",
+            "name_en": "Thorns Aura",
+            "description": "특성을 사용하거나 줄리엣의 특성 효과를 받으면 로미오 주위로 가시의 오라가 형성되어 6초 동안 1초마다 {0}의 광역 대미지를 입힙니다.",
+            "description_en": "After using TRAIT or receiving Juliet's TRAIT, an aura of thorns appears around Romeo, dealing {0} area damage per second for 6 seconds",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Trait_AOE.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "9",
+            "name": "사랑의 인연",
+            "name_en": "Love Thread",
+            "description": "특성 사용 시 6초 동안 줄리엣 방향으로 광선을 방출해 접촉하는 적에게 1초마다 {0}의 대미지를 입힙니다.",
+            "description_en": "Using TRAIT casts a beam towards Juliet for 6 second(s), dealing {0} damage per second to crossed enemies",
+            "rarityValue": [
+                [
+                    "44",
+                    "55",
+                    "65",
+                    "76"
+                ]
+            ],
+            "icon": "Skill_Trait_Beam.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "10",
+            "name": "번뜩이는 칼날",
+            "name_en": "Flash of Steel",
+            "description": "돌진 공격 중 돌진을 길게 누르면 로미오가 시작점으로 돌진해 경로상의 적에게 {0}%의 대미지를 입힙니다.",
+            "description_en": "Holding DASH during a dash attack makes Romeo rush back towards his starting location, dealing {0}% damage on its path",
+            "rarityValue": [
+                [
+                    "120",
+                    "150",
+                    "180",
+                    "210"
+                ]
+            ],
+            "icon": "Skill_Dash_Attack_Return.png",
+            "tags": [
+                "dash"
+            ]
+        },
+        {
+            "id": "11",
+            "name": "헌신적인 수호자",
+            "name_en": "Selfless Defender",
+            "description": "방어 중 공격을 1회 이상 막으면 주위 모든 영웅에게 8초 동안 {0}의 보호막을 부여합니다.",
+            "description_en": "Blocking at least one attack during DEFENSE grants {0} SHIELD for 8 second(s) to all Heroes around",
+            "rarityValue": [
+                [
+                    "12",
+                    "15",
+                    "18",
+                    "21"
+                ]
+            ],
+            "icon": "Skill_Defense_Shield.png",
+            "tags": [
+                "defense"
+            ]
+        },
+        {
+            "id": "12",
+            "name": "치명적인 가시덤불",
+            "name_en": "Deadly Brambles",
+            "description": "공격 콤보의 4번째 공격이 적에게 가시덤불을 심어 5초에 걸쳐 {0}의 대미지를 입힙니다.\n로미오가 영향을 받는 적에게 다시 가시덤불을 심거나 해당 적이 사망하면 가시덤불이 폭발해 {1}%의 광역 대미지를 입힙니다.",
+            "description_en": "4th strike of ATTACK combo implants brambles on enemies, dealing {0} damage over 5 seconds\nBrambles explode when Romeo implants again on affected enemy or on enemy death, dealing {1}% area damage",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ],
+                [
+                    "200",
+                    "250",
+                    "300",
+                    "350"
+                ]
+            ],
+            "icon": "Skill_Attack_Rose_Seed.png",
+            "tags": [
+                "attack"
+            ]
+        },
+        {
+            "id": "13",
+            "name": "검객의 반사신경",
+            "name_en": "Fencing Reflex",
+            "description": "로미오가 적중당하면 기본 공격이 막기가 됩니다. (최대 5초마다 발동)\n공격을 막으면 4초 동안 로미오의 치명타 확률이 +{0}% 증가합니다.",
+            "description_en": "Basic ATTACKS can turn into a block when Romeo gets hit (every 5 seconds max)\nAfter it blocks, Romeo gains +{0}% Crit Chance for 4 second(s)",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Attack_Block.png",
+            "tags": [
+                "attack"
+            ]
+        },
+        {
+            "id": "14",
+            "name": "꽃잎의 향연",
+            "name_en": "Swarm of Petals",
+            "description": "파워 사용 시 원뿔 모양 범위에 무수한 꽃잎을 방출해 {0}%의 대미지를 입히고 가벼운 적은 뒤로 밀쳐냅니다.",
+            "description_en": "Using POWER also launches a swarm of petals in a cone, pushing back light enemies and dealing {0}% damage",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Power_Cone_Attack.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "15",
+            "name": "소용돌이치는 바람",
+            "name_en": "Wind Spiral",
+            "description": "방어 시 로미오 주위로 소용돌이치는 바람을 생성하여 {0}의 광역 대미지를 입힙니다.",
+            "description_en": "DEFENSE creates a wind spiral around Romeo dealing up to {0} area damage",
+            "rarityValue": [
+                [
+                    "60",
+                    "75",
+                    "90",
+                    "105"
+                ]
+            ],
+            "icon": "Skill_Defense_AOE.png",
+            "tags": [
+                "defense"
+            ]
+        },
+        {
+            "id": "16",
+            "name": "광역 타격",
+            "name_en": "Broad Stroke",
+            "description": "돌진 직후에 공격 사용 시 광역 타격이 발동해 사방에 {0}%의 대미지를 입힙니다.",
+            "description_en": "ATTACK used right after DASH triggers a broad stroke, dealing {0}% damage all around",
+            "rarityValue": [
+                [
+                    "400",
+                    "500",
+                    "600",
+                    "700"
+                ]
+            ],
+            "icon": "Skill_Dash_AOE_Attack.png",
+            "tags": [
+                "attack",
+                "dash"
+            ]
+        },
+        {
+            "id": "17",
+            "name": "사랑의 방패",
+            "name_en": "Love Shield",
+            "description": "특수 입맞춤 후, 로미오와 줄리엣이 사랑의 보호막으로 감싸여 4초 동안 무적 상태가 됩니다. (최대 {0}초마다 발동)",
+            "description_en": "After SPECIAL's kiss, Romeo and Juliet are surrounded by a Love Shield, making them INVINCIBLE for 4 seconds (every {0} seconds max)",
+            "rarityValue": [
+                [
+                    "14",
+                    "12",
+                    "10",
+                    "8"
+                ]
+            ],
+            "icon": "Skill_Special_Invulnerable.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "18",
+            "name": "폭발하는 만개",
+            "name_en": "Bursting Bloom",
+            "description": "파워 장미가 개화하면 꽃잎이 폭발하며 {0}%의 광역 대미지를 입힙니다.",
+            "description_en": "When POWER Rose blooms, trigger a burst of petals dealing {0}% area damage",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Power_Burst.png",
+            "tags": [
+                "power"
+            ]
+        }
+    ],
+    "ultimates": [
+        {
+            "id": "u1",
+            "name": "광란의 왈츠",
+            "name_en": "Wild Waltz",
+            "description": "로미오이 줄리엣 방향으로 질주하며 광역 대미지를 입히는 무형의 춤을 선보입니다.",
+            "description_en": "Romeo rushes towards Juliet to perform an INTANGIBLE dance dealing area damage",
+            "icon": "Ability_Romeo_Ultimate_1.png",
+            "tags": [
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2",
+            "name": "검은 장미",
+            "name_en": "Black Roses",
+            "description": "적을 관통하는 검은 장미 여러 송이를 보냅니다.",
+            "description_en": "Send a swarm of black Roses piercing through enemies",
+            "icon": "Ability_Romeo_Ultimate_2.png",
+            "tags": [
+                "ultimate"
+            ]
+        }
+    ],
+    "ultimateTalents": [
+        {
+            "id": "u1_1",
+            "name": "타오르는 춤",
+            "name_en": "Burning Dance",
+            "description": "궁극기가 적중당한 적에게 점화 효과를 부여하고 +{0}%의 대미지를 입힙니다.",
+            "description_en": "ULTIMATE applies IGNITE to hit enemies and deals +{0}% damage",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Ultimate_1_Ignite.png",
+            "tags": [
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u1_2",
+            "name": "폭발적인 공연",
+            "name_en": "Explosive Performance",
+            "description": "궁극기 춤이 지속되는 동안 사방으로 {0}개의 폭죽을 발사합니다. 폭죽은 접촉 시 폭발해 각각 17의 대미지를 입힙니다.",
+            "description_en": "During ULTIMATE's dance, launch {0} firework rockets all around, exploding on impact and dealing 17 damage each",
+            "rarityValue": [
+                [
+                    "24",
+                    "30",
+                    "36",
+                    "42"
+                ]
+            ],
+            "icon": "Skill_Ultimate_1_Projectile.png",
+            "tags": [
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2_1",
+            "name": "근조 화환",
+            "name_en": "Funeral Bouquet",
+            "description": "공격 시 궁극기의 검은 장미를 던져 각각 {0}의 대미지를 입힙니다.",
+            "description_en": "ATTACKS throw ULTIMATE's Black Roses, dealing {0} damage each",
+            "rarityValue": [
+                [
+                    "3",
+                    "3.8",
+                    "4.5",
+                    "5.2"
+                ]
+            ],
+            "icon": "Skill_Ultimate_2_Attack_Rose.png",
+            "tags": [
+                "attack",
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2_2",
+            "name": "매혹의 장미",
+            "name_en": "Tempestuous Roses",
+            "description": "로미오가 넓은 원뿔 모양 범위에 {0}송이의 검은 장미를 던져 각각 13의 대미지를 입힌 다음, 소용돌이에 둘러싸여 1초마다 {1}의 광역 대미지를 입힙니다.",
+            "description_en": "Romeo throws {0} Black Roses in a wide cone dealing 13 damage each and is now surrounded by a tempest dealing {1} area damage per second",
+            "rarityValue": [
+                [
+                    "56",
+                    "64",
+                    "72",
+                    "80"
+                ],
+                [
+                    "32",
+                    "40",
+                    "48",
+                    "56"
+                ]
+            ],
+            "icon": "Skill_Ultimate_2_Wide_And_AOE.png",
+            "tags": [
+                "ultimate"
+            ]
+        }
+    ],
+    "name_en": "Romeo"
 }

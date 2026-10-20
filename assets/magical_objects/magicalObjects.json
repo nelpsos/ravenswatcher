@@ -1,524 +1,789 @@
 [
-  {
-    "id": "C01",
-    "name": "풍요의 뿔",
-    "description": "획득 시 소모품 2개를 생성합니다.",
-    "rarity": "COMMON",
-    "set": 5,
-    "setEffect": "대미지 +10, 활력 +20, 방어력 +20",
-    "icon": "Icon_Object_HornOfPlenty.png"
-  },
-  {
-    "id": "C02",
-    "name": "레프러콘의 동전",
-    "description": "운명의 별을 사용할 때마다 꿈의 파편 +25개를 얻습니다.",
-    "rarity": "COMMON",
-    "set": 5,
-    "setEffect": "첫 번째 선택 재굴림을 공짜로 할 수 있습니다.",
-    "icon": "UI_Object_LeprechaunCoin.png"
-  },
-  {
-    "id": "C03",
-    "name": "드림캐처",
-    "description": "모든 꿈의 파편 가격이 10% 할인됩니다.",
-    "rarity": "COMMON",
-    "set": 5,
-    "setEffect": "챕터당 한 번씩 샌드맨의 물건을 공짜로 살 수 있습니다.",
-    "icon": "Icon_Object_Dreamcatcher.png"
-  },
-  {
-    "id": "C04",
-    "name": "골디락스 죽",
-    "description": "치유의 구 획득 시 5의 보호막을 얻습니다.",
-    "rarity": "COMMON",
-    "set": 5,
-    "setEffect": "보호막이 활성화된 동안 대미지가 +30 증가합니다.",
-    "icon": "Icon_Object_GoldilocksPorridge.png"
-  },
-  {
-    "id": "C05",
-    "name": "부두 인형",
-    "description": "보스에 대한 대미지 15% 증가",
-    "rarity": "COMMON",
-    "set": 5,
-    "setEffect": "입힌 대미지의 30%가 적의 방어력을 무시합니다.",
-    "icon": "Icon_Object_VoodooDoll.png"
-  },
-  {
-    "id": "C06",
-    "name": "인어의 눈물",
-    "description": "치유하거나 치유받을 시 치유 효과 25% 상승",
-    "rarity": "COMMON",
-    "set": 5,
-    "setEffect": "활력이 30 증가합니다.",
-    "icon": "Icon_Object_MermaidTears.png"
-  },
-  {
-    "id": "C07",
-    "name": "영원한 장미",
-    "description": "돌진 시 2초 동안 치명타 확률이 10% 증가합니다.",
-    "rarity": "COMMON",
-    "set": 5,
-    "setEffect": "치명타 대미지가 50% 증가합니다.",
-    "icon": "Icon_Object_EternalRose.png"
-  },
-  {
-    "id": "C08",
-    "name": "오우거의 피",
-    "description": "보유한 활력 10당 대미지 1 추가",
-    "rarity": "COMMON",
-    "set": 5,
-    "setEffect": "치명타 확률이 20% 증가합니다.",
-    "icon": "Icon_Object_OgreBlood.png"
-  },
-  {
-    "id": "C09",
-    "name": "녹색 갑옷",
-    "description": "일반 마법 물체 1개당 방어력이 2 증가합니다.",
-    "rarity": "COMMON",
-    "set": 5,
-    "setEffect": "희귀 물체도 포함됩니다.",
-    "icon": "UI_Object_GreenArmor.png"
-  },
-  {
-    "id": "C10",
-    "name": "문스톤",
-    "description": "방어 기술과 관련된 다른 마법 물체나 특성 하나당 대미지가 +2 증가합니다.",
-    "rarity": "COMMON",
-    "set": 5,
-    "setEffect": "방어 기술이 +50%의 대미지를 입힙니다.",
-    "icon": "UI_Object_Moonstone.png"
-  },
-  {
-    "id": "R01",
-    "name": "하트 퀸 카드",
-    "description": "5초마다 최대 체력의 1%만큼 지속 회복합니다.",
-    "rarity": "RARE",
-    "set": 4,
-    "setEffect": "최대 체력 시 대미지 30 추가",
-    "icon": "Icon_Object_QueenCard.png"
-  },
-  {
-    "id": "R02",
-    "name": "요정 먼지",
-    "description": "대미지를 받으면 10의 보호막을 얻습니다. (최대 30초에 한 번)",
-    "rarity": "RARE",
-    "set": 4,
-    "setEffect": "주거나 받는 방어막 50% 증가",
-    "icon": "Icon_Object_FairyDust.png"
-  },
-  {
-    "id": "R03",
-    "name": "유니콘의 뿔",
-    "description": "위태로운 체력 시 재생 4 추가(최대 재사용 대기 시간 45초)",
-    "rarity": "RARE",
-    "set": 4,
-    "setEffect": "재생 효과가 적용 중일 때 대미지가 50 증가합니다.",
-    "icon": "Icon_Object_UnicornHorn.png"
-  },
-  {
-    "id": "R04",
-    "name": "금강저",
-    "description": "돌진 시 통과하는 적에게 40 대미지를 줍니다.",
-    "rarity": "RARE",
-    "set": 4,
-    "setEffect": "돌진 발동 시 출발 지점에 번개가 내려칩니다.",
-    "icon": "Icon_Object_Vajra.png"
-  },
-  {
-    "id": "R05",
-    "name": "다이아몬드 잭 카드",
-    "description": "특수 능력 대미지 20% 증가",
-    "rarity": "RARE",
-    "set": 4,
-    "setEffect": "특수 능력의 치명타 확률이 40% 증가합니다.",
-    "icon": "Icon_Object_JackCard.png"
-  },
-  {
-    "id": "R06",
-    "name": "클로버 킹 카드",
-    "description": "파워 능력 대미지 20% 증가",
-    "rarity": "RARE",
-    "set": 4,
-    "setEffect": "파워 능력의 치명타 확률이 40% 증가합니다.",
-    "icon": "Icon_Object_KingCard.png"
-  },
-  {
-    "id": "R07",
-    "name": "스페이드 에이스 카드",
-    "description": "공격 대미지 20% 증가",
-    "rarity": "RARE",
-    "set": 4,
-    "setEffect": "공격 속도가 15% 증가합니다.",
-    "icon": "Icon_Object_AceCard.png"
-  },
-  {
-    "id": "R08",
-    "name": "드래곤 가죽",
-    "description": "보유한 일반, 희귀, 에픽 또는 전설 특성 하나당 +1/+2/+3/+4의 방어력이 증가합니다.",
-    "rarity": "RARE",
-    "set": 4,
-    "setEffect": "방어력의 40%만큼 대미지가 증가합니다.",
-    "icon": "Icon_Object_DragonHide.png"
-  },
-  {
-    "id": "R09",
-    "name": "황금 달걀",
-    "description": "게임 중 꿈의 파편 150개를 소모할 때마다 대미지가 +1 증가합니다.",
-    "rarity": "RARE",
-    "set": 4,
-    "setEffect": "꿈의 파편 획득량이 30% 증가합니다.",
-    "icon": "Icon_Object_GoldenEgg.png"
-  },
-  {
-    "id": "R10",
-    "name": "수수께끼의 예언",
-    "description": "운명의 별 1개를 얻습니다. 일반 또는 희귀 마법 물체 컬렉션을 완성할 때마다 대미지가 +6 증가합니다.",
-    "rarity": "RARE",
-    "set": 4,
-    "setEffect": "에픽 컬렉션도 포함됩니다.",
-    "icon": "UI_Object_CrypticProphecy.png"
-  },
-  {
-    "id": "E01",
-    "name": "천둥석",
-    "description": "특수 능력 1 추가 충전",
-    "rarity": "EPIC",
-    "set": 3,
-    "setEffect": "특수 능력 사용 시 최대 3명의 주위 적에게 번개를 떨어뜨립니다.",
-    "icon": "Icon_Object_ThunderStone.png"
-  },
-  {
-    "id": "E02",
-    "name": "까마귀의 눈",
-    "description": "궁극기 재사용 대기 시간 25% 감소",
-    "rarity": "EPIC",
-    "set": 3,
-    "setEffect": "궁극기 능력의 대미지가 40% 증가합니다.",
-    "icon": "Icon_Object_RavenEye.png"
-  },
-  {
-    "id": "E03",
-    "name": "까마귀의 부리",
-    "description": "특수 능력 재사용 대기 시간 25% 감소",
-    "rarity": "EPIC",
-    "set": 3,
-    "setEffect": "특수 능력의 대미지가 40% 증가합니다.",
-    "icon": "Icon_Object_RavenBeak.png"
-  },
-  {
-    "id": "E04",
-    "name": "까마귀의 발톱",
-    "description": "파워 능력 재사용 대기 시간 25% 감소",
-    "rarity": "EPIC",
-    "set": 3,
-    "setEffect": "파워 능력의 대미지가 40% 증가합니다.",
-    "icon": "Icon_Object_RavenClaw.png"
-  },
-  {
-    "id": "E05",
-    "name": "까마귀의 해골",
-    "description": "방어 능력 재사용 대기 시간 25% 감소",
-    "rarity": "EPIC",
-    "set": 3,
-    "setEffect": "방어력이 40 증가합니다.",
-    "icon": "Icon_Object_RavenSkull.png"
-  },
-  {
-    "id": "E06",
-    "name": "까마귀의 날개",
-    "description": "돌진 재사용 대기 시간 25% 감소",
-    "rarity": "EPIC",
-    "set": 3,
-    "setEffect": "이동 속도가 15% 증가합니다.",
-    "icon": "Icon_Object_RavenWing.png"
-  },
-  {
-    "id": "E07",
-    "name": "화염 진주",
-    "description": "파워 능력 1 추가 충전",
-    "rarity": "EPIC",
-    "set": 3,
-    "setEffect": "파워 능력 사용 시 적에게 걸린 부정적인 상태 효과 하나당 +15%의 대미지를 입힙니다.",
-    "icon": "Icon_Object_FlamingPearl.png"
-  },
-  {
-    "id": "E08",
-    "name": "독사석",
-    "description": "방어 능력 1 추가 충전",
-    "rarity": "EPIC",
-    "set": 3,
-    "setEffect": "방어 발동 후 이동 속도가 +40% 증가합니다. 이 효과는 3초에 걸쳐 서서히 감소합니다.",
-    "icon": "Icon_Object_AdderStone.png"
-  },
-  {
-    "id": "E09",
-    "name": "참스톤",
-    "description": "돌진의 충전량이 1회 증가합니다.",
-    "rarity": "EPIC",
-    "set": 3,
-    "setEffect": "돌진 사용 시 6초 동안 10의 보호막을 얻습니다.",
-    "icon": "Icon_Object_CharmStone.png"
-  },
-  {
-    "id": "E10",
-    "name": "조커 카드",
-    "description": "보유한 다른 카드 종류의 효과를 얻습니다.",
-    "rarity": "EPIC",
-    "set": 3,
-    "setEffect": "치명타 적중 시 보유한 다른 카드 종류 하나당 +25%의 추가 대미지를 입힙니다.",
-    "icon": "Icon_Object_JokerCard.png"
-  },
-  {
-    "id": "L01",
-    "name": "현자의 돌",
-    "description": "치유의 구를 수집할 때마다 활력 1 증가",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_PhilosopherStone.png"
-  },
-  {
-    "id": "L02",
-    "name": "니벨룽의 반지",
-    "description": "궁극기 충전 추가",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_NibelungenRing.png"
-  },
-  {
-    "id": "L03",
-    "name": "보팔 블레이드",
-    "description": "실제 대미지 양과 무관하게 체력이 20% 미만인 일반 적과 체력이 10% 미만인 엘리트 적 즉시 처치",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_VorpalBlade.png"
-  },
-  {
-    "id": "L04",
-    "name": "생명의 물",
-    "description": "활력 25\n사망에 이르는 대미지를 막아 주고 체력을 완전히 회복시킵니다. (챕터당 1회)",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_UnspokenWater.png"
-  },
-  {
-    "id": "L05",
-    "name": "타마테바코",
-    "description": "운명의 별 2개를 얻습니다.\n마법 물체를 획득하면 선택지가 +1개 늘어납니다.",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_Tamatebako.png"
-  },
-  {
-    "id": "L06",
-    "name": "성배",
-    "description": "전투 중 방어 시 주변 모든 영웅의 체력을 8 회복합니다.(최대 5초에 한 번)",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_HolyGrail.png"
-  },
-  {
-    "id": "L07",
-    "name": "백조 망토",
-    "description": "돌진 시 최근 2초 동안 받은 대미지의 50% 치유",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_SwanCloak.png"
-  },
-  {
-    "id": "L08",
-    "name": "척결의 반지",
-    "description": "돌진 시 적중당한 적에게 4초 동안 취약 효과를 부여합니다.",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_RingOfDispel.png"
-  },
-  {
-    "id": "L09",
-    "name": "엑스칼리버",
-    "description": "보유한 전설 특성 하나당 대미지 +10",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_Excalibur.png"
-  },
-  {
-    "id": "L10",
-    "name": "발빠른 자의 부츠",
-    "description": "파워, 특수, 또는 방어 능력을 사용할 때마다 돌진 재사용 대기시간 초기화",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_FastWalkerBoots.png"
-  },
-  {
-    "id": "L11",
-    "name": "황금 사슬 갑옷 코트",
-    "description": "1초 이내에 입은 대미지가 최대 체력의 50%를 초과하지 않음",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_GoldenCoatChainmail.png"
-  },
-  {
-    "id": "L12",
-    "name": "까마귀 인형",
-    "description": "파워 및 특수 능력의 충전량이 1회 증가합니다.",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_RavenEffigy.png"
-  },
-  {
-    "id": "L13",
-    "name": "시간의 수호자 모래시계",
-    "description": "파워, 특수, 방어 능력의 재사용 대기 시간이 20% 감소합니다.",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_FatherTimeHourglass.png"
-  },
-  {
-    "id": "L14",
-    "name": "태양 왕관",
-    "description": "이미 습득한 모든 특성과 앞으로 선택할 특성의 등급을 한 단계 상승시킵니다.",
-    "rarity": "LEGENDARY",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_SolarCrown.png"
-  },
-  {
-    "id": "CR01",
-    "name": "배고픈 잔디",
-    "description": "치유의 구를 획득하면 대미지가 1 증가합니다.\n죽음의 문턱에 도달하면 중첩 횟수가 사라집니다.",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "UI_Object_HungryGrass.png"
-  },
-  {
-    "id": "CR02",
-    "name": "빠른 발의 장화",
-    "description": "이동 속도가 20% 증가하고 방어력이 -10 감소합니다.",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "UI_Object_FastWalkerBoots.png"
-  },
-  {
-    "id": "CR03",
-    "name": "더르누흐의 가마솥",
-    "description": "활력이 60 증가하고 모든 치유량이 25% 감소합니다.",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_Cauldron.png"
-  },
-  {
-    "id": "CR04",
-    "name": "매드 해트",
-    "description": "대미지 +70\n60초마다 최대 체력의 50%에 해당하는 피해를 입습니다.",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_MadHat.png"
-  },
-  {
-    "id": "CR05",
-    "name": "희망의 다이아몬드",
-    "description": "모든 꿈의 파편 획득량이 +50% 증가하지만, 죽음의 문턱 상태가 되면 꿈의 파편을 전부 잃습니다.",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_HopeDiamond.png"
-  },
-  {
-    "id": "CR06",
-    "name": "마녀의 빗자루",
-    "description": "돌진 시 영웅이 무형 상태가 되지만 받는 대미지 15% 증가",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_WitchBroom.png"
-  },
-  {
-    "id": "CR07",
-    "name": "요괴 가면",
-    "description": "저주받은 마법 물체 1개당 대미지가 15 증가합니다.\n전설 마법 물체 1개당 방어력이 -10 감소합니다.",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_OniMask.png"
-  },
-  {
-    "id": "CR08",
-    "name": "검은 연꽃",
-    "description": "공격 시 +5%생명력 흡수 효과를 얻지만, 치유의 구로 더 이상 체력을 회복할 수 없습니다.",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_BlackLotus.png"
-  },
-  {
-    "id": "CR09",
-    "name": "나이트매어 수액",
-    "description": "특수 능력의 대미지가 100% 증가하지만 재사용 대기 시간도 50% 증가",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_NightmareBoo.png"
-  },
-  {
-    "id": "CR10",
-    "name": "나이트매어의 가시",
-    "description": "파워 능력의 대미지가 100% 증가하지만 재사용 대기 시간도 50% 증가",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_NightmareThorn.png"
-  },
-  {
-    "id": "CR11",
-    "name": "바바 야가의 막자사발",
-    "description": "현재 보유 중이거나 앞으로 획득할 전설 마법 물체가 모두 파괴됩니다. 이렇게 파괴된 물체 하나당 대미지가 +50 증가합니다.",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_BabaMortar.png"
-  },
-  {
-    "id": "CR12",
-    "name": "발로르의 눈",
-    "description": "파워 및 특수 능력의 추가 충전량을 제거하고, 추가 충전량 하나당 해당 능력의 대미지가 +100% 증가합니다.",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "UI_Object_BalorEye.png"
-  },
-  {
-    "id": "CR13",
-    "name": "피의 메리의 거울",
-    "description": "활력 1당 대미지 +0.5가 증가합니다. 이제 활력 1당 최대 체력을 0.5% 증가시킵니다. (기존 1%)",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Object_BloodyMaryMirror.png"
-  },
-  {
-    "id": "CR14",
-    "name": "악마의 주머니",
-    "description": "획득한 꿈의 파편 중 50%가 가득 찰 때까지 악마의 주머니에 흡수됩니다. (필요량: 400)\n주머니가 가득 차면 치명타 확률이 50% 증가합니다.",
-    "rarity": "CURSED",
-    "set": -1,
-    "setEffect": "",
-    "icon": "Icon_Devil_Pocket_Empty.png"
-  }
+    {
+        "id": "C01",
+        "name": "풍요의 뿔",
+        "description": "소모품 획득 시 소모품 2개를 생성합니다.",
+        "rarity": "COMMON",
+        "set": 5,
+        "setEffect": "대미지 +10, 활력 +20, 방어력 +20",
+        "icon": "Icon_Object_HornOfPlenty.png",
+        "name_en": "Horn of Plenty",
+        "description_en": "Spawns 2 consumables when picked up",
+        "setEffect_en": "DMG +10, VITALITY +20, ARMOR +20",
+        "tags": []
+    },
+    {
+        "id": "C02",
+        "name": "레프러콘의 동전",
+        "description": "운명의 별을 사용할 때마다 꿈의 파편 +25개를 얻습니다",
+        "rarity": "COMMON",
+        "set": 5,
+        "setEffect": "첫 번째 선택 재굴림을 공짜로 할 수 있습니다.",
+        "icon": "UI_Object_LeprechaunCoin.png",
+        "name_en": "Leprechaun Coin",
+        "description_en": "For each Star of Fate spent, gain +25 Dream Shards",
+        "setEffect_en": "Rerolling a choice is free the first time",
+        "tags": []
+    },
+    {
+        "id": "C03",
+        "name": "드림캐처",
+        "description": "모든 꿈의 파편 가격이 10% 할인됩니다.",
+        "rarity": "COMMON",
+        "set": 5,
+        "setEffect": "챕터당 한 번씩 샌드맨의 물건을 공짜로 살 수 있습니다.",
+        "icon": "Icon_Object_Dreamcatcher.png",
+        "name_en": "Dreamcatcher",
+        "description_en": "Reduces all Dream Shards prices by 10%",
+        "setEffect_en": "One free purchase at the Sandman per chapter",
+        "tags": []
+    },
+    {
+        "id": "C04",
+        "name": "골디락스 죽",
+        "description": "치유의 구 획득 시 5의 보호막을 얻습니다.",
+        "rarity": "COMMON",
+        "set": 5,
+        "setEffect": "보호막이 활성화된 동안 대미지가 +30 증가합니다.",
+        "icon": "Icon_Object_GoldilocksPorridge.png",
+        "name_en": "Goldilocks' Porridge",
+        "description_en": "Healing Orbs grant 5 SHIELD when picked up",
+        "setEffect_en": "DMG +30 while a SHIELD is active",
+        "tags": []
+    },
+    {
+        "id": "C05",
+        "name": "부두 인형",
+        "description": "보스에 대한 대미지 15% 증가",
+        "rarity": "COMMON",
+        "set": 5,
+        "setEffect": "입힌 대미지의 30%가 적의 방어력을 무시합니다.",
+        "icon": "Icon_Object_VoodooDoll.png",
+        "name_en": "Voodoo Doll",
+        "description_en": "Deal +15% damage to bosses",
+        "setEffect_en": "30% of damage dealt ignores enemies' armor",
+        "tags": []
+    },
+    {
+        "id": "C06",
+        "name": "인어의 눈물",
+        "description": "치유하거나 치유받을 시 치유 효과 25% 상승",
+        "rarity": "COMMON",
+        "set": 5,
+        "setEffect": "활력이 30 증가합니다.",
+        "icon": "Icon_Object_MermaidTears.png",
+        "name_en": "Mermaid Tears",
+        "description_en": "+25% to any healing effect provided or received",
+        "setEffect_en": "VITALITY +30",
+        "tags": []
+    },
+    {
+        "id": "C07",
+        "name": "영원한 장미",
+        "description": "돌진 시 2초 동안 치명타 확률이 10% 증가합니다.",
+        "rarity": "COMMON",
+        "set": 5,
+        "setEffect": "치명타 대미지가 50% 증가합니다.",
+        "icon": "Icon_Object_EternalRose.png",
+        "name_en": "Eternal Rose",
+        "description_en": "After DASH, gain +10% Crit Chance for 2 seconds",
+        "setEffect_en": "Critical Hits deal +50% damage",
+        "tags": [
+            "dash"
+        ]
+    },
+    {
+        "id": "C08",
+        "name": "오우거의 피",
+        "description": "보유한 활력 10당 대미지 +1 증가",
+        "rarity": "COMMON",
+        "set": 5,
+        "setEffect": "치명타 확률이 20% 증가합니다.",
+        "icon": "Icon_Object_OgreBlood.png",
+        "name_en": "Ogre Blood",
+        "description_en": "+1 DMG for each 10 VITALITY you have",
+        "setEffect_en": "Crit Chance +20%",
+        "tags": []
+    },
+    {
+        "id": "C09",
+        "name": "녹색 갑옷",
+        "description": "일반 마법 물체 1개당 방어력이 2 증가합니다.",
+        "rarity": "COMMON",
+        "set": 5,
+        "setEffect": "희귀 물체도 포함됩니다.",
+        "icon": "UI_Object_GreenArmor.png",
+        "name_en": "Green Armor",
+        "description_en": "ARMOR +2 for each Common Magical Object",
+        "setEffect_en": "Rare Objects also count",
+        "tags": []
+    },
+    {
+        "id": "C10",
+        "name": "문스톤",
+        "description": "방어 기술과 관련된 다른 마법 물체나 특성 하나당 대미지가 +2 증가합니다.",
+        "rarity": "COMMON",
+        "set": 5,
+        "setEffect": "방어 기술이 +50%의 대미지를 입힙니다.",
+        "icon": "UI_Object_Moonstone.png",
+        "name_en": "Moonstone",
+        "description_en": "DMG +2 for every other Magical Object or Talent referring to DEFENSE",
+        "setEffect_en": "DEFENSE deals +50% damage",
+        "tags": [
+            "defense"
+        ]
+    },
+    {
+        "id": "R01",
+        "name": "하트 퀸 카드",
+        "description": "5초마다 최대 체력의 1%만큼 지속 회복합니다.",
+        "rarity": "RARE",
+        "set": 4,
+        "setEffect": "최대 체력 시 대미지 30 추가",
+        "icon": "Icon_Object_QueenCard.png",
+        "name_en": "Queen of Hearts Card",
+        "description_en": "Passively heals 1% Max Health every 5 seconds",
+        "setEffect_en": "+30 DMG when at full Health",
+        "tags": []
+    },
+    {
+        "id": "R02",
+        "name": "요정 먼지",
+        "description": "대미지를 받으면 10의 보호막을 얻습니다. (최대 30초에 한 번)",
+        "rarity": "RARE",
+        "set": 4,
+        "setEffect": "주거나 받는 방어막 50% 증가",
+        "icon": "Icon_Object_FairyDust.png",
+        "name_en": "Fairy Dust",
+        "description_en": "When taking damage, gain 10 SHIELD (at most every 30 seconds)",
+        "setEffect_en": "+50% to any SHIELD applied or received",
+        "tags": []
+    },
+    {
+        "id": "R03",
+        "name": "유니콘의 뿔",
+        "description": "위태로운 체력 시 재생 4 추가(최대 재사용 대기 시간45초)",
+        "rarity": "RARE",
+        "set": 4,
+        "setEffect": "재생 효과가 적용 중일 때 대미지가 50 증가합니다.",
+        "icon": "Icon_Object_UnicornHorn.png",
+        "name_en": "Unicorn Horn",
+        "description_en": "At Critical Health, gain +4 REGENERATION (max every 45 seconds)",
+        "setEffect_en": "DMG +50 when under a REGENERATION effect",
+        "tags": []
+    },
+    {
+        "id": "R04",
+        "name": "금강저",
+        "description": "돌진 시 통과하는 적에 대한 대미지가 40 추가됩니다",
+        "rarity": "RARE",
+        "set": 4,
+        "setEffect": "돌진 발동 시 출발 지점에 번개가 내려칩니다.",
+        "icon": "Icon_Object_Vajra.png",
+        "name_en": "Vajra",
+        "description_en": "DASH deals +40 damage to all enemies passed",
+        "setEffect_en": "DASH casts a lightning strike at the starting location",
+        "tags": [
+            "dash"
+        ]
+    },
+    {
+        "id": "R05",
+        "name": "다이아몬드 잭 카드",
+        "description": "특수 능력 대미지 20% 증가",
+        "rarity": "RARE",
+        "set": 4,
+        "setEffect": "특수 능력의 치명타 확률이 40% 증가합니다.",
+        "icon": "Icon_Object_JackCard.png",
+        "name_en": "Jack of Diamonds Card",
+        "description_en": "SPECIAL deals +20% damage",
+        "setEffect_en": "SPECIAL has +40% Crit Chance",
+        "tags": [
+            "special"
+        ]
+    },
+    {
+        "id": "R06",
+        "name": "클로버 킹 카드",
+        "description": "파워 능력 20% 증가",
+        "rarity": "RARE",
+        "set": 4,
+        "setEffect": "파워 능력의 치명타 확률이 40% 증가합니다.",
+        "icon": "Icon_Object_KingCard.png",
+        "name_en": "King of Clubs Card",
+        "description_en": "POWER deals +20% damage",
+        "setEffect_en": "POWER has +40% Crit Chance",
+        "tags": [
+            "power"
+        ]
+    },
+    {
+        "id": "R07",
+        "name": "스페이드 에이스 카드",
+        "description": "공격 대미지 20% 증가",
+        "rarity": "RARE",
+        "set": 4,
+        "setEffect": "공격 속도가 15% 증가합니다.",
+        "icon": "Icon_Object_AceCard.png",
+        "name_en": "Ace of Spades Card",
+        "description_en": "ATTACK deals +20% damage",
+        "setEffect_en": "ATTACK speed +15%",
+        "tags": [
+            "attack"
+        ]
+    },
+    {
+        "id": "R08",
+        "name": "드래곤 가죽",
+        "description": "보유한 일반, 희귀, 에픽 또는 전설 특성 하나당 +1/+2/+3/+4의 방어력이 증가합니다.",
+        "rarity": "RARE",
+        "set": 4,
+        "setEffect": "방어력의 40%만큼 대미지가 증가합니다.",
+        "icon": "Icon_Object_DragonHide.png",
+        "name_en": "Dragon Hide",
+        "description_en": "+1/+2/+3/+4 ARMOR for each Common, Rare, Epic or Legendary Talent",
+        "setEffect_en": "ARMOR grants +40% of its value as DMG",
+        "tags": []
+    },
+    {
+        "id": "R09",
+        "name": "황금 달걀",
+        "description": "게임 중 꿈의 파편 150개를 소모할 때마다 대미지가 +1 증가합니다.",
+        "rarity": "RARE",
+        "set": 4,
+        "setEffect": "꿈의 파편 획득량이 30% 증가합니다.",
+        "icon": "Icon_Object_GoldenEgg.png",
+        "name_en": "Golden Egg",
+        "description_en": "Gain +1 DMG per 150 Dream Shards spent during the game",
+        "setEffect_en": "+30% to any Dream Shard gains",
+        "tags": []
+    },
+    {
+        "id": "R10",
+        "name": "수수께끼의 예언",
+        "description": "운명의 별 1개를 얻습니다.\n일반 또는 희귀 마법 물체 컬렉션을 완성할 때마다 대미지가 +6 증가합니다.",
+        "rarity": "RARE",
+        "set": 4,
+        "setEffect": "에픽 컬렉션도 포함됩니다.",
+        "icon": "UI_Object_CrypticProphecy.png",
+        "name_en": "Cryptic Prophecy",
+        "description_en": "+1 Star(s) of Fate\nDMG +6 for each complete collection of Common or Rare Magical Objects",
+        "setEffect_en": "Epic collections also count toward this",
+        "tags": []
+    },
+    {
+        "id": "E01",
+        "name": "천둥석",
+        "description": "특수 능력 1 추가 충전",
+        "rarity": "EPIC",
+        "set": 3,
+        "setEffect": "특수 능력 사용 시 최대 3명의 주위 적에게 번개를 떨어뜨립니다.",
+        "icon": "Icon_Object_ThunderStone.png",
+        "name_en": "Thunderstone",
+        "description_en": "SPECIAL gains +1 charge(s)",
+        "setEffect_en": "SPECIAL casts a Lightning Strike upon up to 3 close enemies",
+        "tags": [
+            "special"
+        ]
+    },
+    {
+        "id": "E02",
+        "name": "까마귀의 눈",
+        "description": "궁극기 재사용 대기 시간 25% 감소",
+        "rarity": "EPIC",
+        "set": 3,
+        "setEffect": "궁극기 능력의 대미지가 40% 증가합니다.",
+        "icon": "Icon_Object_RavenEye.png",
+        "name_en": "Raven Eye",
+        "description_en": "Reduces ULTIMATE's cooldown by 25%",
+        "setEffect_en": "ULTIMATE deals +40% damage",
+        "tags": [
+            "ultimate"
+        ]
+    },
+    {
+        "id": "E03",
+        "name": "까마귀의 부리",
+        "description": "특수 능력 재사용 대기 시간 25% 감소",
+        "rarity": "EPIC",
+        "set": 3,
+        "setEffect": "특수 능력의 대미지가 40% 증가합니다.",
+        "icon": "Icon_Object_RavenBeak.png",
+        "name_en": "Raven Beak",
+        "description_en": "Reduces SPECIAL's cooldown by 25%",
+        "setEffect_en": "SPECIAL deals +40% damage",
+        "tags": [
+            "special"
+        ]
+    },
+    {
+        "id": "E04",
+        "name": "까마귀의 발톱",
+        "description": "파워 능력 재사용 대기 시간 25% 감소",
+        "rarity": "EPIC",
+        "set": 3,
+        "setEffect": "파워 능력의 대미지가 40% 증가합니다.",
+        "icon": "Icon_Object_RavenClaw.png",
+        "name_en": "Raven Claw",
+        "description_en": "Reduces POWER's cooldown by 25%",
+        "setEffect_en": "POWER deals +40% damage",
+        "tags": [
+            "power"
+        ]
+    },
+    {
+        "id": "E05",
+        "name": "까마귀의 해골",
+        "description": "방어 능력 재사용 대기 시간 25% 감소",
+        "rarity": "EPIC",
+        "set": 3,
+        "setEffect": "방어력이 40 증가합니다.",
+        "icon": "Icon_Object_RavenSkull.png",
+        "name_en": "Raven Skull",
+        "description_en": "Reduces DEFENSE's cooldown by 25%",
+        "setEffect_en": "ARMOR +40",
+        "tags": [
+            "defense"
+        ]
+    },
+    {
+        "id": "E06",
+        "name": "까마귀의 날개",
+        "description": "돌진 재사용 대기 시간 25% 감소",
+        "rarity": "EPIC",
+        "set": 3,
+        "setEffect": "이동 속도가 15% 증가합니다.",
+        "icon": "Icon_Object_RavenWing.png",
+        "name_en": "Raven Wing",
+        "description_en": "Reduces DASH's cooldown by 25%",
+        "setEffect_en": "Move Speed +15%",
+        "tags": [
+            "dash"
+        ]
+    },
+    {
+        "id": "E07",
+        "name": "화염 진주",
+        "description": "파워 능력 1 추가 충전",
+        "rarity": "EPIC",
+        "set": 3,
+        "setEffect": "파워 능력 사용 시 적에게 걸린 부정적인 상태 효과 하나당 +15%의 대미지를 입힙니다.",
+        "icon": "Icon_Object_FlamingPearl.png",
+        "name_en": "Flaming Pearl",
+        "description_en": "POWER gains +1 charge(s)",
+        "setEffect_en": "POWER deals +15% damage to enemies for each Negative Status they have",
+        "tags": [
+            "power"
+        ]
+    },
+    {
+        "id": "E08",
+        "name": "독사석",
+        "description": "방어 능력 1 추가 충전",
+        "rarity": "EPIC",
+        "set": 3,
+        "setEffect": "방어 발동 후 이동 속도가 +40% 증가합니다. 이 효과는 3초에 걸쳐 서서히 감소합니다.",
+        "icon": "Icon_Object_AdderStone.png",
+        "name_en": "Adder Stone",
+        "description_en": "DEFENSE gains +1 charge(s)",
+        "setEffect_en": "After a DEFENSE, gain +40% Move Speed decaying over 3 seconds",
+        "tags": [
+            "defense"
+        ]
+    },
+    {
+        "id": "E09",
+        "name": "참스톤",
+        "description": "돌진의 충전량이 1회 증가합니다.",
+        "rarity": "EPIC",
+        "set": 3,
+        "setEffect": "돌진 사용 시 6초 동안 10의 보호막을 얻습니다.",
+        "icon": "Icon_Object_CharmStone.png",
+        "name_en": "Charmstone",
+        "description_en": "DASH gains +1 charge(s)",
+        "setEffect_en": "DASH grants a 10 SHIELD for 6 seconds",
+        "tags": [
+            "dash"
+        ]
+    },
+    {
+        "id": "E10",
+        "name": "조커 카드",
+        "description": "보유한 다른 카드 종류의 효과를 얻습니다.",
+        "rarity": "EPIC",
+        "set": 3,
+        "setEffect": "치명타 적중 시 보유한 다른 카드 종류 하나당 +25%의 추가 대미지를 입힙니다.",
+        "icon": "Icon_Object_JokerCard.png",
+        "name_en": "Joker Card",
+        "description_en": "Grants the effects of other card types owned",
+        "setEffect_en": "Critical hits deal +25% damage per other card type owned",
+        "tags": []
+    },
+    {
+        "id": "L01",
+        "name": "현자의 돌",
+        "description": "치유의 구를 수집할 때마다 활력 1 증가",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_PhilosopherStone.png",
+        "name_en": "Philosopher's Stone",
+        "description_en": "Gain +1 VITALITY each time you collect a Healing Orb",
+        "tags": []
+    },
+    {
+        "id": "L02",
+        "name": "니벨룽의 반지",
+        "description": "궁극기 충전 추가",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_NibelungenRing.png",
+        "name_en": "Nibelungen Ring",
+        "description_en": "ULTIMATE gains an extra charge",
+        "tags": [
+            "ultimate"
+        ]
+    },
+    {
+        "id": "L03",
+        "name": "보팔 블레이드",
+        "description": "실제 대미지 양과 무관하게 체력이 20% 미만인 일반 적과 체력이 10% 미만인 엘리트 적 즉시 처치",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_VorpalBlade.png",
+        "name_en": "Vorpal Blade",
+        "description_en": "Any damage you deal kills standard enemies below 20% Health or elite enemies below 10% Health",
+        "tags": []
+    },
+    {
+        "id": "L04",
+        "name": "생명의 물",
+        "description": "활력 +25\n사망에 이르는 대미지를 막아 주고 체력을 완전히 회복시킵니다. (챕터당 1회)",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_UnspokenWater.png",
+        "name_en": "Water of Life",
+        "description_en": "VITALITY +25\nPrevents lethal damage and restores all health instead (once per chapter)",
+        "tags": []
+    },
+    {
+        "id": "L05",
+        "name": "타마테바코",
+        "description": "운명의 별 2개를 얻습니다.\n마법 물체를 획득하면 선택지가 +1개 늘어납니다.",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_Tamatebako.png",
+        "name_en": "Tamatebako",
+        "description_en": "+2 Stars of Fate\nGet +1 choice when obtaining Magical Objects",
+        "tags": []
+    },
+    {
+        "id": "L06",
+        "name": "성배",
+        "description": "전투 중 방어 시 주변 모든 영웅의 체력을 8 회복합니다. (최대 5초에 한 번)",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_HolyGrail.png",
+        "name_en": "Holy Grail",
+        "description_en": "When in combat, DEFENSE restores 8 health to all nearby heroes (at most every 5 seconds)",
+        "tags": [
+            "defense"
+        ]
+    },
+    {
+        "id": "L07",
+        "name": "백조 망토",
+        "description": "돌진 시 최근 2초 동안 받은 대미지의 50% 치유",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_SwanCloak.png",
+        "name_en": "Swan Cloak",
+        "description_en": "DASH heals for 50% of damage taken over the last 2 second(s)",
+        "tags": [
+            "dash"
+        ]
+    },
+    {
+        "id": "L08",
+        "name": "척결의 반지",
+        "description": "돌진 시 적중당한 적에게 4초 동안 취약 효과를 부여합니다.",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_RingOfDispel.png",
+        "name_en": "Ring of Dispel",
+        "description_en": "DASH applies VULNERABLE for 4 seconds to enemies hit",
+        "tags": [
+            "dash"
+        ]
+    },
+    {
+        "id": "L09",
+        "name": "엑스칼리버",
+        "description": "보유한 전설 특성 하나당 대미지 +10",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_Excalibur.png",
+        "name_en": "Excalibur",
+        "description_en": "+10 DMG for each Legendary Talent you have",
+        "tags": []
+    },
+    {
+        "id": "L10",
+        "name": "발빠른 자의 부츠",
+        "description": "파워, 특수, 또는 방어 능력을 사용할 때마다 돌진 재사용 대기 시간 초기화",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_FastWalkerBoots.png",
+        "name_en": "Seven-league Boots",
+        "description_en": "Remove DASH's cooldown whenever you use POWER, SPECIAL or DEFENSE",
+        "tags": [
+            "power",
+            "special",
+            "defense",
+            "dash"
+        ]
+    },
+    {
+        "id": "L11",
+        "name": "황금 사슬 갑옷 코트",
+        "description": "1초 이내에 입은 대미지가 최대 체력의 50%를 초과하지 않음",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_GoldenCoatChainmail.png",
+        "name_en": "Golden Coat of Chainmail",
+        "description_en": "Damage taken within 1 second(s) cannot exceed 50% of your Maximum Health",
+        "tags": []
+    },
+    {
+        "id": "L12",
+        "name": "까마귀 인형",
+        "description": "파워 및 특수 능력의 충전량이 1회 증가합니다.",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_RavenEffigy.png",
+        "name_en": "Raven Effigy",
+        "description_en": "POWER and SPECIAL gain +1 charge(s)",
+        "tags": [
+            "power",
+            "special"
+        ]
+    },
+    {
+        "id": "L13",
+        "name": "시간의 수호자 모래시계",
+        "description": "파워, 특수, 방어 능력의 재사용 대기 시간이 20% 감소합니다.",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_FatherTimeHourglass.png",
+        "name_en": "Father Time's Hourglass",
+        "description_en": "Reduces POWER, SPECIAL and DEFENSE cooldowns by 20%",
+        "tags": [
+            "power",
+            "special",
+            "defense"
+        ]
+    },
+    {
+        "id": "L14",
+        "name": "태양 왕관",
+        "description": "이미 습득한 모든 특성과 앞으로 선택할 특성의 등급을 한 단계 상승시킵니다.",
+        "rarity": "LEGENDARY",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_SolarCrown.png",
+        "name_en": "Sun Crown",
+        "description_en": "Improves the rarity of all Talents already learned and all future Talents once selected",
+        "tags": []
+    },
+    {
+        "id": "CR01",
+        "name": "배고픈 잔디",
+        "description": "치유의 구를 획득하면 대미지가 1 증가합니다.\n죽음의 문턱에 도달하면 중첩 횟수가 사라집니다.",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "UI_Object_HungryGrass.png",
+        "name_en": "Hungry Grass",
+        "description_en": "Healing Orbs grant DMG +1\nStacks are lost at Death's Door",
+        "tags": []
+    },
+    {
+        "id": "CR02",
+        "name": "빠른 발의 장화",
+        "description": "이동 속도가 20% 증가하고 방어력이 -10 감소합니다.",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "UI_Object_FastWalkerBoots.png",
+        "name_en": "Fast-walker Boots",
+        "description_en": "+20% Move Speed, -10 ARMOR",
+        "tags": []
+    },
+    {
+        "id": "CR03",
+        "name": "더르누흐의 가마솥",
+        "description": "활력이 60 증가하고 모든 치유량이 25% 감소합니다.",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_Cauldron.png",
+        "name_en": "Cauldron of Dyrnwch",
+        "description_en": "VITALITY +60, all healings are reduced by 25%",
+        "tags": []
+    },
+    {
+        "id": "CR04",
+        "name": "매드 해트",
+        "description": "대미지 +70\n60초마다 최대 체력의 50%에 해당하는 피해를 입힙니다.",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_MadHat.png",
+        "name_en": "Mad Hat",
+        "description_en": "DMG +70\nEvery 60 seconds, inflicts damage equal to 50% of maximum health",
+        "tags": []
+    },
+    {
+        "id": "CR05",
+        "name": "희망의 다이아몬드",
+        "description": "모든 꿈의 파편 획득량이 +50% 증가하지만, 죽음의 문턱 상태가 되면 꿈의 파편을 전부 잃습니다.",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_HopeDiamond.png",
+        "name_en": "Hope Diamond",
+        "description_en": "Increases all Dream Shard gains by +50% but lose all Dream Shards at Death's Door",
+        "tags": []
+    },
+    {
+        "id": "CR06",
+        "name": "마녀의 빗자루",
+        "description": "돌진 시 영웅이 무형 상태가 되지만 받는 대미지 15% 증가",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_WitchBroom.png",
+        "name_en": "Witch's Broom",
+        "description_en": "DASH makes the Hero INTANGIBLE but any damage taken is increased by +15%",
+        "tags": [
+            "dash"
+        ]
+    },
+    {
+        "id": "CR07",
+        "name": "요괴 가면",
+        "description": "저주받은 마법 물체 1개당 대미지가 15 증가합니다.\n전설 마법 물체 1개당 방어력이 -10 감소합니다.",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_OniMask.png",
+        "name_en": "Oni Mask",
+        "description_en": "DMG +15 for each Cursed Magical Object\nARMOR -10 for each Legendary Magical Object",
+        "tags": []
+    },
+    {
+        "id": "CR08",
+        "name": "검은 연꽃",
+        "description": "공격 시 +5%생명력 흡수 효과를 얻지만, 치유의 구로 더 이상 체력을 회복할 수 없습니다.",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_BlackLotus.png",
+        "name_en": "Black Lotus",
+        "description_en": "ATTACK gains +5% Lifesteal but Healing Orbs don't heal you anymore",
+        "tags": [
+            "attack"
+        ]
+    },
+    {
+        "id": "CR09",
+        "name": "나이트매어 수액",
+        "description": "특수 능력의 대미지가 100% 증가하지만 재사용 대기 시간도 50% 증가",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_NightmareBoo.png",
+        "name_en": "Nightmare Ichor",
+        "description_en": "SPECIAL deals +100% damage but has a +50% increased cooldown",
+        "tags": [
+            "special"
+        ]
+    },
+    {
+        "id": "CR10",
+        "name": "나이트매어의 가시",
+        "description": "파워 능력의 대미지가 100% 증가하지만 재사용 대기 시간도 50% 증가",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_NightmareThorn.png",
+        "name_en": "Nightmare Thorn",
+        "description_en": "POWER deals +100% damage but has a +50% increased cooldown",
+        "tags": [
+            "power"
+        ]
+    },
+    {
+        "id": "CR11",
+        "name": "바바 야가의 막자사발",
+        "description": "현재 보유 중이거나 앞으로 획득할 전설 마법 물체가 모두 파괴됩니다.\n이렇게 파괴된 물체 하나당 대미지가 +50 증가합니다.",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_BabaMortar.png",
+        "name_en": "Baba Yaga's Mortar",
+        "description_en": "All current and future Legendary Magical Objects are destroyed\nDMG +50 for each object destroyed in this way",
+        "tags": []
+    },
+    {
+        "id": "CR12",
+        "name": "발로르의 눈",
+        "description": "파워 및 특수 능력의 추가 충전량을 제거하고, 추가 충전량 하나당 해당 능력의 대미지가 +100% 증가합니다.",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "UI_Object_BalorEye.png",
+        "name_en": "Balor's Eye",
+        "description_en": "POWER and SPECIAL extra charges are removed to get +100% damage per extra charge to those abilities",
+        "tags": [
+            "power",
+            "special"
+        ]
+    },
+    {
+        "id": "CR13",
+        "name": "피의 메리의 거울",
+        "description": "활력 1당 대미지가 +0.5 증가합니다.\n활력이 1당 최대 체력을 0.5% 증가시킵니다. (기존 1%)",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Object_BloodyMaryMirror.png",
+        "name_en": "Bloody Mary’s Mirror",
+        "description_en": "Gain +0.5 DMG per VITALITY point\nVITALITY now increases maximum health by only 0.5% per point (from 1%)",
+        "tags": []
+    },
+    {
+        "id": "CR14",
+        "name": "악마의 주머니",
+        "description": "획득한 꿈의 파편 중 50%가 가득 찰 때까지 악마의 주머니에 흡수됩니다. (필요량: 400)\n주머니가 가득 차면 치명타 확률이 50% 증가합니다.",
+        "rarity": "CURSED",
+        "set": -1,
+        "setEffect": "",
+        "icon": "Icon_Devil_Pocket_Empty.png",
+        "name_en": "Devil's Pocket",
+        "description_en": "50% of collected dream fragments are absorbed by the Devil's Pocket until it is full (400 required)\nOnce full, increases crit chance by 50%",
+        "tags": []
+    }
 ]

@@ -1,214 +1,577 @@
 {
-  "id": "aladdin",
-  "name": "알라딘",
-  "startTalents": [
-    {
-      "id": "s_1",
-      "name": "지니야의 선물",
-      "description": "특성이 1 충전됩니다.\n향후 희귀 이상의 특성을 획득할 확률이 {0}% 증가합니다.",
-      "rarityValue": [["15", "25", "35", "45"]],
-      "icon": "Skill_Trait_Extra_Wish.png"
-    },
-    {
-      "id": "s_3",
-      "name": "공중 포착",
-      "description": "퀘스트 (x15): 특수 능력이 적에게 적중한 후 방어 중에 특수 능력 칼날을 회수하면 1의 방어력이 추가로 부여됩니다.\n완료: 다시 반복하면 {0}의 보호막이 6초 동안 근처의 모든 영웅에 부여됩니다.",
-      "rarityValue": [["12", "15", "18", "21"]],
-      "icon": "Skill_Trait_Special_Quest.png"
-    },
-    {
-      "id": "s_4",
-      "name": "진의 권능",
-      "description": "퀘스트 (x20): 최대로 충전한 파워 능력이 적에게 적중하면 0.5의 대미지가 추가로 부여됩니다.\n완료: 충전한 파워 능력의 보너스 대미지가 {0}% 증가합니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Power_Quest.png"
-    },
-    {
-      "id": "s_2",
-      "name": "전능의 소원",
-      "description": "소원을 시전하면 {0}초 동안 주위의 모든 영웅에게 전능을 부여합니다.\n전능의 지속시간 동안 영웅의 파워, 특수, 방어 능력의 재사용 대기시간이 0.5초가 됩니다.",
-      "rarityValue": [["8", "10", "12", "14"]],
-      "icon": "Skill_Trait_Fourth_Wish.png"
-    }
-  ],
-  "talents": [
-    {
-      "id": "1",
-      "name": "슬라이드 공격",
-      "description": "칼날이 날아가는 중에 공격하면 미끄러지면서 경로에서 공격 대미지의 {0}%에 해당하는 추가 대미지를 입힙니다.",
-      "rarityValue": [["400", "500", "600", "700"]],
-      "icon": "Skill_Attack_No_Weapon.png"
-    },
-    {
-      "id": "2",
-      "name": "파편 칼날",
-      "description": "칼날에 마법 부여가 활성화된 동안, 공격의 범위가 {0}% 증가하고 대미지가 20% 증가합니다.",
-      "rarityValue": [["20", "25", "30", "35"]],
-      "icon": "Skill_Attack_wide.png"
-    },
-    {
-      "id": "3",
-      "name": "공중 돌진",
-      "description": "방어를 사용하여 공중에 떠 있는 동안 돌진을 발동할 수 있습니다.\n공중 돌진 시 공격 속도가 {0}초 동안 15% 증가합니다.",
-      "rarityValue": [["4", "5", "6", "7"]],
-      "icon": "Skill_Defense_Dash.png"
-    },
-    {
-      "id": "4",
-      "name": "진의 분노",
-      "description": "파워 능력 사용 시 각각 {0}%의 대미지로 3회 공격합니다.",
-      "rarityValue": [["40", "45", "50", "55"]],
-      "icon": "Skill_Power_Multi_Hit.png"
-    },
-    {
-      "id": "5",
-      "name": "치유의 칼날",
-      "description": "특수 능력 칼날을 회수하면 적에게 적중된 횟수에 따라 근처의 모든 영웅을 최대 {0}의 체력까지 치유합니다.",
-      "rarityValue": [["7", "11", "15", "19"]],
-      "icon": "Skill_Special_Healing.png"
-    },
-    {
-      "id": "6",
-      "name": "놀라운 마법 부여",
-      "description": "공격하고 있지 않을 때, {0}초마다 자동으로 1개의 마법 부여 포인트를 생성합니다.",
-      "rarityValue": [["3", "2.5", "2.25", "2"]],
-      "icon": "Skill_Passive_Energy.png"
-    },
-    {
-      "id": "7",
-      "name": "춤추는 칼날",
-      "description": "특수 능력 칼날의 회전 지속 시간이 {0}% 증가합니다. 특수 능력을 다시 발동하면 칼날을 더 빨리 회수할 수 있습니다.",
-      "rarityValue": [["75", "100", "125", "150"]],
-      "icon": "Skill_Special_Extra_Spins.png"
-    },
-    {
-      "id": "8",
-      "name": "회오리 공격",
-      "description": "파워 능력이 발동되면 진이 주위의 모든 적을 파워 능력 대미지의 {0}%에 해당하는 대미지로 공격합니다.",
-      "rarityValue": [["50", "60", "70", "80"]],
-      "icon": "Skill_Power_Start_AOE.png"
-    },
-    {
-      "id": "9",
-      "name": "급강하",
-      "description": "방어 점프 중에 공격하면 알라딘의 급강하 기술이 발동하면서 주위에 공격 대미지의 {0}%에 해당하는 대미지를 입힙니다.",
-      "rarityValue": [["400", "500", "600", "700"]],
-      "icon": "Skill_Attack_Dive.png"
-    },
-    {
-      "id": "10",
-      "name": "회전 공격",
-      "description": "특수 능력의 칼날을 회수한 다음 2초 이내 공격 시 2회 회전하면서(마법 부여 사용 시 2배 회전) {0}%의 추가 대미지를 입힙니다.",
-      "rarityValue": [["80", "100", "120", "140"]],
-      "icon": "Skill_Attack_Flurry.png"
-    },
-    {
-      "id": "11",
-      "name": "아크로바틱",
-      "description": "방어 중에 적을 통과할 때마다 {0}의 마법 부여 포인트를 얻습니다.",
-      "rarityValue": [["3", "4", "5", "6"]],
-      "icon": "Skill_Defense_Energy.png"
-    },
-    {
-      "id": "12",
-      "name": "진검 공격",
-      "description": "파워 능력 시 진이 특수 능력 칼날을 받아서 더 넓은 범위를 {0}%의 대미지로 공격할 수 있습니다.",
-      "rarityValue": [["80", "120", "140", "160"]],
-      "icon": "Skill_Power_Blades.png"
-    },
-    {
-      "id": "13",
-      "name": "도약의 일격",
-      "description": "돌진 직후에 공격 사용 시 {0}%의 대미지를 입히고 마법 부여가 적용된 공격을 2회 가합니다.",
-      "rarityValue": [["200", "250", "300", "350"]],
-      "icon": "Skill_Dash_Attack.png"
-    },
-    {
-      "id": "14",
-      "name": "회오리 도약",
-      "description": "방어 시 전방 알라딘 방향으로 이동하는 회오리를 일으켜 1초마다 {0}의 대미지를 입힙니다. 4초 동안 지속됩니다.",
-      "rarityValue": [["40", "55", "70", "85"]],
-      "icon": "Skill_Defense_Tornado.png"
-    },
-    {
-      "id": "15",
-      "name": "모래 폭풍",
-      "description": "특수 능력의 칼날이 정지해 있는 동안 주변의 적들을 끌어당깁니다.\n특수 능력의 대미지가 {0}% 증가합니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Special_Vacuum.png"
-    },
-    {
-      "id": "16",
-      "name": "꿈의 신월도",
-      "description": "칼날에 마법 부여가 활성화된 동안, 공격이 적에게 적중 시 {0}% 확률로 꿈의 파편 1개를 얻습니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Attack_Spawn_DS.png"
-    },
-    {
-      "id": "17",
-      "name": "마법사 지니",
-      "description": "파워 능력으로 최대 5의 마법 부여 포인트를 소비합니다.\n포인트당 치명타 확률이 10% 증가합니다.\n최대 마법 부여 포인트가 {0} 증가합니다.",
-      "rarityValue": [["5", "10", "15", "20"]],
-      "icon": "Skill_Power_Energy.png"
-    },
-    {
-      "id": "18",
-      "name": "도둑의 왕",
-      "description": "일반, 희귀, 서사 마법 물체를 선택할 때마다 {0}%/{1}%/{2}%의 확률로 해당 물채의 복사본을 획득합니다.",
-      "rarityValue": [
-        ["40", "50", "60", "70"],
-        ["20", "25", "30", "35"],
-        ["10", "12", "14", "16"]
-      ],
-      "icon": "Skill_Passive_Extra_MO.png"
-    }
-  ],
-  "ultimates": [
-    {
-      "id": "u1",
-      "name": "꿈꾸는 소원",
-      "description": "꿈의 파편 150개를 소비하여 특성을 추가로 충전합니다.",
-      "icon": "Ability_Aladdin_Ultimate_1.png"
-    },
-    {
-      "id": "u2",
-      "name": "마법의 양탄자",
-      "description": "마법의 양탄자를 타고 무형 상태가 되며 통과한 적에게 100의 대미지를 입힙니다.\n강제로 이동하지만 방향을 조종할 수 있습니다.",
-      "icon": "Ability_Aladdin_Ultimate_2.png"
-    }
-  ],
-  "ultimateTalents": [
-    {
-      "id": "u1_1",
-      "name": "경이로운 소원",
-      "description": "모든 소원이 강화됩니다.\n파워: 대미지가 {0}% 증가합니다.\n특수: {1}% 확률로 소모품을 2개 생성합니다.\n방어: {2}%의 보호막을 얻습니다.",
-      "rarityValue": [
-        ["50", "75", "100", "125"],
-        ["40", "60", "80", "100"],
-        ["100", "125", "150", "175"]
-      ],
-      "icon": "Skill_Ultimate_1_Better_Wish.png"
-    },
-    {
-      "id": "u1_2",
-      "name": "무한한 소원",
-      "description": "특성이 +3 충전됩니다.\n궁극기의 꿈의 파편 소모량이 {0}% 감소합니다.",
-      "rarityValue": [["20", "30", "40", "50"]],
-      "icon": "Skill_Ultimate_1_More_Wish.png"
-    },
-    {
-      "id": "u2_1",
-      "name": "꿈의 활보",
-      "description": "궁극기가 적에게 명중할 때마다 알라딘이 꿈의 파편 {0}개를 얻습니다.\n궁극기가 적에게 명중하지 않은 경우 재사용 대기 시간이 적용되지 않습니다.",
-      "rarityValue": [["8", "10", "12", "14"]],
-      "icon": "Skill_Ultimate_2_Carpet_DS.png"
-    },
-    {
-      "id": "u2_2",
-      "name": "빠른 비행",
-      "description": "돌진 시 마법의 양탄자를 사용해 통과한 적에게 {0}의 대미지를 입힙니다. 최대 1초 동안 유지할 수 있습니다.",
-      "rarityValue": [["40", "50", "60", "70"]],
-      "icon": "Skill_Ultimate_2_Carpet_Dash.png"
-    }
-  ]
+    "id": "aladdin",
+    "name": "알라딘",
+    "startTalents": [
+        {
+            "id": "s_1",
+            "name": "지니야의 선물",
+            "name_en": "Jinniya's Gift",
+            "description": "특성이 1 충전됩니다.\n향후 희귀 이상의 특성을 획득할 확률이 {0}% 증가합니다.",
+            "description_en": "Gain +1 TRAIT charge\nFuture Talents have a +{0}% chance of being Rare or above",
+            "rarityValue": [
+                [
+                    "15",
+                    "25",
+                    "35",
+                    "45"
+                ]
+            ],
+            "icon": "Skill_Trait_Extra_Wish.png",
+            "tags": [
+                "trait"
+            ]
+        },
+        {
+            "id": "s_3",
+            "name": "공중 포착",
+            "name_en": "Aerial Catch",
+            "description": "퀘스트(x15): 특수 능력이 적에게 적중한 후 방어 중에 특수 능력 칼날을 회수하면 2의 방어력이 추가로 부여됩니다.\n완료: 다시 반복하면 {0}의 보호막이 6초 동안 근처의 모든 영웅에 부여됩니다.",
+            "description_en": "Quest (x15): After they hit an enemy, retrieving SPECIAL's blades during DEFENSE grants +2 ARMOR\nComplete: Doing it again grants {0} SHIELD to all nearby Heroes for 6 seconds",
+            "rarityValue": [
+                [
+                    "12",
+                    "15",
+                    "18",
+                    "21"
+                ]
+            ],
+            "icon": "Skill_Trait_Special_Quest.png",
+            "tags": [
+                "special",
+                "defense",
+                "trait"
+            ]
+        },
+        {
+            "id": "s_4",
+            "name": "진의 권능",
+            "name_en": "Jinn's Might",
+            "description": "퀘스트(x20): 최대로 충전한 파워 능력이 적에게 적중하면 0.5의 대미지가 추가로 부여됩니다.\n완료: 충전한 파워 능력의 보너스 대미지가 {0}% 증가합니다.",
+            "description_en": "Quest (x20): Hitting an enemy with POWER at maximum charge grants +0.5 DMG\nComplete: Increases POWER's bonus damage from charge by {0}%",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Power_Quest.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "s_2",
+            "name": "전능의 소원",
+            "name_en": "Wish of Omnipotence",
+            "description": "소원을 시전하면 {0}초 동안 주위의 모든 영웅에게 전능을 부여합니다.\n전능의 지속시간 동안 영웅의 파워, 특수 능력, 방어의 재사용 대기 시간이 0.5초가 됩니다.",
+            "description_en": "Casting wishes grant OMNIPOTENCE to all nearby Heroes for {0} seconds\nDuring OMNIPOTENCE, Heroes POWER, SPECIAL and DEFENSE have a 0.5 second(s) cooldown",
+            "rarityValue": [
+                [
+                    "8",
+                    "10",
+                    "12",
+                    "14"
+                ]
+            ],
+            "icon": "Skill_Trait_Fourth_Wish.png",
+            "tags": [
+                "power",
+                "special",
+                "defense",
+                "trait"
+            ]
+        }
+    ],
+    "talents": [
+        {
+            "id": "1",
+            "name": "슬라이드 공격",
+            "name_en": "Slide Attack",
+            "description": "칼날이 날아가는 중에 공격하면 미끄러지면서 경로에서 공격 대미지의 {0}%에 해당하는 추가 대미지를 입힙니다.",
+            "description_en": "Using ATTACK while the blades are flying makes you slide and deal {0}% of ATTACK's damage along the path",
+            "rarityValue": [
+                [
+                    "400",
+                    "500",
+                    "600",
+                    "700"
+                ]
+            ],
+            "icon": "Skill_Attack_No_Weapon.png",
+            "tags": [
+                "attack"
+            ]
+        },
+        {
+            "id": "2",
+            "name": "파편 칼날",
+            "name_en": "Shard Blades",
+            "description": "칼날에 마법 부여가 활성화된 동안, 공격의 범위가 {0}% 증가하고 대미지가 20% 증가합니다.",
+            "description_en": "While ENCHANTMENT is active on blades, ATTACKS have their range increased by {0}% and deal +20% damage",
+            "rarityValue": [
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ]
+            ],
+            "icon": "Skill_Attack_wide.png",
+            "tags": [
+                "attack",
+                "trait"
+            ]
+        },
+        {
+            "id": "3",
+            "name": "공중 돌진",
+            "name_en": "Air Dash",
+            "description": "방어를 사용하여 공중에 떠 있는 동안 돌진을 발동할 수 있습니다.\n공중 돌진 시 공격 속도가 {0}초 동안 15% 증가합니다.",
+            "description_en": "DASH can be triggered during DEFENSE's air time\nDoing so increases ATTACK speed by 15% for {0} second(s)",
+            "rarityValue": [
+                [
+                    "4",
+                    "5",
+                    "6",
+                    "7"
+                ]
+            ],
+            "icon": "Skill_Defense_Dash.png",
+            "tags": [
+                "attack",
+                "defense",
+                "dash"
+            ]
+        },
+        {
+            "id": "4",
+            "name": "진의 분노",
+            "name_en": "Jinn's Fury",
+            "description": "파워 능력 사용 시 각각 {0}%의 대미지로 3회 공격합니다.",
+            "description_en": "POWER strikes 3 times, each one dealing {0}% damage",
+            "rarityValue": [
+                [
+                    "40",
+                    "45",
+                    "50",
+                    "55"
+                ]
+            ],
+            "icon": "Skill_Power_Multi_Hit.png",
+            "tags": [
+                "power"
+            ]
+        },
+        {
+            "id": "5",
+            "name": "치유의 칼날",
+            "name_en": "Healing Blades",
+            "description": "특수 능력 칼날을 회수하면 적에게 적중된 횟수에 따라 근처의 모든 영웅을 최대 {0}의 체력까지 치유합니다.",
+            "description_en": "When retrieved, SPECIAL's blades heal all Heroes nearby for each enemy hit, up to {0} Health",
+            "rarityValue": [
+                [
+                    "7",
+                    "9",
+                    "10",
+                    "12"
+                ]
+            ],
+            "icon": "Skill_Special_Healing.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "6",
+            "name": "놀라운 마법 부여",
+            "name_en": "Major Enchantment",
+            "description": "공격하고 있지 않을 때, {0}초마다 자동으로 1개의 마법 부여 포인트를 생성합니다.",
+            "description_en": "While NOT using ATTACK, passively generate 1 ENCHANTMENT points every {0} seconds",
+            "rarityValue": [
+                [
+                    "3",
+                    "2.5",
+                    "2.25",
+                    "2"
+                ]
+            ],
+            "icon": "Skill_Passive_Energy.png",
+            "tags": [
+                "attack",
+                "trait"
+            ]
+        },
+        {
+            "id": "7",
+            "name": "스펙트럴 블레이드",
+            "name_en": "Spectral Blades",
+            "description": "특수 능력의 칼날이 알라딘에게 돌아가기 전에 회수하면 최대 {0}의 광역 대미지를 줄 수 있는 연속 공격이 시작됩니다.",
+            "description_en": "Retrieving SPECIAL's blades before they return to Aladdin triggers a flurry of attacks that can deal up to {0} area damage",
+            "rarityValue": [
+                [
+                    "44",
+                    "55",
+                    "66",
+                    "77"
+                ]
+            ],
+            "icon": "Skill_Special_Retrieved_AOE.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "8",
+            "name": "진 돌진",
+            "name_en": "Jinn Charge",
+            "description": "돌진 능력은 파워 능력이 진을 소환하여 적을 뚫고 돌진하고 {0} 대미지를 처리한 후 사용됩니다.",
+            "description_en": "DASH used after POWER summons the Jinn to charge through enemies and deal {0} damage",
+            "rarityValue": [
+                [
+                    "25",
+                    "31",
+                    "37",
+                    "43"
+                ]
+            ],
+            "icon": "Skill_Dash_After_Power.png",
+            "tags": [
+                "power",
+                "dash"
+            ]
+        },
+        {
+            "id": "9",
+            "name": "급강하",
+            "name_en": "Dive",
+            "description": "방어 점프 중에 공격하면 알라딘의 급강하 기술이 발동하면서 주위에 공격 대미지의 {0}%에 해당하는 대미지를 입힙니다.",
+            "description_en": "Using ATTACK during DEFENSE's jump makes Aladdin dive to the ground, dealing {0}% of ATTACK's damage all around",
+            "rarityValue": [
+                [
+                    "400",
+                    "500",
+                    "600",
+                    "700"
+                ]
+            ],
+            "icon": "Skill_Attack_Dive.png",
+            "tags": [
+                "attack",
+                "defense"
+            ]
+        },
+        {
+            "id": "10",
+            "name": "회전 공격",
+            "name_en": "Spinning Strikes",
+            "description": "특수 능력의 칼날을 회수한 다음 2초 이내 공격 시 2회 회전하면서(마법 부여 사용 시 2배 회전) {0}%의 추가 대미지를 입힙니다.",
+            "description_en": "After retrieving SPECIAL's blades, next ATTACK within 2 second(s) spins 2 times (twice as many with ENCHANTMENT) and deals +{0}% damage",
+            "rarityValue": [
+                [
+                    "80",
+                    "100",
+                    "120",
+                    "140"
+                ]
+            ],
+            "icon": "Skill_Attack_Flurry.png",
+            "tags": [
+                "attack",
+                "special",
+                "trait"
+            ]
+        },
+        {
+            "id": "11",
+            "name": "아크로바틱",
+            "name_en": "Acrobatics",
+            "description": "방어 중에 적을 통과할 때마다 {0}의 마법 부여 포인트를 얻습니다.",
+            "description_en": "Each enemy passed during DEFENSE grants {0} ENCHANTMENT points",
+            "rarityValue": [
+                [
+                    "3",
+                    "4",
+                    "5",
+                    "6"
+                ]
+            ],
+            "icon": "Skill_Defense_Energy.png",
+            "tags": [
+                "defense",
+                "trait"
+            ]
+        },
+        {
+            "id": "12",
+            "name": "진검 공격",
+            "name_en": "Swordjinn",
+            "description": "파워 능력 시 진이 특수 능력 칼날을 받아서 더 넓은 범위를 {0}%의 대미지로 공격할 수 있습니다.",
+            "description_en": "POWER Jinn can catch SPECIAL's blades and deal +{0}% damage in a wider range",
+            "rarityValue": [
+                [
+                    "80",
+                    "120",
+                    "140",
+                    "160"
+                ]
+            ],
+            "icon": "Skill_Power_Blades.png",
+            "tags": [
+                "power",
+                "special"
+            ]
+        },
+        {
+            "id": "13",
+            "name": "도약의 일격",
+            "name_en": "Leaping Strike",
+            "description": "돌진 직후에 공격 사용 시 {0}%의 대미지를 입히고 마법 부여가 적용된 공격을 2회 가합니다.",
+            "description_en": "ATTACK used right after DASH deals {0}% damages and strikes twice with ENCHANTMENT",
+            "rarityValue": [
+                [
+                    "200",
+                    "250",
+                    "300",
+                    "350"
+                ]
+            ],
+            "icon": "Skill_Dash_Attack.png",
+            "tags": [
+                "attack",
+                "trait",
+                "dash"
+            ]
+        },
+        {
+            "id": "14",
+            "name": "회오리 도약",
+            "name_en": "Tornado Jump",
+            "description": "방어 시 전방 알라딘 방향으로 이동하는 회오리를 일으켜 1초마다 {0}의 대미지를 입힙니다. 4초 동안 지속됩니다.",
+            "description_en": "DEFENSE casts a tornado that moves toward Aladdin and deals {0} damage per second for 4 seconds",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Defense_Tornado.png",
+            "tags": [
+                "defense"
+            ]
+        },
+        {
+            "id": "15",
+            "name": "모래 폭풍",
+            "name_en": "Sand Vortex",
+            "description": "특수 능력의 칼날이 정지해 있는 동안 주변의 적들을 끌어당깁니다.\n특수 능력의 대미지가 {0}% 증가합니다.",
+            "description_en": "SPECIAL's blades, when stationary, pull in enemies around them\nSPECIAL deals +{0}% damage",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Special_Vacuum.png",
+            "tags": [
+                "special"
+            ]
+        },
+        {
+            "id": "16",
+            "name": "꿈의 신월도",
+            "name_en": "Dream Scimitars",
+            "description": "칼날에 마법 부여가 활성화된 동안, 공격이 적에게 적중 시 {0}% 확률로 알라딘 꿈의 파편을 얻습니다.",
+            "description_en": "While ENCHANTMENT is active on blades, ATTACK has a {0}% chance of earning Aladdin a Dream Shard upon enemy hit",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Attack_Spawn_DS.png",
+            "tags": [
+                "attack",
+                "trait"
+            ]
+        },
+        {
+            "id": "17",
+            "name": "마법사 지니",
+            "name_en": "Enchanted Jinn",
+            "description": "파워 능력으로 최대 5의 마법 부여 포인트를 소비합니다. 포인트당 치명타 확률이 10% 증가합니다.\n최대 마법 부여 포인트가 {0} 증가합니다.",
+            "description_en": "POWER can consume up to 5 ENCHANTMENT points to increase its Crit Chance by 10% per point\nThe maximum number of ENCHANTMENT points is increased by {0}",
+            "rarityValue": [
+                [
+                    "5",
+                    "10",
+                    "15",
+                    "20"
+                ]
+            ],
+            "icon": "Skill_Power_Energy.png",
+            "tags": [
+                "power",
+                "trait"
+            ]
+        },
+        {
+            "id": "18",
+            "name": "도둑의 왕",
+            "name_en": "Master Thief",
+            "description": "일반, 희귀, 에픽 마법 물체를 선택할 때마다 {0}%/{1}%/{2}%의 확률로 해당 물체의 복사본을 획득합니다.",
+            "description_en": "Whenever you choose a Common, Rare or Epic Magical Object, you have a {0}%/{1}%/{2}% chance to get another copy of it",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ],
+                [
+                    "20",
+                    "25",
+                    "30",
+                    "35"
+                ],
+                [
+                    "10",
+                    "12",
+                    "14",
+                    "16"
+                ]
+            ],
+            "icon": "Skill_Passive_Extra_MO.png",
+            "tags": []
+        }
+    ],
+    "ultimates": [
+        {
+            "id": "u1",
+            "name": "꿈꾸는 소원",
+            "name_en": "Dream Wish",
+            "description": "꿈의 파편 150개를 소비하여 특성을 추가로 충전합니다.",
+            "description_en": "Consume 150 Dream Shards to earn an additional TRAIT charge",
+            "icon": "Ability_Aladdin_Ultimate_1.png",
+            "tags": [
+                "trait",
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2",
+            "name": "마법의 양탄자",
+            "name_en": "Magic Carpet",
+            "description": "마법의 양탄자를 타고 무형 상태가 되며 통과한 적에게 대미지를 입힙니다",
+            "description_en": "Ride the Magic Carpet, turning INTANGIBLE and dealing damage to enemies passed",
+            "icon": "Ability_Aladdin_Ultimate_2.png",
+            "tags": [
+                "ultimate"
+            ]
+        }
+    ],
+    "ultimateTalents": [
+        {
+            "id": "u1_1",
+            "name": "경이로운 소원",
+            "name_en": "Wondrous Wishes",
+            "description": "모든 소원이 강화됩니다.\n파워: 대미지가 {0}% 증가합니다.\n특수: {1}% 일정 확률로 소모품을 2개 생성합니다.\n방어: {2}%의 보호막을 얻습니다.",
+            "description_en": "All wishes are improved:\nPOWER: deals +{0}% damage\nSPECIAL: {1}% chance to generate 2 consumables\nDEFENSE: +{2}% SHIELD gained",
+            "rarityValue": [
+                [
+                    "50",
+                    "75",
+                    "100",
+                    "125"
+                ],
+                [
+                    "40",
+                    "60",
+                    "80",
+                    "100"
+                ],
+                [
+                    "100",
+                    "125",
+                    "150",
+                    "175"
+                ]
+            ],
+            "icon": "Skill_Ultimate_1_Better_Wish.png",
+            "tags": [
+                "power",
+                "special",
+                "defense",
+                "trait",
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u1_2",
+            "name": "무한한 소원",
+            "name_en": "Infinite Wishes",
+            "description": "특성이 +3 충전됩니다.\n궁극기의 꿈의 파편 소모량이 {0}% 감소합니다.",
+            "description_en": "Gain +3 TRAIT charges\nDream Shards cost for ULTIMATE is reduced by {0}%",
+            "rarityValue": [
+                [
+                    "20",
+                    "30",
+                    "40",
+                    "50"
+                ]
+            ],
+            "icon": "Skill_Ultimate_1_More_Wish.png",
+            "tags": [
+                "trait",
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2_1",
+            "name": "꿈의 활보",
+            "name_en": "Dream Stride",
+            "description": "궁극기가 적에게 명중할 때마다 알라딘이 꿈의 파편 {0}개를 얻습니다.\n궁극기가 적에게 명중하지 않은 경우 재사용 대기 시간이 적용되지 않습니다.",
+            "description_en": "Each time ULTIMATE hits an enemy, Aladdin gains {0} Dream Shards\nULTIMATE has no cooldown if no enemies are hit",
+            "rarityValue": [
+                [
+                    "8",
+                    "10",
+                    "12",
+                    "14"
+                ]
+            ],
+            "icon": "Skill_Ultimate_2_Carpet_DS.png",
+            "tags": [
+                "ultimate"
+            ]
+        },
+        {
+            "id": "u2_2",
+            "name": "빠른 비행",
+            "name_en": "Quick Ride",
+            "description": "돌진 시 마법의 양탄자를 사용해 통과한 적에게 {0}의 대미지를 입힙니다. 최대 1.0초 동안 유지할 수 있습니다.",
+            "description_en": "DASH uses Magic Carpet to deal {0} damage to enemies passed and can be held for up to 1.0 second(s)",
+            "rarityValue": [
+                [
+                    "40",
+                    "50",
+                    "60",
+                    "70"
+                ]
+            ],
+            "icon": "Skill_Ultimate_2_Carpet_Dash.png",
+            "tags": [
+                "dash",
+                "ultimate"
+            ]
+        }
+    ],
+    "name_en": "Aladdin"
 }

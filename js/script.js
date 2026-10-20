@@ -1,20 +1,115 @@
 const characters = [
-  { id: "scarlet", name: "스칼렛" },
+  { id: "scarlet", name: "스칼렛", name_en: "Scarlet" },
   {
     id: "the_piped_piper",
     name: "피리 부는 사나이",
+    name_en: "The Pied Piper",
   },
-  { id: "beowulf", name: "베오울프" },
-  { id: "the_snow_queen", name: "눈의 여왕" },
-  { id: "aladdin", name: "알라딘" },
-  { id: "melusine", name: "멜루신" },
-  { id: "geppetto", name: "제페토" },
-  { id: "wukong", name: "손오공" },
-  { id: "carmilla", name: "카르밀라" },
-  { id: "romeo", name: "로미오" },
-  { id: "juliet", name: "줄리엣" },
-  { id: "merlin", name: "멀린" },
+  { id: "beowulf", name: "베오울프", name_en: "Beowulf" },
+  { id: "the_snow_queen", name: "눈의 여왕", name_en: "The Snow Queen" },
+  { id: "aladdin", name: "알라딘", name_en: "Aladdin" },
+  { id: "melusine", name: "멜루신", name_en: "Melusine" },
+  { id: "geppetto", name: "제페토", name_en: "Geppetto" },
+  { id: "wukong", name: "손오공", name_en: "Sun Wukong" },
+  { id: "carmilla", name: "카르밀라", name_en: "Carmilla" },
+  { id: "romeo", name: "로미오", name_en: "Romeo" },
+  { id: "juliet", name: "줄리엣", name_en: "Juliet" },
+  { id: "merlin", name: "멀린", name_en: "Merlin" },
+  { id: "kintaro", name: "킨타로", name_en: "Kintarō" },
 ];
+
+const I18N = {
+  ko: {
+    buildNamePlaceholder: "빌드 이름",
+    loadTitle: "빌드 불러오기",
+    shareTitle: "공유",
+    close: "닫기",
+    back: "돌아가기",
+    noSavedBuilds: "저장된 빌드가 없습니다.",
+    confirmDelete: "정말 삭제하시겠습니까?",
+    enterBuildName: "빌드 이름을 입력하세요.",
+    buildNameMaxLength: "빌드 이름은 20자까지 작성 가능합니다.",
+    overwriteConfirm: (name) => `${name}은 이미 있는 빌드입니다. 덮어쓰시겠습니까?`,
+    overwriteKeyword: "덮어쓰시겠습니까?",
+    saveComplete: (name) => `'${name}' 저장이 완료되었습니다.`,
+    loadComplete: (name) => `'${name}' 불러오기가 완료되었습니다.`,
+    rarityLabel: "등급 수치",
+    rarityAll: "전체",
+    rarities: {
+      COMMON: "일반",
+      RARE: "희귀",
+      EPIC: "서사",
+      LEGENDARY: "전설",
+      CURSED: "저주받음",
+    },
+    abilityLabel: "능력 하이라이트",
+    abilityClear: "해제",
+    abilities: {
+      attack: "공격",
+      power: "파워",
+      special: "특수",
+      defense: "방어",
+      trait: "고유 능력",
+      dash: "돌진",
+      ultimate: "궁극기",
+    },
+    notes: (n) => `음표 ${n}`,
+    shareHeaders: {
+      character: "캐릭터",
+      startTalents: "시작 특성",
+      talents: "특성",
+      ultimates: "궁극기",
+      ultimateTalents: "궁극기 특성",
+      melodies: "멜로디",
+      magicalObjects: "마법 물체",
+    },
+  },
+  en: {
+    buildNamePlaceholder: "Build Name",
+    loadTitle: "Load Build",
+    shareTitle: "Share",
+    close: "Close",
+    back: "Back",
+    noSavedBuilds: "No saved builds.",
+    confirmDelete: "Delete this build?",
+    enterBuildName: "Please enter a build name.",
+    buildNameMaxLength: "Build name can be up to 20 characters.",
+    overwriteConfirm: (name) => `'${name}' already exists. Overwrite?`,
+    overwriteKeyword: "Overwrite?",
+    saveComplete: (name) => `'${name}' saved.`,
+    loadComplete: (name) => `'${name}' loaded.`,
+    rarityLabel: "Rarity Values",
+    rarityAll: "All",
+    rarities: {
+      COMMON: "Common",
+      RARE: "Rare",
+      EPIC: "Epic",
+      LEGENDARY: "Legendary",
+      CURSED: "Cursed",
+    },
+    abilityLabel: "Highlight",
+    abilityClear: "Clear",
+    abilities: {
+      attack: "Attack",
+      power: "Power",
+      special: "Special",
+      defense: "Defense",
+      trait: "Trait",
+      dash: "Dash",
+      ultimate: "Ultimate",
+    },
+    notes: (n) => `Notes ${n}`,
+    shareHeaders: {
+      character: "Character",
+      startTalents: "Starting Talent",
+      talents: "Talents",
+      ultimates: "Ultimate",
+      ultimateTalents: "Ultimate Talent",
+      melodies: "Melodies",
+      magicalObjects: "Magical Objects",
+    },
+  },
+};
 
 const initialTalents = {
   startTalents: [],
@@ -32,6 +127,10 @@ const COLOR_THEME = {
 
 const rarityColors = ["#fff", "#88f", "#d8bfd8", "#ff0"];
 const stackableRarities = ["COMMON", "RARE", "EPIC"];
+
+let currentLang = getUserLanguage();
+let selectedRarityIndex = "all";
+const selectedAbilityTags = new Set();
 
 let originalCharacterTalents = null;
 let originalMagicalObjects = null;
@@ -69,6 +168,8 @@ const closeButton = document.getElementById("close-button");
 const headerLogo = document.getElementById("header-logo");
 const darkModeToggle = document.getElementById("dark-mode-toggle");
 const darkModeToggleIcon = document.getElementById("dark-mode-toggle-icon");
+const langToggle = document.getElementById("lang-toggle");
+const langToggleIcon = document.getElementById("lang-toggle-icon");
 const saveNotice = document.getElementById("save-notice");
 const loadButton = document.getElementById("load-button");
 const backButton = document.getElementById("back-button");
@@ -81,13 +182,20 @@ const copyShareTextButton = document.getElementById("copy-share-text");
 const shareUri = document.getElementById("share-uri");
 const copyShareUriButton = document.getElementById("copy-share-uri");
 const closeSharePopupButton = document.getElementById("close-share-popup");
+const rarityFilterButtons = document.getElementById("rarity-filter-buttons");
+const abilityFilterButtons = document.getElementById("ability-filter-buttons");
+const abilityClearButton = document.getElementById("ability-btn-clear");
 
 document.addEventListener("DOMContentLoaded", DOMContentLoadedHandler);
 characters.forEach(createCharacterImage);
+applyLanguage(currentLang);
 handleRouteChange();
 window.addEventListener("popstate", popstateHandler);
 
 darkModeToggle.addEventListener("click", darkModeToggleClickHandler);
+langToggle.addEventListener("click", langToggleClickHandler);
+rarityFilterButtons.addEventListener("click", rarityFilterClickHandler);
+abilityFilterButtons.addEventListener("click", abilityFilterClickHandler);
 headerLogo.addEventListener("click", headerLogoClickHandler);
 mainPage.addEventListener("click", mainPageClickHandler);
 detailPage.addEventListener("click", detailPageClickHandler);
@@ -103,9 +211,177 @@ copyShareTextButton.addEventListener("click", copyShareText);
 copyShareUriButton.addEventListener("click", copyShareUri);
 closeSharePopupButton.addEventListener("click", hideSharePopup);
 
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+  return match ? decodeURIComponent(match[2]) : null;
+}
+
+function setCookie(name, value, maxAgeSeconds = 31536000) {
+  document.cookie = `${name}=${encodeURIComponent(value)}; path=/; max-age=${maxAgeSeconds}; SameSite=Lax`;
+}
+
+function getUserLanguage() {
+  const cookieLang = getCookie("lang");
+  if (cookieLang === "ko" || cookieLang === "en") return cookieLang;
+  const storedLang = localStorage.getItem("lang");
+  if (storedLang === "ko" || storedLang === "en") return storedLang;
+  return "ko";
+}
+
+function getLocalizedName(item) {
+  if (!item) return "";
+  return currentLang === "en" && item.name_en ? item.name_en : item.name;
+}
+
+function getLocalizedDescription(item) {
+  if (!item) return "";
+  if (currentLang === "en") {
+    return item.description_en || item.effect_en || item.description || item.effect || "";
+  }
+  return item.description || item.effect || "";
+}
+
+function getLocalizedSetEffect(item) {
+  if (!item) return "";
+  return currentLang === "en" && item.setEffect_en ? item.setEffect_en : item.setEffect;
+}
+
+function langToggleClickHandler() {
+  currentLang = currentLang === "ko" ? "en" : "ko";
+  setCookie("lang", currentLang);
+  localStorage.setItem("lang", currentLang);
+  applyLanguage(currentLang);
+}
+
+function applyLanguage(lang) {
+  const t = I18N[lang] || I18N.ko;
+  document.documentElement.setAttribute("lang", lang);
+  if (langToggleIcon) {
+    langToggleIcon.textContent = lang.toUpperCase();
+  }
+
+  const buildNameInput = document.getElementById("build-name");
+  if (buildNameInput) buildNameInput.placeholder = t.buildNamePlaceholder;
+
+  const loadTitle = document.getElementById("load-title");
+  if (loadTitle) loadTitle.textContent = t.loadTitle;
+
+  const shareTitle = document.getElementById("share-title");
+  if (shareTitle) shareTitle.textContent = t.shareTitle;
+
+  const closeBtnText = document.getElementById("close-button-text");
+  if (closeBtnText) closeBtnText.textContent = t.close;
+
+  const closeShareBtnText = document.getElementById("close-share-button-text");
+  if (closeShareBtnText) closeShareBtnText.textContent = t.close;
+
+  const backBtnText = document.getElementById("back-button-text");
+  if (backBtnText) backBtnText.textContent = t.back;
+
+  const rarityFilterLabel = document.getElementById("rarity-filter-label");
+  if (rarityFilterLabel) rarityFilterLabel.textContent = t.rarityLabel;
+
+  const rarityBtnAll = document.getElementById("rarity-btn-all");
+  if (rarityBtnAll) rarityBtnAll.textContent = t.rarityAll;
+  const rarityBtn0 = document.getElementById("rarity-btn-0");
+  if (rarityBtn0) rarityBtn0.textContent = t.rarities.COMMON;
+  const rarityBtn1 = document.getElementById("rarity-btn-1");
+  if (rarityBtn1) rarityBtn1.textContent = t.rarities.RARE;
+  const rarityBtn2 = document.getElementById("rarity-btn-2");
+  if (rarityBtn2) rarityBtn2.textContent = t.rarities.EPIC;
+  const rarityBtn3 = document.getElementById("rarity-btn-3");
+  if (rarityBtn3) rarityBtn3.textContent = t.rarities.LEGENDARY;
+
+  const abilityFilterLabel = document.getElementById("ability-filter-label");
+  if (abilityFilterLabel) abilityFilterLabel.textContent = t.abilityLabel;
+
+  Object.entries(t.abilities).forEach(([tag, label]) => {
+    const btn = document.getElementById(`ability-btn-${tag}`);
+    if (btn) btn.textContent = label;
+  });
+
+  if (abilityClearButton) {
+    abilityClearButton.textContent = t.abilityClear;
+  }
+
+  if (selectedCharacter) {
+    characterName.textContent = getLocalizedName(selectedCharacter);
+    characterImage.setAttribute("alt", getLocalizedName(selectedCharacter));
+  }
+
+  document.querySelectorAll(".character-portrait").forEach((img) => {
+    const charObj = characters.find((c) => c.id === img.dataset.character);
+    if (charObj) {
+      img.setAttribute("alt", getLocalizedName(charObj));
+    }
+  });
+
+  if (sharePopup && sharePopup.classList.contains("show") && originalCharacterTalents) {
+    shareText.value = formatJsonToReadableText(selectedTalents);
+  }
+}
+
+function rarityFilterClickHandler(event) {
+  const btn = event.target.closest(".rarity-btn");
+  if (!btn) return;
+  selectedRarityIndex = btn.dataset.rarityIdx;
+  rarityFilterButtons.querySelectorAll(".rarity-btn").forEach((b) => {
+    b.classList.toggle("active", b === btn);
+  });
+}
+
+function abilityFilterClickHandler(event) {
+  const clearBtn = event.target.closest("#ability-btn-clear");
+  if (clearBtn) {
+    selectedAbilityTags.clear();
+    abilityFilterButtons.querySelectorAll(".ability-btn").forEach((b) => {
+      b.classList.remove("active");
+    });
+    updateAbilityHighlight();
+    return;
+  }
+
+  const btn = event.target.closest(".ability-btn");
+  if (!btn) return;
+  const tag = btn.dataset.abilityTag;
+  if (selectedAbilityTags.has(tag)) {
+    selectedAbilityTags.delete(tag);
+    btn.classList.remove("active");
+  } else {
+    selectedAbilityTags.add(tag);
+    btn.classList.add("active");
+  }
+  updateAbilityHighlight();
+}
+
+function updateAbilityHighlight() {
+  if (abilityClearButton) {
+    abilityClearButton.style.display = selectedAbilityTags.size > 0 ? "inline-block" : "none";
+  }
+
+  const targetItems = document.querySelectorAll(
+    "#start-talents-row .item, #talents-row .item, #ultimates-row .item, #ultimate-talents-row .item, #magical-objects-row .item",
+  );
+
+  if (selectedAbilityTags.size === 0) {
+    targetItems.forEach((item) => {
+      item.classList.remove("ability-highlighted", "ability-dimmed");
+    });
+    return;
+  }
+
+  targetItems.forEach((item) => {
+    const tags = item.dataset.tags ? item.dataset.tags.split(",").filter(Boolean) : [];
+    const isMatch = tags.some((t) => selectedAbilityTags.has(t));
+    item.classList.toggle("ability-highlighted", isMatch);
+    item.classList.toggle("ability-dimmed", !isMatch);
+  });
+}
+
 function DOMContentLoadedHandler() {
   const savedColorTheme = getUserColorTheme();
   applyColorTheme(savedColorTheme);
+  applyLanguage(currentLang);
 }
 
 function darkModeToggleClickHandler() {
@@ -200,11 +476,12 @@ function itemClickHandler(item) {
 }
 
 function loadListClickHandler(event) {
+  const t = I18N[currentLang] || I18N.ko;
   const deleteButton = event.target.closest(".delete-load-item");
   if (deleteButton) {
     const buildName = deleteButton.dataset.buildName;
     const loadItem = deleteButton.previousElementSibling;
-    loadItem.textContent = "정말 삭제하시겠습니까?";
+    loadItem.textContent = t.confirmDelete;
     loadItem.classList.add("deleting");
     deleteButton.style.display = "none";
 
@@ -284,19 +561,20 @@ function loadListClickHandler(event) {
     selectedTalents = selectedBuild.selectedTalents;
     applySelectedTalents();
     hideLoadPopup();
-    showSaveNotice(`'${buildName}' 불러오기가 완료되었습니다.`);
+    showSaveNotice(t.loadComplete(buildName));
     return;
   }
 }
 
 function saveButtonClickHandler() {
+  const t = I18N[currentLang] || I18N.ko;
   const buildName = document.getElementById("build-name").value.trim();
   if (!buildName) {
-    showSaveNotice("빌드 이름을 입력하세요.");
+    showSaveNotice(t.enterBuildName);
     return;
   }
   if (buildName.length > 20) {
-    showSaveNotice("빌드 이름은 20자까지 작성 가능합니다.");
+    showSaveNotice(t.buildNameMaxLength);
     return;
   }
 
@@ -307,14 +585,17 @@ function saveButtonClickHandler() {
   );
 
   if (existingBuild) {
-    if (saveNotice.textContent.includes("덮어쓰시겠습니까?")) {
-      showSaveNotice(`'${buildName}' 저장이 완료되었습니다.`);
+    if (
+      saveNotice.textContent.includes(I18N.ko.overwriteKeyword) ||
+      saveNotice.textContent.includes(I18N.en.overwriteKeyword)
+    ) {
+      showSaveNotice(t.saveComplete(buildName));
       saveBuild(buildName, savedBuildList);
     } else {
-      showSaveNotice(`${buildName}은 이미 있는 빌드입니다. 덮어쓰시겠습니까?`);
+      showSaveNotice(t.overwriteConfirm(buildName));
     }
   } else {
-    showSaveNotice(`'${buildName}' 저장이 완료되었습니다.`);
+    showSaveNotice(t.saveComplete(buildName));
     saveBuild(buildName, savedBuildList);
   }
 }
@@ -339,7 +620,7 @@ function createCharacterImage(character) {
   img.classList.add("character-portrait");
   img.setAttribute("data-character", character.id);
   img.setAttribute("src", `assets/${character.id}/portrait.webp`);
-  img.setAttribute("alt", character.name);
+  img.setAttribute("alt", getLocalizedName(character));
   characterButtonsContainer.appendChild(img);
 }
 
@@ -413,13 +694,13 @@ async function showCharacterPage(characterId) {
     // 페이지를 다시 로드할 때 초기화
     const character = characters.find((char) => char.id === characterId);
     if (character) {
-      characterName.textContent = character.name;
+      characterName.textContent = getLocalizedName(character);
       selectedCharacter = character;
     }
 
     characterImage.setAttribute("data-character", characterId);
     characterImage.setAttribute("src", `/assets/${characterId}/icon.png`);
-    characterImage.setAttribute("alt", character.name);
+    characterImage.setAttribute("alt", getLocalizedName(character));
 
     initializeTalents();
     initializePlaceholders();
@@ -428,6 +709,7 @@ async function showCharacterPage(characterId) {
     addTooltipEventListeners();
     updateUltimateTalentsState();
     updateMelodyState();
+    updateAbilityHighlight();
 
     const urlParams = new URLSearchParams(window.location.search);
     const shareData = urlParams.get("share");
@@ -446,31 +728,6 @@ async function showCharacterPage(characterId) {
   } catch (error) {
     console.error("Error fetching talents:", error);
   }
-}
-
-function updateMelodyState() {
-  const rightCol = document.querySelector("#melodies-row .right-col");
-  const measures = rightCol.querySelectorAll(".measure");
-  const slotAvailability = Array.from(measures).map(
-    (measure) => !!measure.querySelector(".placeholder"),
-  );
-
-  const melodyItems = document.querySelectorAll("#melodies .item-block");
-  melodyItems.forEach((itemBlock) => {
-    const melodyId = itemBlock.dataset.itemId;
-    const itemData = originalMelodies.find((m) => m.id === melodyId);
-
-    if (itemData) {
-      const canBePlaced = itemData.slot.some(
-        (isAllowed, index) => isAllowed && slotAvailability[index],
-      );
-      if (canBePlaced) {
-        itemBlock.classList.remove("disabled");
-      } else {
-        itemBlock.classList.add("disabled");
-      }
-    }
-  });
 }
 
 function initializeTalents() {
@@ -516,7 +773,8 @@ function makeMelodiesContainer() {
 }
 
 function makeMelodyItemBlock(itemObject) {
-  const { id: itemId, name: itemName } = itemObject;
+  const { id: itemId } = itemObject;
+  const itemName = getLocalizedName(itemObject);
   const itemIcon = `${itemId}.png`;
   const itemBlock = createItemBlock(itemId, itemName, itemIcon, "melodies");
   return itemBlock.outerHTML;
@@ -586,12 +844,14 @@ function addTooltipEventListeners() {
 
 function makeCharacterItemBlock(itemObject) {
   try {
-    const { id: itemId, name: itemName, icon: itemIcon } = itemObject;
+    const { id: itemId, icon: itemIcon, tags = [] } = itemObject;
+    const itemName = getLocalizedName(itemObject);
     const itemBlock = createItemBlock(
       itemId,
       itemName,
       itemIcon,
       selectedCharacter.id,
+      tags,
     );
     if (
       itemBlock.parentElement &&
@@ -609,15 +869,17 @@ function makeObjectItemBlock(itemObject) {
   try {
     const {
       id: itemId,
-      name: itemName,
       icon: itemIcon,
       rarity: itemRarity,
+      tags = [],
     } = itemObject;
+    const itemName = getLocalizedName(itemObject);
     const itemBlock = createItemBlock(
       itemId,
       itemName,
       itemIcon,
       "magical_objects",
+      tags,
     );
     const item = itemBlock.querySelector(".item");
     if (item) {
@@ -638,7 +900,7 @@ function makeObjectItemBlock(itemObject) {
   }
 }
 
-function createItemBlock(itemId, itemName, itemIcon, characterId) {
+function createItemBlock(itemId, itemName, itemIcon, characterId, tags = []) {
   const itemBlock = document.createElement("div");
   const item = document.createElement("div");
   const img = document.createElement("img");
@@ -648,6 +910,9 @@ function createItemBlock(itemId, itemName, itemIcon, characterId) {
 
   item.classList.add("item");
   item.dataset.itemId = itemId;
+  if (tags && tags.length > 0) {
+    item.dataset.tags = tags.join(",");
+  }
   img.src = `/assets/${characterId}/${itemIcon}`;
   img.alt = itemName;
   img.classList.add("item-icon");
@@ -728,9 +993,6 @@ function magicalObjectMoveLeftToRight(item) {
     // 이미 존재하는 아이템 블록이 있으면 개수만 증가
     const countSpan = existingItemBlock.querySelector(".item-count");
     countSpan.textContent = parseInt(countSpan.textContent) + 1;
-
-    const tooltip = document.getElementById("tooltip");
-    tooltip.innerHTML = makeTooltipInnerHTML(itemData);
   } else {
     if (existingItemBlock && !stackableRarities.includes(itemData?.rarity)) {
       return false;
@@ -764,6 +1026,10 @@ function magicalObjectMoveLeftToRight(item) {
   }
 
   syncSelectedData();
+  const tooltip = document.getElementById("tooltip");
+  if (tooltip && tooltip.classList.contains("show")) {
+    tooltip.innerHTML = makeTooltipInnerHTML(itemData);
+  }
   return true;
 }
 
@@ -773,6 +1039,8 @@ function magicalObjectMoveRightToLeft(item) {
   const itemData = originalMagicalObjects.find(
     (obj) => obj.id === itemBlock.dataset.itemId,
   );
+
+  let shouldUpdateTooltip = false;
 
   if (stackableRarities.includes(itemData.rarity)) {
     // 오른쪽 열의 아이템 클릭 시 개수 감소
@@ -785,8 +1053,7 @@ function magicalObjectMoveRightToLeft(item) {
       itemBlock.remove();
       hideTooltip();
     } else {
-      const tooltip = document.getElementById("tooltip");
-      tooltip.innerHTML = makeTooltipInnerHTML(itemData);
+      shouldUpdateTooltip = true;
     }
   } else {
     // 중첩 불가능한 아이템 제거
@@ -795,6 +1062,10 @@ function magicalObjectMoveRightToLeft(item) {
   }
 
   syncSelectedData();
+  if (shouldUpdateTooltip) {
+    const tooltip = document.getElementById("tooltip");
+    tooltip.innerHTML = makeTooltipInnerHTML(itemData);
+  }
 
   return true;
 }
@@ -936,34 +1207,36 @@ function showTooltip(event) {
 }
 
 function makeTooltipInnerHTML(item) {
+  if (!item) return "";
+  const t = I18N[currentLang] || I18N.ko;
   const itemId = item.id;
-  const itemName = item ? item.name : "Unknown Item";
-  let itemDescription = item
-    ? item.description || item.effect
-    : "Description not found";
+  const itemName = getLocalizedName(item) || "Unknown Item";
+  let itemDescription = getLocalizedDescription(item) || "Description not found";
   let innerHTML = `<strong style="font-size: 1.2em;">${itemName}</strong>`;
 
   if (item && item.rarityValue) {
     item.rarityValue.forEach((values, index) => {
-      const coloredValues = values
-        .map((value, i) => {
-          return `<span style="color: ${rarityColors[i]}">${value}</span>`;
-        })
-        .join("/");
+      let coloredValues;
+      if (selectedRarityIndex === "all") {
+        coloredValues = values
+          .map((value, i) => {
+            return `<span style="color: ${rarityColors[i]}">${value}</span>`;
+          })
+          .join("/");
+      } else {
+        const idx = Math.min(
+          parseInt(selectedRarityIndex, 10),
+          values.length - 1,
+        );
+        coloredValues = `<span style="color: ${rarityColors[idx]}; font-weight: bold;">${values[idx]}</span>`;
+      }
       itemDescription = itemDescription.replace(`{${index}}`, coloredValues);
     });
   }
 
   // magicalObject의 경우 rarity와 setEffect 추가
   if (originalMagicalObjects.find((i) => i.id === itemId)) {
-    const rarity =
-      {
-        COMMON: "일반",
-        RARE: "희귀",
-        EPIC: "서사",
-        LEGENDARY: "전설",
-        CURSED: "저주받음",
-      }[item.rarity] || "Unknown";
+    const rarity = t.rarities[item.rarity] || "Unknown";
     const rarityColor =
       {
         COMMON: "#fff",
@@ -977,7 +1250,15 @@ function makeTooltipInnerHTML(item) {
 
   // melody의 경우 음표 개수 추가
   if (originalMelodies.find((i) => i.id === itemId)) {
-    innerHTML += ` <span class="inline-box" style="color: #ff0; border-color: #ff0">음표 ${item.notes}</span>`;
+    innerHTML += ` <span class="inline-box" style="color: #ff0; border-color: #ff0">${t.notes(item.notes)}</span>`;
+  }
+
+  // 능력 태그 배지 표시
+  if (item.tags && item.tags.length > 0) {
+    const badges = item.tags
+      .map((tag) => `<span class="tooltip-tag-badge">${t.abilities[tag] || tag}</span>`)
+      .join("");
+    innerHTML += ` ${badges}`;
   }
 
   innerHTML += `<br>${itemDescription}`;
@@ -999,7 +1280,7 @@ function makeTooltipInnerHTML(item) {
     const rarity = item.rarity;
     if (["COMMON", "RARE", "EPIC"].includes(rarity)) {
       const set = item.set;
-      const setEffect = item.setEffect;
+      const setEffect = getLocalizedSetEffect(item);
       const selectedObj = selectedTalents.magicalObjects.find(
         (obj) => obj.id === itemId,
       );
@@ -1029,6 +1310,7 @@ function hideLoadPopup() {
 }
 
 function initializeLoadPopup() {
+  const t = I18N[currentLang] || I18N.ko;
   loadPopup.style.display = "block";
   mask.style.display = "block";
 
@@ -1044,8 +1326,7 @@ function initializeLoadPopup() {
   );
 
   if (filteredBuildList.length === 0) {
-    loadList.innerHTML =
-      '<p style="text-align: center">저장된 빌드가 없습니다.</p>';
+    loadList.innerHTML = `<p style="text-align: center">${t.noSavedBuilds}</p>`;
   } else {
     loadList.innerHTML = filteredBuildList
       .map(
@@ -1208,30 +1489,37 @@ function applySelectedTalents() {
 
   updateUltimateTalentsState();
   updateMelodyState();
+  updateAbilityHighlight();
 }
 
 function formatJsonToReadableText(json) {
-  const talentFinder = (category) => (talent) =>
-    originalCharacterTalents[category].find((origin) => origin.id === talent.id)
-      ?.name || "";
+  const t = I18N[currentLang] || I18N.ko;
+  const h = t.shareHeaders;
+
+  const talentFinder = (category) => (talent) => {
+    const origin = originalCharacterTalents[category].find(
+      (o) => o.id === talent.id,
+    );
+    return getLocalizedName(origin) || "";
+  };
 
   const magicalObjectFinder = (object) => {
     const result = originalMagicalObjects.find(
       (origin) => origin.id === object.id,
     );
     if (!result) return "";
-    if (object.count === 1) return result.name;
-    return `${result.name}(${object.count})`;
+    const objName = getLocalizedName(result);
+    if (object.count === 1) return objName;
+    return `${objName}(${object.count})`;
   };
 
   const melodyFinder = (melody) => {
     const result = originalMelodies.find((origin) => origin.id === melody.id);
-    return result ? result.name : "";
+    return result ? getLocalizedName(result) : "";
   };
 
-  const characterName =
-    characters.find((char) => char.id === json.characterId)?.name ||
-    "Unknown Character";
+  const charObj = characters.find((char) => char.id === json.characterId);
+  const characterNameText = getLocalizedName(charObj) || "Unknown Character";
 
   const startTalents =
     json.startTalents
@@ -1264,7 +1552,7 @@ function formatJsonToReadableText(json) {
       .filter((item) => item !== "")
       .join(", ") || "None";
 
-  return `# 캐릭터: ${characterName}\n○ 시작 특성: ${startTalents}\n○ 특성: ${talents}\n○ 궁극기: ${ultimates}\n○ 궁극기 특성: ${ultimateTalents}\n○ 멜로디: ${melodiesText}\n○ 마법 물체: ${magicalObjects}`;
+  return `# ${h.character}: ${characterNameText}\n○ ${h.startTalents}: ${startTalents}\n○ ${h.talents}: ${talents}\n○ ${h.ultimates}: ${ultimates}\n○ ${h.ultimateTalents}: ${ultimateTalents}\n○ ${h.melodies}: ${melodiesText}\n○ ${h.magicalObjects}: ${magicalObjects}`;
 }
 
 
